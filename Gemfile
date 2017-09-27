@@ -15,6 +15,11 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "devise"
 gem "carrierwave", "~> 1.0"
+gem "bootstrap-sass"
+gem "font-awesome-sass", '~> 4.7.0'
+gem "mini_magick", "3.8.0"
+gem "chosen-rails"
+gem "cocoon"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
