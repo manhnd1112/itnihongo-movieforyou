@@ -1,0 +1,20 @@
+<%= form_for review do |f| %>
+  <div style="padding-bottom: 18px;font-size : 21px;">Movie Review</div>
+  <div style="padding-bottom: 18px;">
+    <%= f.select :movie_id, movies,
+      {include_blank: t(".choose_movie")}, {class: "form-control"} %>
+  </div>
+  <div style="padding-bottom: 18px;">Title<span style="color: red;"> *</span><br/>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div style="padding-bottom: 18px;">Content<br/>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div style="padding-bottom: 18px;">
+    <% if review.new_record? %>
+      <%= f.submit class: "btn btn-info add-book" %>
+    <% else %>
+      <%= f.submit class:"btn btn-success"%>
+    <% end %>
+  </div>
+<% end %>
