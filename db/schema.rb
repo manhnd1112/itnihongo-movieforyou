@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 20170928163936) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.string "postcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "review_id"
@@ -136,6 +129,10 @@ ActiveRecord::Schema.define(version: 20170928163936) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "name"
+    t.date "birth"
+    t.string "avatar"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true

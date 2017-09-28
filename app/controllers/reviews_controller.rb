@@ -20,6 +20,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @review.update_attributes review_params.merge user_id: current_user.id
+      flash[:success] = t "flash.review.update_success"
+      redirect_to review_path @review
+    else
+      render :edit
+    end
+  end
+
   private
 
   def review_params
@@ -29,7 +40,7 @@ class ReviewsController < ApplicationController
   def find_review
     @review = Review.find_by id: params[:id]
 
-    return if @review
+    return if @review.present?
     flash[:dange] = t "flash.reviews.not_found"
     redirect_to root_path
   end

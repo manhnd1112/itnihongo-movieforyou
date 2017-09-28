@@ -20,9 +20,10 @@ gem "font-awesome-sass", '~> 4.7.0'
 gem "mini_magick", "3.8.0"
 gem "chosen-rails"
 gem "cocoon"
-gem "will_paginate", "~> 3.1.0"
 gem "omniauth-oauth2", "1.3.1"
 gem "omniauth-facebook"
+gem "kaminari"
+gem "jquery-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -1,0 +1,4 @@
+home:
+  movie_max: 6
+reviews:
+  max_reviews: 4
