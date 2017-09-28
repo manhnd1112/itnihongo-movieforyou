@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  PER_PAGE = 12
   belongs_to :country, optional: true
 
   has_many :movie_actors
@@ -9,4 +10,5 @@ class Movie < ApplicationRecord
   has_many :bookmarks
 
   mount_uploader :avatar, PhotoUploader
+  self.per_page = PER_PAGE
 end
