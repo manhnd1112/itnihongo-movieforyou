@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     get 'users/omniauth_callbacks'
   resources :cities
   get 'static_pages/home'
-
+ resources :passwords
   devise_for :users
 
   # root "static_pages#show"
