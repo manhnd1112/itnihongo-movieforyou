@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root "static_pages#show", page: "home"
-  get "/pages/:page" => "static_pages#show"
+    get 'users/omniauth_callbacks'
+  resources :cities
+  get 'static_pages/home'
 
+  devise_for :users
+
+  # root "static_pages#show"
+  root 'cities#index'
+  devise_scope :user do  
+  get "/users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
+end   
   resources :reviews
 end

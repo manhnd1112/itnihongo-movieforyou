@@ -1,0 +1,20 @@
+<% provide(:title, "Home") %>
+<div class="row">
+  <h2>List of movie review</h2>
+</div>
+<ul class="list_of_movies">
+  <% @movies.each do |mv| %>
+    <li>
+      <a href="#">
+        <div class="thumbnail">
+          <img src="<%= mv.avatar %>" alt="<%= mv.name %>">
+          <div class="caption">
+            <h4><%= mv.name %></h4>
+            <p><%= mv.director %></p>
+          </div>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<div class="pagi"><%= will_paginate @movies %></div>
