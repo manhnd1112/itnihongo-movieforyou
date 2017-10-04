@@ -1,15 +1,15 @@
-User.create!([
-  {email: "than.viet.bach@gmail.com",
-    password: "bach123", password_confirmation: "bach123"},
-  {email: "vu.thu.hien@gmail.com",
-    password: "hien123", password_confirmation: "hien123"},
-  {email: "nguyen.dinh.chinh@gmail.com",
-    password: "chinh123", password_confirmation: "chinh123"},
-  {email: "nguyen.van.hung@gmail.com",
-    password: "hung123", password_confirmation: "hung123"},
-  {email: "doi.khac.thanh@gmail.com",
-    password: "thanh123", password_confirmation: "thanh123"}
-])
+# User.create!([
+#   {email: "than.viet.bach@gmail.com",
+#     password: "bach123", password_confirmation: "bach123"},
+#   {email: "vu.thu.hien@gmail.com",
+#     password: "hien123", password_confirmation: "hien123"},
+#   {email: "nguyen.dinh.chinh@gmail.com",
+#     password: "chinh123", password_confirmation: "chinh123"},
+#   {email: "nguyen.van.hung@gmail.com",
+#     password: "hung123", password_confirmation: "hung123"},
+#   {email: "doi.khac.thanh@gmail.com",
+#     password: "thanh123", password_confirmation: "thanh123"}
+# ])
 
 Country.create!([
   {code: "US", name: "United States",
