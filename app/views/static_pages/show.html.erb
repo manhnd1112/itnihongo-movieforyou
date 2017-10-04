@@ -1,20 +1,79 @@
 <% provide(:title, "Home") %>
 <div class="row">
-  <h2>List of movie review</h2>
+  <div class="movie-best">
+    <div class="col-xs-12 movie-best-rating">
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+      <h2><%= t ".new_movie" %></h2>
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
 </div>
-<ul class="list_of_movies">
-  <% @movies.each do |mv| %>
-    <li>
-      <a href="#">
-        <div class="thumbnail">
-          <img src="<%= mv.avatar %>" alt="<%= mv.name %>">
-          <div class="caption">
-            <h4><%= mv.name %></h4>
-            <p><%= mv.director %></p>
+<div class="owl-carousel new-movies-slide">
+  <% @movies.each do |movie| %>
+    <div class="movie-items">
+      <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
+        title="<%= movie.name %>" class="movie-poster">
+      <span class="best-rate">
+        <i class="fa fa-star-o" aria-hidden="true"></i><br>
+        <%= movie.rates.first.try :score %><br>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </span>
+      <div class="caption-overlay">
+        <div class="primary">
+          <div class="movie-caption">
+            <a href="#"><%= movie.name %></a>
           </div>
         </div>
-      </a>
-    </li>
+        <div class="secondary ellipsis"><%= movie.director %></div>
+      </div>
+    </div>
   <% end %>
-</ul>
-<div class="pagi"><%= paginate @movies %></div>
+</div>
+<br><br>
+<div class="row">
+  <div class="movie-best">
+    <div class="col-xs-12 movie-best-rating">
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+      <h2><%= t ".new_review" %></h2>
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="owl-carousel reviews-slide">
+  <% @reviews.each do |review| %>
+    <div class="bp-block article-info">
+      <div class="article-list-left cover">
+        <%= link_to review_path(review), "data-turbolinks": false do %>
+          <img src="<%= review.movie.avatar %>" alt="<%= review.movie.name%>">
+        <% end %>
+      </div>
+      <h3 class="home-review-title">
+        <span style="font-weight: 500">[<%= t "user.review" %>]</span>
+        <%= link_to review_path(review), "data-turbolinks": false do %>
+          <%= review.movie.name %>: <%= review.title %>
+        <% end %>
+      </h3>
+      <p class="genre-links hidden-phone">&gt;&nbsp;
+        <% if review.movie.types.any? %>
+          <% review.movie.types.each do |type| %>
+            <a href="#"><%= type.name %></a>
+            <% unless type == review.movie.types.last %>/<% end %>
+          <% end %>
+        <% end %>
+      </p>
+      <p class="review-content"><%= truncate(review.content.html_safe, length: 800) %></p><br>
+      <div class="read-full">
+        <%= link_to t(".read_full"), review_path(review), "data-turbolinks": false %>
+      </div>
+      <br class="clear">
+    </div>
+  <% end %>
+</div>

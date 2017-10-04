@@ -1,0 +1,39 @@
+<div class="reviews">
+  <% if reviews.any? %>
+    <% reviews.each do |review| %>
+      <div class="toggle-overflow item more">
+        <div class="image">
+          <%= link_to review_path(review), "data-turbolinks": false do %>
+            <% if review.photos.any? %>
+              <%= image_tag review.photos.first.url %>
+            <% else %>
+              <%= image_tag review.movie.avatar %>
+            <% end %>
+          <% end %>
+        </div>
+        <h3>
+          <%= link_to review_path(review), "data-turbolinks": false do %>
+            <%= review.movie.name %>
+            <span class="movie-year">(<%= review.movie.realease_date.strftime("%Y") %>)</span>
+            <%= t "user.review" %>
+          <% end %>
+        </h3>
+        <h4><%= review.title %></h4>
+        <div class="details"><%= review.created_at.strftime("%d %b %Y") %></div>
+        <%= review.content.html_safe %>
+      </div>
+      <div class="edit-review">
+        <% if user_signed_in? %>
+          <% if @user.id == current_user.id %>
+            <%= link_to t("users.edit"), edit_user_review_path(current_user, review),
+              class: "btn btn-success", "data-turbolinks": false %>
+            <%= link_to t("users.delete"), user_review_path(current_user, review),
+              method: :delete, data: {confirm: t("button.confirm"), turbolinks: false},
+              class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

@@ -1,20 +1,48 @@
-<%= form_for review do |f| %>
-  <div style="padding-bottom: 18px;font-size : 21px;">Movie Review</div>
-  <div style="padding-bottom: 18px;">
-    <%= f.select :movie_id, movies,
-      {include_blank: t(".choose_movie")}, {class: "form-control"} %>
-  </div>
-  <div style="padding-bottom: 18px;">Title<span style="color: red;"> *</span><br/>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-  <div style="padding-bottom: 18px;">Content<br/>
-    <%= f.text_area :content, class: "form-control" %>
-  </div>
-  <div style="padding-bottom: 18px;">
-    <% if review.new_record? %>
-      <%= f.submit class: "btn btn-info add-book" %>
+<div class="write-review">
+  <%= form_for review, html: {class: "review-form"} do |f| %>
+    <% if params[:movie_id].present? %>
+      <h3>
+        <%= t "user.write_review" %> for 
+        <span style="color: red"><%= movie.name %></span>
+        <span style="color: lightgrey">(<%= movie.realease_date.strftime("%Y") %>)</span>
+      </h3><br>
     <% else %>
-      <%= f.submit class:"btn btn-success"%>
+      <h2 class="text-left"><%= t ".form_title" %></h2><br>
     <% end %>
-  </div>
-<% end %>
+    <div class="form-group pmd-textfield title-review">
+      <%= f.label :summary, class: "control-label" %>
+      <%= f.text_field :title, class: "form-control add-review-title required" %>
+    </div>
+    <div class="form-group pmd-textfield">
+      <% if params[:movie_id].present? %>
+        <%= f.hidden_field :movie_id, value: params[:movie_id] %>
+      <% else %>
+        <%= f.label :movie_name, class: "control-label" %>
+        <%= f.select :movie_id, movies, {include_blank: t(".choose_movie")},
+          {class: "select-with-search form-control pmd-select2 select-movie required"} %>
+      <% end %>
+    </div>
+    <%= f.label :photos, class: "control-label" %><br/>
+    <div class="row">
+      <div class="add-images col-xs-12">
+        <%= f.fields_for :photos do |photo| %>
+          <%= render "photo_fields", f: photo %>
+        <% end %>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 text-center add-image-button">
+          <%= link_to_add_association f, :photos, "data-turbolinks": false do %>
+            <i class="fa fa-plus"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= f.label :review, class: "control-label" %><br/>
+    <%= f.text_area :content, class: "form-control ckeditor" %><br>
+    <div class="text-center">
+      <% if review.new_record? %>
+        <%= f.submit t(".create_review"), class: "btn btn-info add-review" %>
+      <% else %>
+        <%= f.submit class:"btn btn-success" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
