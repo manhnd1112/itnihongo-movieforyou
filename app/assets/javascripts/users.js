@@ -1,7 +1,7 @@
 //= require_self
 
 $(document).ready(function() {
-  var showChar = 650;
+  var showChar = 400;
   var ellipsestext = "...";
   var moretext = "See more ▼";
   var lesstext = "See less ▲";

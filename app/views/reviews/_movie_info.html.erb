@@ -1,0 +1,57 @@
+<div class="movie-information row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="movie-image col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <img src="<%= review.movie.avatar %>" alt="">
+    </div>
+
+    <div class="movie-casting col-xs-12 col-sm-6 col-md-8">
+      <h1><%= review.movie.name %><i></i></h1>
+      <span class="movie-time">
+        <%= review.movie.realease_date.strftime("%d %b %Y") %>
+      </span>
+
+      <div class="mrB10 clearfix">
+        <div class="search-box filter">
+          <input class="ratedd newtextbox" type="text" style="display: none">
+        </div>
+      </div>
+
+      <div class="mrB10 clearfix">
+        <span class="movie-actors"><%= t "reviews.show.cast" %>:</span>
+        <% review.movie.actors.each do |actor| %>
+          <span class="casting">
+            <%= link_to actor.name, actor_path(actor) %>
+            <% unless actor == review.movie.actors.last %>,<% end %>
+          </span>
+        <% end %>
+      </div>
+      <div class="mrB10 clearfix">
+        <span class="movie-actors"><%= t "reviews.show.director" %>:</span>
+        <span class="casting"><%= review.movie.director %></span>
+      </div>
+	    <div class="mrB10 clearfix">
+		    <span class="movie-actors"><%= t "reviews.show.producer" %>:</span>
+		    <span class="casting"><%= review.movie.producer %></span>
+	    </div>
+      <div class="mr_tbdata">
+        <div class="mrB10 clearfix">
+          <span class="movie-actors"><%= t "reviews.show.genre" %>:</span>
+          <span class="casting">
+            <% if review.movie.types.any? %>
+              <% review.movie.types.each do |type| %>
+                <a href="#"><%= type.name %></a>
+                <% unless type == review.movie.types.last %>/<% end %>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+
+	    <div class="mrB10 clearfix">
+		    <%= link_to new_review_path, class: "review-btn" do %>
+			    <%= t "reviews.show.review_movie" %>
+		    <% end %>
+	    </div>
+    </div>
+  </div>
+</div>

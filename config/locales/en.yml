@@ -1,5 +1,67 @@
 en:
-  hello: "Hello world"
+  app_name: Ibookx
+  button:
+    save: Save
+    cancel: Cancel
+    delete: Delete
+    confirm: Are you sure?
   flash:
+    destroy_fail: Failed. Something's wrong.
     reviews:
-      not_found: "Review not found!"
+      not_found: Review not found!
+      create_success: Created review successfullly!
+      update_success: Updated review successfully!
+      destroy_success: Deleted review successfully!
+    comments:
+      not_found: Comment not found!
+      create_success: Created comment successfullly!
+      update_success: Updated comment successfully!
+      destroy_success: Deleted comment successfully!
+    users:
+      not_found: User not found!
+  static_pages:
+    show:
+      new_movie: Newest movies
+      new_review: Lastest reviews
+      read_full: Read Full Review >
+  user:
+    sign_up: Sign Up
+    login: Login
+    sign_out: Sign Out
+    update: Update
+    home: Home
+    movies: Movies
+    reviews: Reviews
+    favorites: Favorites
+    settings: Settings
+    write_review: Write review
+    histories: Histories
+    edit: Edit profile
+    member: "Member since "
+    review: Review
+    back: Back
+  reviews:
+    show:
+      cast: Cast
+      director: Director
+      producer: Producer
+      genre: Genre
+      country: Country
+      add_bookmark: Add to favorites
+      comments: Comments
+      author: "Author: "
+      popular: Popular Reviews
+      review_movie: Review This Movie
+      more_review: More Reviews
+    form:
+      form_title: Movie Review
+      title: Title
+      content: Content
+      choose_movie: Select a movie
+  users:
+    edit: Edit
+    delete: Delete
+  comments:
+    form:
+      content: "Write a comment..."
+      submit: Submit

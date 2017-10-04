@@ -1,68 +1,59 @@
 <ul class="nav navbar-nav navbar-right">
-  <li><%= link_to "Write review", new_review_path, class: "dropbtn" %></li>
+  <li><%= link_to t("user.write_review"), new_review_path, class: "dropbtn" %></li>
   <li class="dropdown">
     <%= link_to user_path(current_user), method: :get do %>
       <i class="fa fa-user-o" aria-hidden="true"></i>
     <% end %>
     <div class="user-nav">
       <ul class="nav dropdown-content">
-        <li class="popover_menu_item popover_menu_item_blog popover_menu_item_blog--uncloseable popover_menu_item_blog--open">
+        <li class="popover_menu_item popover_menu_item_blog
+          popover_menu_item_blog--uncloseable popover_menu_item_blog--open">
           <div class="blog-list-item blog-list-item--on-light">
             <%= link_to user_path(current_user), class:"blog-list-item-anchor" do %>
               <span class="blog-list-item-avatar">
-                <%= image_tag "", class:"blog-list-item-avatar-image",
-                  onerror: "this.src='https://t3.ftcdn.net/jpg/00/97/62/52/500_F_97625249_nFUVVgui1eC8J6GydumGU8LL1XfYND41.jpg';" %>
+                <%= image_tag current_user.avatar, class:"blog-list-item-avatar-image" %>
               </span>
               <span class="blog-list-item-info">
                 <span class="blog-list-item-info-name">
                   <%= current_user.name %>
                 </span><br>
-                <span class="blog-list-item-info-title"><%= current_user.username %></span>
+                <span class="blog-list-item-info-title">
+	                <%= current_user.username %>
+                </span>
               </span>
             <% end %>
           </div>
           <hr class="horizon">
           <div class="blog-sub-nav-item">
             <%= link_to user_path(current_user), class:"blog-sub-nav-item-link" do %>
-              <div class="blog-sub-nav-item-label">Photos</div>
+              <div class="blog-sub-nav-item-label"><%= t "user.reviews" %></div>
               <div class="blog-sub-nav-item-data">
                 <%= current_user.reviews.count %>
               </div>
             <% end %>
           </div>
-<!--           <div class="blog-sub-nav-item">
-            <a href="#" class="blog-sub-nav-item-link">
-              <div class="blog-sub-nav-item-label">Followers</div>
-              <div class="blog-sub-nav-item-data">
-                <= current_user.followers.count %>
-              </div>
-            </a>
-          </div> -->
           <div class="blog-sub-nav-item">
             <a href="#" class="blog-sub-nav-item-link">
-              <div class="blog-sub-nav-item-label">Likes</div>
-              <!-- <div class="blog-sub-nav-item-data sparkline">
-                <= current_user.foods.sum(:cached_votes_up) %>
-              </div> -->
+              <div class="blog-sub-nav-item-label"><%= t "user.favorites" %></div>
+              <div class="blog-sub-nav-item-data">
+                <%= current_user.bookmarks.count %>
+              </div>
             </a>
           </div>
         </li>
-        <li>
+        <li class="profile-link">
           <%= link_to edit_user_registration_path, method: :get do %>
-            <i class="fa fa-cog" aria-hidden="true"></i> Settings
+            <i class="fa fa-cog" aria-hidden="true"></i> <%= t "user.settings" %>
           <% end %>
         </li>
-        <li>
+        <li class="profile-link">
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
+            <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t "user.sign_out" %>
           <% end %>
         </li>
       </ul>
     </div>
   </li>
-  <!-- <li>
-    <= render "notifications/notification_dropdown" %>
-  </li> -->
 </ul>
 <style>
   ul > li ul{

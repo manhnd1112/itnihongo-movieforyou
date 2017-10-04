@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require propellerkit/dist/css/propeller.min
+ *= require owl.carousel/dist/assets/owl.carousel.min
+ *= require simplemde/dist/simplemde.min
+ *= require select2/dist/css/select2.min
+ *= require propellerkit/components/select2/css/pmd-select2
+ *= require propellerkit/components/textfield/css/textfield
  */
