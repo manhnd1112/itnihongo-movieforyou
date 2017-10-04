@@ -15,20 +15,21 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "devise"
 gem "carrierwave", "~> 1.0"
-gem "bootstrap-sass"
-gem "font-awesome-sass", '~> 4.7.0'
+gem "font-awesome-sass", "~> 4.7.0"
+gem "bootstrap-kaminari-views"
 gem "mini_magick", "3.8.0"
 gem "chosen-rails"
 gem "cocoon"
 gem "omniauth-oauth2", "1.3.1"
 gem "omniauth-facebook"
 gem "kaminari"
-gem "jquery-rails"
+gem "best_in_place", "~> 3.0.1"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "bullet"
 end
 
 group :development do

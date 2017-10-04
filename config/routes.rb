@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   devise_scope :user do  
     get "/users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
   end
-  resources :reviews
-  resources :movies, only: :index
-  resources :users, only: [:index, :show] do
-    resources :reviews
-  end
 
-  get "users/:id/reviews" => "users#reviews"
+  resources :movies, only: [:index, :show]
+  resources :reviews do
+    resources :comments
+  end
+  resources :users, only: [:index, :show] do
+    resources :reviews, except: :index
+  end
+  resources :actors, only: [:index, :show]
+
+  get "users/:id/reviews" => "users#reviews", as: :user_all_reviews
 end

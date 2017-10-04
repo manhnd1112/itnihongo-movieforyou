@@ -4,4 +4,6 @@ class Review < ApplicationRecord
 
   has_many :photos
   has_many :comments, dependent: :destroy
+
+  validates :title, presence: true
 end

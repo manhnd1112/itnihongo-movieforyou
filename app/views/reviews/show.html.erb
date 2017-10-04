@@ -1,5 +1,6 @@
+<% provide(:title, @review.movie.name + " Review") %>
 <div class="row">
-  <div class="col-xs-4 movie-data">
+  <div class="col-xs-3 movie-data">
     <div class="movie-poster">
       <img title="<%= @review.movie.name %>" alt="<%= @review.movie.name %>"
         src="<%= @review.movie.avatar %>">
@@ -16,81 +17,145 @@
       </div> |
       <p><%= @review.movie.realease_date.strftime("%d %b %Y") %></p>
       <section class="details">
-        <h5>Cast</h5>
+        <h5><%= t ".cast" %></h5>
         <ul>
-          <li>
-            <a href="#"><span></span></a>
-          </li>
+          <% @review.movie.actors.each do |actor| %>
+            <li><span><%= link_to actor.name, actor_path(actor) %></span></li>
+          <% end %>
         </ul>
-        <h5>Director</h5>
+        <h5><%= t ".director" %></h5>
         <ul>
-          <li>
-            <a href="#"><%= @review.movie.director %></a>
-          </li>
+          <li><%= @review.movie.director %></li>
         </ul>
-        <h5>Producer</h5>
+        <h5><%= t ".producer" %></h5>
         <ul>
-          <li><a href="#"><%= @review.movie.producer %></a></li>
+          <li><%= @review.movie.producer %></li>
         </ul>
-        <h5>Country</h5>
+        <h5><%= t ".country" %></h5>
         <ul>
-          <li><a href="#"><%= @review.movie.country.name %></a></li>
+          <li><%= @review.movie.country.name %></li>
         </ul>
       </section>
     </div>
+	  <%= render "trending_review", top_reviews: @top_reviews %>
   </div>
-  <div class="col-xs-8">
+  <div class="col-xs-6">
+	  <div class="movie-casting">
+		  <h1>Birth of the Dragon <i>Movie Review</i></h1>
+		  <span class="movie-time">
+			  <a class="italic" rel="author" href="#">Reza Noorani</a>
+			  , TNN,  Sep 30, 2017, 11.30 AM IST
+		  </span>
+		  <div class="mrB10 clearfix">
+			  <span class="movie-rate">CRITIC'S RATING:</span>
+			  <span style="float:left;" class="blank-rating-stars"></span>
+			  <span class="ratingMovie">3.0/5</span>
+			  <span style="position:relative; float:left; padding-left:15px; line-height: 20px;">
+				  <span class="revised-block" id="stp">Revised from  to 3, based on popular feedback</span>
+			  </span>
+		  </div>
+		  <div class="mrB10 clearfix">
+			  <span class="movie-rate">AVG READERS' RATING:</span>
+			  <span style="" id="voteresultcontainer">
+				  <span style="float:left;" class="blank-rating-stars">
+					  <span class="ratingstars_blue" style="width:60%">&nbsp;</span>
+				  </span>
+				  <span class="ratingMovie">3.0/5</span>
+			  </span>
+			  <div class="search-box filter">
+				  <input class="ratedd newtextbox" value="Rate This Movie" type="text">
+				  <!--<a class="down_arrow" href="javascript:void(0)"></a>-->
+				  <ul class="drop-down">
+					  <li val="2" type="1  (Trash)">1  (Trash)</li>
+					  <li val="3" type="1.5  ( )">1.5  (Poor)</li>
+					  <li val="4" type="2  (Below average)">2  (Below average)</li>
+					  <li val="5" type="2.5  (Average)">2.5  (Average)</li>
+					  <li val="6" type="3  (Above averag)">3  (Above average)</li>
+					  <li val="7" type="3.5  (Good)">3.5  (Good)</li>
+					  <li val="8" type="4  (Very good)">4  (Very good)</li>
+					  <li val="9" type="4.5  (Very good +)">4.5  (Very good +)</li>
+					  <li val="10" type="5  (Excellent)">5  (Excellent)</li>
+				  </ul>
+			  </div>
+		  </div>
+		  <div class="mrB10 clearfix">
+			  <a class="reviewbtn" onclick="reviewmv();disablecrolling();" href="#write">Review This Movie
+				  <i class="movie_sprite review"></i>
+			  </a>
+			  <span style="display:none;" id="gaanaid" data-plugin="gaanalink"></span>
+		  </div>
+		  <div class="mrB10 clearfix">
+			  <span class="mvoierate1">Cast: </span>
+			  <span class="casting">Philip Ng a, Xia Yu, Billy Magnussen, Qu Jingjing</span>
+		  </div>
+		  <div class="mrB10 clearfix">
+			  <span class="mvoierate1">Direction: </span>
+			  <span class="casting">George Nolfi</span>
+		  </div>
+		  <div class="mr_tbdata">
+			  <div class="mrB10 clearfix">
+				  <span class="mvoierate1">Genre: </span>
+				  <span class="casting">Drama</span>
+			  </div>
+			  <div class="showtiming_data" style="background: rgb(34, 34, 34);">
+				  <span class="showtiming">
+					  <span data-plugin="showtiming" class="showtym" style="display: inline;">
+						  <a data-plugin="mvSchedule" id="showtime" href="javascript://">
+							  <i class="movie_sprite timeicon"></i>Show Timings in Your City
+						  </a>
+					  </span>
+				  </span>
+			  </div>
+		  </div>
+	  </div>
+
+
     <div class="title_bar_wrapper">
-<!--       <div class="ratings_wrapper">
-        <div class="imdbRating">
-          <div class="ratingValue">
-            <strong>
-              <span itemprop="ratingValue">9.3</span>
-            </strong>
-            <span class="grey">/</span>
-            <span class="grey" itemprop="bestRating">10</span>
-          </div>
-          <span class="small" itemprop="ratingCount">1,858,929</span>
-        </div>
-      </div> -->
       <div class="titleBar">
         <div class="primary_ribbon">
           <div class="ribbonize">
             <img src="http://simpleicon.com/wp-content/uploads/bookmark.png">
-            <div class="wl-ribbon standalone not-inWL" title="Click to add to watchlist"></div>
+            <div class="wl-ribbon standalone not-inWL" title="<%= t ".add_bookmark" %>"></div>
           </div>
         </div>
         <div class="title_wrapper">
-          <h1><%= @review.movie.name %>
-            <span class="titleYear">(<%= @review.movie.realease_date.strftime("%Y") %>)</span>
-          </h1>
+          <h2>
+	          <span>[<%= t "user.review" %>]</span>
+	          <%= @review.movie.name %>
+	          (<%= @review.movie.realease_date.strftime("%Y") %>):
+	          <%= @review.title %>
+          </h2>
         </div>
       </div>
     </div>
-    <p class="byline">
-      <span itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-        <span class="star-rating">
+    <div class="byline">
+      <span class="star-rating">
+        <% 5.times do %>
           <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </span>
-      </span>&nbsp;|&nbsp;
-      <a href="#">
-        <span><%= @review.user.email %></span>
-      </a>
-    </p>
-    <section>
-      <time><%= @review.created_at.strftime("%d %b %Y") %></time>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a class="comments">
-        <i class="fa fa-comment"></i> <%= @review.comments.count %>
-      </a>
-    </section>
-    <div class="article-header">
-      <h3><%= @review.title %></h3>
-    </div>
+        <% end %>
+      </span>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <i class="fa fa-comment"></i> <%= @review.comments.count %><br>
+      <span class="author-bold"><%= t ".author" %></span>
+      <span class="author-bold">
+	      <%= link_to @review.user.name, user_path(@review.user) %>
+      </span><br>
+      <time><%= @review.created_at.strftime("%d %b %Y") %></time>
+    </div><br>
+    <div class="article-header"></div>
     <div class="article-body">
       <%= @review.content.html_safe %>
     </div>
+
+    <h2><%= t ".comments" %></h2>
+    <div id="comments">
+      <%= render "comments/comments", review: @review, comments: @comments %>
+    </div>
+	  <br>
+	  <% if user_signed_in? %>
+      <%= render "comments/form", review: @review, comment: @comment %>
+	  <% else %>
+	    Please <%= link_to t("user.login"), user_session_path %> to comment.
+	  <% end %>
   </div>
+	<div class="col-xs-3"></div>
 </div>

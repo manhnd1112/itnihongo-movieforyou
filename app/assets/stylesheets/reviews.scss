@@ -1,49 +1,38 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.wrapper {
-  box-shadow: 0 0 5px rgba(0,0,0,0.2), inset 0 0 0 1px #f2f2f2;
-  border: 1em solid #fafafa;
-  margin: 0 5em 1em;
-
-  .col-xs-4 {
-    width: 30%;
-  }
-}
-
 .movie-poster {
   img {
-    width: 300px;
+    border: 1px solid #C1C0A0;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, .2);
     height: auto;
-    box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.2);
     margin: 5px;
-    border: 1px solid #C1C0A
+    width: 100%;
   }
 
   h4 {
-    font-weight: 400;
     font-size: 22px;
-    padding: 0 0 5px 0;
+    font-weight: 400;
     margin: 0;
+    padding: 0 0 5px 0;
     text-transform: uppercase;
   }
 
-   h5 {
-    margin-bottom: 0;
-    padding: 5px 10px;
+  h5 {
     background: #99947a;
     font-size: 1.5em;
+    margin-bottom: 0;
+    padding: 5px 10px;
   }
 }
 
 .movie-details {
-  padding: 5px 10px;
+  padding: 5px 0;
 
   h2 {
+    font-size: 22px;
+    font-weight: 600;
     text-transform: uppercase;
-    font-weight: 500;
   }
 
   .movie-types,
@@ -58,37 +47,37 @@
 
 .details {
   h4 {
-    margin-bottom: 0;
-    padding: 5px 10px;
     background: #000;
     color: #fff;
-  }
-
-   h5 {
     margin-bottom: 0;
     padding: 5px 10px;
+  }
+
+  h5 {
     background: #99947a;
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
+    margin-bottom: 0;
+    padding: 5px 10px;
   }
 
   ul {
-    margin: 0;
-    border: 1px solid #e6e6e6;
-    border-top: 0;
-    border-bottom: 0;
     background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+    border-top: 0;
+    margin: 0;
     padding: 0
   }
 
-   li {
-    margin: 0;
-    padding: .5em;
-    list-style: none;
-    white-space: normal;
+  li {
     font-size: 1.2em;
     line-height: 1.3;
+    list-style: none;
+    margin: 0;
+    padding: .5em;
+    white-space: normal;
   }
 
   li a {
@@ -103,14 +92,13 @@
 
 .ratings_wrapper {
   float: right;
-  position: relative;
   margin-left: 5px;
+  position: relative;
   width: 185px;
   z-index: 2;
 
-  .imdbRating {
-    background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat;
-    background-position: -15px -118px;
+  .bookmark-movie {
+    background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat -15px -118px;
     font-size: 11px;
     height: 40px;
     line-height: 13px;
@@ -126,7 +114,6 @@
   .ratingValue strong {
     font-size: 24px;
     font-weight: normal;
-    font-family: Arial;
     line-height: 24px;
   }
 
@@ -148,23 +135,23 @@
   }
 
   .star-rating-button button {
+    border-radius: 0;
     font: normal 11px/13px Verdana, Arial, sans-serif;
+    height: 42px;
+    padding: 1px 0 1px 1px;
     text-align: left;
     white-space: normal;
-    padding: 1px 0 1px 1px;
-    height: 42px;
     width: 91px;
-    border-radius: 0;
   }
 
   .star-rating-star {
     float: left;
-    width: 40px;
     height: 40px;
     margin-right: 1px;
+    width: 40px;
   }
 
-   .star-rating-text {
+  .star-rating-text {
     display: block;
     padding-top: 8px;
   }
@@ -183,27 +170,28 @@
 
     img {
       background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat;
-      width: 50px;
       height: auto;
+      width: 50px;
     }
   }
 
   .title_wrapper {
     margin-left: 52px;
+
+    span {
+      color: #CCCCCC;
+      font-weight: 500;
+    }
   }
 
-  h1 {
-    font: 36px Arial,sans-serif;
-    font-weight: normal;
-    line-height: 110%;
-    margin: 0px;
-    padding-bottom: 3px;
-  }
-
-  .titleYear {
-    color: silver;
+  h2 {
+    color: #C00000;
     font-size: 30px;
-    line-height: 100%;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin: 0;
+    padding-bottom: 3px;
+    text-align: left;
   }
 
   .subtext {
@@ -212,8 +200,8 @@
   }
 
   .ghost {
-    margin: 0 .5em;
     color: #6b6b6b;
+    margin: 0 .5em;
   }
 }
 
@@ -237,9 +225,11 @@
 
 .article-header {
   h2 {
-    text-transform: none;
-    margin: 4px 0px 6px 0px;
+    font-size: 22px;
+    font-weight: 600;
     line-height: 30px;
+    text-align: left;
+    text-transform: none;
   }
 
   .article-issue {
@@ -250,4 +240,162 @@
 
 .star-rating {
   color: yellow;
+}
+
+.byline,
+.article-body {
+  font-size: 18px;
+}
+
+.byline {
+  .author-bold {
+    font-weight: 600;
+  }
+}
+
+.trending-review {
+  padding: 5px 0;
+
+  .sidebar-header {
+    background: #444;
+    border: 1px solid #C1C0AA;
+    color: #fff;
+    font-family: BenchNine, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    margin: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+
+  .sidebar-body {
+    background: white;
+    border: 1px solid #C1C0AA;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .bp-block {
+    line-height: 1.5em !important;
+    margin: 0 0 20px 0;
+    position: relative;
+  }
+
+  .bp-block p {
+    font-size: 14px;
+  }
+
+  .article-list-left {
+    display: block;
+    float: left;
+    height: 100%;
+    padding: 0 10px 10px 0;
+    width: 40%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    color: #C00000;
+    text-decoration: none;
+  }
+
+  .article-info h4 {
+    line-height: 1.3em;
+  }
+
+  h4 {
+    font-family: BenchNine, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0 0 5px 0;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  p.author-small {
+    color: #666;
+    font-family: BenchNine, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  hr {
+    margin: 0 0 10px 0;
+  }
+}
+
+.movie-casting {
+  float: left;
+  width: 64%;
+  padding-left: 20px;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    padding: 0 0 5px;
+    color: #1e1e1e;
+  }
+
+  .movie-time {
+    color: #888;
+    display: block;
+    margin-bottom: 12px;
+    padding: 0;
+    border-bottom: 0;
+    float: left;
+    width: 100%;
+  }
+
+  .mrB10 {
+    margin-bottom: 10px;
+  }
+
+  .movie-rate {
+    float: left;
+    width: 135px;
+  }
+
+  .blank-rating-stars {
+    display: inline-block;
+    height: 19px;
+    margin: 0 5px 0 0;
+    width: 109px;
+  }
+
+  .ratingMovie {
+    float: left;
+    font: 500 12px/20px;
+    margin-left: 5px;
+  }
+
+  .revised-block {
+    background-color: #333;
+    color: #fff;
+    font: 400 11px/16px 'Roboto',sans-serif;
+    height: 52px;
+    margin: -67px 0 0 29px;
+    padding: 5px;
+    position: absolute;
+    width: 125px;
+  }
+
+  .review-btn .review {
+    background-position: -1px -31px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: 8px;
+    top: 7px;
+  }
+  .movie_sprite {
+    display: block;
+    background-repeat: no-repeat;
+  }
 }

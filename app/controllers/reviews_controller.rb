@@ -4,6 +4,9 @@ class ReviewsController < ApplicationController
   before_action :load_movies
 
   def show
+    @top_reviews = Review.all.order("created_at desc").limit(3)
+    @comment = Comment.new
+    @comments = @review.comments.page(params[:page]).per(2)
   end
 
   def new
@@ -14,7 +17,7 @@ class ReviewsController < ApplicationController
     @review = Review.new review_params.merge user_id: current_user.id
     if @review.save
       flash[:success] = t "flash.reviews.create_success"
-      redirect_to review_path @review
+      redirect_to user_all_reviews_path(current_user)
     else
       render :new
     end
@@ -24,11 +27,20 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update_attributes review_params.merge user_id: current_user.id
-      flash[:success] = t "flash.review.update_success"
-      redirect_to review_path @review
+      flash[:success] = t "flash.reviews.update_success"
+      redirect_to user_all_reviews_path(current_user)
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @review.destroy
+      flash[:success] = t "flash.reviews.destroy_success"
+    else
+      flash[:danger] = t "flash.destroy_fail"
+    end
+    redirect_to user_all_reviews_path(current_user)
   end
 
   private
@@ -41,7 +53,7 @@ class ReviewsController < ApplicationController
     @review = Review.find_by id: params[:id]
 
     return if @review.present?
-    flash[:dange] = t "flash.reviews.not_found"
+    flash[:danger] = t "flash.reviews.not_found"
     redirect_to root_path
   end
 

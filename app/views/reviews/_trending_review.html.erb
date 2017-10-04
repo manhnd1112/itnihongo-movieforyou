@@ -1,0 +1,37 @@
+<div class="trending-review">
+  <div class="sidebar-header">
+  <span>Trending Reviews</span>
+  </div>
+  <div class="sidebar-body">
+    <% top_reviews.each do |review| %>
+      <div class="bp-block article-info">
+        <div class="article-list-left cover">
+          <%= link_to review_path(review) do %>
+            <%= image_tag review.movie.avatar, alt: review.movie.name %>
+          <% end %>
+        </div>
+        <h4>
+          <%= link_to review_path(review) do %>
+            <%= review.title %>
+          <% end %>
+        </h4>
+        <p class="author-small">
+          By
+	        <%= link_to user_path(review.user) do %>
+		        <%= review.user.username %>
+	        <% end %>
+        </p>
+        <p><%= truncate(review.content, length: 100) %></p>
+      </div>
+      <hr class="divider">
+    <% end %>
+
+    <div class="sidebar-footer">
+      <span>
+	      <%= link_to root_path do %>
+	        More Reviews &gt;
+	      <% end %>
+      </span>
+    </div>
+  </div>
+</div>
