@@ -1,0 +1,72 @@
+<div class="row profile">
+  <div class="col-md-3">
+    <div class="profile-sidebar">
+      <!-- SIDEBAR USERPIC -->
+      <div class="profile-userpic">
+        <%= image_tag "default-book.png", class: "img-responsive" %>
+      </div>
+      <!-- END SIDEBAR USERPIC -->
+      <!-- SIDEBAR USER TITLE -->
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          <%= @user.name %>
+        </div>
+        <div class="profile-usertitle-job">
+          <%= @user.username %>
+        </div>
+        Member since <%= @user.created_at.strftime("%b %Y") %><br>
+        <% if user_signed_in? && @user.id == current_user.id %>
+          <%= link_to edit_user_registration_path, method: :get do %>
+            Account Settings
+          <% end %>
+        <% end %>
+      </div>
+      <!-- END SIDEBAR USER TITLE -->
+      <!-- SIDEBAR BUTTONS -->
+      <!-- <div class="profile-userbuttons">
+        <button type="button" class="btn btn-success btn-sm">Follow</button>
+        <button type="button" class="btn btn-danger btn-sm">Message</button>
+      </div> -->
+      <!-- END SIDEBAR BUTTONS -->
+      <!-- SIDEBAR MENU -->
+      <div class="profile-usermenu">
+        <ul class="nav">
+          <li class="active">
+            <%= link_to "#" do %>
+              <i class="glyphicon glyphicon-home"></i> Reviews
+            <% end %>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <i class="glyphicon glyphicon-ok"></i> Bookmarks
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-flag"></i> History
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- END MENU -->
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="profile-content">
+      <div class="widget article userLists">
+        <div class="reviews">
+          <h2>Reviews</h2>
+          <%= render "users/reviews.html.erb", reviews: @reviews %>
+          <hr><%= link_to "View all reviews", user_reviews_path(current_user) %>
+        </div>
+      </div>
+      <div class="widget article userLists">
+        <div class="bookmarks">
+          <h2>Bookmarks</h2>
+          <%= render "users/bookmarks.html.erb", bookmarks: @bookmarks %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
