@@ -11,7 +11,7 @@ class User < ApplicationRecord
     authentication_keys: [:login]
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
-  validates_length_of :username, minimum: 6, maximum: 12
+  validates_length_of :username, minimum: 4
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
   validate :validate_username
 
@@ -41,15 +41,16 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     user = User.find_by('email = ?', auth['info']['email'])
     if user.blank?
-       user = User.new(
-         {
-          provider: auth.provider,
-          uid: auth.uid,
-          email: auth.info.email,
-          password: Devise.friendly_token[0,20]
-         }
-       )
-       user.save!
+      user = User.new({
+        provider: auth.provider,
+        uid: auth.uid,
+        username: auth.info.first_name,
+        name: auth.info.name,
+        remote_avatar_url: auth.info.image.gsub('http://','https://'),
+        email: auth.info.email,
+        password: Devise.friendly_token[0,20]}
+      )
+      user.save!
     end
     user
   end

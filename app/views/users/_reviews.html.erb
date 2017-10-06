@@ -1,32 +1,36 @@
 <div class="reviews">
   <h2><%= t "user.reviews" %></h2>
   <div><%= paginate reviews %></div>
-  <% reviews.each do |review| %>
-    <div class="toggle-overflow item">
-      <div class="image">
-        <%= link_to review_path(review) do %>
-          <img src="<%= review.movie.avatar %>">
+  <% if reviews.any? %>
+    <% reviews.each do |review| %>
+      <div class="toggle-overflow item">
+        <div class="image">
+          <%= link_to review_path(review), "data-turbolinks": false do %>
+            <img src="<%= review.movie.avatar %>">
+          <% end %>
+        </div>
+        <h3>
+          <%= link_to review_path(review), "data-turbolinks": false do %>
+            <%= review.movie.name %>
+            <span class="movie-year">(<%= review.movie.realease_date.strftime("%Y") %>)</span>
+            <%= t "user.review" %>
+          <% end %> 
+        </h3>
+        <h4><%= review.title %></h4>
+        <div class="details"><%= review.created_at.strftime("%d %b %Y") %></div>
+        <div class="more">
+          <%= review.content.html_safe %>
+        </div>
+        <% if user_signed_in? %>
+          <% if @user.id == current_user.id %>
+            <%= link_to t("users.edit"), edit_user_review_path(current_user, review),
+              "data-turbolinks": false %>
+            <%= link_to t("users.delete"), user_review_path(current_user, review),
+              method: :delete, data: {confirm: "Are you sure?", turbolinks: false} %>
+          <% end %>
         <% end %>
-      </div>
-      <h3>
-        <%= link_to review_path(review) do %>
-          <%= review.movie.name %>
-          <span class="movie-year">(<%= review.movie.realease_date.strftime("%Y") %>)</span>
-          <%= t "user.review" %>
-        <% end %> 
-      </h3>
-      <h4><%= review.title %></h4>
-      <div class="details"><%= review.created_at.strftime("%d %b %Y") %></div>
-      <div class="more">
-        <%= review.content.html_safe %>
-      </div>
-      <% if user_signed_in? %>
-        <% if @user.id == current_user.id %>
-          <%= link_to t("users.edit"),edit_user_review_path(current_user, review) %>
-          <%= link_to t("users.delete"), user_review_path(current_user, review),
-            method: :delete, data: {confirm: "Are you sure?"} %>
-        <% end %>
-      <% end %>
-    </div>
+      </div><hr>
+    <% end %>
+    <%= link_to t("user.all_reviews"), user_all_reviews_path(@user), "data-turbolinks": false %>
   <% end %>
 </div>

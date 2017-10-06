@@ -7,6 +7,12 @@ body {
   font-family: "Roboto Condensed", Helvetica, Arial !important;
 }
 
+.content-web {
+  display: block;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
 .site-poster {
   background: #1e100e url("//2.bp.blogspot.com/-UvodvikwYeI/VSutleD4ZhI/AAAAAAAAE5U/IJR04wNm3Zg/s1600/top-bg.jpg") center 8% no-repeat;
   color: #333;
@@ -25,10 +31,6 @@ body {
   border: 5px solid #eaeaea;
   box-shadow: 0 0 5px rgba(0,0,0,0.2), inset 0 0 0 1px #f2f2f2;
   margin: 0 1em;
-
-  .col-xs-4 {
-    width: 30%;
-  }
 }
 
 .header-home {
@@ -204,7 +206,6 @@ a:hover .caption h4{
 
   h3 {
     color: #555;
-    font-size: 30px;
     font-weight: 700 !important;
     line-height: 1.3em;
     margin: 0 0 0 0;
@@ -242,7 +243,6 @@ a:hover .caption h4{
   }
 
   .review-content {
-    font-size: 18px;
     line-height: 1.5em;
   }
 }
@@ -252,7 +252,7 @@ a:hover .caption h4{
   float: left;
   height: 100%;
   padding: 0 20px 10px 0;
-  width: 25%;
+  width: 260px;
 }
 
 .cover img {
@@ -297,4 +297,8 @@ a:hover .caption h4{
   background: $flash-background-danger;
   box-shadow: $flash-danger;
   color: $flash-danger;
+}
+
+.user-nav .nav>li>a {
+  padding: 5 15px !important;
 }

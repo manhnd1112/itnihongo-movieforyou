@@ -133,7 +133,7 @@ Actor.create!([
     and David Charles Howard Bale. His mother was a circus performer and his father, who was born 
     in South Africa, was a commercial pilot. The family lived in different countries throughout Bale's 
     childhood, including England, Portugal, and the United States. Bale acknowledges the constant 
-    change was one of the influences on his career choice.<br> 
+    change was one of the influences on his career choice.<br><br> 
     His first acting job was a cereal commercial in 1983; amazingly, the next year, he debuted on 
     the West End stage in \"The Nerd\". A role in the 1986 NBC mini-series Anastasia: The Mystery 
     of Anna (1986) caught Steven Spielberg's eye, leading to Bale's well-documented role in Empire 
@@ -161,9 +161,9 @@ Actor.create!([
     Technology notable for its numerous famous alumni."},
   {name: "Johnny Depp", avatar_image: File.open(Rails.root + "public/uploads/image/Depp.jpg"),
     birthday: "1963/6/9", country_id: 1, description: "Johnny Depp is perhaps one of the most versatile 
-    actors of his day and age in Hollywood.<br>
+    actors of his day and age in Hollywood.<br><br>
     He was born John Christopher Depp II in Owensboro, Kentucky, on June 9, 1963, to Betty Sue 
-    (Wells), who worked as a waitress, and John Christopher Depp, a civil engineer.<br>
+    (Wells), who worked as a waitress, and John Christopher Depp, a civil engineer.<br><br>
     Depp was raised in Florida. He dropped out of school when he was 15, and fronted a series of 
     music-garage bands, including one named 'The Kids'. However, it was when he married Lori Anne 
     Allison (Lori A. Depp) that he took up the job of being a ballpoint-pen salesman to support himself 
@@ -173,7 +173,7 @@ Actor.create!([
     where he played a teenager who falls prey to dream-stalking demon Freddy Krueger."},
   {name: "Eddie Redmayne", avatar_image: File.open(Rails.root + "public/uploads/image/Eddie.jpg"),
     birthday: "1982/1/6", country_id: 2, description: "British actor Eddie Redmayne is the first, and thus far 
-    only, millennial male to have won an acting Oscar (for The Theory of Everything (2014)).<br>
+    only, millennial male to have won an acting Oscar (for The Theory of Everything (2014)).<br><br>
     Edward John David Redmayne was born and raised in London, England, the son of Patricia (Burke) 
     and Richard Charles Tunstall Redmayne, a businessman. His great-grandfather was Sir Richard 
     Augustine Studdert Redmayne, a noted civil and mining engineer. He has English, Irish, Scottish 
@@ -232,7 +232,7 @@ Actor.create!([
 		Sir Gawain, his first high-profile film role."},
   {name: "Natalie Portman", avatar_image: File.open(Rails.root + "public/uploads/image/natalie.jpg"),
    birthday: "1982/6/9", country_id: 1, description: "Natalie Portman is the first person born
-		in the 1980s to have won the Academy Award for Best Actress (for Black Swan (2010)).<br>
+		in the 1980s to have won the Academy Award for Best Actress (for Black Swan (2010)).<br><br>
 		Natalie was born Natalie Hershlag on June 9, 1981, in Jerusalem, Israel. She is the only child
 		of Avner Hershlag, an Israeli-born doctor, and Shelley Stevens, an American-born artist
 		(from Cincinnati, Ohio), who also acts as Natalie's agent. She left Israel for Washington, D.C.,
@@ -442,13 +442,13 @@ Review.create!([
     by rivals for its blend of the spiritual, the realistic, the fantastic, and the human. For balancing all of those 
     realms, Miyazaki was the master, and since his retirement, we'll continue to look on Spirited Away as 
     the film that was the masterpiece of his life.
-    <br>At its most basic, the film follows a little girl, Chihiro, on a journey to free her parents. 
+    <br><br>At its most basic, the film follows a little girl, Chihiro, on a journey to free her parents. 
     She has to navigate the spirit world she gets trapped in by working in a bathhouse run by an overlord 
     called Yu-baaba. Miyazaki said he'd decided to make it based on the ten-year-old daughter of friend, associate 
     producer Seiji Okuda, who came to stay with him every summer. With this in mind, he made the movie for 
     ten-year-old girls. This is exactly why it resonates so well with people of all ages and why Chihiro feels so real. 
     How often can you say a film has been made for young girls, rather than money or mainstream audiences?
-    <br>Many male critics described Chihiro as a \"sullen\" and \"spoiled\" girl, and continue to describe her as such. 
+    <br><br>Many male critics described Chihiro as a \"sullen\" and \"spoiled\" girl, and continue to describe her as such. 
     This is hardly a fair criticism, nor is it an accurate one. When we meet Chihiro, she's being driven away 
     rom her home and everything she knows to live in a new town. All she has to remember her friends is a 
     bouquet. \"The only time I got a bouquet and it's a goodbye present. How depressing,\" she says, only 
@@ -457,9 +457,9 @@ Review.create!([
     entranced by the lead up to the abandoned theme park that will soon trap them, Chihiro is whiny because
     her intuition is correct. She follows behind her parents, worried by the little shines and the appearance of 
     the food with no vendor, warning that they shouldn\'t be there.
-    <br>These critics will see that she spends the remainder of the film laboring not only for their 
+    <br><br>These critics will see that she spends the remainder of the film laboring not only for their 
     ignorance but also the fact that they ignore the voice of a young girl.
-    <br>What sets her story apart is that Chihiro isn't forced to triumph over great evil and turn from a 
+    <br><br>What sets her story apart is that Chihiro isn't forced to triumph over great evil and turn from a 
     sullen creature to a good girl. Far better than that, it's a film about honest development. 
     Miyazaki shows her slowly forcing herself to adapt to her environment and be open to the tasks ahead, 
     quietly tackling them as best she can. She has trouble walking down the steps to the boiler man, 
@@ -475,24 +475,24 @@ Review.create!([
     everywhere in popular culture: in games, the fantasy genre, and for a while of course in music. 
     Peter Jackson's reverent screen version of Tolkien's first volume, The Fellowship of the Ring resembles 
     from certain angles nothing so much as a 178-minute electric mandolin solo.
-    <br>Obviously, the stately texts that Tolkien taught at Oxford have crashed further out of fashion 
+    <br><br>Obviously, the stately texts that Tolkien taught at Oxford have crashed further out of fashion 
     than ever, and Tolkien's own imitations have simply supplanted them in the canon. Do fans of Lord of 
     the Rings go on to gobble up Le Morte Darthur, Troilus and Criseyde or perhaps Sir Gawain and the 
     Green Knight in Professor Tolkien's own magisterial 1925 edition? Puh-lease.
-    <br>It is the master's own delirious Wagnerian-Arthurian marathon, beginning here with the winsome 
+    <br><br>It is the master's own delirious Wagnerian-Arthurian marathon, beginning here with the winsome 
     young hobbit Frodo Baggins protecting the ring from the dark Lord of Mordor (pronounced with a 
     preposterous Olde Welshe type rolling \"r\"), which has become the imitated classic. But only now, after 
     nearly 50 years, has the first substantial movie version arrived, made possible by advances in CGI and 
     a new taste, arguably, for politically inflected escapism and good-versus-evil battle fantasy.
-    <br>So here we are, plunged back into that distant, mist-wreathed world, a dark era when no work 
+    <br><br>So here we are, plunged back into that distant, mist-wreathed world, a dark era when no work 
     of children's fiction was considered properly imaginative unless it had a map of its elaborate made-up 
     geography just inside the front cover.
-    <br>The Middle Earth that director Peter Jackson has found for his hobbits, dwarves, elves, wizards 
+    <br><br>The Middle Earth that director Peter Jackson has found for his hobbits, dwarves, elves, wizards 
     and trolls is brilliantly realised, an exotic, hyper-real English countryside, melding with a dramatic 
     North American landmass: much richer than a Roger Dean album cover. It is the stunning landscape 
     of the director's own New Zealand which stands in - digitally modified here and there - and, in many ways, 
     New Zealand itself is the modest star of the film.
-    <br>It is in these swooping, rolling hills and forests that the young hobbit Frodo Baggins inherits the 
+    <br><br>It is in these swooping, rolling hills and forests that the young hobbit Frodo Baggins inherits the 
     Ring from his twinkly-eyed kinsman Bilbo (Ian Holm). He joins up with a \"Fellowship\", a species 
     cross- section of Middle Earth: hobbits, elves, humans, a wizard and a dwarf. They all begin their very 
     long quest to return it to the forge where it was made, and so permanently destroy its potential for evil. ",
@@ -503,24 +503,24 @@ Review.create!([
     vicarious experiences and quick, superficial emotions. \"Shawshank\" slows down and looks. It uses the 
     narrator's calm, observant voice to include us in the story of men who have formed a community behind 
     bars. It is deeper than most films; about continuity in a lifetime, based on friendship and hope.
-    <br>Interesting that although the hero of the film is the convicted former banker Andy Dufresne 
+    <br><br>Interesting that although the hero of the film is the convicted former banker Andy Dufresne 
     (Tim Robbins), the action is never seen from his point of view. The film's opening scene shows him 
     being given two life sentences for the murder of his wife and her lover, and then we move, 
     permanently, to a point of view representing the prison population and particularly the lifer Ellis 'Red' 
     Redding (Morgan Freeman). It is his voice remembering the first time he saw Andy (\"looked like a stiff 
     breeze would blow him over\"), and predicting, wrongly, that he wouldn't make it in prison.
-    <br>From Andy's arrival on the prison bus to the film's end, we see only how others see him - Red, 
+    <br><br>From Andy's arrival on the prison bus to the film's end, we see only how others see him - Red, 
     who becomes his best friend, Brooks the old librarian, the corrupt Warden Norton, guards and prisoners. 
     Red is our surrogate. He's the one we identify with, and the redemption, when it comes, is Red's. 
     We've been shown by Andy's example that you have to keep true to yourself, not lose hope, bide 
     your time, set a quiet example and look for your chance. \"I guess it comes down to a simple choice, 
     really,\" he tells Red. \"Get busy livin' or get busy dyin'.\"
-    <br>The key to the film's structure, I think, is that it's not about its hero, but about our relationship 
+    <br><br>The key to the film's structure, I think, is that it's not about its hero, but about our relationship 
     with him - our curiosity, our pity, our admiration. If Andy had been the heroic center, bravely enduring, 
     the film would have been conventional, and less mysterious. But we wonder about this guy. 
     Did he really kill those two people? Why does he keep so much to himself? Why can he amble 
     through the prison yard like a free man on a stroll, when everyone else plods or sidles?
-    <br>People like excitement at the movies, and titles that provide it do well. Films about \"redemption\" 
+    <br><br>People like excitement at the movies, and titles that provide it do well. Films about \"redemption\" 
     are approached with great wariness; a lot of people are not thrilled by the prospect of a great film - 
     it sounds like work. But there's a hunger for messages of hope, and when a film offers one, it's likely 
     to have staying power even if it doesn't grab an immediate audience.",
@@ -533,13 +533,13 @@ Review.create!([
     movie, however, can't match the trailers for sustained terror – it runs a punishing two hours and 15 
     minutes (and it's only half of the novel). But It works enough of the time to deliver on the promise of 
     bad dreams.
-    <br>Directed by Andy Muschietti (Mama), from a script by Chase Palmer, Gary Dauberman and 
+    <br><br>Directed by Andy Muschietti (Mama), from a script by Chase Palmer, Gary Dauberman and 
     Cary Fukunaga (True Detective: Season One – the good season) the film is based on King's 1986 
     novel which became a highly rated ABC miniseries in 1990 and featured Tim Curry as the nasty 
     piece of business known as Pennywise. An R-rated movie, with its spray of gore and f-bombs, 
     usually beats the pants off a safe network series anytime. And when Pennywise bites off a kid's arm, 
     it's a cruncher. You'll scream bloody murder.
-    <br>Which brings us to the plot. Children are disappearing in the town of Derry, Maine, courtesy of 
+    <br><br>Which brings us to the plot. Children are disappearing in the town of Derry, Maine, courtesy of 
     Pennywise, who shows up in Derry every 27 years and scares kids to death by transforming himself 
     into their worst fears. The time is the late 1980s – King set the first part of the book in the 1950s 
     when he was growing up – but the update suits Muschietti. Our heroes are still seven high school kids 
@@ -550,7 +550,7 @@ Review.create!([
     germaphobic one; Wyatt Oleff is Stanley, the Jewish one; Jeremy Ray Taylor is Ben, the chubby one; 
     and Chosen Jacobs is Mike, the African-American one. The stereotypes are completed by the spirited 
     Sophia Lillis as Beverly, the female one. 
-    <br>Yes, the boys – especially Bill and Ben – compete for her attention. And, yes, each is coping 
+    <br><br>Yes, the boys – especially Bill and Ben – compete for her attention. And, yes, each is coping 
     with a serious issue at home, from neglect to sexual abuse and violence. The parents are mostly 
     absent; when they do appear, they're pretty monstrous themselves. All seven losers also must cope 
     with bullying at the hands of the Bowers gang, led by a brutish bully named Henry 
@@ -561,12 +561,12 @@ Review.create!([
   {title: "The Best Marvel Film In Years",
    content: "Like many people, Spider-Man is by far my favorite superhero. Rather than the
 		typical statuesque demigod, he’s a nerd whose weird side-hobby isolates him from the crowd.
-		Everyone who’s ever felt like an outsider relates to Spider-Man, which is to say, everyone.<br>
+		Everyone who’s ever felt like an outsider relates to Spider-Man, which is to say, everyone.<br><br>
 		Spider-Man helped start the superhero trend, and it’s been frustrating to watch the character
 		decline after hitting the spectacular heights of Spider-Man 2. And knowing that he’d be
 		integrated into the Marvel machine, that Homecoming was hobbled together by no less than six
 		different screenwriters, I assumed this was going to be a polished piece of marketing rather
-		than a great story.<br>
+		than a great story.<br><br>
 		But I’m delighted to say I was wrong; this might just be my favorite Marvel movie ever, even
 		eclipsing the original Iron Man. While I always found Marvel’s cinematic universe interesting,
 		I didn’t find The Avengers to be a particularly great movie; it was a fun blockbuster, no more

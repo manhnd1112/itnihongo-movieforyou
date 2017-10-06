@@ -244,7 +244,12 @@
 
 .byline,
 .article-body {
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.article-body {
+  display: block;
+  margin-top: 20px;
 }
 
 .byline {
@@ -257,7 +262,7 @@
   padding: 5px 0;
 
   .sidebar-header {
-    background: #444;
+    background: #b3140c;
     border: 1px solid #C1C0AA;
     color: #fff;
     font-family: BenchNine, Helvetica, Arial, sans-serif;
@@ -276,6 +281,11 @@
     padding: 10px;
   }
 
+  .sidebar-footer a {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
   .bp-block {
     line-height: 1.5em !important;
     margin: 0 0 20px 0;
@@ -291,7 +301,6 @@
     float: left;
     height: 100%;
     padding: 0 10px 10px 0;
-    width: 40%;
   }
 
   img {
@@ -303,14 +312,17 @@
     text-decoration: none;
   }
 
-  .article-info h4 {
-    line-height: 1.3em;
+  .article-info {
+    border-bottom: 1px solid lightgray;
+
+    h4 {
+      line-height: 1.3em;
+    }
   }
 
   h4 {
     font-family: BenchNine, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 18px;
     padding: 0 0 5px 0;
     margin: 0;
     text-transform: capitalize;
@@ -329,13 +341,33 @@
   hr {
     margin: 0 0 10px 0;
   }
+
+  .sidebar-body .col-xs-12 {
+    padding: 0 !important;
+  }
+
+  .article-info .col-xs-12 {
+    padding: 0 10px 0 0 !important;
+  }
+}
+
+.top-review {
+  padding: 0 10px !important;
+}
+
+.movie-information {
+  .col-md-4,
+  .col-xs-12 {
+    background: lightgray !important;
+    padding-left: 0 !important;
+  }
 }
 
 .movie-casting {
   float: left;
-  width: 64%;
-  padding-left: 20px;
-  position: relative;
+  font-size: 18px;
+  padding: 10px;
+  height: 100%;
 
   h1 {
     margin: 0;
@@ -386,16 +418,56 @@
     width: 125px;
   }
 
+  .review-btn {
+    background: #37a4c5;
+    color: #FFF;
+    display: block;
+    float: left;
+    font: 400 11px/10px;
+    margin: 5px 8px 5px 0;
+    padding: 9px 11px;
+    position: relative;
+    text-transform: uppercase;
+  }
+
   .review-btn .review {
     background-position: -1px -31px;
     height: 15px;
-    width: 15px;
-    position: absolute;
     left: 8px;
+    position: absolute;
     top: 7px;
+    width: 15px;
   }
+
   .movie_sprite {
-    display: block;
     background-repeat: no-repeat;
+    display: block;
+  }
+
+  .movie-actors {
+    float: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 30%;
   }
 }
+
+.movie-image {
+  float: left;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+}
+
+.write-review {
+  padding: 20px;
+
+  input,
+  .select2-container {
+    margin-bottom: 20px !important;
+  }
+}
+
+#editor {overflow:scroll; max-height:300px}

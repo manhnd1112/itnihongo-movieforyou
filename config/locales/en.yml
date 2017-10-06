@@ -1,5 +1,5 @@
 en:
-  app_name: Ibookx
+  app_name: MovieForU
   button:
     save: Save
     cancel: Cancel
@@ -45,10 +45,14 @@ en:
       cast: Cast
       director: Director
       producer: Producer
+      genre: Genre
       country: Country
       add_bookmark: Add to favorites
       comments: Comments
       author: "Author: "
+      popular: Popular Reviews
+      review_movie: Review This Movie
+      more_review: More Reviews
     form:
       form_title: Movie Review
       title: Title

@@ -1,0 +1,38 @@
+<div class="col-xs-3 movie-data">
+  <div class="movie-poster">
+    <img title="<%= @review.movie.name %>" alt="<%= @review.movie.name %>"
+      src="<%= @review.movie.avatar %>">
+  </div>
+  <div class="movie-details">
+    <h2><%= @review.movie.name %></h2>
+    <div class="movie-types">
+      <% if @review.movie.types.any? %>
+        <% @review.movie.types.each do |type| %>
+          <a href="#"><%= type.name %></a>
+          <% unless type == @review.movie.types.last %>,<% end %>
+        <% end %>
+      <% end %>
+    </div> |
+    <p><%= @review.movie.realease_date.strftime("%d %b %Y") %></p>
+    <section class="details">
+      <h5><%= t ".cast" %></h5>
+      <ul>
+        <% @review.movie.actors.each do |actor| %>
+          <li><span><%= link_to actor.name, actor_path(actor) %></span></li>
+        <% end %>
+      </ul>
+      <h5><%= t ".director" %></h5>
+      <ul>
+        <li><%= @review.movie.director %></li>
+      </ul>
+      <h5><%= t ".producer" %></h5>
+      <ul>
+        <li><%= @review.movie.producer %></li>
+      </ul>
+      <h5><%= t ".country" %></h5>
+      <ul>
+        <li><%= @review.movie.country.name %></li>
+      </ul>
+    </section>
+  </div>
+</div>

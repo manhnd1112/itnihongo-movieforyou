@@ -1,15 +1,15 @@
 <% provide(:title, @user.username) %>
 <div class="row profile">
-  <div class="col-md-3">
-    <div class="profile-sidebar">
-      <div class="profile-userpic">
+  <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+    <div class="profile-sidebar text-center">
+      <div class="profile-user-avatar">
         <%= image_tag @user.avatar, class: "img-responsive" %>
       </div>
       <div class="profile-user-title">
         <div class="profile-user-name">
           <%= @user.name %>
         </div>
-        <div class="profile-user-job">
+        <div class="profile-user-username">
           <%= @user.username %>
         </div>
         <%= t "user.member" %><%= @user.created_at.strftime("%b %Y") %><br>
@@ -17,35 +17,34 @@
 	    <% if user_signed_in? && @user.id == current_user.id %>
 	      <div class="text-center profile-buttons">
 		      <%= link_to t("user.edit"), edit_user_registration_path, method: :get,
-            class: "btn btn-success btn-sm" %>
+            class: "btn btn-success btn-sm", "data-turbolinks": false %>
 	      </div>
 	    <% end %>
 	    <div class="profile-user-menu">
-        <ul class="nav">
+        <!-- <ul class="nav">
           <li class="active">
-            <%= link_to "#" do %>
-              <i class="glyphicon glyphicon-home"></i> <%= t "user.reviews" %>
-            <% end %>
+            <= link_to "#" do %>
+              <i class="glyphicon glyphicon-home"></i> <= t "user.reviews" %>
+            < end %>
           </li>
           <li>
-	          <%= link_to "#" do %>
-              <i class="glyphicon glyphicon-heart"></i> <%= t "user.favorites" %>
-	          <% end %>
+	          <= link_to "#" do %>
+              <i class="glyphicon glyphicon-heart"></i> <= t "user.favorites" %>
+	          < end %>
           </li>
           <li>
-	          <%= link_to "#" do %>
-              <i class="glyphicon glyphicon-flag"></i> <%= t "user.histories" %>
-	          <% end %>
+	          <= link_to "#" do %>
+              <i class="glyphicon glyphicon-flag"></i> <= t "user.histories" %>
+	          < end %>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
-  <div class="col-md-9">
+  <div class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
     <div class="profile-content">
       <div class="widget article userLists">
         <%= render "users/reviews.html.erb", reviews: @reviews %>
-        <hr><%= link_to "View all reviews", user_all_reviews_path(@user) %>
       </div>
       <div class="widget article userLists">
         <%= render "users/bookmarks.html.erb", bookmarks: @bookmarks %>

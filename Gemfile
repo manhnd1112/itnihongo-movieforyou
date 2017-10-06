@@ -24,6 +24,9 @@ gem "omniauth-oauth2", "1.3.1"
 gem "omniauth-facebook"
 gem "kaminari"
 gem "best_in_place", "~> 3.0.1"
+gem "pygments.rb", "~> 0.6.3" 
+gem "redcarpet", "~> 3.3", ">= 3.3.4"
+gem "ckeditor"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -16,4 +16,9 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require propellerkit/dist/js/propeller.min
 //= require owl.carousel/dist/owl.carousel.min
+//= require simplemde/dist/simplemde.min
+//= require select2/dist/js/select2.min
+//= require propellerkit/components/select2/js/pmd-select2
+//= require propellerkit/components/textfield/js/textfield.js
+//= require ckeditor/init
 //= require_tree .

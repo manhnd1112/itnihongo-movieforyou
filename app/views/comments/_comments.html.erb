@@ -3,7 +3,8 @@
     <% comments.each do |comment| %>
       <div class="post-content">
         <div class="avatar">
-          <%= link_to user_path(comment.user), target: "_blank", class: "user" do %>
+          <%= link_to user_path(comment.user), target: "_blank", class: "user",
+            "data-turbolinks": false do %>
             <img src="<%= comment.user.avatar %>">
           <% end %>
         </div>
@@ -11,7 +12,8 @@
           <div class="comment-header">
             <span class="post-byline">
               <span class="author publisher-anchor-color">
-                <%= link_to user_path(comment.user), target: "_blank" do %>
+                <%= link_to user_path(comment.user), target: "_blank",
+                  "data-turbolinks": false do %>
                   <%= comment.user.username %>
                 <% end %>
               </span>

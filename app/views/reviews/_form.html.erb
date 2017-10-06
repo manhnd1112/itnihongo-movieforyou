@@ -1,14 +1,18 @@
-<%= form_for review do |f| %>
-  <%= f.label t ".form_title" %>
-  <%= f.select :movie_id, movies,
-    {include_blank: t(".choose_movie")}, {class: "form-control"} %>
-  <%= f.label :title %><span style="color: red;"> *</span><br/>
-  <%= f.text_field :title, class: "form-control" %>
-  <%= f.label :content %><br/>
-  <%= f.text_area :content, class: "form-control" %>
-  <% if review.new_record? %>
-    <%= f.submit class: "btn btn-info add-book" %>
-  <% else %>
-    <%= f.submit class:"btn btn-success"%>
+<dir class="write-review">
+  <%= form_for review do |f| %>
+    <%= f.label t ".form_title" %>
+    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+      <%= f.select :movie_id, movies, {include_blank: t(".choose_movie")},
+        {class: "select-tags form-control pmd-select2-tags"} %>
+    </div>
+    <%= f.label :title %><span style="color: red;"> *</span><br/>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :content %><br/>
+    <%= f.text_area :content, class: "form-control ckeditor",  placeholder: true, id: "editor" %>
+    <% if review.new_record? %>
+      <%= f.submit class: "btn btn-info add-book" %>
+    <% else %>
+      <%= f.submit class:"btn btn-success"%>
+    <% end %>
   <% end %>
-<% end %>
+</dir>

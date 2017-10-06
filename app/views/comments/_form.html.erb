@@ -5,7 +5,8 @@
 		  <%= f.hidden_field :user_id, value: current_user.id, id: "user-id" %>
       <div class="postbox">
         <div class="avatar">
-          <%= link_to user_path(current_user), target: "_blank", class: "user" do %>
+          <%= link_to user_path(current_user), target: "_blank", class: "user",
+            "data-turbolinks": false do %>
             <img src="<%= current_user.avatar %>" alt="Avatar">
           <% end %>
         </div>

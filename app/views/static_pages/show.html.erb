@@ -50,13 +50,13 @@
   <% @reviews.each do |review| %>
     <div class="bp-block article-info">
       <div class="article-list-left cover">
-        <%= link_to review_path(review) do %>
+          <%= link_to review_path(review), "data-turbolinks": false do %>
           <img src="<%= review.movie.avatar %>" alt="<%= review.movie.name%>">
         <% end %>
       </div>
-      <h3>
+      <h3 class="home-review-title">
 	      <span style="font-weight: 500">[<%= t "user.review" %>]</span>
-	      <%= link_to review_path(review) do %>
+	      <%= link_to review_path(review), "data-turbolinks": false do %>
 		      <%= review.movie.name %>: <%= review.title %>
         <% end %>
       </h3>
@@ -68,9 +68,9 @@
           <% end %>
         <% end %>
       </p>
-      <p class="review-content"><%= truncate(review.content.html_safe, length: 500) %></p><br>
+      <p class="review-content"><%= truncate(review.content.html_safe, length: 800) %></p><br>
       <div class="read-full">
-        <%= link_to t(".read_full"), review_path(review) %>
+        <%= link_to t(".read_full"), review_path(review), "data-turbolinks": false %>
       </div>
       <br class="clear">
     </div>

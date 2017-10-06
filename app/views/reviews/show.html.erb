@@ -1,115 +1,6 @@
 <% provide(:title, @review.movie.name + " Review") %>
 <div class="row">
-  <div class="col-xs-3 movie-data">
-    <div class="movie-poster">
-      <img title="<%= @review.movie.name %>" alt="<%= @review.movie.name %>"
-        src="<%= @review.movie.avatar %>">
-    </div>
-    <div class="movie-details">
-      <h2><%= @review.movie.name %></h2>
-      <div class="movie-types">
-        <% if @review.movie.types.any? %>
-          <% @review.movie.types.each do |type| %>
-            <a href="#"><%= type.name %></a>
-            <% unless type == @review.movie.types.last %>,<% end %>
-          <% end %>
-        <% end %>
-      </div> |
-      <p><%= @review.movie.realease_date.strftime("%d %b %Y") %></p>
-      <section class="details">
-        <h5><%= t ".cast" %></h5>
-        <ul>
-          <% @review.movie.actors.each do |actor| %>
-            <li><span><%= link_to actor.name, actor_path(actor) %></span></li>
-          <% end %>
-        </ul>
-        <h5><%= t ".director" %></h5>
-        <ul>
-          <li><%= @review.movie.director %></li>
-        </ul>
-        <h5><%= t ".producer" %></h5>
-        <ul>
-          <li><%= @review.movie.producer %></li>
-        </ul>
-        <h5><%= t ".country" %></h5>
-        <ul>
-          <li><%= @review.movie.country.name %></li>
-        </ul>
-      </section>
-    </div>
-	  <%= render "trending_review", top_reviews: @top_reviews %>
-  </div>
-  <div class="col-xs-6">
-	  <div class="movie-casting">
-		  <h1>Birth of the Dragon <i>Movie Review</i></h1>
-		  <span class="movie-time">
-			  <a class="italic" rel="author" href="#">Reza Noorani</a>
-			  , TNN,  Sep 30, 2017, 11.30 AM IST
-		  </span>
-		  <div class="mrB10 clearfix">
-			  <span class="movie-rate">CRITIC'S RATING:</span>
-			  <span style="float:left;" class="blank-rating-stars"></span>
-			  <span class="ratingMovie">3.0/5</span>
-			  <span style="position:relative; float:left; padding-left:15px; line-height: 20px;">
-				  <span class="revised-block" id="stp">Revised from  to 3, based on popular feedback</span>
-			  </span>
-		  </div>
-		  <div class="mrB10 clearfix">
-			  <span class="movie-rate">AVG READERS' RATING:</span>
-			  <span style="" id="voteresultcontainer">
-				  <span style="float:left;" class="blank-rating-stars">
-					  <span class="ratingstars_blue" style="width:60%">&nbsp;</span>
-				  </span>
-				  <span class="ratingMovie">3.0/5</span>
-			  </span>
-			  <div class="search-box filter">
-				  <input class="ratedd newtextbox" value="Rate This Movie" type="text">
-				  <!--<a class="down_arrow" href="javascript:void(0)"></a>-->
-				  <ul class="drop-down">
-					  <li val="2" type="1  (Trash)">1  (Trash)</li>
-					  <li val="3" type="1.5  ( )">1.5  (Poor)</li>
-					  <li val="4" type="2  (Below average)">2  (Below average)</li>
-					  <li val="5" type="2.5  (Average)">2.5  (Average)</li>
-					  <li val="6" type="3  (Above averag)">3  (Above average)</li>
-					  <li val="7" type="3.5  (Good)">3.5  (Good)</li>
-					  <li val="8" type="4  (Very good)">4  (Very good)</li>
-					  <li val="9" type="4.5  (Very good +)">4.5  (Very good +)</li>
-					  <li val="10" type="5  (Excellent)">5  (Excellent)</li>
-				  </ul>
-			  </div>
-		  </div>
-		  <div class="mrB10 clearfix">
-			  <a class="reviewbtn" onclick="reviewmv();disablecrolling();" href="#write">Review This Movie
-				  <i class="movie_sprite review"></i>
-			  </a>
-			  <span style="display:none;" id="gaanaid" data-plugin="gaanalink"></span>
-		  </div>
-		  <div class="mrB10 clearfix">
-			  <span class="mvoierate1">Cast: </span>
-			  <span class="casting">Philip Ng a, Xia Yu, Billy Magnussen, Qu Jingjing</span>
-		  </div>
-		  <div class="mrB10 clearfix">
-			  <span class="mvoierate1">Direction: </span>
-			  <span class="casting">George Nolfi</span>
-		  </div>
-		  <div class="mr_tbdata">
-			  <div class="mrB10 clearfix">
-				  <span class="mvoierate1">Genre: </span>
-				  <span class="casting">Drama</span>
-			  </div>
-			  <div class="showtiming_data" style="background: rgb(34, 34, 34);">
-				  <span class="showtiming">
-					  <span data-plugin="showtiming" class="showtym" style="display: inline;">
-						  <a data-plugin="mvSchedule" id="showtime" href="javascript://">
-							  <i class="movie_sprite timeicon"></i>Show Timings in Your City
-						  </a>
-					  </span>
-				  </span>
-			  </div>
-		  </div>
-	  </div>
-
-
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
     <div class="title_bar_wrapper">
       <div class="titleBar">
         <div class="primary_ribbon">
@@ -120,10 +11,10 @@
         </div>
         <div class="title_wrapper">
           <h2>
-	          <span>[<%= t "user.review" %>]</span>
-	          <%= @review.movie.name %>
-	          (<%= @review.movie.realease_date.strftime("%Y") %>):
-	          <%= @review.title %>
+            <span>[<%= t "user.review" %>]</span>
+            <%= @review.movie.name %>
+            (<%= @review.movie.realease_date.strftime("%Y") %>):
+            <%= @review.title %>
           </h2>
         </div>
       </div>
@@ -137,25 +28,46 @@
       <i class="fa fa-comment"></i> <%= @review.comments.count %><br>
       <span class="author-bold"><%= t ".author" %></span>
       <span class="author-bold">
-	      <%= link_to @review.user.name, user_path(@review.user) %>
+        <%= link_to @review.user.name, user_path(@review.user), "data-turbolinks": false %>
       </span><br>
       <time><%= @review.created_at.strftime("%d %b %Y") %></time>
-    </div><br>
-    <div class="article-header"></div>
-    <div class="article-body">
-      <%= @review.content.html_safe %>
     </div>
+    <div
+      class="fb-like" data-width="450" data-share="true"
+      data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
+      data-layout="button_count" data-action="like" data-size="small"
+      data-show-faces="true">
+    </div><br><br>
+	  <%= render "movie_info", review: @review %>
 
-    <h2><%= t ".comments" %></h2>
-    <div id="comments">
-      <%= render "comments/comments", review: @review, comments: @comments %>
+    <div class="article-body">
+	    <%= @review.content.html_safe %>
     </div>
-	  <br>
-	  <% if user_signed_in? %>
+	  <hr>
+
+    <div id="comments" class="comments-part">
+	    <h2><%= t ".comments" %></h2>
+	    <%= render "comments/comments", review: @review, comments: @comments %>
+    </div>
+    <br>
+    <% if user_signed_in? %>
       <%= render "comments/form", review: @review, comment: @comment %>
-	  <% else %>
-	    Please <%= link_to t("user.login"), user_session_path %> to comment.
-	  <% end %>
+    <% else %>
+      Please <%= link_to t("user.login"), user_session_path,
+        "data-turbolinks": false %> to comment.
+    <% end %>
+    <div class="fb-comments" data-href="http://movieforyou-hienvu.c9users.io" data-numposts="5"></div>
   </div>
-	<div class="col-xs-3"></div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 top-review">
+    <%= render "trending_review", top_reviews: @top_reviews %>
+  </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1778167635845888";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
