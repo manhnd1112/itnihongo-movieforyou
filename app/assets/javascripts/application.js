@@ -21,4 +21,6 @@
 //= require propellerkit/components/select2/js/pmd-select2
 //= require propellerkit/components/textfield/js/textfield.js
 //= require ckeditor/init
+//= require cocoon
+//= require readmore-js/readmore.min
 //= require_tree .

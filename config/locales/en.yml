@@ -40,6 +40,8 @@ en:
     member: "Member since "
     review: Review
     back: Back
+    all_reviews: View all reviews
+    all_favorites: View all favorites
   reviews:
     show:
       cast: Cast
@@ -58,6 +60,8 @@ en:
       title: Title
       content: Content
       choose_movie: Select a movie
+      image_field: Change image
+      create_review: Public now
   users:
     edit: Edit
     delete: Delete

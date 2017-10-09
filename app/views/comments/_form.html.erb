@@ -1,8 +1,8 @@
 <div class="posts">
   <div class="textarea-wrapper--top-level">
     <%= form_for [review, comment], method: :post, class: "reply" do |f| %>
-		  <%= f.hidden_field :review_id, value: review.id, id: "review-id" %>
-		  <%= f.hidden_field :user_id, value: current_user.id, id: "user-id" %>
+      <%= f.hidden_field :review_id, value: review.id, id: "review-id" %>
+      <%= f.hidden_field :user_id, value: current_user.id, id: "user-id" %>
       <div class="postbox">
         <div class="avatar">
           <%= link_to user_path(current_user), target: "_blank", class: "user",
@@ -16,7 +16,7 @@
         </div>
       </div><br>
       <div class="pull-right">
-	      <button class="btn btn-primary create-comment"><%= t(".submit") %></button>
+        <button class="btn btn-primary create-comment"><%= t(".submit") %></button>
       </div>
   <% end %>
   </div><br><br>

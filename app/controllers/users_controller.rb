@@ -3,12 +3,19 @@ class UsersController < ApplicationController
 
   def show
     per_page = params[:page]
-    @reviews = @user.reviews.page(per_page).per(4)
-    @bookmarks = @user.bookmarks.page(per_page).per(4)
+    type = params[:type]
+    @reviews = @user.reviews.order("created_at desc").page(per_page).per(4)
+    @bookmarks = @user.bookmarks.order("created_at desc").page(per_page).per(4)
+    case type
+      when "review"
+        @reviews
+      when "bookmark"
+        @bookmarks
+    end
   end
 
   def reviews
-    @reviews = @user.reviews.page(params[:page]).per(8)
+    @reviews = @user.reviews.order("created_at desc").page(params[:page]).per(10)
   end
 
   private

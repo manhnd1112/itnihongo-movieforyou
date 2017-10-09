@@ -206,7 +206,6 @@
 }
 
 .author-small {
-  font-family: BenchNine, Helvetica, Arial, sans-serif;
   color: #666;
   font-weight: 400;
   font-size: 18px;
@@ -233,7 +232,6 @@
   }
 
   .article-issue {
-    font-family: BenchNine, Helvetica, Arial, sans-serif;
     font-size: 20px;
   }
 }
@@ -260,13 +258,14 @@
 
 .trending-review {
   padding: 5px 0;
+  margin-bottom: 20px;
 
   .sidebar-header {
     background: #b3140c;
     border: 1px solid #C1C0AA;
     color: #fff;
-    font-family: BenchNine, Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 700;
     line-height: 21px;
     margin: 0;
     padding: 10px 20px;
@@ -300,7 +299,8 @@
     display: block;
     float: left;
     height: 100%;
-    padding: 0 10px 10px 0;
+    padding: 0 10px 10px 0 !important;
+    width: 25%;
   }
 
   img {
@@ -314,6 +314,7 @@
 
   .article-info {
     border-bottom: 1px solid lightgray;
+    padding: 0 !important;
 
     h4 {
       line-height: 1.3em;
@@ -321,8 +322,8 @@
   }
 
   h4 {
-    font-family: BenchNine, Helvetica, Arial, sans-serif;
     font-weight: 400;
+    font-size: 18px;
     padding: 0 0 5px 0;
     margin: 0;
     text-transform: capitalize;
@@ -330,7 +331,6 @@
 
   p.author-small {
     color: #666;
-    font-family: BenchNine, Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-style: italic;
     font-weight: 400;
@@ -342,25 +342,13 @@
     margin: 0 0 10px 0;
   }
 
-  .sidebar-body .col-xs-12 {
-    padding: 0 !important;
-  }
-
-  .article-info .col-xs-12 {
-    padding: 0 10px 0 0 !important;
+  .top-review-content {
+    padding: 0 0 0 5px !important;
   }
 }
 
 .top-review {
   padding: 0 10px !important;
-}
-
-.movie-information {
-  .col-md-4,
-  .col-xs-12 {
-    background: lightgray !important;
-    padding-left: 0 !important;
-  }
 }
 
 .movie-casting {
@@ -370,9 +358,9 @@
   height: 100%;
 
   h1 {
+    color: #1e1e1e;
     margin: 0;
     padding: 0 0 5px;
-    color: #1e1e1e;
   }
 
   .movie-time {
@@ -444,11 +432,16 @@
     display: block;
   }
 
-  .movie-actors {
+  .movie-data {
     float: left;
     font-weight: 700;
+    line-height: 1.5em;
     text-transform: uppercase;
-    width: 30%;
+  }
+
+  .casting {
+    font-weight: 500;
+    text-transform: capitalize;
   }
 }
 
@@ -462,12 +455,198 @@
 }
 
 .write-review {
-  padding: 20px;
+  font-size: 18px;
+  padding: 20px 50px 50px;
 
-  input,
-  .select2-container {
-    margin-bottom: 20px !important;
+  .select2-results__option--highlighted {
+    background: cornflowerblue !important;
+  }
+
+  .select2-selection {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid #e6e6e6 !important;
+    font-size: 18px !important;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .add-review {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .form-group {
+    margin-bottom: 30px !important;
+  }
+
+  .pmd-textfield label {
+    color: #383838;
+    font-size: 20px !important;
+    font-weight: 700;
+  }
+
+  .pmd-textfield input.form-control {
+    font-size: 18px !important;
+    padding: 6px !important;
+  }
+
+  .pmd-textfield .form-control {
+    border: solid 1px #e6e6e6 !important;
+  }
+
+  .control-label {
+    font-size: 20px !important;
+  }
+
+  .title-review label {
+    text-transform: capitalize;
+  }
+
+  .select2-container .select2-selection--single {
+    height: auto!important;
   }
 }
 
-#editor {overflow:scroll; max-height:300px}
+.select2-results {
+  font-size: 18px !important;
+}
+
+.trending-content {
+  line-height: 1.3em;
+}
+
+.movie-info {
+  border-bottom:0 !important;
+
+  th, td {
+    border: 1px !important;
+    padding: 0 20px 0 0 !important;
+  }
+}
+
+.add-review-title {
+  font-size: 16px !important;
+}
+
+// Photo
+.image-preview {
+  height: 220px;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.image-field [type="file"] {
+  display: none;
+}
+
+.nested-fields {
+  overflow: hidden;
+  padding-left: 0 !important;
+  position: relative;
+
+  .col-xs-12 {
+    padding-left: 0 !important;
+  }
+}
+
+.add-images {
+  margin-bottom: 50px;
+  padding: 0 !important;
+
+  label {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px 0 0;
+  }
+
+  .add-image-button {
+    background: black;
+    height: 250px;
+    opacity: .5;
+    padding: 5px;
+
+    i {
+      color: white;
+      font-size: 80px;
+      padding-top: 75px;
+    }
+  }
+}
+
+.remove-image {
+  float: right;
+}
+
+.js .input-file-trigger {
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 5px 0;
+  text-transform: capitalize;
+  transition: all .4s;
+}
+
+.js .input-file {
+  cursor: pointer;
+  left: 0;
+  opacity: 0;
+  padding: 14px 0;
+  position: absolute;
+  top: 0;
+}
+
+.file-return {
+  margin: 0;
+}
+
+.file-return:not(:empty) {
+  margin: 1em 0;
+}
+
+.js .file-return {
+  font-size: .9em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.input-file-divigger {
+  width: 100%;
+}
+
+// require select2
+input.myErrorClass, textarea.myErrorClass {
+  border: 1px #cc0000 solid !important;
+  background: rgba(255, 229, 229, .8) !important;
+}
+
+input.myErrorClass, textarea.myErrorClass, .select2-selection.myErrorClass {
+  display: block;
+  font-size: 18px !important;
+  padding: 6px !important;
+}
+
+label.myErrorClass {
+  color: red !important;
+  display: block;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 5px 0 !important;
+}

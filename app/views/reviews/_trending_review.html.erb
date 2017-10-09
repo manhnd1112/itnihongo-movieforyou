@@ -11,7 +11,7 @@
             <%= image_tag review.movie.avatar, alt: review.movie.name %>
           <% end %>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9 top-review-content">
           <h4 class="trending-title">
             <%= link_to review_path(review), "data-turbolinks": false do %>
               <%= review.title %>
@@ -23,7 +23,7 @@
             <% end %>
           </p>
           <p class="trending-content">
-	          <%= truncate(review.content, length: 150) %>
+            <%= truncate(review.content, length: 150) %>
           </p>
         </div>
       </div>

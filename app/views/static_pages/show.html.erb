@@ -15,20 +15,21 @@
 <div class="owl-carousel new-movies-slide">
   <% @movies.each do |movie| %>
     <div class="movie-items">
-      <img src="<%= movie.avatar %>" alt="<%= movie.name %>" title="<%= movie.name %>">
+      <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
+        title="<%= movie.name %>" class="movie-poster">
       <span class="best-rate">
         <i class="fa fa-star-o" aria-hidden="true"></i><br>
         <%= movie.rates.first.try :score %><br>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       </span>
-	    <div class="caption-overlay">
-		    <div class="primary">
-			    <div class="movie-caption">
-				    <a href="#"><%= movie.name %></a>
-			    </div>
-		    </div>
-		    <div class="secondary ellipsis"><%= movie.director %></div>
-	    </div>
+      <div class="caption-overlay">
+        <div class="primary">
+          <div class="movie-caption">
+            <a href="#"><%= movie.name %></a>
+          </div>
+        </div>
+        <div class="secondary ellipsis"><%= movie.director %></div>
+      </div>
     </div>
   <% end %>
 </div>
@@ -50,14 +51,14 @@
   <% @reviews.each do |review| %>
     <div class="bp-block article-info">
       <div class="article-list-left cover">
-          <%= link_to review_path(review), "data-turbolinks": false do %>
+        <%= link_to review_path(review), "data-turbolinks": false do %>
           <img src="<%= review.movie.avatar %>" alt="<%= review.movie.name%>">
         <% end %>
       </div>
       <h3 class="home-review-title">
-	      <span style="font-weight: 500">[<%= t "user.review" %>]</span>
-	      <%= link_to review_path(review), "data-turbolinks": false do %>
-		      <%= review.movie.name %>: <%= review.title %>
+        <span style="font-weight: 500">[<%= t "user.review" %>]</span>
+        <%= link_to review_path(review), "data-turbolinks": false do %>
+          <%= review.movie.name %>: <%= review.title %>
         <% end %>
       </h3>
       <p class="genre-links hidden-phone">&gt;&nbsp;

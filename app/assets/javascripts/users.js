@@ -1,34 +1,35 @@
-//= require_self
-
 $(document).ready(function() {
-  var showChar = 400;
-  var ellipsestext = "...";
-  var moretext = "See more ▼";
-  var lesstext = "See less ▲";
-
-  $('.more').each(function() {
-    var content = $(this).html();
-
-    if(content.length > showChar) {
-      var c = content.substr(0, showChar);
-      var h = content.substr(showChar, content.length - showChar);
-      var html = c + '<span class="moreellipses">' + ellipsestext+
-        '&nbsp;</span><span class="morecontent"><span>' + h +
-        '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-      $(this).html(html);
-    }
+  // read more
+  $('.more').readmore({
+    speed: 100,
+    lessLink: '<br><a href="#">Read less</a>',
+    collapsedHeight: 260,
+    embedCSS: true
   });
 
-  $(".morelink").click(function(){
-    if($(this).hasClass("less")) {
-      $(this).removeClass("less");
-      $(this).html(moretext);
-    } else {
-      $(this).addClass("less");
-      $(this).html(lesstext);
-    }
-    $(this).parent().prev().toggle();
-    $(this).prev().toggle();
-    return false;
+  // $('.filter').click(function() {
+  //   $(this).parent().parent().children().find('.active').removeClass('active');
+  //   $(this).addClass('active');
+  // });
+
+  // active li nav
+  var url = window.location;
+  $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+  $('ul.nav a').filter(function() {
+    return this.href == url;
+  }).parent().addClass('active');
+});
+
+$(document).off('click', 'ul.pagination a');
+$(document).on('click', 'ul.pagination a', function(e) {
+  e.preventDefault();
+  var url = $(this).attr('href');
+  $('#list-reviews').load(url + ' #list-reviews', function() {
+    $('.more').readmore({
+      speed: 100,
+      lessLink: '<a href="#"><br>Read less</a>',
+      collapsedHeight: 260,
+      embedCSS: true
+    });
   });
 });

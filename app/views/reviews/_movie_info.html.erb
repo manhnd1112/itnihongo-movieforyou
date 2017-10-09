@@ -47,7 +47,8 @@
         </tbody>
       </table>
       <div class="mrB10 clearfix">
-        <%= link_to new_review_path, class: "review-btn", "data-turbolinks": false do %>
+        <%= link_to new_review_path(movie_id: review.movie.id), class: "review-btn",
+          "data-turbolinks": false do %>
           <%= t "reviews.show.review_movie" %>
         <% end %>
       </div>

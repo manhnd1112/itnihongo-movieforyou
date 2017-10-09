@@ -26,14 +26,17 @@
 
 .profile-user-name {
   color: #5a7391;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 7px;
 }
 
 .profile-user-username {
   color: #5b9bd1;
+<<<<<<< HEAD
   font-size: 16px;
+=======
+>>>>>>> 9e641be5870c250e12848d5820118b15415948c3
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -494,4 +497,59 @@
 .img-responsive {
   display: block; 
   margin: 0 auto;
+<<<<<<< HEAD
+=======
+}
+
+.profile-sidebar {
+  font-size: 18px !important;
+
+  a {
+    font-size: 18px !important;
+  }
+
+  li a {
+    color: gray !important;
+  }
+
+  li.active a {
+    color: #5b9bd1 !important;
+    font-weight: 600;
+  }
+}
+
+.profile-content {
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+}
+
+.review-pagi .pagination {
+  margin: 5px !important;
+}
+
+.edit-review {
+  padding-top: 10px;
+}
+
+.more {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.edit-review .btn {
+  font-weight: 700 !important;
+}
+
+[data-readmore-toggle], selector[data-readmore] {
+  display: block;
+  width: 100%;
+}
+
+.all-comment {
+  font-size: 18px !important;
+  font-weight: 700;
+>>>>>>> 9e641be5870c250e12848d5820118b15415948c3
 }

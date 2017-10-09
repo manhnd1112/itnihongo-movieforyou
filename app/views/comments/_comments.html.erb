@@ -1,4 +1,4 @@
-<div class="comments" id="comment-list">
+<div class="comments" id="list-reviews">
   <% if comments.any? %>
     <% comments.each do |comment| %>
       <div class="post-content">
@@ -60,7 +60,7 @@
                   <%= button_tag t("button.delete"), value: review.id,
                     data: {confirm: t("button.confirm"), id: comment.id,
                     page: comments.current_page},
-                    class: "delete btn btn-default" %>
+                    class: "delete-comment btn btn-default" %>
                 </span>
               </span>
               <span class="bullet" aria-hidden="true">•</span>

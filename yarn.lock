@@ -24,6 +24,10 @@ jquery-mousewheel@~3.1.13:
   version "3.1.13"
   resolved "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
 
+jquery@2:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+
 jquery@>=1.8.3, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
@@ -31,6 +35,10 @@ jquery@>=1.8.3, jquery@^3.2.1:
 jquery@^1.9.0:
   version "1.12.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
+
+jquery@~2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
 
 marked@*:
   version "0.3.6"
@@ -52,6 +60,22 @@ propellerkit@^1.1.0:
   dependencies:
     bootstrap "^3.0.0"
     jquery "^1.9.0"
+
+raty-js@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/raty-js/-/raty-js-2.7.1.tgz#30ad1d6190d61b6cf01c4a166c35123a47caf273"
+  dependencies:
+    jquery "2"
+
+readmore-js@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/readmore-js/-/readmore-js-2.1.0.tgz#0cf33cfc6f1f06af2a58e8e4fc4704db8c77fb57"
+  dependencies:
+    jquery "~2.1.4"
+
+select2-bootstrap-theme@^0.1.0-beta.10:
+  version "0.1.0-beta.10"
+  resolved "https://registry.yarnpkg.com/select2-bootstrap-theme/-/select2-bootstrap-theme-0.1.0-beta.10.tgz#b9426ecfc03bf4a235e76a132377574310469ac0"
 
 select2@^4.0.4:
   version "4.0.4"

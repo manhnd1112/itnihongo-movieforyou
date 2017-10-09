@@ -48,8 +48,8 @@ class User < ApplicationRecord
         name: auth.info.name,
         remote_avatar_url: auth.info.image.gsub('http://','https://'),
         email: auth.info.email,
-        password: Devise.friendly_token[0,20]}
-      )
+        password: Devise.friendly_token[0,20]
+      })
       user.save!
     end
     user

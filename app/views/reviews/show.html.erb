@@ -35,28 +35,29 @@
     <div
       class="fb-like" data-width="450" data-share="true"
       data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
-      data-layout="button_count" data-action="like" data-size="small"
-      data-show-faces="true">
+      data-layout="button_count" data-action="like" data-size="small">
     </div><br><br>
-	  <%= render "movie_info", review: @review %>
+    <%= render "movie_info", review: @review %>
 
     <div class="article-body">
-	    <%= @review.content.html_safe %>
+      <%= @review.content.html_safe %>
     </div>
-	  <hr>
+    <hr>
 
-    <div id="comments" class="comments-part">
-	    <h2><%= t ".comments" %></h2>
-	    <%= render "comments/comments", review: @review, comments: @comments %>
-    </div>
-    <br>
+    <h2 class="comments-title"><%= t ".comments" %></h2>
     <% if user_signed_in? %>
       <%= render "comments/form", review: @review, comment: @comment %>
     <% else %>
       Please <%= link_to t("user.login"), user_session_path,
         "data-turbolinks": false %> to comment.
-    <% end %>
-    <div class="fb-comments" data-href="http://movieforyou-hienvu.c9users.io" data-numposts="5"></div>
+    <% end %><br>
+    <div id="comments" class="comments-part">
+      <%= render "comments/comments", review: @review, comments: @comments %>
+    </div>
+    <div class="text-center">
+      <div class="fb-comments" data-href="http://movieforyou-hienvu.c9users.io"
+        data-numposts="5"></div>
+    </div>
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 top-review">

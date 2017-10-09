@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20171005220151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "review", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
     t.text "content"

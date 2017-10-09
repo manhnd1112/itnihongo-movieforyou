@@ -1,53 +1,22 @@
 <% provide(:title, @user.username) %>
 <div class="row profile">
-  <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
-    <div class="profile-sidebar text-center">
-      <div class="profile-user-avatar">
-        <%= image_tag @user.avatar, class: "img-responsive" %>
-      </div>
-      <div class="profile-user-title">
-        <div class="profile-user-name">
-          <%= @user.name %>
-        </div>
-        <div class="profile-user-username">
-          <%= @user.username %>
-        </div>
-        <%= t "user.member" %><%= @user.created_at.strftime("%b %Y") %><br>
-      </div>
-	    <% if user_signed_in? && @user.id == current_user.id %>
-	      <div class="text-center profile-buttons">
-		      <%= link_to t("user.edit"), edit_user_registration_path, method: :get,
-            class: "btn btn-success btn-sm", "data-turbolinks": false %>
-	      </div>
-	    <% end %>
-	    <div class="profile-user-menu">
-        <!-- <ul class="nav">
-          <li class="active">
-            <= link_to "#" do %>
-              <i class="glyphicon glyphicon-home"></i> <= t "user.reviews" %>
-            < end %>
-          </li>
-          <li>
-	          <= link_to "#" do %>
-              <i class="glyphicon glyphicon-heart"></i> <= t "user.favorites" %>
-	          < end %>
-          </li>
-          <li>
-	          <= link_to "#" do %>
-              <i class="glyphicon glyphicon-flag"></i> <= t "user.histories" %>
-	          < end %>
-          </li>
-        </ul> -->
-      </div>
-    </div>
-  </div>
+  <%= render "user_profile", user: @user %>
   <div class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
     <div class="profile-content">
-      <div class="widget article userLists">
-        <%= render "users/reviews.html.erb", reviews: @reviews %>
+      <div class="widget article userLists list-all-reviews" data-turbolinks="false">
+        <h2><%= t "user.reviews" %></h2>
+        <div id="list-reviews">
+          <div class="text-right reviewpagi">
+            <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
+          </div>
+          <%= render "review", reviews: @reviews, user: @user %>
+          <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
+            "data-turbolinks": false, class: "all-comment" %>
+        </div>
       </div>
       <div class="widget article userLists">
-        <%= render "users/bookmarks.html.erb", bookmarks: @bookmarks %>
+        <h2><%= t "user.favorites" %></h2>
+        <%= render "bookmark", bookmarks: @bookmarks %>
       </div>
     </div>
   </div>
