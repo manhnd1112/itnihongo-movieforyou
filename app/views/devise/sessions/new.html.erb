@@ -1,30 +1,49 @@
-<h2>Log in</h2>
+<% provide(:title, "Login") %>
+<div class="row login-form">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4
+    pmd-card pmd-card-default pmd-z-depth-1">
+    <h2>LOGIN</h2><hr>
+    <%= link_to "/users/auth/facebook", class: "btn btn-primary login-fb",
+      "data-turbolinks": false do %>
+      Login with facebook
+    <%- end %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :username_or_email, class: "control-label pmd-input-group-label" %><br>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="material-icons md-dark pmd-sm">perm_identity</i>
+          </div>
+          <%= f.text_field :login, autofocus: false,
+            class: "form-control", id: "exampleInputAmount" %>
+        </div>
+      </div>
+      <div class="form-group pmd-textfield pmd-textfield-floating-label">
+        <%= f.label :password, class: "control-label pmd-input-group-label" %><br>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="material-icons md-dark pmd-sm">https</i>
+          </div>
+          <%= f.password_field :password, autocomplete: "off",
+            class: "form-control", id: "exampleInputAmount" %>
+        </div>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <% if devise_mapping.rememberable? -%>
+        <div class="checkbox pmd-default-theme">
+          <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </label>
+        </div>
+      <% end -%>
+      <div class="actions text-center">
+        <%= f.submit t("user.login"),
+          class: "btn pmd-btn-raised pmd-ripple-effect btn-primary" %>
+      </div>
+    <% end %><hr>
+    <div class="text-center login-link">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-<%= link_to('/users/auth/facebook', {:class => "btn btn-primary"}) do %>  
-  Login with facebook
-<%- end %>  
-<br/>
-
-<%= render "devise/shared/links" %>
+</div>

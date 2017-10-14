@@ -3,8 +3,19 @@ class UsersController < ApplicationController
 
   def show
     per_page = params[:page]
-    @reviews = current_user.reviews.page(per_page).per(4)
-    @bookmarks = current_user.bookmarks.page(per_page).per(4)
+    type = params[:type]
+    @reviews = @user.reviews.order("created_at desc").page(per_page).per(4)
+    @bookmarks = @user.bookmarks.order("created_at desc").page(per_page).per(4)
+    case type
+      when "review"
+        @reviews
+      when "bookmark"
+        @bookmarks
+    end
+  end
+
+  def reviews
+    @reviews = @user.reviews.order("created_at desc").page(params[:page]).per(10)
   end
 
   private
@@ -13,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
 
     return if @user.present?
-    flash[:danger] = t "flash.user.not_found"
+    flash[:danger] = t "flash.users.not_found"
     redirect_to root_path
   end
 end

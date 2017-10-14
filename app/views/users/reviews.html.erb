@@ -1,0 +1,23 @@
+<% provide(:title, "Reviews written by " + @user.username) %>
+<div class="row profile">
+  <%= render "user_profile", user: @user %>
+  <div class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
+    <div class="profile-content">
+      <div class="widget article userLists">
+        <h2>Reviews written by <%= @user.username %></h2>
+        <div id="list-reviews">
+          <div class="text-center" data-turbolinks="false">
+            <div class="review-pagination">
+              <%= paginate @reviews %>
+            </div>
+            <p class="page-info"><%= page_entries_info @reviews %></p>
+          </div><hr>
+          <%= render "review", reviews: @reviews %>
+          <div class="review-pagination text-center" data-turbolinks="false">
+            <%= paginate @reviews %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

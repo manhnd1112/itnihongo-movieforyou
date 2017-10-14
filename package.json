@@ -1,5 +1,18 @@
 {
   "name": "ibookx",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "owl-carousel-2": "^0.0.3",
+    "owl.carousel": "^2.2.0",
+    "photoswipe": "^4.1.2",
+    "propellerkit": "^1.1.0",
+    "raty-js": "^2.7.1",
+    "readmore-js": "^2.1.0",
+    "select2": "^4.0.4",
+    "select2-bootstrap-theme": "^0.1.0-beta.10",
+    "simplemde": "^1.11.2",
+    "slick-carousel": "^1.8.1"
+  }
 }

@@ -10,6 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require propellerkit/dist/css/propeller.min
+ *= require owl.carousel/dist/assets/owl.carousel.min
+ *= require simplemde/dist/simplemde.min
+ *= require select2/dist/css/select2.min
+ *= require propellerkit/components/select2/css/pmd-select2
+ *= require propellerkit/components/textfield/css/textfield
+ *= require select2-bootstrap-theme/dist/select2-bootstrap
+ *= require raty-js/lib/jquery.raty
+ *= require slick-carousel/slick/slick
+ *= require slick-carousel/slick/slick-theme
+ *= require photoswipe/dist/photoswipe
+ *= require photoswipe/dist/default-skin/default-skin
+ *= require raty-js/lib/jquery.raty
  */

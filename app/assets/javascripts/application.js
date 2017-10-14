@@ -12,6 +12,19 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require propellerkit/dist/js/propeller.min
+//= require owl.carousel/dist/owl.carousel.min
+//= require simplemde/dist/simplemde.min
+//= require select2/dist/js/select2.min
+//= require propellerkit/components/select2/js/pmd-select2
+//= require propellerkit/components/textfield/js/textfield.js
+//= require ckeditor/init
+//= require cocoon
+//= require readmore-js/readmore.min
+//= require slick-carousel/slick/slick.min
+//= require photoswipe/dist/photoswipe.min
+//= require photoswipe/dist/photoswipe-ui-default.min
+//= require raty-js/lib/jquery.raty
 //= require_tree .

@@ -1,28 +1,54 @@
+<div class="site-poster">
+  <div class="header-wrapper">
+    <div class="header section header-home">
+      <div class="widget Header">
+        <div class="header-inner">
+          <h1>
+            <img alt="Film Reviews"
+              src="//4.bp.blogspot.com/-llEk8AJGVJQ/VStz-dzN_EI/AAAAAAAAE5I/wBrEPbTAjmE/s1600/logo.png">
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+</div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Ibookx</a>
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to t("app_name"), root_path, class: "navbar-brand home_img",
+        "data-turbolinks": false %>
     </div>
-    <ul class="nav navbar-nav">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Movie", movies_path %></li>
-      <li><%= link_to "Review", reviews_path %></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <%= render "layouts/header_user.html.erb" %>
-      <% else %>
-        <li>
-          <%= link_to new_user_registration_path, method: :get do %>
-            <span class="glyphicon glyphicon-user"></span> Sign Up
-          <% end %>
-        </li>
-        <li>
-          <%= link_to user_session_path, method: :get do %>
-            <span class="glyphicon glyphicon-log-in"></span> Login
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t("user.home"), root_path, "data-turbolinks": false %></li>
+        <li><%= link_to t("user.movies"), movies_path, "data-turbolinks": false %></li>
+        <li><%= link_to t("user.reviews"), reviews_path, "data-turbolinks": false %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <%= render "layouts/header_user.html.erb" %>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path, method: :get, "data-turbolinks": false do %>
+              <span class="glyphicon glyphicon-user"></span> <%= t "user.sign_up" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_session_path, method: :get, "data-turbolinks": false do %>
+              <span class="glyphicon glyphicon-log-in"></span> <%= t "user.login" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>

@@ -1,1 +1,2 @@
-<%= render "form", review: @review, movies: @movies %>
+<% provide(:title, "Write review") %>
+<%= render "form", review: @review, movies: @movies, movie: @movie %>

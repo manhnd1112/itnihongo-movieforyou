@@ -1,0 +1,356 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <div id="topSection">
+
+      <!-- poster film -->
+      <div id="movie-image-section" class="col-sm-7 col-xs-9">
+        <div class="center">
+          <img src="<%= @movie.avatar %>" alt="Inception" class="posterImage">
+          <div id="critics-add-article" class="hidden-xs" style="display:none;">
+            <a href="/critics/tools/movie/?movieId=770805418">Add Article</a>
+          </div>
+          <div class="movie-info-show">
+            <a class="icon share" data-title="Kẻ Ngoại Tộc" href="h"></a>
+            <div class="icon imdb">
+              <strong><%= @movie.imdb %></strong>
+              <small>IMDb</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- khung ben -->
+      <div id="scorePanel" class="score_panel col-sm-17 col-xs-15">
+        <div class="col-sm-16 col-xs-12 tmeter-panel">
+          <h3 class="scoreTitle superPageFontColor">
+            TOMATOMETER <span class="glyphicon glyphicon-question-sign hidden-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="The percentage of Approved Tomatometer Critics who have given this movie a positive review"></span>
+          </h3>
+          <div class="tab-content">
+            <div id="all-critics-numbers" class="tab-pane active">
+              <div class="row">
+                <div class="col-sm-12 info-movie">
+                  <div class="tomato-left">
+                    <!--<div class="critic-score meter">-->
+                    <!--  <a href="#contentReviews" class="unstyled articleLink" id="tomato_meter_link">-->
+                    <!--    <span class="meter-tomato icon big medium-xs certified_fresh pull-left"></span>-->
+                    <!--    <span class="meter-value superPageFontColor"><span>86</span>%</span>-->
+                    <!--  </a>-->
+                    <!--</div>-->
+                    <div id="scoreStats" class="hidden-xs">
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor">Average Rating: </span>
+                        <span><%= @movie.average_rate.round(1) %>/10</span>
+                        <div class="average-rate rating-xs rating-active"
+                          data-score="<%= @movie.average_rate %>"></div>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor">Reviews Counted: </span>
+                        <span><%= @movie.reviews.count %></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor audience-info">Fresh: </span>
+                        <span></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor audience-info">Rotten: </span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 tomato-info hidden-xs" style="padding-left:0">
+                  <div class="progress">
+                    <div class="progress-bar certified_fresh" style="width:86%;"></div>
+                  </div>
+                  <p class="critic_consensus superPageFontColor">
+                    <span class="subtle superPageFontColor">Critics Consensus:</span>
+                    Smart, innovative, and thrilling, <em>Inception</em> is that rare summer blockbuster that succeeds viscerally as well as intellectually.</p>
+                </div>
+              </div>
+            </div>
+              
+            <div id="top-critics-numbers" class="tab-pane">
+              <div class="row">
+                <div class="col-sm-12 info-movie">
+                  <div class="tomato-left">
+                    <div class="critic-score meter">
+                      <a href="#contentReviews" class="unstyled articleLink" id="tomato_meter_link">
+                      <span class="meter-tomato icon big medium-xs certified_fresh pull-left"></span>
+                      <span class="meter-value superPageFontColor">
+                        <span>85</span>%
+                      </span>
+                      </a>
+                    </div>
+                    <div id="scoreStats" class="hidden-xs">
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor">Average Rating: </span>
+                        <span><%= @movie.average_rate.round(1) %></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor">Reviews Counted: </span>
+                        <span><%= @movie.reviews.count %></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor audience-info">Fresh: </span>
+                        <span></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor audience-info">Rotten: </span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 tomato-info hidden-xs" style="padding-left:0">
+                  <div class="progress">
+                    <div class="progress-bar certified_fresh" style="width:85%;"></div>
+                  </div>
+                  <p class="critic_consensus superPageFontColor">
+                    <span class="subtle superPageFontColor">Critics Consensus:</span>
+                    Smart, innovative, and thrilling, <em>Inception</em> is that rare summer blockbuster that succeeds viscerally as well as intellectually.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-8 col-xs-12 audience-panel">
+          <h3 class="scoreTitle superPageFontColor">
+            AUDIENCE SCORE
+            <span class="glyphicon glyphicon-question-sign hidden-xs" rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="The percentage of users who have rated this movie 3.5 stars or higher"></span>
+          </h3>
+          <div class="audience-score meter">
+            <a href="#audience_reviews" class="unstyled articleLink">
+              <div class="meter media">
+                <div class="meter-tomato icon big medium-xs upright pull-left"></div>
+                <div class="media-body" style="line-height:36px">
+                  <div class="meter-value">
+                      <span class="superPageFontColor" style="vertical-align:top">82%</span>
+                  </div>
+                  <div class="smaller bold hidden-xs superPageFontColor" style="padding-left:5px;line-height:12px">liked it</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="audience-info hidden-xs superPageFontColor">
+            <div>
+              <span class="subtle superPageFontColor">Average Rating:</span>
+              4.1/5
+            </div>
+            <div>
+              <span class="subtle superPageFontColor">User Ratings:</span>
+              38,820
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- khung rate -->
+      <div id="rating_widget_desktop" class="tmeter-panel">
+        <h3 class="rating_widget_desktop-header">
+          <span>ADD YOUR RATING</span>
+        </h3>
+        <% if user_signed_in? %>
+          <div class="media rating_widget">
+            <%= link_to user_path(current_user), rel: "nofollow",
+              class: "pull-left hidden-xs user-avatar" do %>
+              <img role="presentation" class="media-object pull-left"
+                src="<%= current_user.avatar %>">
+            <% end %>
+            <div class="media-body">
+              <div class="rating_widget-body">
+                <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
+                <div class="hidden current-movie-id" id="<%= @movie.id %>"></div> 
+                <div class="rating_widget-body-star">
+                  <div id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></div>
+                </div>
+                <div class="rating_textbox">
+                  <textarea class="rating_textbox-textarea clearfix" placeholder="Add a Review (Optional)"></textarea>
+                  <!--<div class="btn-group-xs rating_textbox-submit clearfix">-->
+                  <!--  <span class="rating_textbox-submit-status"></span>-->
+                  <!--</div>-->
+                </div>
+                <%= button_tag "Post", class: "btn rating_widget-body-btn submit-rate" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "Login", user_session_path, "data-turbolinks": "false" %>
+          to rate
+        <% end %>
+      </div> <!-- end rating frame -->
+    </div>
+  
+    <!-- movie info -->
+    <section class="panel panel-rt panel-box movie_info media">
+      <div class="media-body">
+        <h2 class="panel-heading">Movie Info</h2>
+        <div class="panel-body content_body">
+          <div id="movieSynopsis" class="movie_synopsis clamp clamp-6" style="clear:both">
+            Thirty years after the events of the first film, a new blade runner
+          </div>
+          <ul class="content-meta info">
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Rating: </div>
+              <div class="meta-value">R (for violence, some sexuality, nudity and language)</div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Genre: </div>
+              <div class="meta-value">
+                <a href="/browse/opening/?genres=1">
+                  Action &amp; Adventure</a>, <a href="/browse/opening/?genres=9">
+                  Drama</a>, <a href="/browse/opening/?genres=14">
+                  Science Fiction &amp; Fantasy
+                </a>
+              </div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Directed By: </div>
+              <div class="meta-value">
+                <a href="/celebrity/denis-villeneuve">Denis Villeneuve</a>
+              </div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Written By: </div>
+              <div class="meta-value">
+                <a href="/celebrity/michael-green">Michael Green</a>,
+                <a href="/celebrity/1056424-hampton_fancher">Hampton Fancher</a>
+              </div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">In Theaters: </div>
+              <div class="meta-value">
+                  <time datetime="2017-10-05T17:00:00-07:00">Oct 6, 2017</time>
+                  <span style="text-transform:capitalize">&nbsp;wide</span>
+              </div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Box Office: </div>
+              <div class="meta-value">$32,753,122</div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Runtime: </div>
+              <div class="meta-value">
+                <time datetime="P164M">
+                  164 minutes
+                </time>
+              </div>
+            </li>
+            <li class="meta-row clearfix">
+              <div class="meta-label subtle">Studio: </div>
+              <div class="meta-value">
+                <a href="http://bladerunnermovie.com" target="movie-studio">Warner Bros. Pictures</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section><br>
+
+    <!-- cast -->
+    <section class="panel panel-rt panel-box movie_info media">
+      <div class="media-body">
+        <h2 class="panel-heading">Cast</h2>
+        <div class="listNewsCinema">
+          <ul class="blockList">
+            <li>
+              <div class="imgThumb">
+                <img src="default.png" alt="Director" width="65" height="65">
+              </div>
+              <div class="blockContInfo">
+                <h4 class="titleItemSmall">
+                  <div class="name">
+                    <%= @movie.director %>
+                  </div><br>
+                  <span class="support-text" style="font-size: 12px;color:#939393;">Director</span>
+                </h4>
+              </div>
+            </li>
+            <% if @movie.actors.any? %>
+              <% @movie.actors.each do |actor| %>
+                <li>
+                  <%= link_to actor_path(actor), target: "_blank", class: "imgThumb" do %>
+                    <img src="<%= actor.avatar_image %>" alt="Director" width="65" height="65">
+                  <% end %>
+                  <div class="blockContInfo">
+                    <h4 class="titleItemSmall">
+                      <%= link_to actor_path(actor), target: "_blank", class: "name" do %>
+                        <%= actor.name %>
+                      <% end %><br>
+                      <span class="support-text" style="font-size: 12px;color:#939393;">Main</span>
+                    </h4>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </section> <!-- end cast -->
+
+      <!-- review -->
+    <section class="panel panel-rt panel-box movie_info media">
+      <div class="media-body">
+        <h2 class="panel-heading">Review</h2>
+        <div class="film-detail-other-news">
+          <ul class="blockList">
+            <br>
+            <% if @movie.reviews.any? %>
+              <% @movie.reviews.each do |review| %>
+                <li style="margin-bottom: 15px;">
+                  <%= link_to review_path(review), target: "_blank", class: "imgThumb" do %>
+                    <img src="<%= review.photos.first.try :url %>" width="100" height="100">
+                  <% end %>
+                  <div class="blockContInfo">
+                    <h4 class="title">
+                      <%= link_to review_path(review), target: "_blank" do %>
+                        <small class="tag review-by-123phim">123Phim Review</small>
+                        <%= review.title %>
+                      <% end %>
+                    </h4>
+                    <p><%= truncate_html(review.content, length: 150) %></p>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </section> <!-- end review -->
+
+      <!-- other movies -->
+    <section class="panel panel-rt panel-box movie_info media">
+      <div class="media-body">
+        <h2 class="panel-heading">Movie Info</h2>
+        <div class="content tag">
+          <div class="group">
+            <h2 class="blockTitle">
+              <a>May you interest</a>
+              <small>Related movies</small>
+            </h2>
+            <div class="block-base movie" style="width:157px">
+              <a href="#">
+                <img src="https://s3img.vcdn.vn/123phim/2017/09/ke-trom-cho-15063234249761.jpg" width="157" height="224">
+              </a>
+              <div class="movie-info-show rate">
+                <div class="icon imdb">
+                  <strong>0</strong>
+                  <small>IMDb</small>
+                </div>
+                <a href="#" target="_self" class="litebox icon play-trailer" data-litebox-group="trailer">&nbsp;</a>
+              </div>
+              <span class="publish-date-new">
+                <span class="date">06</span>
+                <span class="month">/10</span>
+              </span>
+              <a href="#" class="film-name" target="_blank">Kẻ Trộm Chó (C16)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- end other movies -->
+  </div>
+</div>

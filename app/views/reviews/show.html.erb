@@ -1,96 +1,170 @@
+<% provide(:title, @review.movie.name + " Review") %>
 <div class="row">
-  <div class="col-xs-4 movie-data">
-    <div class="movie-poster">
-      <img title="<%= @review.movie.name %>" alt="<%= @review.movie.name %>"
-        src="<%= @review.movie.avatar %>">
-    </div>
-    <div class="movie-details">
-      <h2><%= @review.movie.name %></h2>
-      <div class="movie-types">
-        <% if @review.movie.types.any? %>
-          <% @review.movie.types.each do |type| %>
-            <a href="#"><%= type.name %></a>
-            <% unless type == @review.movie.types.last %>,<% end %>
-          <% end %>
-        <% end %>
-      </div> |
-      <p><%= @review.movie.realease_date.strftime("%d %b %Y") %></p>
-      <section class="details">
-        <h5>Cast</h5>
-        <ul>
-          <li>
-            <a href="#"><span></span></a>
-          </li>
-        </ul>
-        <h5>Director</h5>
-        <ul>
-          <li>
-            <a href="#"><%= @review.movie.director %></a>
-          </li>
-        </ul>
-        <h5>Producer</h5>
-        <ul>
-          <li><a href="#"><%= @review.movie.producer %></a></li>
-        </ul>
-        <h5>Country</h5>
-        <ul>
-          <li><a href="#"><%= @review.movie.country.name %></a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-  <div class="col-xs-8">
-    <div class="title_bar_wrapper">
-<!--       <div class="ratings_wrapper">
-        <div class="imdbRating">
-          <div class="ratingValue">
-            <strong>
-              <span itemprop="ratingValue">9.3</span>
-            </strong>
-            <span class="grey">/</span>
-            <span class="grey" itemprop="bestRating">10</span>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 review-details">
+    <div class="review-movie">
+      <div class="title_bar_wrapper">
+        <div class="titleBar">
+          <div class="primary_ribbon">
+            <div class="ribbonize">
+              <span class="iconFacebook glyphicon glyphicon-bookmark">
+                <i class="fa fa-plus" style="color: white"></i>
+              </span>
+              <!--<div class="wl-ribbon standalone not-inWL" title="<= t ".add_bookmark" %>"></div>-->
+            </div>
           </div>
-          <span class="small" itemprop="ratingCount">1,858,929</span>
-        </div>
-      </div> -->
-      <div class="titleBar">
-        <div class="primary_ribbon">
-          <div class="ribbonize">
-            <img src="http://simpleicon.com/wp-content/uploads/bookmark.png">
-            <div class="wl-ribbon standalone not-inWL" title="Click to add to watchlist"></div>
+          <div class="title_wrapper">
+            <h2 class="review-title title-font">
+              <span>[<%= t "user.review" %>]</span>
+              <%= @review.movie.name %>
+              (<%= @review.movie.realease_date.strftime("%Y") %>):
+              <%= @review.title %>
+            </h2>
           </div>
-        </div>
-        <div class="title_wrapper">
-          <h1><%= @review.movie.name %>
-            <span class="titleYear">(<%= @review.movie.realease_date.strftime("%Y") %>)</span>
-          </h1>
         </div>
       </div>
-    </div>
-    <p class="byline">
-      <span itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
+      <div class="byline">
+        <span class="author-bold title-font"><%= t ".author" %></span>
+        <span class="author-bold" style="font-size: 20px">
+          <%= link_to @review.user.name, user_path(@review.user), "data-turbolinks": false %>
+        </span><br>
+        <span class="author-bold title-font">Author's rate:</span>
         <span class="star-rating">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-        </span>
-      </span>&nbsp;|&nbsp;
-      <a href="#">
-        <span><%= @review.user.email %></span>
-      </a>
-    </p>
-    <section>
-      <time><%= @review.created_at.strftime("%d %b %Y") %></time>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a class="comments">
-        <i class="fa fa-comment"></i> <%= @review.comments.count %>
-      </a>
-    </section>
-    <div class="article-header">
-      <h3><%= @review.title %></h3>
+          <% author_rate = author_rate(@review.movie, @review.user) %>
+          <% if author_rate > 0 %>
+            <% overage = author_rate - author_rate.round %>
+            <% if overage < 0 && overage.abs < 0.5  %>
+              <% (author_rate.round - 1).times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% (5 - author_rate).round.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <% author_rate.round.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - author_rate.round).times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            (<%= author_rate.round(1) %>)
+          <% else %>
+            Not yet rated.
+          <% end %>
+        </span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span class="iconFacebook glyphicon glyphicon-comment"></span>
+        <%= @review.comments.count %><br>
+        <time class="title-font">
+          <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+            <path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
+          </svg>
+          <%= @review.created_at.strftime("%d %b %Y") %>
+        </time>
+      </div><br>
+      <div
+        class="fb-like" data-width="450" data-share="true"
+        data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
+        data-layout="button_count" data-action="like" data-size="small">
+      </div><br><br>
+      
+      <!-- content area -->
+      <ul class="movieitemlisting tabsintbgshow title-font">
+        <li class="tablive">
+          <p>
+            <%= t ".movie_info" %>
+            <span></span>
+          </p>
+        </li>
+      </ul>
+      <%= render "movie_info", review: @review %>
     </div>
     <div class="article-body">
-      <%= @review.content.html_safe %>
+      <ul class="movieitemlisting tabsintbgshow title-font">
+        <li class="tablive">
+          <p>
+            <%= t "user.review" %>
+            <span></span>
+          </p>
+        </li>
+      </ul>
+      <div class="review-content"><%= @review.content.html_safe %></div>
+    </div><br><br>
+    
+    <!-- image area -->
+    <ul class="movieitemlisting tabsintbgshow title-font">
+      <li class="tablive">
+        <p>
+          Gallery
+          <span></span>
+        </p>
+      </li>
+    </ul><br>
+
+    <div class="outercontainer">
+      <div class="review-photos">
+        <% if @review.photos.any? %>
+          <% @review.photos.each do |photo| %>
+            <div>
+              <div class="photo-item">
+                <!--<a href="<= photo.url %>" data-turbolinks="false"-->
+                <!--  data-size="600x900" data-med="<= photo.url %>">-->
+                  <%= image_tag photo.url, title: @review.title %>
+                <!--</a>-->
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p style="font-size: 18px">No image.</p>
+        <% end %>
+      </div>
+      <div>
+        <button class="prev CarouselButton CarouselButton__left">
+          <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"
+            style="fill: currentcolor; vertical-align: middle; width: 24px; height: 24px;">
+            <g>
+              <path d="M15.41 7.41l-1.41-1.41-6 6 6 6 1.41-1.41-4.58-4.59z"></path>
+            </g>
+          </svg>
+        </button>
+        <button class="next CarouselButton CarouselButton__right">
+          <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"
+            style="fill: currentcolor; vertical-align: middle; width: 24px; height: 24px;">
+            <g>
+              <path d="M10 6l-1.41 1.41 4.58 4.59-4.58 4.59 1.41 1.41 6-6z"></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <hr>
+
+    <!-- comment area -->
+    <h2 class="comments-title title-font"><%= t ".comments" %></h2>
+    <% if user_signed_in? %>
+      <%= render "comments/form", review: @review, comment: @comment %>
+      <div id="comments" class="comments-part">
+        <%= render "comments/comments", review: @review, comments: @comments %>
+      </div>
+    <% else %>
+      <h3><%= link_to t("user.login"), user_session_path,
+        "data-turbolinks": false %> to comment.</h3>
+    <% end %><br>
+    <div class="text-center">
+      <div class="fb-comments" data-href="http://movieforyou-hienvu.c9users.io"
+        data-numposts="5"></div>
     </div>
   </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 top-review">
+    <%= render "trending_review", top_reviews: @top_reviews %>
+  </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1778167635845888";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

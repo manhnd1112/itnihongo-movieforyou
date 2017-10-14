@@ -1,0 +1,79 @@
+<div class="comments" id="list-reviews">
+  <% if comments.any? %>
+    <% comments.each do |comment| %>
+      <div class="post-content">
+        <div class="avatar">
+          <%= link_to user_path(comment.user), target: "_blank", class: "user",
+            "data-turbolinks": false do %>
+            <img src="<%= comment.user.avatar %>">
+          <% end %>
+        </div>
+        <div class="post-body">
+          <div class="comment-header">
+            <span class="post-byline">
+              <span class="author publisher-anchor-color">
+                <%= link_to user_path(comment.user), target: "_blank",
+                  "data-turbolinks": false do %>
+                  <%= comment.user.username %>
+                <% end %>
+              </span>
+            </span>
+            <span class="post-meta">
+              <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+              <span class="time-ago">
+                <% time = time_diff(Time.now.in_time_zone("Hanoi"), comment.created_at) %>
+                <% hours = time/3600 %>
+                <% minutes = time/60 %>
+                <% if hours > 0 %>
+                  <% if hours < 1 %><%= minutes %>mins
+                  <% else %>
+                    <%= hours %>
+                    <% unless hours == 1 %>hrs<% else %>hr<% end %>
+                  <% end %>
+                <% else %>
+                  <% if minutes < 1 %><%= time %>s
+                  <% else %>
+                    <%= minutes %>
+                    <% unless minutes == 1 %>mins<% else %>min<% end %>
+                  <% end %>
+                <% end %>
+                ago
+              </span>
+              <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+              <span class="edited-<%= comment.id %>"></span>
+            </span>
+          </div>
+          <div class="post-message">
+            <% if current_user == comment.user %>
+              <%= best_in_place [review, comment], :content,
+                as: :textarea, ok_button: t("button.save"),
+                cancel_button: t("button.cancel"),
+                html_attrs: {class: "form-control", id: "#{comment.id}"} %>
+            <% else %>
+              <%= comment.content %>
+            <% end %>
+          </div>
+          <div class="comment-footer">
+            <% if current_user == comment.user %>
+              <span class="reply">
+                <span class="text">
+                  <%= button_tag t("button.delete"), value: review.id,
+                    data: {confirm: t("button.confirm"), id: comment.id,
+                    page: comments.current_page},
+                    class: "delete-comment btn btn-default" %>
+                </span>
+              </span>
+            <% end %>
+            <!--<span class="bullet" aria-hidden="true">•</span>-->
+            <!--<span class="comment-share">-->
+            <!--  <span class="text edit-comment">Share</span>-->
+            <!--</span>-->
+          </div>
+        </div>
+      </div><br>
+    <% end %>
+    <%= paginate comments, theme: "twitter-bootstrap-3" %>
+  <% else %>
+    <div id="no-posts"><h3>Be the first to comment.</h3></div>
+  <% end %>
+</div>
