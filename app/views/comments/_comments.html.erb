@@ -63,17 +63,17 @@
                     class: "delete-comment btn btn-default" %>
                 </span>
               </span>
-              <span class="bullet" aria-hidden="true">•</span>
             <% end %>
-            <span class="comment-share">
-              <span class="text edit-comment">Share</span>
-            </span>
+            <!--<span class="bullet" aria-hidden="true">•</span>-->
+            <!--<span class="comment-share">-->
+            <!--  <span class="text edit-comment">Share</span>-->
+            <!--</span>-->
           </div>
         </div>
       </div><br>
     <% end %>
     <%= paginate comments, theme: "twitter-bootstrap-3" %>
   <% else %>
-    <div id="no-posts" style="">Be the first to comment.</div>
+    <div id="no-posts"><h3>Be the first to comment.</h3></div>
   <% end %>
 </div>

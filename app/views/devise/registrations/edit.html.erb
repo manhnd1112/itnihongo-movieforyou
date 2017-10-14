@@ -2,7 +2,7 @@
 <div class="row login-form">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3
     col-lg-6 col-lg-offset-3 pmd-card pmd-card-default pmd-z-depth-1">
-    <h2>EDIT PROFILE</h2>
+    <h2><%= t "user.edit" %></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="error-edit-user"><%= devise_error_messages! %></div>
       <div class="form-group pmd-textfield">
@@ -20,13 +20,21 @@
         <%= f.email_field :email, class: "form-control" %>
       </div><br>
 
+      <%= f.label :avatar, class: "control-label" %><br>
+      <div class="file-container">
+        <p><%= t "users.edit.change_avatar" %></p>
+        <%= f.file_field :avatar, class: "upload-image", id:"filePhoto" %>
+      </div><br><br>
+      <img id="previewHolder" class="avatar-preview" style="display: none;">
+      <img id="old-avatar" class="avatar-preview" src="<%= current_user.try :avatar %>"><br>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+      <hr><h3><%= t "users.edit.change_pass" %></h3>
       <div class="form-group pmd-textfield">
-        <%= f.label :password, class: "control-label" %><br>
-        <em>(leave blank if you don't want to change it)</em>
+        <%= f.label :new_password, class: "control-label" %>
         <% if @minimum_password_length %><br>
           <span style="color: red; font-size: 11px">* </span>
           <em><%= @minimum_password_length %> characters minimum</em>
@@ -37,12 +45,6 @@
       <div class="form-group pmd-textfield">
         <%= f.label :password_confirmation, class: "control-label" %><br>
         <%= f.password_field :password_confirmation, class: "form-control" %>
-      </div><br>
-
-      <div class="form-group pmd-textfield">
-        <%= f.label :current_password, class: "control-label" %><br>
-        <em>(we need your current password to confirm your changes)</em>
-        <%= f.password_field :current_password, class: "form-control" %>
       </div><br>
 
       <div class="actions">

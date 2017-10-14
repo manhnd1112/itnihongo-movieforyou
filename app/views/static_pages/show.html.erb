@@ -5,7 +5,7 @@
       <% 5.times do %>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       <% end %>
-      <h2><%= t ".new_movie" %></h2>
+      <h2><%= t ".new_movies" %></h2>
       <% 5.times do %>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       <% end %>
@@ -17,30 +17,94 @@
     <div class="movie-items">
       <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
         title="<%= movie.name %>" class="movie-poster">
+      <% if movie.new_movie? %>
+        <span class="bxitem-newmovie"></span>
+      <% end %>
+      <!-- css trong movies.scss -->
+      <div class="movie-info-show">
+        <a class="icon share"></a>
+      </div>
+      <span class="publish-date-new">
+        <span class="date"><%= movie.realease_date.strftime("%d") %></span>
+        <span class="month">/<%= movie.realease_date.strftime("%m") %></span>
+      </span>
+      <!-- end -->
+
       <span class="best-rate">
         <i class="fa fa-star-o" aria-hidden="true"></i><br>
-        <%= movie.rates.first.try :score %><br>
+          <%= movie.average_rate.round(1) %><br>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       </span>
       <div class="caption-overlay">
         <div class="primary">
-          <div class="movie-caption">
-            <a href="#"><%= movie.name %></a>
+          <div class="movie-caption title-font">
+            <%= link_to movie.name, movie_path(movie) %>
           </div>
         </div>
-        <div class="secondary ellipsis"><%= movie.director %></div>
+        <div class="secondary ellipsis">
+          <span style="color: #7d6f6f"><%= movie.director %></span> - 
+          <span><%= movie.imdb %> IMDB</span>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
 <br><br>
+
+
 <div class="row">
   <div class="movie-best">
     <div class="col-xs-12 movie-best-rating">
       <% 5.times do %>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       <% end %>
-      <h2><%= t ".new_review" %></h2>
+      <h2><%= t ".hot_movies" %></h2>
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="owl-carousel top-movies-slide">
+  <% @hot_movies.each do |movie| %>
+    <div class="movie-items">
+      <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
+        title="<%= movie.name %>" class="movie-poster">
+
+      <!-- css trong movies.scss -->
+      <div class="movie-info-show">
+        <a class="icon share"></a>
+        <div class="icon imdb">
+          <strong><%= movie.imdb %></strong>
+          <small>IMDb</small>
+        </div>
+      </div>
+
+      <span class="best-rate">
+        <i class="fa fa-star-o" aria-hidden="true"></i><br>
+          <%= movie.average_rate.round(1) %><br>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </span>
+      <div class="caption-overlay">
+        <div class="primary title-font">
+          <div class="movie-caption">
+            <%= link_to movie.name, movie_path(movie) %>
+          </div>
+        </div>
+        <div class="secondary ellipsis"><%= movie.director %></div>
+      </div>
+    </div>
+  <% end %>
+</div><br><br>
+
+
+<div class="row">
+  <div class="movie-best">
+    <div class="col-xs-12 movie-best-rating">
+      <% 5.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+      <h2><%= t ".new_reviews" %></h2>
       <% 5.times do %>
         <i class="fa fa-star-o" aria-hidden="true"></i>
       <% end %>
@@ -52,15 +116,70 @@
     <div class="bp-block article-info">
       <div class="article-list-left cover">
         <%= link_to review_path(review), "data-turbolinks": false do %>
-          <img src="<%= review.movie.avatar %>" alt="<%= review.movie.name%>">
+          <% if review.photos.any? %>
+            <img src="<%= review.photos.first.url %>" alt="<%= review.title%>">
+          <% else %>
+            <img src="<%= review.movie.avatar %>" alt="<%= review.movie.name%>">
+          <% end %>
         <% end %>
       </div>
-      <h3 class="home-review-title">
+      <h3 class="home-review-title title-font">
         <span style="font-weight: 500">[<%= t "user.review" %>]</span>
         <%= link_to review_path(review), "data-turbolinks": false do %>
           <%= review.movie.name %>: <%= review.title %>
         <% end %>
       </h3>
+      <div class="review-author">
+        By <%= link_to review.user.name, user_path(review.user.name) %>
+      </div>
+      <span class="review-sub-info">
+        <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+          <path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
+        </svg>
+        <%= review.created_at.strftime("%d %b %Y") %> | 
+        <span class="blockIconFacebook ng-scope">
+          <div class="wrapIcon like">
+            <!--<img class="iconFacebook postLike" alt="" src="http://www.123phim.vn/app/assets/img/icons/like.png">-->
+            <span class="iconFacebook glyphicon glyphicon-thumbs-up"></span>
+            <p class="amount like ng-binding">0</p>
+          </div>
+          <div class="wrapIcon comment">
+            <!--<img src="http://www.123phim.vn/app/assets/img/icons/comment.png" alt="" class="iconFacebook postCmt">-->
+            <span class="iconFacebook glyphicon glyphicon-comment"></span>
+            <p class="amount comment ng-binding">
+              <%= review.comments.count %>
+            </p>
+          </div>
+        </span>
+      </span><br>
+      <span class="inline-tone-fill inline-icon review-sub-info">
+        Author's rate:
+        <span class="star-rating">
+          <% author_rate = author_rate(review.movie, review.user) %>
+          <% if author_rate > 0 %>
+            <% overage = author_rate - author_rate.round %>
+            <% if overage < 0 && overage.abs < 0.5  %>
+              <% (author_rate.round - 1).times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% (5 - author_rate).round.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <% author_rate.round.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - author_rate.round).times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            (<%= author_rate.round(1) %>)
+          <% else %>
+            Not yet rated.
+          <% end %>
+        </span>
+      </span>
       <p class="genre-links hidden-phone">&gt;&nbsp;
         <% if review.movie.types.any? %>
           <% review.movie.types.each do |type| %>
@@ -69,7 +188,11 @@
           <% end %>
         <% end %>
       </p>
-      <p class="review-content"><%= truncate(review.content.html_safe, length: 800) %></p><br>
+      <div class="review-content">
+        <p>
+          <%= truncate_html(review.content.html_safe, length: 600) %>
+        </p>
+      </div>
       <div class="read-full">
         <%= link_to t(".read_full"), review_path(review), "data-turbolinks": false %>
       </div>

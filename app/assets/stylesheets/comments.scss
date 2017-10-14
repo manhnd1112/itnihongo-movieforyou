@@ -2,9 +2,11 @@ $cancel-success: #259b24;
 $cancel-failure: #ff1818;
 
 .comments-title {
+  font-family: "Roboto Condensed", Helvetica, Arial !important;
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 700;
+  padding: 10px 0;
 }
 
 .posts {
@@ -46,7 +48,7 @@ $cancel-failure: #ff1818;
     cursor: text;
     display: block;
     font-family: "Helvetica Neue",arial,sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     height: auto;
     line-height: 1.4;
     margin: 0;
@@ -77,17 +79,17 @@ $cancel-failure: #ff1818;
   }
 
   .avatar img {
-    height: 48px;
-    width: 48px;
+    height: 60px;
+    width: 60px;
   }
 
   .post-body {
-    margin: 0 0 0 60px;
+    margin: 0 0 0 72px;
     position: relative;
   }
 
   .comment-header {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1;
     margin-bottom: 3px;
     padding-right: 46px;
@@ -154,7 +156,7 @@ $cancel-failure: #ff1818;
 
   .comment-footer > span {
     float: left;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 15px;
     list-style-type: none;
     margin-right: 7px;
@@ -184,4 +186,12 @@ $cancel-failure: #ff1818;
     border-radius: 4px;
     padding: 2px 0;
   }
+}
+
+.time-ago {
+  font-size: 14px;
+}
+
+.post-message {
+  font-size: 18px !important;
 }

@@ -27,6 +27,7 @@ gem "best_in_place", "~> 3.0.1"
 gem "pygments.rb", "~> 0.6.3" 
 gem "redcarpet", "~> 3.3", ">= 3.3.4"
 gem "ckeditor"
+gem "truncate_html"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

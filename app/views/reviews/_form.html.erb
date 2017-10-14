@@ -1,7 +1,7 @@
 <div class="write-review">
   <%= form_for review, html: {class: "review-form"} do |f| %>
     <% if params[:movie_id].present? %>
-      <h3>
+      <h3 class="title-font">
         <%= t "user.write_review" %> for 
         <span style="color: red"><%= movie.name %></span>
         <span style="color: lightgrey">(<%= movie.realease_date.strftime("%Y") %>)</span>

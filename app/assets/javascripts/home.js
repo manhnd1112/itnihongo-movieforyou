@@ -2,24 +2,26 @@ $(document).ready(function(){
   $('.flash-push').fadeOut(4000);
 
   $('.new-movies-slide').owlCarousel({
-    loop: true,
+    startPosition: 0,
+    loop: false,
     lazyLoad: true,
     items: 5,
+    rewind: true,
     autoplay: true,
-    autoplaySpeed: 500,
-    margin: 10,
+    stopOnHover: false,
+    // autoplaySpeed: 100,
+    margin: 20,
     nav: true,
     navSpeed: 500,
+    slideSpeed: 200,
+    paginationSpeed: 800,
+    rewindSpeed: 1000,
     navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
     responsive: {
       0: {
         items: 1
       },
-<<<<<<< HEAD
-      600: {
-=======
       480: {
->>>>>>> 9e641be5870c250e12848d5820118b15415948c3
         items: 2
       },
       768: {
@@ -28,25 +30,50 @@ $(document).ready(function(){
       1024: {
         items: 4
       },
-<<<<<<< HEAD
-      1366: {
-=======
       1300: {
->>>>>>> 9e641be5870c250e12848d5820118b15415948c3
+        items: 5
+      }
+    }
+  });
+
+  $('.top-movies-slide').owlCarousel({
+    startPosition: 0,
+    loop: false,
+    lazyLoad: true,
+    items: 5,
+    rewind: true,
+    margin: 20,
+    nav: true,
+    navSpeed: 500,
+    slideSpeed: 200,
+    paginationSpeed: 800,
+    rewindSpeed: 1000,
+    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      480: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      1024: {
+        items: 4
+      },
+      1300: {
         items: 5
       }
     }
   });
 
   $('.reviews-slide').owlCarousel({
-    startPosition: 1,
     margin: 0,
-    loop: false,
+    loop: true,
     lazyLoad: true,
     rewind: true,
     items: 1,
-    autoplay: true,
-    autoplaySpeed: 500,
     nav: true,
     navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
   });
@@ -71,8 +98,10 @@ $(document).ready(function(){
     });
   };
 
-  $('.trending-title').fitText(1.2,{minFontSize: '18px', maxFontSize: '20px'});
-  $('.trending-content').fitText(1.2,{minFontSize: '14px', maxFontSize: '16px'});
+  $('.trending-title').fitText(1.2,{minFontSize: '20px', maxFontSize: '28px'});
+  $('.trending-content').fitText(1,{minFontSize: '14px', maxFontSize: '16px'});
   $('.home-review-title').fitText(1.2,{minFontSize: '26px', maxFontSize: '36px'});
   $('.review-content').fitText(1.2,{minFontSize: '16px', maxFontSize: '18px'});
+  $('.movie-data').fitText(1.2,{minFontSize: '18px', maxFontSize: '22px'});
+  $('.review-title').fitText(0.8,{minFontSize: '20px', maxFontSize: '30px'});
 });

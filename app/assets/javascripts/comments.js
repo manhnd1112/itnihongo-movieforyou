@@ -2,17 +2,6 @@
 
 $(document).ready(function(){
   $('.best_in_place').best_in_place();
-<<<<<<< HEAD
-  // $('.best_in_place').change(function() {
-  //   var comment_id = $('.post-content').data('id');
-  //   var editButton = '.edited-' + comment_id;
-  //   $.ajax({
-  //     success: function() {
-  //     }
-  //   });
-  // });
-=======
->>>>>>> 9e641be5870c250e12848d5820118b15415948c3
 });
 
 $(document).on('click', '.create-comment', function(event) {
@@ -44,21 +33,12 @@ $(document).on('click', '.create-comment', function(event) {
   });
 });
 
-<<<<<<< HEAD
-$(document).on('click', '.delete', function() {
-  var commentId = $(this).data('id');
-  var reviewId = $(this).attr('value');
-  var url = '/reviews/' + reviewId + '/comments/' + commentId;
-  var currentPage = $(this).data('page');
-  var newhref = location.pathname + '?page=' + currentPage;
-=======
 $(document).on('click', '.delete-comment', function() {
   var commentId = $(this).data('id');
   var reviewId = $(this).attr('value');
   var url = '/reviews/' + reviewId + '/comments/' + commentId;
   // var currentPage = $(this).data('page');
   // var newhref = location.pathname + '?page=' + currentPage;
->>>>>>> 9e641be5870c250e12848d5820118b15415948c3
 
   $.ajax({
     beforeSend: function (xhr) {
@@ -73,30 +53,7 @@ $(document).on('click', '.delete-comment', function() {
       }
     },
     success: function() {
-<<<<<<< HEAD
-      window.location.href = newhref;
-    }
-  });
-});
-
-$('#comment-list').off('click', 'ul.pagination a');
-$('#comment-list').on('click', 'ul.pagination a', function(e) {
-  e.preventDefault();
-  var url = $(this).attr('href');
-  $('#comment-list').load(url + ' #comment-list', function() {
-    $('.best_in_place').best_in_place();
-    window.history.pushState(url, window.title, url);
-  });
-  return false;
-});
-
-$(window).bind('popstate', function() {
-  var url = location.href;
-  $('#comment-list').load(url);
-});
-=======
       location.reload();
     }
   });
 });
->>>>>>> 9e641be5870c250e12848d5820118b15415948c3

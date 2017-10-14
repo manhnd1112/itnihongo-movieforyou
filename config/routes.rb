@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#show"
   get "users/omniauth_callbacks"
-  devise_for :users
+  devise_for :users, controllers:{registrations: "registrations"}
   devise_scope :user do  
     get "/users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
   end
 
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    resources :rates
+  end
   resources :reviews do
     resources :comments
   end

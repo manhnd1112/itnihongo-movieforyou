@@ -23,4 +23,8 @@
 //= require ckeditor/init
 //= require cocoon
 //= require readmore-js/readmore.min
+//= require slick-carousel/slick/slick.min
+//= require photoswipe/dist/photoswipe.min
+//= require photoswipe/dist/photoswipe-ui-default.min
+//= require raty-js/lib/jquery.raty
 //= require_tree .

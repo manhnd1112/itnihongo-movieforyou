@@ -31,4 +31,26 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
+  
+  def like review
+    review.likes.find_by user_id: current_user.id
+  end
+
+  def author_rate(movie, user)
+    rates = movie.rates.where(user_id: user.id)
+    size = rates.size
+    total = 0
+    rates.each do |rate|
+      total += rate.score
+    end
+    if size > 0
+      average_rate = total * 1.0 / size
+    else average_rate = 0
+    end
+    return average_rate
+  end
+
+  def rate movie
+    rate = movie.rates.find_by user_id: current_user.id
+  end
 end

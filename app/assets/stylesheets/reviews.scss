@@ -90,72 +90,72 @@
   padding: 10px 0;
 }
 
-.ratings_wrapper {
-  float: right;
-  margin-left: 5px;
-  position: relative;
-  width: 185px;
-  z-index: 2;
+// .ratings_wrapper {
+//   float: right;
+//   margin-left: 5px;
+//   position: relative;
+//   width: 185px;
+//   z-index: 2;
 
-  .bookmark-movie {
-    background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat -15px -118px;
-    font-size: 11px;
-    height: 40px;
-    line-height: 13px;
-    padding: 2px 0 0 34px;
-    width: 58px;
-  }
+//   .bookmark-movie {
+//     background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat -15px -118px;
+//     font-size: 11px;
+//     height: 40px;
+//     line-height: 13px;
+//     padding: 2px 0 0 34px;
+//     width: 58px;
+//   }
 
-  .ratingValue {
-    margin-bottom: -2px;
-    white-space: nowrap;
-  }
+//   .ratingValue {
+//     margin-bottom: -2px;
+//     white-space: nowrap;
+//   }
 
-  .ratingValue strong {
-    font-size: 24px;
-    font-weight: normal;
-    line-height: 24px;
-  }
+//   .ratingValue strong {
+//     font-size: 24px;
+//     font-weight: normal;
+//     line-height: 24px;
+//   }
 
-  .small {
-    font-size: 10px;
-  }
+//   .small {
+//     font-size: 10px;
+//   }
 
-  .star-rating-widget {
-    height: 42px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 92px;
-  }
+//   .star-rating-widget {
+//     height: 42px;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     width: 92px;
+//   }
 
-  .star-rating-button {
-    height: 42px;
-    width: 91px;
-  }
+//   .star-rating-button {
+//     height: 42px;
+//     width: 91px;
+//   }
 
-  .star-rating-button button {
-    border-radius: 0;
-    font: normal 11px/13px Verdana, Arial, sans-serif;
-    height: 42px;
-    padding: 1px 0 1px 1px;
-    text-align: left;
-    white-space: normal;
-    width: 91px;
-  }
+//   .star-rating-button button {
+//     border-radius: 0;
+//     font: normal 11px/13px Verdana, Arial, sans-serif;
+//     height: 42px;
+//     padding: 1px 0 1px 1px;
+//     text-align: left;
+//     white-space: normal;
+//     width: 91px;
+//   }
 
-  .star-rating-star {
-    float: left;
-    height: 40px;
-    margin-right: 1px;
-    width: 40px;
-  }
+//   .star-rating-star {
+//     float: left;
+//     height: 40px;
+//     margin-right: 1px;
+//     width: 40px;
+//   }
 
-  .star-rating-text {
-    display: block;
-    padding-top: 8px;
-  }
-}
+//   .star-rating-text {
+//     display: block;
+//     padding-top: 8px;
+//   }
+// }
 
 .titleBar {
   position: relative;
@@ -167,12 +167,15 @@
 
   .primary_ribbon {
     position: absolute;
+    height: 58px;
+    width: 40px;
+  }
 
-    img {
-      background: url("http://simpleicon.com/wp-content/uploads/bookmark.png") no-repeat;
-      height: auto;
-      width: 50px;
-    }
+  .primary_ribbon .wl-ribbon.standalone {
+    background: url("/assets/bookmark.png") centerr top no-repeat;
+    transform: scale(1.5);
+    height: 58px;
+    width: 40px;
   }
 
   .title_wrapper {
@@ -186,7 +189,6 @@
 
   h2 {
     color: #C00000;
-    font-size: 30px;
     font-weight: 700;
     line-height: 1.3em;
     margin: 0;
@@ -215,7 +217,8 @@
   font-style: italic;
 }
 
-.movie-data, .author-small {
+.movie-data,
+.author-small {
   a {
     color: #C00000;
     text-decoration: none;
@@ -237,12 +240,13 @@
 }
 
 .star-rating {
-  color: yellow;
+  color: #ff7a00;
+  font-size: 24px;
 }
 
 .byline,
 .article-body {
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .article-body {
@@ -292,7 +296,7 @@
   }
 
   .bp-block p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .article-list-left {
@@ -300,7 +304,6 @@
     float: left;
     height: 100%;
     padding: 0 10px 10px 0 !important;
-    width: 25%;
   }
 
   img {
@@ -322,8 +325,7 @@
   }
 
   h4 {
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 700;
     padding: 0 0 5px 0;
     margin: 0;
     text-transform: capitalize;
@@ -331,7 +333,7 @@
 
   p.author-small {
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
     font-weight: 400;
     margin-bottom: 10px;
@@ -354,19 +356,21 @@
 .movie-casting {
   float: left;
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 0 10px !important;
   height: 100%;
 
   h1 {
     color: #1e1e1e;
+    font-size: 30px;
+    font-weight: 700;
     margin: 0;
     padding: 0 0 5px;
+    text-transform: uppercase;
   }
 
   .movie-time {
     color: #888;
     display: block;
-    margin-bottom: 12px;
     padding: 0;
     border-bottom: 0;
     float: left;
@@ -398,7 +402,6 @@
   .revised-block {
     background-color: #333;
     color: #fff;
-    font: 400 11px/16px 'Roboto',sans-serif;
     height: 52px;
     margin: -67px 0 0 29px;
     padding: 5px;
@@ -411,8 +414,8 @@
     color: #FFF;
     display: block;
     float: left;
-    font: 400 11px/10px;
-    margin: 5px 8px 5px 0;
+    font-weight: 700;
+    margin: 20px 8px 5px 0;
     padding: 9px 11px;
     position: relative;
     text-transform: uppercase;
@@ -433,20 +436,28 @@
   }
 
   .movie-data {
+    color: #716c6c;
     float: left;
     font-weight: 700;
-    line-height: 1.5em;
+    line-height: 1.8em;
     text-transform: uppercase;
   }
 
   .casting {
+    color: black;
     font-weight: 500;
     text-transform: capitalize;
+    
+    img {
+      height: 25px;
+      width: 37px;
+    }
   }
 }
 
 .movie-image {
   float: left;
+  padding: 10px 20px 10px 0 !important;
   position: relative;
 
   img {
@@ -492,6 +503,7 @@
 
   .pmd-textfield label {
     color: #383838;
+    font-family: "Roboto Condensed", Helvetica, Arial !important;
     font-size: 20px !important;
     font-weight: 700;
   }
@@ -506,6 +518,7 @@
   }
 
   .control-label {
+    font-family: "Roboto Condensed", Helvetica, Arial !important;
     font-size: 20px !important;
   }
 
@@ -527,7 +540,8 @@
 }
 
 .movie-info {
-  border-bottom:0 !important;
+  border-bottom: 0 !important;
+  margin-top: 15px;
 
   th, td {
     border: 1px !important;
@@ -649,4 +663,221 @@ label.myErrorClass {
   font-size: 14px !important;
   font-weight: 500 !important;
   padding: 5px 0 !important;
+}
+
+.movie-infos {
+  padding: 0 !important;
+}
+
+.review-details {
+  padding: 10px 30px !important;
+  
+  h3 {
+    font-size: 23px;
+  }
+  
+  .create-comment {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+.movie-rating{
+  color: #ff7a00 !important;
+  font-size: 20px !important;
+}
+
+ul.movieitemlisting {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: url("https://timesofindia.indiatimes.com/photo/45795380.cms") repeat-x top;
+  height: 45px;
+}
+
+ul.movieitemlisting li {
+  float: left;
+  text-transform: uppercase;
+  width: auto;
+  text-align: center;
+}
+
+ul.movieitemlisting li.tablive p {
+  background: #666;
+  border-top: 5px solid #000;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 900 !important;
+  padding: 5px 10px !important;
+  position: relative;
+  text-decoration: none;
+}
+
+ul.movieitemlisting li.tablive p span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #666;
+  position: absolute;
+  bottom: -5px;
+  left: 45%;
+}
+
+.review-content {
+  margin-top: 20px;
+}
+
+.movie-imdb {
+  font-size: 18px;
+  font-weight: 900 !important;
+  background: yellow;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+
+.flag {
+  border: 1px solid black;
+}
+
+.glyphicon-bookmark {
+  font-size: 44px !important;
+  position: relative;
+}
+
+.primary_ribbon .fa-plus {
+  color: white !important;
+  font-size: 20px !important;
+  left: 16px;
+  position: absolute;
+  top: 5px;
+}
+
+time {
+  color: grey;
+}
+
+.slick-track {
+  width: 100% !important;
+}
+
+.slick-slide {
+  width: 32.3%;
+  margin-left: 1%;
+}
+
+.slick-track:first-child {
+  margin-left: 0.4%;
+}
+
+.photo-item {
+  height: 250px;
+  overflow: hidden;
+}
+
+.photo-item img {
+  height: 250px;
+  margin-left: 50%;
+  margin-top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.CarouselButton {
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.CarouselButton.CarouselButton__left {
+  left: -16px;
+}
+
+.CarouselButton.CarouselButton__right {
+  right: -16px;
+  // float: right;
+}
+
+.CarouselButton {
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  color: gray;
+  height: 40px;
+  line-height: 0;
+  padding: 0;
+  position: absolute;
+  width: 40px;
+  z-index: 1;
+}
+
+.outercontainer {
+  height: 100%;
+  position: relative;
+}
+
+.gallery {
+  position: relative;
+  padding: 50px 0;
+  height: 100%;
+}
+.gallery div {
+  text-align: center;
+  height: 100%;
+  float: left;
+}
+.gallery div img {
+  margin: auto;
+  height: 100%;
+}
+.gallery button {
+  border-radius: none;
+  padding: 10px;
+  border: none;
+  background: #282828;
+  color: #fff;
+  width: 70px;
+  height: 60px;
+  cursor: pointer;
+  font-family: entypo;
+  top: 50%;
+  margin-top: -30px;
+}
+.slick-prev {
+  position: absolute;
+  left: 20px;
+}
+.slick-prev:after {
+  content: "\e75d";
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  top: 0;
+  left: 0;
+}
+.slick-next {
+  position: absolute;
+  right: 20px;
+}
+.slick-next:after {
+  content: "\e75e";
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  top: 0;
+  left: 0;
+}
+
+.otherstuff {
+  width: 100%;
+}
+.otherstuff figure {
+  width: 200px;
+  height: 100px;
+  float: left;
+}
+.otherstuff figure img {
+  max-width: 100%;
 }

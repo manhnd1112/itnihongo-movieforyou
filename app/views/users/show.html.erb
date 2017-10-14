@@ -6,7 +6,7 @@
       <div class="widget article userLists list-all-reviews" data-turbolinks="false">
         <h2><%= t "user.reviews" %></h2>
         <div id="list-reviews">
-          <div class="text-right reviewpagi">
+          <div class="text-right bootstrap-pagination">
             <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
           </div>
           <%= render "review", reviews: @reviews, user: @user %>
