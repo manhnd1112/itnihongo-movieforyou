@@ -1,16 +1,24 @@
-<div class="bookmarks">
+<div class="bookmarks row">
   <% if bookmarks.any? %>
     <% bookmarks.each do |bookmark| %>
-      <div class="lists">
-        <div class="user-list odd">
-          <img src="<%= bookmark.movie.avatar %>">
-          <div class="list-info">
-            <a class="list-name" href="#"><%= bookmark.movie.name %></a>
-            <div class="list-meta"></div>
-            <div class="description"></div>
-          </div>
+      <div class="marTop1 row">
+        <% movie = bookmark.movie %>
+        <img src="<%= movie.avatar.small.url %>" class="img6 no_resize">
+        <div class="box2">
+          <p class="txt7 title-font">
+            <%= link_to movie.name, movie_path(movie),
+              class: "link3", "data-turbolinks": false %>
+          </p>
+          <span class="average-rate" data-score="<%= author_rate(movie, bookmark.user) %>"></span>
+          <br><p class="des"><%= truncate_html(movie.description, length: 200) %></p>
         </div>
-      </div>
+      </div><hr>
+      <%= link_to t("user.all_favorites"), user_favorites_path(@user),
+        "data-turbolinks": false, class: "all-comment" %>
+    <% end %>
+  <% else %>
+    <% if user_signed_in? && current_user.id == user.id %>
+      <%= t "users.show.no_bookmark" %>
     <% end %>
   <% end %>
 </div>

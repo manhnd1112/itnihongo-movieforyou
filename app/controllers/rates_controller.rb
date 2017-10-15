@@ -21,6 +21,6 @@ class RatesController < ApplicationController
   end
 
   def rate_params
-    params.require(:rate).permit :score
+    params.require(:rate).permit :score, :message
   end
 end

@@ -1,0 +1,82 @@
+<section class="panel panel-rt panel-box movie_info media">
+  <div class="media-body">
+    <h2 class="panel-heading">Movie Info</h2>
+    <div class="panel-body content_body">
+      <div id="movieSynopsis" class="movie_synopsis clamp clamp-6" style="clear:both">
+        <%= @movie.description %>
+      </div>
+      <ul class="content-meta info">
+        <li class="meta-row clearfix">
+          <div class="meta-label subtle">Genre: </div>
+          <div class="meta-value">
+            <% if @movie.types.any? %>
+              <% @movie.types.each do |type| %>
+                <a href="#"><%= type.name %></a>
+                  <% unless type == @movie.types.last %>/<% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+        <li class="meta-row clearfix">
+          <div class="meta-label subtle">Directed By: </div>
+          <div class="meta-value">
+            <%= @movie.director %>
+          </div>
+        </li>
+        <li class="meta-row clearfix">
+          <div class="meta-label subtle">In Theaters: </div>
+          <div class="meta-value">
+            <time><%= @movie.realease_date.strftime("%d %B %Y") %></time>
+          </div>
+        </li>
+        <li class="meta-row clearfix">
+          <div class="meta-label subtle">Producer: </div>
+          <div class="meta-value">
+            <%= @movie.producer %>
+          </div>
+        </li>
+        <li class="meta-row clearfix">
+          <div class="meta-label subtle">Country: </div>
+          <div class="meta-value">
+            <time>
+              <%= image_tag @movie.country.flag_image.flag.url %>
+              <%= @movie.country.name %>
+            </time>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- cast -->
+<section class="panel panel-rt panel-box movie_info media">
+  <div class="media-body">
+    <h2 class="panel-heading">Cast</h2>
+    <div class="listNewsCinema">
+      <ul class="blockList">
+        <% if @movie.actors.any? %>
+          <% @movie.actors.each do |actor| %>
+            <li>
+              <%= link_to actor_path(actor), target: "_blank", class: "imgThumb",
+                "data-turbolinks": false do %>
+                <img src="<%= actor.avatar_image %>" alt="Main">
+              <% end %>
+              <div class="blockContInfo">
+                <h4 class="titleItemSmall">
+                  <%= link_to actor_path(actor), target: "_blank", class: "name",
+                    "data-turbolinks": false do %>
+                    <%= actor.name %>
+                  <% end %><br>
+                  <span class="support-text" style="font-size: 12px;color:#939393;">Main</span>
+                </h4>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- end cast -->

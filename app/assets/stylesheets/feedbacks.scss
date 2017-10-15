@@ -1,0 +1,84 @@
+.contact-page {
+  margin-bottom: 8%;
+  padding: 0 15px;
+}
+
+.contact-page h1 {
+  margin-bottom: 17px;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-under-title-line {
+  background-color: #23def7;
+  height: .7rem;
+  margin: 0 auto 3rem auto;
+  width: 9.2rem;
+}
+
+.contact-page form {
+  margin-top: 20px;
+}
+
+.contact-page form {
+  margin-top: 20px;
+}
+
+.contact-page .top-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-block label, .contact-page label {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.contact-page .contact-form-input {
+  padding: 10px 5px;
+}
+
+.contact-page form input {
+  margin-bottom: 24px;
+}
+
+.contact-form-input {
+  border: 1px solid #e0e0e0;
+  width: 100%;
+}
+
+.contact-page form .btn-primary {
+  margin-top: 50px;
+  padding: 10px 25px;
+  background-color: #23def7 !important;
+  border: 1px solid #23def7 !important;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact-page {
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #23def7 !important;
+    border: 1px solid #23def7 !important;
+  }
+}
+
+.contact-page form input {
+  margin-bottom: 24px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.contact-page p {
+  line-height: 24px;
+  color: #a8a7a7;
+  margin-bottom: 14px;
+}
+
+.contact-page .row {
+  padding: 0 70px !important;
+}

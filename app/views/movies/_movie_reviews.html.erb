@@ -1,0 +1,110 @@
+<div class="col-xs-12 col-sm-6 col-md-6 review-frame">
+  <!-- review -->
+  <section class="panel panel-rt panel-box movie_info media panel-review">
+    <div class="media-body">
+      <h2 class="panel-heading">Review</h2>
+       <%= link_to new_review_path(movie_id: @movie.id), "data-turbolinks": false,
+        class: "btn btn-primary review-make-btn pull-right",
+        title: t("movies.show.write_review") do %>
+        <p class="hidden-md"><%= t "reviews.show.write_review" %></p>
+        <i class="fa fa-pencil-square-o hidden-sm hidden-xs hidden-lg"></i>
+      <% end %>
+      <div class="content tag">
+        <div class="group">
+          <% if reviews.any? %>
+            <% reviews.each do |review| %>
+              <div class="film-detail-other-news">
+                <div class="review pad_top2 pad_btm2">
+                  <div class="head_wrap">
+                    <div class="score_wrap">
+                      <div class="metascore_w header_size indiv perfect">
+                        <%= link_to review_path(review), target: "_blank",
+                          "data-turbolinks": false, class: "imgThumb" do %>
+                          <% if review.photos.any? %>
+                            <img src="<%= review.photos.first.url %>">
+                          <% else %>
+                            <img src="<%= review.movie.avatar.thumb.url %>">
+                          <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="pub_wrap title">
+                      <span class="source">
+                        <%= link_to review.title, review_path(review),
+                          "data-turbolinks": false %>
+                      </span>
+                      <div class="date pad_top_half">
+                        By
+                        <span class="author">
+                          <%= link_to review.user.name, user_path(review.user),
+                            "data-turbolinks": false %>
+                        </span> on  
+                        <%= review.created_at.strftime("%d %b %Y") %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary_wrap pad_top_half">
+                    <div class="summary">
+                      <%= truncate_html(review.content, length: 100) %>
+                      <%= link_to t("static_pages.show.read_full"),
+                        review_path(review), class: "read_full",
+                        target: "_blank", "data-turbolinks": false %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="film-detail-other-news">
+              <div class="review pad_top2 pad_btm2">
+                No review.
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end review -->
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-6 rate-frame">
+  <!-- rate -->
+  <section class="panel panel-rt panel-box movie_info media panel-rate">
+    <div class="media-body">
+      <h2 class="panel-heading">User's rate</h2>
+      <div class="content tag">
+        <div class="group">
+          <% if rates.any? %>
+            <% rates.each do |rate| %>
+              <div class="rate-item clearfix">
+                <div class="m-b-xs">
+                  <span class="pull-left thumb-sm m-r">
+                    <img src="<%= rate.user.avatar.small.url %>"
+                      alt="" class="img-rounded">
+                  </span>
+                  <div class="clear">
+                    <span><strong><%= rate.user.username %></strong></span><br>
+                    <div class="average-rate hidden-md" data-score="<%= rate.score %>"></div>
+                    <div class="hidden-xs hidden-lg hidden-sm user-score">
+                      <i class="fa fa-star"></i>
+                      <%= rate.score %>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear">
+                  <%= rate.message %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="rate-item clearfix">
+              No rate.
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end rate -->
+</div>

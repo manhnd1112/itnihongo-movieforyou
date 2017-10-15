@@ -102,10 +102,6 @@
 }
 
 /* header user */
-.dropdown {
-  margin-right: 20px;
-}
-
 .popover_menu ul {
   list-style: none;
   margin: 0;
@@ -309,61 +305,6 @@
   margin-bottom: 7px;
   padding: 10px 12px;
   width: auto;
-}
-
-.user-profile .user-list {
-  clear: left;
-  height: 90px;
-  margin-bottom: 5px;
-  padding-top: 5px;
-}
-
-.odd {
-  background-color: #f6f6f5;
-  border: #fff 1px solid;
-}
-
-.user-profile .user-list img {
-  float: left;
-  margin-right: 10px;
-}
-
-.user-profile .widget img {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-}
-
-.list-info {
-  display: inline-block;
-  margin: 5px 10px;
-}
-
-.user-profile {
-  .list-name {
-    display: block;
-    font-weight: bold;
-    word-wrap: break-word;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: #70579D;
-    text-decoration: none;
-  }
-
-  .list-meta {
-    color: #666;
-    font-size: 11px;
-    margin-bottom: 4px;
-  }
-
-  .user-list .description {
-    max-height: 50px;
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-  }
 }
 
 .user-profile .reviews .item {
@@ -640,4 +581,63 @@
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
+}
+
+.user-profile .user-list {
+  margin-bottom: 5px;
+  clear: left;
+  height: 90px;
+  padding-top: 5px;
+}
+
+.user-profile .userLists .list-actions {
+  float: right;
+}
+
+.user-profile .list-name {
+  font-weight: bold;
+  display: block;
+  margin-left: 96px;
+  word-wrap: break-word;
+}
+
+.user-profile .user-list .description {
+  max-height: 50px;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-profile .list-meta {
+  color: #666;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.user-profile .user-list img {
+  float: left;
+  margin-right: 10px;
+}
+
+.user-review-title a {
+  color: #f4511e !important;
+  line-height: 1.3em;
+
+  &:hover {
+    color: #c53305;
+  }
+}
+
+.bookmarks {
+  p.txt7 {
+    margin: 0 !important;
+  }
+  
+  .txt7 a {
+    font-size: 22px !important;
+    font-weight: 600;
+  }
+  
+  p.des {
+    margin-top: 15px;
+  }
 }

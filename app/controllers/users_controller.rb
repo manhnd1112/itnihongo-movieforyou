@@ -15,7 +15,13 @@ class UsersController < ApplicationController
   end
 
   def reviews
-    @reviews = @user.reviews.order("created_at desc").page(params[:page]).per(10)
+    @reviews = @user.reviews.order("created_at desc")
+      .page(params[:page]).per(10)
+  end
+  
+  def bookmarks
+    @bookmarks = @user.bookmarks.order("created_at desc")
+      .page(params[:page]).per(10)
   end
 
   private

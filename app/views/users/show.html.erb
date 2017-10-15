@@ -4,19 +4,20 @@
   <div class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
     <div class="profile-content">
       <div class="widget article userLists list-all-reviews" data-turbolinks="false">
-        <h2><%= t "user.reviews" %></h2>
+        <h2 class="text-left"><%= t "user.reviews" %></h2><hr>
         <div id="list-reviews">
           <div class="text-right bootstrap-pagination">
             <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
           </div>
           <%= render "review", reviews: @reviews, user: @user %>
-          <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
-            "data-turbolinks": false, class: "all-comment" %>
         </div>
       </div>
       <div class="widget article userLists">
-        <h2><%= t "user.favorites" %></h2>
-        <%= render "bookmark", bookmarks: @bookmarks %>
+        <h2 class="text-left"><%= t "user.favorites" %></h2><hr>
+        <div class="text-right bootstrap-pagination">
+          <%= paginate @bookmarks, theme: "twitter-bootstrap-3" %>
+        </div>
+        <%= render "bookmark", bookmarks: @bookmarks, user: @user %>
       </div>
     </div>
   </div>

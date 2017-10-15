@@ -1,21 +1,16 @@
-<% provide(:title, "Home") %>
+<% provide(:title) %>
 <div class="row">
   <div class="movie-best">
-    <div class="col-xs-12 movie-best-rating">
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
-      <h2><%= t ".new_movies" %></h2>
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
+    <div class="col-xs-12">
+      <h2 class="htlfndr-section-title"><%= t ".new_movies" %></h2>
+      <div class="htlfndr-section-under-title-line"></div>
     </div>
   </div>
 </div>
-<div class="owl-carousel new-movies-slide">
+<div class="owl-carousel new-movies-slide" style="width: 90%; margin: 0 5%;">
   <% @movies.each do |movie| %>
     <div class="movie-items">
-      <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
+      <img src="<%= movie.avatar.thumb.url %>" alt="<%= movie.name %>"
         title="<%= movie.name %>" class="movie-poster">
       <% if movie.new_movie? %>
         <span class="bxitem-newmovie"></span>
@@ -30,15 +25,22 @@
       </span>
       <!-- end -->
 
-      <span class="best-rate">
-        <i class="fa fa-star-o" aria-hidden="true"></i><br>
-          <%= movie.average_rate.round(1) %><br>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      </span>
+      <% if movie.coming_soon? %>
+        <span class="best-rate coming-soon">
+          <img src="http://materialthingsofaiken.com/wp-content/uploads/2016/08/Coming-Soon.png">
+        </span>
+      <% else %>
+        <span class="best-rate">
+          <i class="fa fa-star-o" aria-hidden="true"></i><br>
+            <%= movie.average_rate.round(1) %><br>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        </span>        
+      <% end %>
+
       <div class="caption-overlay">
         <div class="primary">
           <div class="movie-caption title-font">
-            <%= link_to movie.name, movie_path(movie) %>
+            <%= link_to movie.name, movie_path(movie), "data-turbolinks": false %>
           </div>
         </div>
         <div class="secondary ellipsis">
@@ -54,22 +56,20 @@
 
 <div class="row">
   <div class="movie-best">
-    <div class="col-xs-12 movie-best-rating">
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
-      <h2><%= t ".hot_movies" %></h2>
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
+    <div class="col-xs-12">
+      <h2 class="htlfndr-section-title"><%= t ".hot_movies" %></h2>
+      <div class="htlfndr-section-under-title-line"></div>
     </div>
   </div>
 </div>
-<div class="owl-carousel top-movies-slide">
+<div class="owl-carousel top-movies-slide" style="width: 90%; margin: 0 5%;">
   <% @hot_movies.each do |movie| %>
     <div class="movie-items">
-      <img src="<%= movie.avatar %>" alt="<%= movie.name %>"
+      <img src="<%= movie.avatar.thumb.url %>" alt="<%= movie.name %>"
         title="<%= movie.name %>" class="movie-poster">
+      <% if movie.new_movie? %>
+        <span class="bxitem-newmovie"></span>
+      <% end %>
 
       <!-- css trong movies.scss -->
       <div class="movie-info-show">
@@ -88,26 +88,30 @@
       <div class="caption-overlay">
         <div class="primary title-font">
           <div class="movie-caption">
-            <%= link_to movie.name, movie_path(movie) %>
+            <%= link_to movie.name, movie_path(movie), "data-turbolinks": false %>
           </div>
         </div>
-        <div class="secondary ellipsis"><%= movie.director %></div>
+        <div class="secondary ellipsis">
+          <%= movie.director %>
+          <span><%= movie.imdb %> IMDB</span>
+        </div>
       </div>
     </div>
   <% end %>
 </div><br><br>
 
-
 <div class="row">
   <div class="movie-best">
-    <div class="col-xs-12 movie-best-rating">
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
-      <h2><%= t ".new_reviews" %></h2>
-      <% 5.times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
+    <div class="col-xs-12">
+      <h2 class="htlfndr-section-title"><%= t ".new_reviews" %></h2>
+      <div class="htlfndr-section-under-title-line"></div>
+      <!--< 5.times do %>-->
+      <!--  <i class="fa fa-star-o" aria-hidden="true"></i>-->
+      <!--< end %>-->
+      <!--<h2><= t ".new_reviews" %></h2>-->
+      <!--< 5.times do %>-->
+      <!--  <i class="fa fa-star-o" aria-hidden="true"></i>-->
+      <!--< end %>-->
     </div>
   </div>
 </div>
@@ -130,7 +134,7 @@
         <% end %>
       </h3>
       <div class="review-author">
-        By <%= link_to review.user.name, user_path(review.user.name) %>
+        By <%= link_to review.user.name, user_path(review.user.name), "data-turbolinks": false %>
       </div>
       <span class="review-sub-info">
         <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
@@ -154,31 +158,13 @@
       </span><br>
       <span class="inline-tone-fill inline-icon review-sub-info">
         Author's rate:
-        <span class="star-rating">
-          <% author_rate = author_rate(review.movie, review.user) %>
-          <% if author_rate > 0 %>
-            <% overage = author_rate - author_rate.round %>
-            <% if overage < 0 && overage.abs < 0.5  %>
-              <% (author_rate.round - 1).times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              <% end %>
-              <i class="fa fa-star-half-o" aria-hidden="true"></i>
-              <% (5 - author_rate).round.times do %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% end %>
-            <% else %>
-              <% author_rate.round.times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              <% end %>
-              <% (5 - author_rate.round).times do %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-            (<%= author_rate.round(1) %>)
-          <% else %>
-            Not yet rated.
-          <% end %>
-        </span>
+        <% if author_rate(review.movie, review.user) > 0 %>
+          <span class="average-rate star-rating" data-score="<%= author_rate(review.movie, review.user) %>">
+            (<%= author_rate(review.movie, review.user).round(1) %>)
+          </span>
+        <% else %>
+          <span class="star-rating"><%= t "movies.show.not_rate" %></span>
+        <% end %>
       </span>
       <p class="genre-links hidden-phone">&gt;&nbsp;
         <% if review.movie.types.any? %>

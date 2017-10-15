@@ -1,20 +1,29 @@
-<div class="site-poster">
-  <div class="header-wrapper">
-    <div class="header section header-home">
-      <div class="widget Header">
-        <div class="header-inner">
-          <h1>
-            <img alt="Film Reviews"
-              src="//4.bp.blogspot.com/-llEk8AJGVJQ/VStz-dzN_EI/AAAAAAAAE5I/wBrEPbTAjmE/s1600/logo.png">
-          </h1>
+<header class="hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="grid_12">
+          <div class="col-md-8" style="">
+            <%= link_to root_path do %>
+              <img src="https://www.mehrnegaar.com/Images/Icon/vid.png"
+                width="100" class="col-md-3">
+              <div class="col-md-8">
+                <h1><%= t "home.title" %></h1>
+                <span><%= t "home.subtit" %></span>
+              </div>
+            <% end %>
+          </div>
+
+          <form id="search1" class="col-xs-4">
+            <input type="text" name="s" value="" onfocus="myFocus(this);" onblur="myBlur(this);">
+            <a onclick="document.getElementById('search1').submit()" class="more_btn3"></a>
+          </form>
+          
         </div>
-      </div>
     </div>
-    <div style="clear:both;"></div>
   </div>
-</div>
+</header>
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="aainer-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"
         data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -24,14 +33,39 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to t("app_name"), root_path, class: "navbar-brand home_img",
-        "data-turbolinks": false %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to t("user.home"), root_path, "data-turbolinks": false %></li>
-        <li><%= link_to t("user.movies"), movies_path, "data-turbolinks": false %></li>
-        <li><%= link_to t("user.reviews"), reviews_path, "data-turbolinks": false %></li>
+      <ul class="nav navbar-nav" id="mega-menu-1">
+        <li>
+          <%= link_to root_path, "data-turbolinks": false do %>
+            <span class="glyphicon glyphicon-home"></span>
+            <!--<= t "user.home" %>-->
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <%= link_to movies_path, "data-turbolinks": false do %>
+            <!--<span class="glyphicon glyphicon-film"></span>-->
+            <%= t "user.movies" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to reviews_path, "data-turbolinks": false do %>
+            <!--<span class="glyphicon glyphicon-star"></span>-->
+            <%= t "user.reviews" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to about_path, "data-turbolinks": false do %>
+            <span class="glyphicon glyphicon"></span>
+            <%= t "home.about" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to contact_path, "data-turbolinks": false do %>
+            <span class="glyphicon glyphicon"></span>
+            <%= t "home.contact" %>
+          <% end %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

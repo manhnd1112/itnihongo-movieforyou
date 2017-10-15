@@ -21,16 +21,20 @@ class Movie < ApplicationRecord
     rates.each do |rate|
       total += rate.score
     end
-    if size > 0
-     total * 1.0 / size
-    else 0
-    end
+    return total * 1.0 / size if size > 0
+    return 0
   end
   
   def new_movie?
     today = Date.today
     month_ago = today - 1.month
-    return true if self.realease_date > month_ago
+    return true if (self.realease_date > month_ago) && (self.realease_date < today)
+    false
+  end
+  
+  def coming_soon?
+    today = Date.today
+    return true if self.realease_date > today
     false
   end
 end

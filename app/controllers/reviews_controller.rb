@@ -1,14 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_review, only: [:show, :edit, :update, :destroy]
-  before_action :load_movies
-  before_action :find_movie
+  before_action :find_movie, only: [:show, :new]
+  before_action :load_support
 
-  def show
-    @top_reviews = Review.all.order("created_at desc").limit(3)
-    @comment = Comment.new
-    @comments = @review.comments.page(params[:page]).per(10)
-  end
+  def index; end
+
+  def show; end
 
   def new
     @review = Review.new
@@ -61,9 +59,11 @@ class ReviewsController < ApplicationController
 
   def find_movie
     @movie = Movie.find_by id: params[:movie_id]
-  end
 
-  def load_movies
-    @movies = Movie.all.order("name asc").map{|p| [p.name, p.id]}
+    return if @movie.present?
+  end
+  
+  def load_support
+    @support = Supports::Reviews.new review: Review.all, param: params
   end
 end

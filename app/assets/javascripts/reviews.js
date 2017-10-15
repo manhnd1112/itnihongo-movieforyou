@@ -111,19 +111,6 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-  // var goback = $('.prev');
-  // var goforward = $('.next');
-  // $('.gallery').slick({
-		// //arrows:true,
-		// prevArrow:goback,
-		// nextArrow:goforward,
-		// infinite: true,
-		// slidesToShow:  3,
-		// slidesToScroll: 3,
-  // 	variableWidth: true
-		// //centerMode:true
-  // });
-
   var initPhotoSwipeFromDOM = function(gallerySelector) {
     // parse slide data (url, title, size ...) from DOM elements 
     // (children of gallerySelector)

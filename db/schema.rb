@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010163334) do
+ActiveRecord::Schema.define(version: 20171018075946) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20171010163334) do
     t.string "code"
     t.string "name"
     t.string "flag_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.integer "state", default: 0
+    t.string "subject"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,9 +120,10 @@ ActiveRecord::Schema.define(version: 20171010163334) do
   create_table "rates", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
-    t.integer "score", default: 0, null: false
+    t.float "score", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "message"
   end
 
   create_table "reviews", force: :cascade do |t|

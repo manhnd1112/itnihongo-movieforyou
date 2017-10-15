@@ -1,5 +1,13 @@
 en:
   app_name: MovieForU
+  home:
+    title: Movie for You
+    subtit: Movies and reviews
+    about: About
+    contact: Contact
+    copyright: "Copyright 2017 | Mugiwara | All Rights Reserved"
+    pages: pages
+    share: Share
   button:
     save: Save
     cancel: Cancel
@@ -20,12 +28,26 @@ en:
       destroy_success: Deleted comment successfully!
     users:
       not_found: User not found!
+    bookmarks:
+      create_success: Added to your list!
+      destroy_success: Removed from your list!
+    movies:
+      not_found: Movie not found!
+      create_success: Created movie successfullly!
+      update_success: Updated movie successfully!
+      destroy_success: Deleted movie successfully!
+    types:
+      not_found: Type not found!
+      create_success: Created type successfullly!
+      update_success: Updated type successfully!
+      destroy_success: Deleted type successfully!
   static_pages:
     show:
       new_movies: Newest movies
       new_reviews: Lastest reviews
       hot_movies: Top movies
-      read_full: Read Full Review >
+      read_full: Read Full Review
+      coming: Coming soon
   user:
     sign_up: Sign Up
     login: Login
@@ -45,19 +67,26 @@ en:
     all_reviews: View all reviews
     all_favorites: View all favorites
   reviews:
+    index:
+      more_link: Read Full Review
+      recent_reviews: Recent reviews
+      no_review: No review!
     show:
       cast: Cast
       director: Director
       producer: Producer
       genre: Genre
       country: Country
-      add_bookmark: Add to favorites
       comments: Comments
       author: "Author: "
       popular: Popular Reviews
       review_movie: Review This Movie
       more_review: More Reviews
       movie_info: Movie information
+      imdb: IMDb
+      author_rate: Author's rate
+      gallery: Gallery
+      no_image: No image available.
     form:
       form_title: Movie Review
       title: Title
@@ -68,6 +97,11 @@ en:
   users:
     edit: Edit
     delete: Delete
+    show:
+      no_bookmark: Share your favorite movies with everyone!
+      no_review: "Loved or hated a movie? Write a review and share it with others!"
+      reviews_title: "Reviews written by "
+      fav_title: "'s favorite movies"
     edit:
       change_pass: Change password
       change_avatar: Change image
@@ -75,3 +109,39 @@ en:
     form:
       content: "Write a comment..."
       submit: Submit
+  movies:
+    index:
+      genre: Genres
+      realease: Realease
+      all_movies: All Movies
+    show:
+      add_bookmark: Added to favorites.
+      remove_bookmark: Removed from favorites.
+      average_rate: "Average Rating"
+      user_rate: "User Ratings"
+      review_count: "Reviews Counted"
+      distribution: USER RATING DISTRIBUTION
+      positive: "Positive"
+      mixed: "Mixed"
+      negative: "Negative"
+      not_rate: Not rated yet!
+      no_review: Be the first to review.
+      write_review: Write a Review
+      add_rate: ADD YOUR RATING
+      add_mess: Add a comment (Optional)
+  feedbacks:
+    contact:
+      contact: Contact Us
+      name: Name
+      email: Email
+      phone: Phone number
+      subject: Subject
+      message: Message
+      hello: Nice to hear You!
+      info: Contact Information
+      hour: Business Hours
+      address: Address
+      day_off: "Our support service works for you from Monday to Friday from 8 am to 18 pm<br>Wait for our reply within 24 hours.<br>Saturday and Sunday: closed"
+      details: "Hanoi University of Science and Technology,<br>No 1 Dai Co Viet Street, Hai Ba Trung Dist, Hanoi, Vietnam"
+      mail: support@mugiwara.hedspi.com
+      number: "1-999-999-999"
