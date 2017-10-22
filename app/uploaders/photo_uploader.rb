@@ -13,7 +13,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fill: [100, 100]
+    process resize_to_fill: [600, 800]
+  end
+  
+  version :small do
+    process resize_to_fill: [111, 133]
+  end
+  
+  version :flag do
+    process resize_to_fill: [300, 200]
   end
 
   def extension_whitelist

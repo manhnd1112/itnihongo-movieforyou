@@ -1,356 +1,226 @@
+<script language="javascript">
+  function fbshareCurrentPage()
+  {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 
+  'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+  return false; }
+</script>
+<% provide(:title, @movie.name) %>
+<div class="flash-bookmark hidden"></div>
 <div class="row">
-  <div class="col-xs-12 col-sm-8">
+  <div class="col-xs-12 col-sm-12 col-md-8">
     <div id="topSection">
 
       <!-- poster film -->
-      <div id="movie-image-section" class="col-sm-7 col-xs-9">
+      <div id="movie-image-section" class="col-sm-4 col-xs-4">
         <div class="center">
-          <img src="<%= @movie.avatar %>" alt="Inception" class="posterImage">
-          <div id="critics-add-article" class="hidden-xs" style="display:none;">
-            <a href="/critics/tools/movie/?movieId=770805418">Add Article</a>
-          </div>
+          <img src="<%= @movie.avatar %>" alt="<%= @movie.name %>" class="posterImage">
           <div class="movie-info-show">
-            <a class="icon share" data-title="Kẻ Ngoại Tộc" href="h"></a>
-            <div class="icon imdb">
-              <strong><%= @movie.imdb %></strong>
-              <small>IMDb</small>
-            </div>
+            <!--<a class="icon share" data-title="<= @movie.name %>" id="share-movie"></a>-->
+            <!--<div class="icon imdb">-->
+            <!--  <strong><= @movie.imdb %></strong>-->
+            <!--  <small><= t "reviews.show.imdb" %></small>-->
+            <!--</div>-->
           </div>
+          <div class="fb-like" data-width="450" data-share="false"
+            data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
+            data-layout="button_count" data-action="like" data-size="small">
+          </div>
+          <div id="shareBtn" class="btn clearfix"><%= t "home.share" %></div><br>
         </div>
       </div>
+      <!-- end poster film -->
 
-      <!-- khung ben -->
-      <div id="scorePanel" class="score_panel col-sm-17 col-xs-15">
-        <div class="col-sm-16 col-xs-12 tmeter-panel">
-          <h3 class="scoreTitle superPageFontColor">
-            TOMATOMETER <span class="glyphicon glyphicon-question-sign hidden-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="The percentage of Approved Tomatometer Critics who have given this movie a positive review"></span>
-          </h3>
+      <div id="rate" data-turbolinks="false">
+        <div id="scorePanel" class="score_panel col-sm-8 col-xs-8">
+          <!-- tittle + bookmark -->
+          <div class="col-sm-12 col-xs-12 tmeter-panel">
+            <h2 class="scoreTitle superPageFontColor title-font text-left">
+              <%= @movie.name %>
+            </h2>
+            <div class="primary_ribbon">
+              <div class="ribbonize" id="bookmark">
+                <% if user_signed_in? %>
+                  <% if current_user.bookmarked?(@movie) %>
+                    <input type="hidden" id="<%= current_user.bookmark(@movie) %>"
+                      class="current-bookmark">
+                    <span class="glyphicon glyphicon-bookmark unbookmark-btn"
+                      title='<%= t ".remove_bookmark" %>' style="color: #71c126">
+                      <i class="fa fa-check" style="color: white"></i>
+                    </span>
+                  <% else %>
+                    <span class="glyphicon glyphicon-bookmark bookmark-btn"
+                      title='<%= t ".add_bookmark" %>'>
+                      <i class="fa fa-plus" style="color: white"></i>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- end bookmark -->
+          <!-- rating info -->
           <div class="tab-content">
             <div id="all-critics-numbers" class="tab-pane active">
               <div class="row">
                 <div class="col-sm-12 info-movie">
-                  <div class="tomato-left">
-                    <!--<div class="critic-score meter">-->
-                    <!--  <a href="#contentReviews" class="unstyled articleLink" id="tomato_meter_link">-->
-                    <!--    <span class="meter-tomato icon big medium-xs certified_fresh pull-left"></span>-->
-                    <!--    <span class="meter-value superPageFontColor"><span>86</span>%</span>-->
-                    <!--  </a>-->
-                    <!--</div>-->
-                    <div id="scoreStats" class="hidden-xs">
+
+                  <!-- average, count -->
+                  <div class="tomato-left col-sm-5">
+                    <div id="scoreStats">
                       <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">Average Rating: </span>
-                        <span><%= @movie.average_rate.round(1) %>/10</span>
-                        <div class="average-rate rating-xs rating-active"
-                          data-score="<%= @movie.average_rate %>"></div>
+                        <span class="subtle superPageFontColor">
+                          <%= t ".average_rate" %>:
+                        </span>
+                        <% if @movie.average_rate > 0 %>
+                          <span><%= @movie.average_rate.round(1) %>/10</span>
+                        <% else %>
+                          <br><span><%= t ".not_rate" %></span>
+                        <% end %>
                       </div>
                       <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">Reviews Counted: </span>
+                        <span class="subtle superPageFontColor">
+                          <%= t ".user_rate" %>:
+                        </span>
+                        <span><%= @movie.rates.count %></span>
+                      </div>
+                      <div class="superPageFontColor">
+                        <span class="subtle superPageFontColor">
+                          <%= t ".review_count" %>:
+                        </span>
                         <span><%= @movie.reviews.count %></span>
                       </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor audience-info">Fresh: </span>
-                        <span></span>
-                      </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor audience-info">Rotten: </span>
-                        <span></span>
-                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-12 tomato-info hidden-xs" style="padding-left:0">
-                  <div class="progress">
-                    <div class="progress-bar certified_fresh" style="width:86%;"></div>
-                  </div>
-                  <p class="critic_consensus superPageFontColor">
-                    <span class="subtle superPageFontColor">Critics Consensus:</span>
-                    Smart, innovative, and thrilling, <em>Inception</em> is that rare summer blockbuster that succeeds viscerally as well as intellectually.</p>
-                </div>
-              </div>
-            </div>
-              
-            <div id="top-critics-numbers" class="tab-pane">
-              <div class="row">
-                <div class="col-sm-12 info-movie">
-                  <div class="tomato-left">
-                    <div class="critic-score meter">
-                      <a href="#contentReviews" class="unstyled articleLink" id="tomato_meter_link">
-                      <span class="meter-tomato icon big medium-xs certified_fresh pull-left"></span>
-                      <span class="meter-value superPageFontColor">
-                        <span>85</span>%
-                      </span>
-                      </a>
+                  <!-- end average, count -->
+
+                  <% if @movie.average_rate > 0 %>
+                    <div class="col-sm-7 hidden-xs">
+                      <!-- average score -->
+                      <div class="score fl hidden-md">
+                        <a class="metascore_anchor text-center" href="/movies/id/reviews">
+                          <% if 0 < @movie.average_rate && @movie.average_rate < 4 %>
+                            <div class="metascore_w user larger movie negative-rate">
+                              <%= @movie.average_rate.round(1) %>
+                            </div>
+                          <% elsif 3 < @movie.average_rate && @movie.average_rate < 7 %>
+                            <div class="metascore_w user larger movie mixed-rate">
+                              <%= @movie.average_rate.round(1) %>
+                            </div>
+                          <% else 6 < @movie.average_rate && @movie.average_rate < 11 %>
+                            <div class="metascore_w user larger movie positive-rate">
+                              <%= @movie.average_rate.round(1) %>
+                            </div>
+                          <% end %>
+                        </a>
+                      </div>
+                      <!-- end average score -->
+
+                      <!-- chart -->
+                      <div class="charts fl hidden-xs">
+                        <div class="lighter oswald pad_btm1">
+                          <%= t ".distribution" %>
+                        </div>
+                        <a class="chart_wrapper" href="#">
+                          <div class="chart">
+                            <div class="bar positive" data-progress-value="<%= positive(@movie).round %>"></div>
+                            <div class="text oswald">
+                              <div class="label fl">
+                                <%= t ".positive" %>:
+                                <%= positive(@movie).round(2) %>%
+                              </div>
+                              <div class="clr"></div>
+                            </div>
+                          </div>
+                        </a>
+                        <a class="chart_wrapper" href="#">
+                          <div class="chart">
+                            <div class="bar mixed" data-progress-value="<%= mixed(@movie).round %>"></div>
+                            <div class="text oswald">
+                              <div class="label fl">
+                                <%= t ".mixed" %>:
+                                <%= mixed(@movie).round(2) %>%
+                              </div>
+                              <div class="clr"></div>
+                            </div>
+                          </div>
+                        </a>
+                        <a class="chart_wrapper" href="#">
+                          <div class="chart">
+                            <div class="bar negative" data-progress-value="<%= negative(@movie).round %>"></div>
+                            <div class="text oswald">
+                              <div class="label fl">
+                                <%= t ".negative" %>:
+                                <%= negative(@movie).round(2) %>%
+                              </div>
+                              <div class="clr"></div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end chart -->
                     </div>
-                    <div id="scoreStats" class="hidden-xs">
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">Average Rating: </span>
-                        <span><%= @movie.average_rate.round(1) %></span>
-                      </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">Reviews Counted: </span>
-                        <span><%= @movie.reviews.count %></span>
-                      </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor audience-info">Fresh: </span>
-                        <span></span>
-                      </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor audience-info">Rotten: </span>
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-12 tomato-info hidden-xs" style="padding-left:0">
-                  <div class="progress">
-                    <div class="progress-bar certified_fresh" style="width:85%;"></div>
-                  </div>
-                  <p class="critic_consensus superPageFontColor">
-                    <span class="subtle superPageFontColor">Critics Consensus:</span>
-                    Smart, innovative, and thrilling, <em>Inception</em> is that rare summer blockbuster that succeeds viscerally as well as intellectually.
-                  </p>
+                  <% end %>
+
                 </div>
               </div>
             </div>
           </div>
+          <!-- end rating info -->
         </div>
-        
-        <div class="col-sm-8 col-xs-12 audience-panel">
-          <h3 class="scoreTitle superPageFontColor">
-            AUDIENCE SCORE
-            <span class="glyphicon glyphicon-question-sign hidden-xs" rel="tooltip" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="The percentage of users who have rated this movie 3.5 stars or higher"></span>
+
+        <!-- khung rate -->
+        <div id="rating_widget_desktop" class="col-sm-12 col-xs-12 col-md-8 tmeter-panel">
+          <h3 class="rating_widget_desktop-header">
+            <span><%= t ".add_rate" %></span>
           </h3>
-          <div class="audience-score meter">
-            <a href="#audience_reviews" class="unstyled articleLink">
-              <div class="meter media">
-                <div class="meter-tomato icon big medium-xs upright pull-left"></div>
-                <div class="media-body" style="line-height:36px">
-                  <div class="meter-value">
-                      <span class="superPageFontColor" style="vertical-align:top">82%</span>
+          <% if user_signed_in? %>
+            <div class="media rating_widget">
+              <%= link_to user_path(current_user), "data-turbolinks": false,
+                class: "pull-left hidden-xs user-avatar" do %>
+                <img role="presentation" class="media-object pull-left"
+                  src="<%= current_user.avatar %>">
+              <% end %>
+              <div class="media-body">
+                <div class="rating_widget-body">
+                  <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
+                  <div class="hidden current-movie-id" id="<%= @movie.id %>"></div> 
+                  <div class="rating_widget-body-star">
+                    <span id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></span>
+                    <span id="target"></span>
+                    <span id="hint"></span>
                   </div>
-                  <div class="smaller bold hidden-xs superPageFontColor" style="padding-left:5px;line-height:12px">liked it</div>
+                  <div class="rating_textbox">
+                    <textarea class="rating_textbox-textarea clearfix rate-message"
+                      placeholder='<%= t ".add_mess" %>'></textarea>
+                    <div class="btn-group-sm rating_textbox-submit clearfix">
+                      <%= button_tag "Rate", class: "btn rating_widget-body-btn submit-rate" %>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="audience-info hidden-xs superPageFontColor">
-            <div>
-              <span class="subtle superPageFontColor">Average Rating:</span>
-              4.1/5
             </div>
-            <div>
-              <span class="subtle superPageFontColor">User Ratings:</span>
-              38,820
-            </div>
-          </div>
+          <% else %>
+            <%= link_to "Login", user_session_path, "data-turbolinks": "false" %>
+            to rate
+          <% end %>
         </div>
-
-
+        <!-- end rating frame -->
       </div>
 
-      <!-- khung rate -->
-      <div id="rating_widget_desktop" class="tmeter-panel">
-        <h3 class="rating_widget_desktop-header">
-          <span>ADD YOUR RATING</span>
-        </h3>
-        <% if user_signed_in? %>
-          <div class="media rating_widget">
-            <%= link_to user_path(current_user), rel: "nofollow",
-              class: "pull-left hidden-xs user-avatar" do %>
-              <img role="presentation" class="media-object pull-left"
-                src="<%= current_user.avatar %>">
-            <% end %>
-            <div class="media-body">
-              <div class="rating_widget-body">
-                <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
-                <div class="hidden current-movie-id" id="<%= @movie.id %>"></div> 
-                <div class="rating_widget-body-star">
-                  <div id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></div>
-                </div>
-                <div class="rating_textbox">
-                  <textarea class="rating_textbox-textarea clearfix" placeholder="Add a Review (Optional)"></textarea>
-                  <!--<div class="btn-group-xs rating_textbox-submit clearfix">-->
-                  <!--  <span class="rating_textbox-submit-status"></span>-->
-                  <!--</div>-->
-                </div>
-                <%= button_tag "Post", class: "btn rating_widget-body-btn submit-rate" %>
-              </div>
-            </div>
-          </div>
-        <% else %>
-          <%= link_to "Login", user_session_path, "data-turbolinks": "false" %>
-          to rate
-        <% end %>
-      </div> <!-- end rating frame -->
+      <!-- movie info -->
+      <%= render "movie_infor", movie: @movie %>
+      <!-- end info -->
+
+      <div class="col-xs-12 all-reviews" style="padding-right: 8px;">
+        <%= render "movie_reviews", reviews: @support.reviews,
+          rates: @support.rates %>
+      </div>
     </div>
-  
-    <!-- movie info -->
-    <section class="panel panel-rt panel-box movie_info media">
-      <div class="media-body">
-        <h2 class="panel-heading">Movie Info</h2>
-        <div class="panel-body content_body">
-          <div id="movieSynopsis" class="movie_synopsis clamp clamp-6" style="clear:both">
-            Thirty years after the events of the first film, a new blade runner
-          </div>
-          <ul class="content-meta info">
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Rating: </div>
-              <div class="meta-value">R (for violence, some sexuality, nudity and language)</div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Genre: </div>
-              <div class="meta-value">
-                <a href="/browse/opening/?genres=1">
-                  Action &amp; Adventure</a>, <a href="/browse/opening/?genres=9">
-                  Drama</a>, <a href="/browse/opening/?genres=14">
-                  Science Fiction &amp; Fantasy
-                </a>
-              </div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Directed By: </div>
-              <div class="meta-value">
-                <a href="/celebrity/denis-villeneuve">Denis Villeneuve</a>
-              </div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Written By: </div>
-              <div class="meta-value">
-                <a href="/celebrity/michael-green">Michael Green</a>,
-                <a href="/celebrity/1056424-hampton_fancher">Hampton Fancher</a>
-              </div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">In Theaters: </div>
-              <div class="meta-value">
-                  <time datetime="2017-10-05T17:00:00-07:00">Oct 6, 2017</time>
-                  <span style="text-transform:capitalize">&nbsp;wide</span>
-              </div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Box Office: </div>
-              <div class="meta-value">$32,753,122</div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Runtime: </div>
-              <div class="meta-value">
-                <time datetime="P164M">
-                  164 minutes
-                </time>
-              </div>
-            </li>
-            <li class="meta-row clearfix">
-              <div class="meta-label subtle">Studio: </div>
-              <div class="meta-value">
-                <a href="http://bladerunnermovie.com" target="movie-studio">Warner Bros. Pictures</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section><br>
 
-    <!-- cast -->
-    <section class="panel panel-rt panel-box movie_info media">
-      <div class="media-body">
-        <h2 class="panel-heading">Cast</h2>
-        <div class="listNewsCinema">
-          <ul class="blockList">
-            <li>
-              <div class="imgThumb">
-                <img src="default.png" alt="Director" width="65" height="65">
-              </div>
-              <div class="blockContInfo">
-                <h4 class="titleItemSmall">
-                  <div class="name">
-                    <%= @movie.director %>
-                  </div><br>
-                  <span class="support-text" style="font-size: 12px;color:#939393;">Director</span>
-                </h4>
-              </div>
-            </li>
-            <% if @movie.actors.any? %>
-              <% @movie.actors.each do |actor| %>
-                <li>
-                  <%= link_to actor_path(actor), target: "_blank", class: "imgThumb" do %>
-                    <img src="<%= actor.avatar_image %>" alt="Director" width="65" height="65">
-                  <% end %>
-                  <div class="blockContInfo">
-                    <h4 class="titleItemSmall">
-                      <%= link_to actor_path(actor), target: "_blank", class: "name" do %>
-                        <%= actor.name %>
-                      <% end %><br>
-                      <span class="support-text" style="font-size: 12px;color:#939393;">Main</span>
-                    </h4>
-                  </div>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </section> <!-- end cast -->
+  </div><!-- end col-sm-9 -->
 
-      <!-- review -->
-    <section class="panel panel-rt panel-box movie_info media">
-      <div class="media-body">
-        <h2 class="panel-heading">Review</h2>
-        <div class="film-detail-other-news">
-          <ul class="blockList">
-            <br>
-            <% if @movie.reviews.any? %>
-              <% @movie.reviews.each do |review| %>
-                <li style="margin-bottom: 15px;">
-                  <%= link_to review_path(review), target: "_blank", class: "imgThumb" do %>
-                    <img src="<%= review.photos.first.try :url %>" width="100" height="100">
-                  <% end %>
-                  <div class="blockContInfo">
-                    <h4 class="title">
-                      <%= link_to review_path(review), target: "_blank" do %>
-                        <small class="tag review-by-123phim">123Phim Review</small>
-                        <%= review.title %>
-                      <% end %>
-                    </h4>
-                    <p><%= truncate_html(review.content, length: 150) %></p>
-                  </div>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </section> <!-- end review -->
-
-      <!-- other movies -->
-    <section class="panel panel-rt panel-box movie_info media">
-      <div class="media-body">
-        <h2 class="panel-heading">Movie Info</h2>
-        <div class="content tag">
-          <div class="group">
-            <h2 class="blockTitle">
-              <a>May you interest</a>
-              <small>Related movies</small>
-            </h2>
-            <div class="block-base movie" style="width:157px">
-              <a href="#">
-                <img src="https://s3img.vcdn.vn/123phim/2017/09/ke-trom-cho-15063234249761.jpg" width="157" height="224">
-              </a>
-              <div class="movie-info-show rate">
-                <div class="icon imdb">
-                  <strong>0</strong>
-                  <small>IMDb</small>
-                </div>
-                <a href="#" target="_self" class="litebox icon play-trailer" data-litebox-group="trailer">&nbsp;</a>
-              </div>
-              <span class="publish-date-new">
-                <span class="date">06</span>
-                <span class="month">/10</span>
-              </span>
-              <a href="#" class="film-name" target="_blank">Kẻ Trộm Chó (C16)</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> <!-- end other movies -->
+  <div class="hidden-xs hidden-sm col-md-4">
+    <%= render "top_movies", top_movies: @support.top_movies,
+      comings: @support.coming_movies %>
   </div>
 </div>

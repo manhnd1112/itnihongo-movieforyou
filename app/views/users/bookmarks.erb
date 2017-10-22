@@ -1,0 +1,22 @@
+<% provide(:title, "Favorited by " + @user.username) %>
+<div class="row profile">
+  <%= render "user_profile", user: @user %>
+  <div class="col-xs-12 col-sm-10 col-md-9 col-lg-9">
+    <div class="profile-content">
+      <div class="widget article userLists">
+        <h2><%= @user.username %><%= t "users.show.fav_title" %></h2>
+        <div id="list-reviews">
+          <div class="text-center" data-turbolinks="false">
+            <div class="review-pagination">
+              <%= paginate @bookmarks %>
+            </div>
+          </div><hr>
+          <%= render "bookmark", bookmarks: @bookmarks %>
+          <div class="review-pagination text-center" data-turbolinks="false">
+            <%= paginate @bookmarks %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

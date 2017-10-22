@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :show] do
-    resources :rates
+    resources :rates, only: [:create]
+    resources :bookmarks, only: [:create, :destroy]
   end
   resources :reviews do
     resources :comments
@@ -17,6 +18,11 @@ Rails.application.routes.draw do
     resources :reviews, except: :index
   end
   resources :actors, only: [:index, :show]
+  resources :types, only: [:index, :show]  
+  resources :feedbacks, only: [:new, :create]
 
   get "users/:id/reviews" => "users#reviews", as: :user_all_reviews
+  get "users/:id/bookmarks" => "users#bookmarks", as: :user_favorites
+  get "static_pages/about", as: :about
+  get "feedbacks" => "feedbacks#contact", as: :contact
 end

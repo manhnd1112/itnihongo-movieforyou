@@ -1,19 +1,11 @@
 <% provide(:title, @review.movie.name + " Review") %>
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 review-details">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 review-details">
     <div class="review-movie">
       <div class="title_bar_wrapper">
         <div class="titleBar">
-          <div class="primary_ribbon">
-            <div class="ribbonize">
-              <span class="iconFacebook glyphicon glyphicon-bookmark">
-                <i class="fa fa-plus" style="color: white"></i>
-              </span>
-              <!--<div class="wl-ribbon standalone not-inWL" title="<= t ".add_bookmark" %>"></div>-->
-            </div>
-          </div>
           <div class="title_wrapper">
-            <h2 class="review-title title-font">
+            <h2 class="review-title title-font" id="title">
               <span>[<%= t "user.review" %>]</span>
               <%= @review.movie.name %>
               (<%= @review.movie.realease_date.strftime("%Y") %>):
@@ -25,34 +17,20 @@
       <div class="byline">
         <span class="author-bold title-font"><%= t ".author" %></span>
         <span class="author-bold" style="font-size: 20px">
-          <%= link_to @review.user.name, user_path(@review.user), "data-turbolinks": false %>
+          <%= link_to @review.user.name, user_path(@review.user),
+            "data-turbolinks": false %>
         </span><br>
-        <span class="author-bold title-font">Author's rate:</span>
-        <span class="star-rating">
-          <% author_rate = author_rate(@review.movie, @review.user) %>
-          <% if author_rate > 0 %>
-            <% overage = author_rate - author_rate.round %>
-            <% if overage < 0 && overage.abs < 0.5  %>
-              <% (author_rate.round - 1).times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              <% end %>
-              <i class="fa fa-star-half-o" aria-hidden="true"></i>
-              <% (5 - author_rate).round.times do %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% end %>
-            <% else %>
-              <% author_rate.round.times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              <% end %>
-              <% (5 - author_rate.round).times do %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-            (<%= author_rate.round(1) %>)
-          <% else %>
-            Not yet rated.
-          <% end %>
-        </span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span class="author-bold title-font"><%= t ".author_rate" %>:</span>
+        <% if author_rate(@review.movie, @review.user) > 0 %>
+          <span class="average-rate rating-xs rating-active"
+            data-score="<%= author_rate(@review.movie, @review.user) %>"></span>
+          <span class="star-rating">
+            (<%= author_rate(@review.movie, @review.user).round(1) %>)
+          </span>
+        <% else %>
+          <span class="star-rating"><%= t "movie.show.not_rate" %></span>
+        <% end %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
         <span class="iconFacebook glyphicon glyphicon-comment"></span>
         <%= @review.comments.count %><br>
         <time class="title-font">
@@ -62,19 +40,16 @@
           <%= @review.created_at.strftime("%d %b %Y") %>
         </time>
       </div><br>
-      <div
-        class="fb-like" data-width="450" data-share="true"
+      <div class="fb-like" data-width="450" data-share="false"
         data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
         data-layout="button_count" data-action="like" data-size="small">
-      </div><br><br>
-      
+      </div>
+      <div id="shareBtn" class="btn clearfix"><%=t "home.share" %></div><br><br>
+
       <!-- content area -->
       <ul class="movieitemlisting tabsintbgshow title-font">
         <li class="tablive">
-          <p>
-            <%= t ".movie_info" %>
-            <span></span>
-          </p>
+          <p><%= t ".movie_info" %><span></span></p>
         </li>
       </ul>
       <%= render "movie_info", review: @review %>
@@ -82,22 +57,18 @@
     <div class="article-body">
       <ul class="movieitemlisting tabsintbgshow title-font">
         <li class="tablive">
-          <p>
-            <%= t "user.review" %>
-            <span></span>
-          </p>
+          <p><%= t "user.review" %><span></span></p>
         </li>
       </ul>
-      <div class="review-content"><%= @review.content.html_safe %></div>
+      <div class="review-content">
+        <%= @review.content.html_safe %>
+      </div>
     </div><br><br>
     
     <!-- image area -->
     <ul class="movieitemlisting tabsintbgshow title-font">
       <li class="tablive">
-        <p>
-          Gallery
-          <span></span>
-        </p>
+        <p><%= t ".gallery" %><span></span></p>
       </li>
     </ul><br>
 
@@ -105,17 +76,12 @@
       <div class="review-photos">
         <% if @review.photos.any? %>
           <% @review.photos.each do |photo| %>
-            <div>
               <div class="photo-item">
-                <!--<a href="<= photo.url %>" data-turbolinks="false"-->
-                <!--  data-size="600x900" data-med="<= photo.url %>">-->
-                  <%= image_tag photo.url, title: @review.title %>
-                <!--</a>-->
+                <%= image_tag photo.url, title: @review.title %>
               </div>
-            </div>
           <% end %>
         <% else %>
-          <p style="font-size: 18px">No image.</p>
+          <p style="font-size: 18px"><%= t ".no_image" %></p>
         <% end %>
       </div>
       <div>
@@ -142,9 +108,9 @@
     <!-- comment area -->
     <h2 class="comments-title title-font"><%= t ".comments" %></h2>
     <% if user_signed_in? %>
-      <%= render "comments/form", review: @review, comment: @comment %>
+      <%= render "comments/form", review: @review, comment: @support.new_comment %>
       <div id="comments" class="comments-part">
-        <%= render "comments/comments", review: @review, comments: @comments %>
+        <%= render "comments/comments", review: @review, comments: @support.comments %>
       </div>
     <% else %>
       <h3><%= link_to t("user.login"), user_session_path,
@@ -156,15 +122,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 top-review">
-    <%= render "trending_review", top_reviews: @top_reviews %>
+  <div class="col-xs-12 col-md-4 col-lg-4 top-review">
+    <%= render "trending_review", top_reviews: @support.top_reviews, review: @review %>
   </div>
 </div>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1778167635845888";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>

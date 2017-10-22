@@ -1,0 +1,67 @@
+<section class="sidebar-top">
+  <div class="sidebar-heading">
+    <h2><%= t "static_pages.show.hot_movies" %></h2>
+  </div>
+  <ul class="list-top-movie slim-scroll" id="list-top-film-week">
+    <% top_movies.each do |movie| %>
+    <li class="list-top-movie-item">
+      <%= link_to movie_path(movie), class: "list-top-movie-link col-xs-12",
+        "data-turbolinks": false, title: movie.name do %>
+        <div class="list-top-movie-item-thumb col-xs-4"
+          style="background: url(<%= movie.avatar.small.url %>)">
+        </div>
+        <div class="list-top-movie-item-info col-xs-8">
+          <span class="list-top-movie-item-name title-font">
+            <%= movie.name %> (<%= movie.realease_date.strftime("%Y") %>)
+          </span>
+          <span class="list-top-movie-item-summary">
+            <%= truncate_html(movie.description, length: 65) %>
+          </span>
+          <span class="average-rate hidden-md" data-score="<%= movie.average_rate %>"></span>
+          <span class="hidden-xs hidden-lg hidden-sm user-score">
+            <i class="fa fa-star"></i>
+            <%= movie.average_rate.round(1) %>
+          </span>
+        </div>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</section>
+
+<!-- Comming soon -->
+<section class="sidebar-top">
+  <div class="sidebar-heading">
+    <h2><%= t "static_pages.show.coming" %></h2>
+  </div>
+  <ul class="list-top-movie slim-scroll" id="list-top-film-week">
+    <% comings.each do |movie| %>
+      <!--< if movie.comming_movie? %>-->
+      <li class="list-top-movie-item">
+        <%= link_to movie_path(movie), class: "list-top-movie-link col-xs-12",
+          "data-turbolinks": false, title: movie.name do %>
+          <div class="list-top-movie-item-thumb col-xs-4"
+            style="background: url(<%= movie.avatar.small.url %>)">
+          </div>
+          <div class="list-top-movie-item-info col-xs-8">
+            <span class="list-top-movie-item-name title-font">
+              <%= movie.name %> (<%= movie.realease_date.strftime("%Y") %>)
+            </span>
+            <span class="list-top-movie-item-summary">
+              <%= truncate_html(movie.description, length: 65) %>
+            </span>
+            <span class="list-top-movie-item-view">
+              <%= movie.realease_date.strftime("%d %B %Y") %>
+            </span><br>
+            <!--<span class="average-rate hidden-md" data-score="<= movie.average_rate %>"></span>-->
+            <!--<span class="hidden-xs hidden-lg hidden-sm user-score">-->
+            <!--  <i class="fa fa-star"></i>-->
+            <!--  <= movie.average_rate %>-->
+            <!--</span>-->
+          </div>
+        <% end %>
+      </li>
+      <!--< end %>-->
+    <% end %>
+  </ul>
+</section>

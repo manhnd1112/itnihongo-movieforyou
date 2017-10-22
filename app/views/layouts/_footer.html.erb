@@ -1,0 +1,80 @@
+<footer class="footer">
+  <div class="widget-wrapper">
+    <div class="row">
+      <aside class="col-xs-12 col-sm-6 col-md-3 widget-column">
+        <div class="widget">
+          <%= link_to root_path, class: "logo navbar-brand",
+            "data-turbolinks": false do %>
+            <p class="logo-text"><%= t "home.title" %></p>
+          <% end %>
+          <hr>
+          <p><%= Faker::Lorem.paragraph(2, true) %></p><br>
+          <p><%= Faker::Lorem.paragraph(2, true) %></p>
+        </div>
+      </aside>
+      <aside class="col-xs-12 col-sm-6 col-md-3 widget-column">
+        <div class="widget">
+          <h3 class="widget-title"><%= t "feedbacks.contact.info" %></h3>
+          <h5><%= t "feedbacks.contact.address" %></h5>
+          <p><%= t "feedbacks.contact.details" %></p><hr>
+          <h5><%= t "feedbacks.contact.phone" %></h5>
+          <p><%= t "feedbacks.contact.number" %></p><hr>
+          <h5><%= t "feedbacks.contact.email" %></h5>
+          <p><%= t "feedbacks.contact.mail" %></p>
+        </div>
+      </aside>
+      <aside class="col-xs-12 col-sm-6 col-md-3 widget-column">
+        <div class="widget">
+          <h3 class="widget-title"><%= t "home.pages" %></h3>
+          <ul class="menu">
+            <li class="menu-item">
+              <%= link_to t("user.home"), root_path,
+                "data-turbolinks": false %>
+            </li>
+            <li class="menu-item">
+              <%= link_to t("user.movies"), movies_path,
+                "data-turbolinks": false %>
+            </li>
+            <li class="menu-item">
+              <%= link_to t("user.reviews"), reviews_path,
+                "data-turbolinks": false %>
+            </li>
+            <li class="menu-item active">
+              <%= link_to t("user.about"), about_path,
+                "data-turbolinks": false %>
+            </li>
+            <li class="menu-item">
+              <%= link_to t("user.contact"), contact_path,
+                "data-turbolinks": false %>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <aside class="col-xs-12 col-sm-6 col-md-3 widget-column">
+        <div class="widget">
+          <h3 class="widget-title">follow us</h3>
+          <div class="follow-plugin">
+            <a href="https://www.facebook.com/bestwebsoft/" target="_blank" class="follow-button button-facebook"></a>
+            <a href="https://twitter.com/bestwebsoft" target="_blank" class="follow-button button-twitter"></a>
+            <a href="https://plus.google.com/+Bestwebsoft" target="_blank" class="follow-button button-google-plus"></a>
+            <a href="https://www.linkedin.com/company/bestwebsoft/" target="_blank" class="follow-button button-linkedin"></a>
+            <a href="#" class="follow-button button-pinterest"></a>
+            <a href="https://www.youtube.com/bestwebsoft" target="_blank" class="follow-button button-youtube"></a>
+          </div>
+          <hr>
+          <h3 class="widget-title">mailing list</h3>
+          <p>Sign up for our mailing list to get latest updates and offers</p>
+          <form>
+            <input type="email" placeholder="Your E-mail">
+            <input type="submit">
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="container" role="contentinfo">
+      <p><%= t "home.copyright" %></p>
+    </div>
+  </div>
+</footer>

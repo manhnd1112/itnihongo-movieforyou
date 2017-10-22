@@ -27,12 +27,12 @@ Country.create!([
    flag_image: File.open(Rails.root + "public/uploads/image/ca.png")},
   {code: "LB", name: "Lebanon",
    flag_image: File.open(Rails.root + "public/uploads/image/lb.png")},
-  {code: "AU-WA", name: "Western Australia",
-   flag_image: File.open(Rails.root + "public/uploads/image/au-wa.png")}, 
+  {code: "AUS", name: "Australia",
+   flag_image: File.open(Rails.root + "public/uploads/image/aus.jpg")}, 
   {code: "SWE", name: "Sweden",
    flag_image: File.open(Rails.root + "public/uploads/image/swe.png")}, 
-  # {code: "LB", name: "Lebanon",
-  #   flag_image: File.open(Rails.root + "public/uploads/image/lb.png")}, 
+  {code: "ESP", name: "Spain",
+   flag_image: File.open(Rails.root + "public/uploads/image/sp.png")}, 
 ])
 
 Movie.create!([
@@ -321,14 +321,32 @@ Movie.create!([
     After successfully protecting the planet for two years, something is starting to go wrong. 
     Two estranged brothers are tasked with solving the program's malfunction before a world wide 
     Geostorm can engulf the planet."},
-  # {name: "", imdb: ,
-  #   realease_date: "", producer: "", director: "", country_id: 1,
-  #   avatar: File.open(Rails.root + "public/uploads/image/sp.jpg"),
-  #   description: ""},
-  # {name: "", imdb: ,
-  #   realease_date: "", producer: "", director: "", country_id: 1,
-  #   avatar: File.open(Rails.root + "public/uploads/image/sp.jpg"),
-  #   description: ""},
+  {name: "Mission: Impossible - Rogue Nation", imdb: 7.4,
+  realease_date: "2015/07/31", producer: "Paramount Pictures",
+  director: "Christopher McQuarrie", country_id: 1,
+  avatar: File.open(Rails.root + "public/uploads/image/im.jpg"),
+  description: "Ethan and team take on their most impossible mission yet, eradicating the 
+  Syndicate - an International rogue organization as highly skilled as they are, committed 
+  to destroying the IMF."}, 
+  {name: "My Little Pony: The Movie", imdb: 6.6, realease_date: "2017/10/06", producer: "Imaginarium Productions", director: "Jayson Thiessen", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/pony.jpg"), description: "A dark force threatens Ponyville, and the Mane 6 - Twilight Sparkle, Applejack, Rainbow Dash, Pinkie Pie, Fluttershy, and Rarity - embark on an unforgettable journey beyond Equestria where they meet new friends and exciting challenges on a quest to use the magic of friendship to save their home."}, 
+  {name: "Breathe", imdb: 6.5, realease_date: "2017/10/27", producer: "Imaginarium Productions", director: "Andy Serkis", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/breathe.jpg"), description: "When Robin is struck down by polio at the age of 28, he is confined to a hospital bed and given only a few months to live. With the help of Diana's twin brothers (Tom Hollander) and the groundbreaking ideas of inventor Teddy Hall (Hugh Bonneville), Robin and Diana dare to escape the hospital ward to seek out a full and passionate life together - raising their young son, traveling and devoting their lives to helping other polio patients."}, 
+  {name: "Lady Bird", imdb: 7.7, realease_date: "2017/11/3", producer: "Scott Rudin Productions", director: "Greta Gerwig", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/bird.jpg"), description: "The adventures of a young woman living in Northern California for a year."}, 
+  {name: "The Florida Project", imdb: 8.1, realease_date: "2017/10/10", producer: "Cre Film", director: "Sean Baker", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/florida.jpg"), description: "Set over one summer, the film follows precocious 6-year-old Moonee as she courts mischief and adventure with her ragtag playmates and bonds with her rebellious but caring mother, all while living in the shadows of Disney World."}, 
+  {name: "Doctor Strange", imdb: 7.5, realease_date: "2016/11/04", producer: "Marvel Studios", director: "Scott Derrickson", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/doctor.jpg"), description: "While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts."}, 
+  {name: "Thor: Ragnarok", imdb: 7.2, realease_date: "2017/10/27", producer: "Marvel Studios", director: "Taika Waititi", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/thor.jpg"), description: "Imprisoned, the mighty Thor finds himself in a lethal gladiatorial contest against the Hulk, his former ally. Thor must fight for survival and race against time to prevent the all-powerful Hela from destroying his home and the Asgardian civilization."}, 
+  {name: "Only the Brave", imdb: 7.0, realease_date: "2017/10/20", producer: "Carousel Productions (II)", director: " Joseph Kosinski", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/brave.jpg"), description: "Based on the true story of the Granite Mountain Hotshots, a group of elite firefighters risk everything to protect a town from a historic wildfire."}, 
+  {name: "Murder on the Orient Express", imdb: 8.0, realease_date: "2017/11/10", producer: "20th Century Fox Film Corporation", director: "Kenneth Branagh", country_id: 2, avatar: File.open(Rails.root + "public/uploads/image/murder.jpg"), description: "A lavish train ride unfolds into a stylish & suspenseful mystery. From the novel by Agatha Christie, Murder on the Orient Express tells of thirteen stranded strangers & one man's race to solve the puzzle before the murderer strikes again."},
+  {name: "Earth: One Amazing Day", imdb: 7.0, realease_date: "2017/10/20", producer: "Black Label Media", director: "Richard Dale, Lixin Fan", country_id: 2, avatar: File.open(Rails.root + "public/uploads/image/earth.jpg"), description: "From BBC Earth Films, the studio that brought you Earth, comes the sequel - Earth: One Amazing Day, an astonishing journey revealing the awesome power of the natural world. Over the course of one single day, we track the sun from the highest mountains to the remotest islands to exotic jungles. Breakthroughs in filmmaking technology bring you up close with a cast of unforgettable characters. Told with humour, intimacy and a jaw-dropping sense of cinematic splendour, Earth: One Amazing Day highlights how every day is filled with more wonders than you can possibly imagine- until now."},
+  {name: "Justice League", imdb: 6.5, realease_date: "2017/11/17", producer: "DC Entertainment", director: "Zack Snyder", country_id: 1, avatar: File.open(Rails.root + "public/uploads/image/jl.jpg"), description: "Fueled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne enlists the help of his newfound ally, Diana Prince, to face an even greater enemy. Together, Batman and Wonder Woman work quickly to find and recruit a team of metahumans to stand against this newly awakened threat. But despite the formation of this unprecedented league of heroes-Batman, Wonder Woman, Aquaman, Cyborg and The Flash-it may already be too late to save the planet from an assault of catastrophic proportions."},
+  {name: "The Invisible Guest", imdb: 8.0, realease_date: "2017/10/06", producer: "Atresmedia Cine", director: "Oriol Paulo", country_id: 8, avatar: File.open(Rails.root + "public/uploads/image/ig.jpg"), description: "Adrián Doria, a wealthy businessman named Man of the Year due to his high-tech company and his trade agreements with the Asian market, meets Virginia Goodman, a veteran lawyer expert in witness preparation and judicial declaration, recommended by Adrián's lawyer Felix Leiva in order to create a credible defense. Arrested by the police in a mountain hotel room with the corpse of his lover at his side, photographer Laura Vidal, Adrián talks Virginia about the crime and his relationship with Laura, revealing that both suffered a car crash where a man called Daniel Garrido died, and how Laura manipulated Adrián to avoid the jail by Daniel's death. At the same time that Félix is looking for a clue that it could change the course of the events, Virginia and Adrián keep talking about the case but her, unconvinced of the Adrián's testimony, forces him to clear the dark points of his history, in a puzzle where the truth and the lie are easily exchangeable."},
+  # {name: "The Shape of Water", imdb: 7.4,
+  # realease_date: "2017/12/8", producer: "Bull Productions", director: "Guillermo del Toro", country_id: 1,
+  # avatar: File.open(Rails.root + "public/uploads/image/water.jpg"),
+  # description: "An other-worldly fairy tale, set against the backdrop of Cold War era America circa 1962. In the hidden high-security government laboratory where she works, lonely Elisa (Sally Hawkins) is trapped in a life of isolation. Elisa's life is changed forever when she and co-worker Zelda (Octavia Spencer) discover a secret classified experiment."},
+  {name: "Koe no katachi", imdb: 8.2,
+   realease_date: "2017/5/12", producer: "Kyoto Animation", director: "Naoko Yamada", country_id: 3,
+   avatar: File.open(Rails.root + "public/uploads/image/koe.jpg"),
+   description: "The story revolves around Nishimiya Shoko, a grade school student who has impaired hearing. She transfers into a new school, where she is bullied by her classmates, especially Ishida Shouya. It gets to the point where she transfers to another school and as a result, Shouya is ostracized and bullied himself, with no friends to speak to and no plans for the future. Years later, he sets himself on a path to redemption."},
   # {name: "", imdb: ,
   #   realease_date: "", producer: "", director: "", country_id: 1,
   #   avatar: File.open(Rails.root + "public/uploads/image/sp.jpg"),
@@ -605,10 +623,66 @@ Actor.create!([
    the HBO comedy-drama series, Girls (2012). Williams was born and raised in New Canaan, 
    Connecticut, and is the daughter of former NBC Nightly News anchor and managing editor, 
    Brian Williams, and Jane Gillan Stoddard, a TV producer. She graduated from Yale University in 2010."},
-  # {name: "", avatar_image: File.open(Rails.root + "public/uploads/image/actor-23.jpg"),
-  #   birthday: "", country_id: 1, description: ""},
-  # {name: "", avatar_image: File.open(Rails.root + "public/uploads/image/actor-23.jpg"),
-  #   birthday: "", country_id: 1, description: ""},
+  {name: "Christopher Lee", avatar_image: File.open(Rails.root + "public/uploads/image/actor-28.jpg"),
+    birthday: "1922/5/27", country_id: 2, description: "Sir Christopher Frank Carandini Lee was perhaps the only actor of his generation to have starred in so many films and cult saga. Although most notable for personifying bloodsucking vampire, Dracula, on screen, he portrayed other varied characters on screen, most of which were villains, whether it be Francisco Scaramanga in the James Bond film, The Man with the Golden Gun (1974), or Count Dooku in Star Wars: Episode II - Attack of the Clones (2002), or as the title monster in the Hammer Horror film, The Mummy (1959)."},
+  {name: "Ian McKellen", avatar_image: File.open(Rails.root + "public/uploads/image/actor-29.jpg"),
+  birthday: "1939/5/25", country_id: 2, description: "Sir Ian Murray McKellen, CH, CBE (born 25 May 1939) is an English actor. He is the recipient of six Laurence Olivier Awards, a Tony Award, a Golden Globe Award, a Screen Actors Guild Award, a BIF Award, two Saturn Awards, four Drama Desk Awards, and two Critics' Choice Awards. He has also received two Oscar nominations, four BAFTA nominations and five Emmy Award nominations.
+McKellen's career spans genres ranging from Shakespearean and modern theatre to popular fantasy and science fiction. The BBC states his \"performances have guaranteed him a place in the canon of English stage and film actors\".[2][3] A recipient of every major theatrical award in the UK, McKellen is regarded as a British cultural icon.[4][5] He started his professional career in 1961 at the Belgrade Theatre as a member of their highly regarded repertory company. In 1965 McKellen made his first West End appearance. In 1969 he was invited to join the Prospect Theatre Company to play the lead parts in Shakespeare's Richard II and Marlowe's Edward II, and he firmly established himself as one of the country's foremost classical actors. In the 1970s McKellen became a stalwart of the Royal Shakespeare Company and the National Theatre of Great Britain. He achieved worldwide fame for his notable film roles, which include Gandalf in The Lord of the Rings and The Hobbit trilogies and Magneto in the X-Men films, both of which introduced McKellen to a new generation.
+McKellen was appointed Commander of the Order of the British Empire in the 1979 Birthday Honours, was knighted in the 1991 New Year Honours for services to the performing arts, and made a Companion of Honour for services to drama and to equality in the 2008 New Year Honours.He has been openly gay since 1988, and continues to be a champion for LGBT social movements worldwide. He was made a Freeman of the City of London in October 2014."},
+   {name: "Al Pacino", avatar_image: File.open(Rails.root + "public/uploads/image/actor-30.jpg"),
+  birthday: "1940/4/25", country_id: 1, description: "Alfredo James Pacino (/pəˈtʃiːnoʊ/; born April 25, 1940) is an American actor of stage and screen, filmmaker, and screenwriter. Pacino has had a career spanning over five decades, during which time he has received numerous accolades and honors both competitive and honorary, among them an Academy Award, two Tony Awards, two Primetime Emmy Awards, a British Academy Film Award, four Golden Globe Awards, the Lifetime Achievement Award from the American Film Institute, the Golden Globe Cecil B. DeMille Award, and the National Medal of Arts. He is also one of few performers to have won a competitive Oscar, an Emmy and a Tony Award for acting, dubbed the \"Triple Crown of Acting\".
+A method actor and former student of the HB Studio and the Actors Studio in New York City, where he was taught by Charlie Laughton and Lee Strasberg,[1] Pacino made his feature film debut with a minor role in Me, Natalie (1969) and gained favorable notices for his lead role as a heroin addict in The Panic in Needle Park (1971). He achieved international acclaim and recognition for his breakthrough role as Michael Corleone in Francis Ford Coppola's The Godfather (1972). He received his first Oscar nomination and would reprise the role in the equally successful sequels The Godfather Part II (1974) and The Godfather Part III (1990). Pacino's performance as Michael Corleone is now regarded as one of the greatest screen performances in film history.
+Pacino received his first Best Actor Oscar nomination for Serpico (1973); he was also nominated for The Godfather Part II, Dog Day Afternoon (1975) and ...And Justice for All (1979) and won the award in 1993 for his performance as a blind Lieutenant Colonel in Scent of a Woman (1992). For his performances in The Godfather, Dick Tracy (1990) and Glengarry Glen Ross (1992), Pacino was nominated for the Academy Award for Best Supporting Actor. Other notable roles include Tony Montana in Scarface (1983), Carlito Brigante in Carlito's Way (1993), Lieutenant Vincent Hanna in Heat (1995), Benjamin Ruggiero in Donnie Brasco (1997), Lowell Bergman in The Insider (1999) and Detective Will Dormer in Insomnia (2002). In television, Pacino has acted in several productions for HBO including the miniseries Angels in America (2003) and the Jack Kevorkian biopic You Don't Know Jack (2010), both of which won him the Primetime Emmy Award for Outstanding Lead Actor in a Miniseries or a Movie.
+In addition to his work in film, Pacino has had an extensive career on stage and is a two-time Tony Award winner, in 1969 and 1977, for his performances in Does a Tiger Wear a Necktie? and The Basic Training of Pavlo Hummel respectively. A lifelong fan of Shakespeare, Pacino directed and starred in Looking for Richard (1996), a documentary film about the play Richard III, a role which Pacino had earlier portrayed on-stage in 1977. He has also acted as Shylock in a 2004 feature film adaptation and a 2010 production of The Merchant of Venice. Having made his filmmaking debut with Looking for Richard, Pacino has also directed and starred in the independent film Chinese Coffee (2000) and the films Wilde Salomé (2011) and Salomé (2013), about the play Salomé by Oscar Wilde. Since 1994, Pacino has been the joint president of the Actors Studio with Ellen Burstyn and Harvey Keitel."},
+   {name: "James Caan", avatar_image: File.open(Rails.root + "public/uploads/image/actor-31.jpg"),
+  birthday: "1940/3/26", country_id: 1, description: "James Edmund Caan (born March 26, 1940) is an American actor. After early roles in The Glory Guys (1965), for which he received a Golden Globe nomination, El Dorado (1966), and The Rain People (1969), he came to prominence in the 1970s with significant roles in films such as Brian's Song (1971), Cinderella Liberty (1973), The Gambler (1974), Freebie and the Bean (1974), Rollerball (1975), Funny Lady (1975), A Bridge Too Far (1977), 1941 (1979), and Chapter Two (1979). For his signature role in The Godfather (1972), that of hot-tempered Sonny Corleone, Caan was nominated for the Academy Award for Best Supporting Actor and the corresponding Golden Globe.
+Caan's subsequent notable performances include roles in Thief (1981), Misery (1990), For the Boys (1991), Eraser (1996), Bottle Rocket (1996) and Elf (2003), as well as the role of \"Big Ed\" Deline in the television series Las Vegas (2003–08). He also prominently lent his voice to Cloudy with a Chance of Meatballs (2009) and Cloudy with a Chance of Meatballs 2 (2013) as Tim Lockwood, father of Bill Hader's protagonist Flint Lockwood."},
+   {name: "Will Smith", avatar_image: File.open(Rails.root + "public/uploads/image/actor-32.jpg"),
+  birthday: "1968/9/25", country_id: 1, description: "Willard Carroll \"Will\" Smith Jr. (born September 25, 1968) is an American actor, producer, rapper, comedian, and songwriter. In April 2007, Newsweek called him \"the most powerful actor in Hollywood\". Smith has been nominated for five Golden Globe Awards and two Academy Awards, and has won four Grammy Awards.
+In the late 1980s, Smith achieved modest fame as a rapper under the name The Fresh Prince. In 1990, his popularity increased dramatically when he starred in the popular NBC television series The Fresh Prince of Bel-Air, which ran for six seasons until 1996. After the series ended, Smith transitioned from television to film, and has gone on to star in numerous blockbuster films. He is the only actor to have eight consecutive films gross over $100 million in the domestic box office, eleven consecutive films gross over $150 million internationally, and eight consecutive films in which he starred, open at the number one spot in the domestic box office tally.
+Smith has been ranked as the most bankable star worldwide by Forbes.As of 2014, 17 of the 21 films in which he has had leading roles have accumulated worldwide gross earnings of over $100 million each, five taking in over $500 million each in global box office receipts. As of 2016, his films have grossed $7.5 billion at the global box office. For his performances as boxer Muhammad Ali in Ali (2001) and stockbroker Chris Gardner in The Pursuit of Happyness (2006), Smith received nominations for the Academy Award for Best Actor.[7]"},
+   {name: "Brad Pitt", avatar_image: File.open(Rails.root + "public/uploads/image/actor-33.jpg"),
+  birthday: "1963/9/18", country_id: 1, description: "William Bradley Pitt (born December 18, 1963) is an American actor and producer. He has received multiple awards and nominations including an Academy Award as producer under his own company Plan B Entertainment.
+Pitt first gained recognition as a cowboy hitchhiker in the road movie Thelma & Louise (1991). His first leading roles in big-budget productions came with the drama films A River Runs Through It (1992) and Legends of the Fall (1994), and horror film Interview with the Vampire (1994). He gave critically acclaimed performances in the crime thriller Seven and the science fiction film 12 Monkeys (both 1995), the latter earning him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination. Pitt starred in the cult film Fight Club (1999) and the heist film Ocean's Eleven (2001) and its sequels, Ocean's Twelve (2004) and Ocean's Thirteen (2007). His greatest commercial successes have been Troy (2004), Mr. & Mrs. Smith (2005), and World War Z (2013). Pitt received his second and third Academy Award nominations for his leading performances in The Curious Case of Benjamin Button (2008) and Moneyball (2011). He produced The Departed (2006) and 12 Years a Slave (2013), both of which won the Academy Award for Best Picture, and also The Tree of Life, Moneyball, and The Big Short (2015), all of which garnered Best Picture nominations.
+As a public figure, Pitt has been cited as one of the most influential and powerful people in the American entertainment industry. For a number of years, he was cited as the world's most attractive man by various media outlets, and his personal life is the subject of wide publicity. Divorced from actress Jennifer Aniston after five years of marriage, he married actress Angelina Jolie in 2014. They have six children together, three of whom were adopted internationally. In 2016, Jolie filed for a divorce from Pitt, which is currently pending."},
+   {name: "Matt Damon", avatar_image: File.open(Rails.root + "public/uploads/image/actor-34.jpg"),
+  birthday: "1970/9/8", country_id: 1, description: "Matthew Paige Damon (/ˈdeɪmən/; born October 8, 1970)[2] is an American actor, film producer, philanthropist and screenwriter. He is ranked among Forbes magazine's most bankable stars[3] and is one of the highest-grossing actors of all time.[4][nb 1] Damon has received various accolades, including an Academy Award from five nominations, two Golden Globe Awards from eight nominations, and has been nominated for two British Academy Film Awards and six Emmy Awards.
+Born and raised in Cambridge, Massachusetts, Damon began his acting career by appearing in high school theater productions and he made his professional acting debut in the film Mystic Pizza (1988). He came to prominence in 1997 when he wrote and starred in Good Will Hunting alongside Ben Affleck, which won them the Academy and Golden Globe awards for Best Screenplay, and earned Damon a nomination for the Academy Award for Best Actor. He continued to garner praise from critics for his roles as the eponymous character in Saving Private Ryan (1998), the antihero in The Talented Mr. Ripley (1999), a fallen angel in Dogma (1999), an energy analyst in Syriana (2005), and a corrupt Irish-American police officer in The Departed (2006).
+Damon is also known for his starring roles as Jason Bourne in the Bourne franchise (2002–16) and as a con man in the Ocean's Trilogy (2001–07). For his supporting role as the rugby player Francois Pienaar in Invictus (2009) and his leading role as an astronaut stranded on Mars in The Martian (2015), Damon received Oscar nominations for Best Supporting Actor and Best Actor, respectively. The latter also won him a Golden Globe Award for Best Actor. Damon has received Emmy Award nominations for his portrayal of Scott Thorson in the biopic Behind the Candelabra (2013) and for producing the reality series Project Greenlight. He also received an Oscar nomination for producing Manchester by the Sea (2016).
+In addition to acting in films, Damon has performed voice-over work in both animated and documentary films and has established two production companies with Affleck. He has been involved in charitable work, including the ONE Campaign, H2O Africa Foundation, Feeding America, and Water.org. Damon is married to Luciana Bozán Barroso, and they have three daughters together."},
+   {name: "Jeremy Renner", avatar_image: File.open(Rails.root + "public/uploads/image/actor-35.jpg"),
+  birthday: "1971/1/7", country_id: 1, description: "Renner's depiction of Jeffrey Dahmer in 2002 caught the attention of director Kathryn Bigelow, and, in 2008, she cast him in his most famous role as Sergeant First Class William James in The Hurt Locker (2008). Renner's performance as a single-minded bomb specialist scored him an Academy Award nomination for best actor. He also earned best actor nominations from the Independent Spirit Awards, the Screen Actors Guild, and the BAFTA Awards, as well as wins in this category from several film critics groups.<br>
+In 2009, Renner starred in the short-lived TV series, The Unusuals (2009), and in 2010 he played the chilling but loyal criminal Jem in Ben Affleck bank-heist thriller The Town (2010). In the fall of 2010, Renner began filming Mission: Impossible - Ghost Protocol (2011). He has also since starred in The Avengers (2012), American Hustle (2013), and Kill the Messenger (2014)."},
+  {name: "Tom Cruise", avatar_image: File.open(Rails.root + "public/uploads/image/actor-36.jpg"),
+   birthday: "1962/7/3", country_id: 1, description: "Tom Cruise was starring in some of the top 
+   grossing films of the 1980s including Top Gun (1986); The Color of Money (1986), Rain Man (1988) 
+   and Born on the Fourth of July (1989). By the 1990s he was one of the highest paid actors in 
+   the world earning an average 15 million dollars a picture in such blockbuster hits as Interview 
+   with the Vampire: The Vampire Chronicles (1994), Mission: Impossible (1996) and Jerry Maguire 
+   (1996) for which he received an Academy Award Nomination for best actor. In 1990 he renounced 
+   his devout Catholic beliefs and embraced The Church Of Scientology claiming that Scientology 
+   teachings had cured him of the dyslexia that had plagued him all of his life. A kind and 
+   thoughtful man well known for his compassion and generosity, Tom Cruise is one of the best 
+   liked members of the movie community. He was married to actress Nicole Kidman until 2001. 
+   Thomas Cruise Mapother IV has indeed come a long way from the lonely wanderings of his youth."},
+  {name: "Andrew Garfield", avatar_image: File.open(Rails.root + "public/uploads/image/actor-37.jpg"),
+   birthday: "1983/08/20", country_id: 1, description: "His first professional roles were on the stage and in 2005 he made his TV debut in the Channel 4 teen series Sugar Rush (2005) in the UK. More TV work followed (reaching a wider UK audience in a two-part story in the third season of Bac Si Vo Danh (2005)), as well as a number of movie appearances. Garfield played Eduardo in The Social Network (2010) and Tommy in Never Let Me Go (2010), two films that brought him to full international attention. That same year, he was cast as the title character in the reboot of the Spider-Man film franchise, The Amazing Spider-Man (2012). He reprised the role in the sequel, The Amazing Spider-Man 2 (2014), before passing off the torch to Tom Holland."},
+  {name: "Chris Hemsworth", avatar_image: File.open(Rails.root + "public/uploads/image/actor-38.jpg"),
+   birthday: "1983/08/11", country_id: 6, description: "Chris saw quite a bit of the country in his youth, after his family moved to the Northern Territory before finally settling on Phillip Island, to the south of Melbourne. In 2004, he unsuccessfully auditioned for the role of Robbie Hunter in the Australian soap opera Home and Away (1988) but was recalled for the role of Kim Hyde which he played until 2007. In 2006, he entered the Australian version of Dancing with the Stars (2004) and his popularity in the soap enabled him to hang on until show 7 (Dancing with the Stars: Episode #5.7 (2006) when he became the fifth contestant to be eliminated.<br>
+His first Hollywood appearance was in Star Trek (2009), but it was his titular role in Than Sam Thor (2011) which propelled him to prominence worldwide. He reprised the character in the science fiction blockbuster The Avengers (2012)."},
+  {name: "Tom Hiddleston", avatar_image: File.open(Rails.root + "public/uploads/image/actor-39.jpg"),
+   birthday: "1981/2/9", country_id: 2, description: "Whilst at University of Cambridge, he was seen by the agency 'Hamilton Hodell' in the play \"A Streetcar Named Desire\" and was signed. Following this, he was cast in his first television role in The Life and Adventures of Nicholas Nickleby (2001). Hiddleston won his first film role as Oakley in Joanna Hogg's award-winning first feature, Unrelated (2007). His breakthrough role came when he portrayed the nemesis Loki in the Marvel Cinematic Universe feature film Than Sam Thor (2011). He reprised the character in Siêu Anh Hùng Báo Thù (2012), Thor: The Dark World (2013), Thor: Ragnarok (2017) and Avengers: Infinity War (2018).<br>
+He has also appeared in Steven Spielberg's War Horse (2011), The Deep Blue Sea (2011), Woody Allen's romantic comedy Midnight in Paris (2011), and the romantic vampire film Only Lovers Left Alive (2013)."},
+  {name: "Gal Gadot", avatar_image: File.open(Rails.root + "public/uploads/image/actor-40.jpg"),
+   birthday: "1985/4/30", country_id: 1, description: "Gal began modeling in the late 2000s, and made her film debut in the fourth film of the Fast and Furious franchise, Fast & Furious (2009), as Gisele. Her role was expanded in the sequels Fast Five (2011) and Fast & Furious 6 (2013), in which her character was romantically linked to Han Seoul-Oh (Sung Kang). In the films, Gal performed her own stunts. She also appeared in the 2010 films Date Night (2010) and Knight and Day (2010).<br>
+In early December 2013, Gal was cast as Wonder Woman in the superhero team-up film Batman v Superman: Dawn of Justice (2016), and filming began in 2014 for a March 2016 release. Gadot received swordsmanship, Kung Fu kickboxing, Capoeira and Brazilian Jiu-Jitsu training in preparation for the role."},
+  {name: "Ben Affleck", avatar_image: File.open(Rails.root + "public/uploads/image/actor-41.jpg"),
+   birthday: "1972/8/15", country_id: 1, description: " In the several years following, he played supporting roles, including in the films Smokin' Aces (2006), He's Just Not That Into You (2009), State of Play (2009), and Extract (2009). He ventured into directing in 2007, with the thriller Gone Baby Gone (2007), which starred his brother, Casey Affleck, and was well received. He then directed, co-wrote, and starred in The Town (2010), which was named to the National Board of Review Top Ten Films of the year. For the political thriller Argo (2012), which he directed and starred in, Affleck won the Golden Globe Award and BAFTA Award for Best Director, and the Academy Award, Golden Globe Award, and BAFTA Award for Best Picture (Affleck's second Oscar win).<br>
+In 2014, Affleck headlined the book adaptation thriller Gone Girl (2014). He starred as Bruce Wayne/Batman in the superhero film Batman v Superman: Dawn of Justice (2016), briefly reprised the character in Suicide Squad (2016), and will do so again in Justice League (2017), and other sequels."},
+  {name: "Josh Brolin", avatar_image: File.open(Rails.root + "public/uploads/image/actor-42.jpg"),
+   birthday: "1968/2/12", country_id: 1, description: "After The Young Riders (1989), Brolin moved back to the big screen, with mediocre success. He played a supporting role in The Road Killers (1994), but the film was not a success. He followed up with the crime film Gang in Blue (1996), the romantic film Bed of Roses (1996), the thriller film Nightwatch (1997), and appeared with his father in My Brother's War (1997). However, nothing truly stuck out, especially not the box office flop The Mod Squad (1999). The 2000s initially brought no significant change in Brolin's career. He appeared in the independent film Slow Burn (2000), the sci-if thriller Hollow Man (2000) and starred on the television series Mister Sterling (2003). In 2004, he married actress Diane Lane and are still together."},
+  {name: "Willem Dafoe", avatar_image: File.open(Rails.root + "public/uploads/image/actor-43.jpg"),
+   birthday: "1955/7/22", country_id: 1, description: "Among other nominations and awards, he received an LA Film Critics Award and an Independent Spirit Award. Upcoming films include Wes Anderson's The Grand Budapest Hotel (2014), Anton Corbjin's A Most Wanted Man (2014), Lars von Trier's Nymphomaniac: Vol. I (2013), Scott Cooper's Out of the Furnace (2013), Josh Boone's The Fault In Our Stars (2014)_, David Leitch and Chad Stahelski's John Wick (2014)_, and Chris Brinker's Bad Country (2014). Dafoe is one of the founding members of The Wooster Group, the New York based experimental theatre collective. He created and performed in all of the group's work from 1977 thru 2005, both in the U.S. and internationally."} 
 ])
 
 MovieActor.create!([
@@ -641,13 +715,24 @@ MovieActor.create!([
   {movie_id: 22, actor_id: 25},
   {movie_id: 23, actor_id: 26},
   {movie_id: 24, actor_id: 27},
+  {movie_id: 26, actor_id: 35},
+  {movie_id: 26, actor_id: 36},
+  {movie_id: 28, actor_id: 37},
+  {movie_id: 31, actor_id: 10},
+  {movie_id: 32, actor_id: 38},
+  {movie_id: 32, actor_id: 36},
+  {movie_id: 36, actor_id: 40},
+  {movie_id: 36, actor_id: 41},
+  {movie_id: 15, actor_id: 41},
+  {movie_id: 30, actor_id: 43},
+  {movie_id: 34, actor_id: 8},
 ])
 
 Type.create!([
   {name: "Drama",
    avatar: File.open(Rails.root + "public/uploads/image/drama-genre.jpg")},
-  {name: "Short",
-   avatar: File.open(Rails.root + "public/uploads/image/short.jpg")},
+  {name: "Family",
+   avatar: File.open(Rails.root + "public/uploads/image/family.jpg")},
   {name: "Crime",
    avatar: File.open(Rails.root + "public/uploads/image/crime-genre.jpg")},
   {name: "Thriller",
@@ -718,9 +803,9 @@ MovieType.create!([
   {movie_id: 10, type_id: 7},
   {movie_id: 10, type_id: 12},
   {movie_id: 10, type_id: 14},
-  {movie_id: 10, type_id: 7},
-  {movie_id: 10, type_id: 12},
-  {movie_id: 10, type_id: 14},
+  {movie_id: 10, type_id: 3},
+  {movie_id: 10, type_id: 2},
+  {movie_id: 10, type_id: 13},
   {movie_id: 11, type_id: 7},
   {movie_id: 11, type_id: 1},
   {movie_id: 11, type_id: 6},
@@ -741,6 +826,7 @@ MovieType.create!([
   {movie_id: 16, type_id: 6},
   {movie_id: 17, type_id: 6},
   {movie_id: 17, type_id: 14},
+  {movie_id: 17, type_id: 2},
   {movie_id: 18, type_id: 10},
   {movie_id: 18, type_id: 1},
   {movie_id: 18, type_id: 4},
@@ -764,6 +850,49 @@ MovieType.create!([
   {movie_id: 25, type_id: 4},
   {movie_id: 25, type_id: 5},
   {movie_id: 25, type_id: 12},
+  {movie_id: 26, type_id: 4},
+  {movie_id: 26, type_id: 5},
+  {movie_id: 26, type_id: 14},
+  {movie_id: 27, type_id: 7},
+  {movie_id: 27, type_id: 6},
+  {movie_id: 27, type_id: 12},
+  {movie_id: 27, type_id: 14},
+  {movie_id: 27, type_id: 17},
+  {movie_id: 28, type_id: 1},
+  {movie_id: 28, type_id: 10},
+  {movie_id: 28, type_id: 11},
+  {movie_id: 29, type_id: 12},
+  {movie_id: 30, type_id: 1},
+  {movie_id: 31, type_id: 5},
+  {movie_id: 31, type_id: 14},
+  {movie_id: 32, type_id: 15},
+  {movie_id: 32, type_id: 5},
+  {movie_id: 32, type_id: 14},
+  {movie_id: 33, type_id: 1},
+  {movie_id: 33, type_id: 10},
+  {movie_id: 34, type_id: 3},
+  {movie_id: 34, type_id: 1},
+  {movie_id: 34, type_id: 13},
+  {movie_id: 35, type_id: 9},
+  {movie_id: 35, type_id: 6},
+  {movie_id: 35, type_id: 5},
+  {movie_id: 35, type_id: 14},
+  {movie_id: 35, type_id: 15},
+  {movie_id: 36, type_id: 5},
+  {movie_id: 36, type_id: 14},
+  {movie_id: 36, type_id: 6},
+  {movie_id: 36, type_id: 15},
+  {movie_id: 37, type_id: 4},
+  {movie_id: 37, type_id: 3},
+  {movie_id: 37, type_id: 13},
+  {movie_id: 15, type_id: 15},
+  {movie_id: 38, type_id: 1},
+  {movie_id: 38, type_id: 14},
+  {movie_id: 38, type_id: 6},
+  {movie_id: 38, type_id: 11},
+  {movie_id: 38, type_id: 4},
+  {movie_id: 38, type_id: 8},
+  {movie_id: 38, type_id: 18},
 ])
 
 Review.create!([
@@ -1291,46 +1420,59 @@ Review.create!([
    with the tour-de-force performance from James McAvoy as a kidnapper named Kevin juggling two-dozen 
    distinct personalities.",
    user_id: 5, movie_id: 22},
-  # {title: "",
-  #   content: "",
-  #   user_id: 2, movie_id: 7},
+  {title: "A gigantic spectacle of pure hallucinatory craziness",
+   content: "With this visually staggering film, director Denis Villeneuve brings us to a kind of Ozymandias moment. It just has to be experienced on the biggest screen possible. Blade Runner 2049 is a narcotic spectacle of eerie and pitiless vastness, by turns satirical, tragic and romantic.<br><br>
+   This is the sequel to the 1982 sci-fi classic, directed by Ridley Scott and based on Philip K Dick's novel Do Androids Dream Of Electric Sheep?, starring Harrison Ford as a \"blade runner\", a futureworld cop whose job is to track down and kill disobedient almost-human androids known as replicants. The 2017 follow-up simply couldn't be any more of a triumph: a stunning enlargement and improvement.<br><br>
+   Its mind-boggling, cortex-wobbling, craniofacial-splintering images are there to trigger awe or even a kind of ecstatic despair at the idea of a post-human future, and what it means to imagine the wreck of our current form of homo sapiens. Evolution has not finished yet, any more than it was finished 100,000 years ago. As so often in literature and cinema, we are reminded that science fiction is there to tackle big ideas, and makes realist genres look flimsy and parochial. This film delivers pure hallucinatory craziness that leaves you hyperventilating.<br><br>
+   Blade Runner 2049 is co-scripted by the original screenwriter, Hampton Fancher, and riffs on the first film. There are poignant theme-variations on memory and crying in the rain and a cityscape full of signs in different languages (Russian, Japanese, Hindi, Korean), ghostly VR advertising avatars and flashing corporate logos, playfully including the obsolete PanAm.<br><br>
+   It alludes to films the first Blade Runner helped inspire, such as Cameron's The Terminator, Spielberg's AI Artificial Intelligence, Nolan's The Dark Knight, Andrew Stanton's WALL-E and Spike Jonze's Her. The references reach further back also, to the Kubrickian hotel-bar and spaceship, and to the desolate final moments of Planet of the Apes. You could call that ancestor-worship, were it not that the franchise already deserves its own ancestor status. In fact, the sequel slightly de-emphasises the first film's intimate, downbeat noir qualities in favour of 
+   something more gigantic and monolithic, preserving Ridley Scott's massively controlled andante tempo. Yet there is something so sinuous and manoeuvrable about the drama, and its CGI rendering is like nothing I've ever seen.<br><br>
+   The setting is Los Angeles, 30 years on from the first film's 2019 setting. The corporation that once manufactured the replicants, whose spartacist uprising was the original theme, has been bought out by an agribusiness empire owned by one Niander Wallace (Jared Leto), a grotesque figure brooding on how to create replicant-workers on a scale sufficient for his imperial plans. Ryan Gosling plays LAPD officer K, a limited-lifespan replicant whose task is to track down and destroy those first-gen models who can live as long as humans, and are still illegally hiding out. 
+   K has a gorgeous virtual-reality live-in girlfriend, quibblingly named Joi (Ana De Armas), with whom he believes himself to be in love, though he understands that both she and he are constructed artefacts.<br><br>
+   After making a sensational discovery, K embarks on a dangerous mission, and both his LAPD boss Lieutenant Joshi (Robin Wright) and Wallace himself are very interested in what he might discover. Wallace despatches his deadpan assistant, named Luv and superbly played by Sylvia Hoeks, with an utterly unnerving habit of crying when her face appears to show no human emotion at all. It is all leading to a mysterious, Freudian encounter with Rick Deckard himself, the outsider cop from the first film, played with haggard misanthropy by Harrison Ford.",
+   user_id: 2, movie_id: 21},
+  {title: "Hunting Replicants Amid Strangeness",
+   content: "A lot of the movies released in the late 1970s and early '80s have spawned franchises, merchandising empires and what we are now invited to call \"cinematic universes.\" \"Blade Runner,\" Ridley Scott's initially underrated 1982 adaptation of a novel by Philip K. Dick, accomplished something more unusual. It sent tendrils of influence — pictorial, conceptual and spiritual — into every corner of the culture and inspired a mystery cult.<br><br>
+Like other sacred texts, the film invites doctrinal arguments and esoteric inquiries. One of my fondest memories as a father and a film critic is of an impromptu post-screening seminar with two 11-year-olds about occult meanings and hidden clues in the director's cut. How do we know (if indeed we do know) that Harrison Ford is a replicant? What is the significance of the origami horse? Are Sean Young's shoulder pads for real?<br><br>
+Alongside these basic interpretive questions, an academic subfield has blossomed, isolating \"Blade Runner\" as one of the original symptoms of postmodernism, a terminal and interminable disease of the mind. The film's blend of curatorial nostalgia and dystopian prophecy captured a mood of self-conscious melancholy in its moment and set a tone of melancholy self-consciousness that has endured ever since. Maybe the real world never quite achieved the smoky neon-noir glow of Mr. Scott's Los Angeles, but the map of our collective dream world was permanently redrawn.<br><br>
+The precise future \"Blade Runner\" projected is now less than two years away, and the next chapter, once something to be dreaded, seems, if anything, overdue. \"Blade Runner 2049,\" directed by Denis Villeneuve from a script by Hampton Fancher and Michael Green, tries both to honor the original and to slip free of its considerable shadow. That's no easy feat, and it's worth noting right away that, in narrow movie terms, Mr. Villeneuve, who also directed \"Arrival,\" mostly succeeds. From the opening aerial shots of a thoroughly denatured agricultural landscape and the 
+lethal confrontation that follows, we know we are in the presence of a masterly visual tactician and a shrewd storyteller.<br><br>
+We are also in territory that is both familiar and disorienting. A brief note explains what has and hasn't changed in the 30 years since the events in the first \"Blade Runner.\" Three-wheeled spinners still zoom through the California skies, and the building-size video advertisements have evolved into seductive, R-rated holograms. The titular profession — hunting down and \"retiring\" renegade members of the almost-human, genetically engineered android species known as replicants — is practiced with the same brutal doggedness as in the old days.<br><br>
+A new, more obedient type of replicant has been developed by a corporation led by a tech visionary played by Jared Leto. (His lieutenant Luv is played by Sylvia Hoeks, a far more vivid and persuasively terrifying presence than the mannered Mr. Leto.) One of these models is our hero, an L.A.P.D. employee known as K. (It's an abbreviation of his serial number and also, maybe, an allusion to Franz Kafka's avatar of modern alienation. That poor fellow's full name was Josef K; when this K acquires a human pseudonym, it's Joe.)<br><br>
+Speaking of avatars of alienation, K moves through his days with the unhurried shuffle and downcast baby blues of Ryan Gosling. This is impeccable casting. Mr. Gosling’s ability to elicit sympathy while seeming too distracted to want it — his knack for making boredom look like passion and vice versa — makes him a perfect warm-blooded robot for our time. He is also, in 2017, something close to what Harrison Ford was 35 years ago: the contemporary embodiment of Hollywood’s venerable ideal of masculine cool, a guy whose toughness will turn out to be the protective shell encasing a tender soul.<br><br>
+At first, of course, we must take that sensitivity on faith. K does his grim job thoroughly and without complaint, showing the weary, cynical patience of an old-time shamus. His commander (Robin Wright) is a human who believes that everything depends on policing the border between her kind and K’s. The whole point of “Blade Runner,” though, is that such boundaries are always blurred and porous. K comes home each night from work to the company of Joi (Ana de Armas), his devoted girlfriend, who happens to be a commercially produced artificial intelligence application.<br><br>
+We are prepared to acknowledge the pathos and the paradox of her condition, which is a version of K’s own. The idea that synthetic humans harbor feelings, desires and dreams — that they are mirrors of us, that we are replicas of them — has long been a staple of speculative cinema. “Blade Runner 2049” does not wander as deep into this ontological thicket as, say, Steven Spielberg’s “A.I.” or Spike Jonze’s “Her,” but like those movies it uses the conceit of the suffering cyborg as ethical and emotional ballast, a spur to the audience’s curiosity as well as our compassion. A political theme also asserts itself: These replicants are an enslaved labor force; their exploitation is the fuel on which this civilization runs.",
+   user_id: 1, movie_id: 21},
 ])
 
-# Rate.create!([
-#   {score: 3, user_id: 1, movie_id: 24},
-#   {score: 4, user_id: 5, movie_id: 24},
-#   {score: 4, user_id: 4, movie_id: 24},
-#   {score: 3, user_id: 2, movie_id: 24},
-#   {score: 4, user_id: 3, movie_id: 24},
-#   {score: 5, user_id: 2, movie_id: 24},
-#   {score: 3, user_id: 1, movie_id: 23},
-#   {score: 4, user_id: 1, movie_id: 23},
-#   {score: 4, user_id: 1, movie_id: 23},
-#   {score: 5, user_id: 1, movie_id: 23},
-#   {score: 4, user_id: 1, movie_id: 23},
-#   {score: 4, user_id: 2, movie_id: 22},
-#   {score: 4, user_id: 2, movie_id: 22},
-#   {score: 3, user_id: 2, movie_id: 22},
-#   {score: 5, user_id: 2, movie_id: 22},
-#   {score: 4, user_id: 4, movie_id: 19},
-#   {score: 3, user_id: 4, movie_id: 19},
-#   {score: 3, user_id: 4, movie_id: 19},
-#   {score: 4, user_id: 4, movie_id: 19},
-#   {score: 4, user_id: 4, movie_id: 19},
-#   {score: 4, user_id: 1, movie_id: 19},
-#   {score: 4, user_id: 5, movie_id: 19},
-#   {score: 4, user_id: 1, movie_id: 21},
-#   {score: 4, user_id: 2, movie_id: 21},
-#   {score: 4, user_id: 3, movie_id: 21},
-#   {score: 5, user_id: 4, movie_id: 21},
-#   {score: 5, user_id: 5, movie_id: 21},
-#   {score: 4, user_id: 3, movie_id: 13},
-#   {score: 4, user_id: 4, movie_id: 13},
-#   {score: 5, user_id: 5, movie_id: 13},
-#   {score: 4, user_id: 3, movie_id: 13},
-#   {score: 5, user_id: 2, movie_id: 13},
-#   {score: 3, user_id: 1, movie_id: 4},
-#   {score: 4, user_id: 5, movie_id: 4},
-#   {score: 4, user_id: 4, movie_id: 4},
-#   {score: 3, user_id: 2, movie_id: 4},
-# ])
+Rate.create!([
+  {score: 8, user_id: 2, movie_id: 37},
+  {score: 7, user_id: 5, movie_id: 25},
+  {score: 7, user_id: 1, movie_id: 24},
+  {score: 8.5, user_id: 2, movie_id: 23},
+  {score: 7, user_id: 1, movie_id: 23},
+  {score: 8.5, user_id: 2, movie_id: 13},
+  {score: 8, user_id: 1, movie_id: 13},
+  {score: 7, user_id: 4, movie_id: 13},
+  {score: 6, user_id: 2, movie_id: 19},
+  {score: 7, user_id: 5, movie_id: 19},
+  {score: 6, user_id: 3, movie_id: 19},
+  {score: 8, user_id: 2, movie_id: 31},
+  {score: 8, user_id: 1, movie_id: 31},
+  {score: 7.5, user_id: 5, movie_id: 31},
+  {score: 7, user_id: 3, movie_id: 31},
+  {score: 9, user_id: 2, movie_id: 21},
+  {score: 8, user_id: 3, movie_id: 21},
+  {score: 9, user_id: 4, movie_id: 21},
+  {score: 7, user_id: 4, movie_id: 17},
+  {score: 8.5, user_id: 2, movie_id: 17},
+  {score: 7, user_id: 5, movie_id: 17},
+  {score: 7.5, user_id: 1, movie_id: 17},
+  {score: 7.5, user_id: 2, movie_id: 16},
+  {score: 7, user_id: 5, movie_id: 16},
+  {score: 6.5, user_id: 1, movie_id: 16},
+  {score: 9, user_id: 1, movie_id: 11},
+  {score: 8.5, user_id: 2, movie_id: 11},
+  {score: 8, user_id: 5, movie_id: 11},
+  {score: 7.5, user_id: 4, movie_id: 11}
+])

@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates_length_of :username, minimum: 4
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
+  # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
   validate :validate_username
 
   mount_uploader :avatar, AvatarUploader
@@ -44,7 +44,7 @@ class User < ApplicationRecord
       user = User.new({
         provider: auth.provider,
         uid: auth.uid,
-        username: auth.info.first_name,
+        username: auth.info.name,
         name: auth.info.name,
         remote_avatar_url: auth.info.image.gsub('http://','https://'),
         email: auth.info.email,
@@ -59,5 +59,17 @@ class User < ApplicationRecord
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
     end
+  end
+
+  def bookmarked_movies
+    Movie.where(id: bookmarks.pluck(:movie_id)).order id: :desc
+  end
+
+  def bookmarked? movie
+    self.bookmarks.find_by(movie: movie).present? ? true : false
+  end
+  
+  def bookmark movie
+    self.bookmarks.where(movie: movie).last.id
   end
 end

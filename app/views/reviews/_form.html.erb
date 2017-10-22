@@ -4,7 +4,9 @@
       <h3 class="title-font">
         <%= t "user.write_review" %> for 
         <span style="color: red"><%= movie.name %></span>
-        <span style="color: lightgrey">(<%= movie.realease_date.strftime("%Y") %>)</span>
+        <span style="color: lightgrey">
+          (<%= movie.realease_date.strftime("%Y") %>)
+        </span>
       </h3><br>
     <% else %>
       <h2 class="text-left"><%= t ".form_title" %></h2><br>
@@ -18,8 +20,9 @@
         <%= f.hidden_field :movie_id, value: params[:movie_id] %>
       <% else %>
         <%= f.label :movie_name, class: "control-label" %>
-        <%= f.select :movie_id, movies, {include_blank: t(".choose_movie")},
-          {class: "select-with-search form-control pmd-select2 select-movie required"} %>
+        <%= f.select :movie_id, support.load_movies,
+          {include_blank: t(".choose_movie")}, {class: "select-with-search
+          form-control pmd-select2 select-movie required"} %>
       <% end %>
     </div>
     <%= f.label :photos, class: "control-label" %><br/>

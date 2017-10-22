@@ -1,12 +1,13 @@
 <div class="movie-information row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 movie-infos">
     <div class="movie-image col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <img src="<%= review.movie.avatar %>" alt="">
+      <img src="<%= review.movie.avatar.thumb.url %>" alt="" id="share_image">
     </div>
 
     <div class="movie-casting col-xs-12 col-sm-8 col-md-8 col-lg-8">
       <h1 class="title-font">
-        <%= link_to review.movie.name, movie_path(review.movie) %>
+        <%= link_to review.movie.name, movie_path(review.movie),
+          "data-turbolinks": false %>
       </h1>
       <span class="movie-time">
         <%= review.movie.realease_date.strftime("%d %b %Y") %>
@@ -17,45 +18,30 @@
         <tr>
           <td>
             <span class="movie-data title-font">
-              Average rate:
+              <%= t "movies.show.average_rate" %>:
             </span>
           </td>
           <td>
             <span class="movie-data casting"></span>
             <span></span>
-            <span class="movie-rating movie-data">
-              <% user_rate = review.movie.average_rate %>
-              <% if user_rate > 0 %>
-                <% overage = user_rate - user_rate.round %>
-                <% if overage < 0 && overage.abs < 0.5  %>
-                  <% (user_rate.round - 1).times do %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  <% end %>
-                  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                  <% (5 - user_rate).round.times do %>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <% end %>
-                <% else %>
-                  <% user_rate.round.times do %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  <% end %>
-                  <% (5 - user_rate.round).times do %>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                (<%= user_rate.round(1) %>)
-              <% else %>
-                Not yet rated.
-              <% end %>
-            </span>
+            <% if author_rate(review.movie, review.user) > 0 %>
+              <span class="movie-rating movie-data average-rate star-rating"
+                data-score="<%= author_rate(review.movie, review.user) %>">
+                (<%= author_rate(review.movie, review.user).round(1) %>)
+              </span>
+            <% else %>
+              <span class="movie-rating"><%= t "movies.show.not_rate" %></span>
+            <% end %>
           </td>
         </tr>
         <tr>
-          <td><span class="movie-data title-font"><%= t "IMDB" %>:</span></td>
+          <td>
+            <span class="movie-data title-font"><%= t "reviews.show.imdb" %>:</span>
+          </td>
           <td>
             <span class="movie-data casting movie-imdb">
               <%= review.movie.imdb %>
-              </span>
+            </span>
           </td>
         </tr>
         <tr>
@@ -103,8 +89,8 @@
             <span class="movie-data casting">
             <% if review.movie.types.any? %>
               <% review.movie.types.each do |type| %>
-                <a href="#"><%= type.name %></a>
-                  <% unless type == review.movie.types.last %>/<% end %>
+                <%= link_to type.name, type_path(type), "data-turbolinks": false %>
+                <% unless type == review.movie.types.last %>/<% end %>
               <% end %>
             <% end %>
           </span>
@@ -118,16 +104,18 @@
           </td>
           <td>
             <span class="movie-data casting">
-              <%= image_tag review.movie.country.flag_image, class: "flag" %>
+              <%= image_tag review.movie.country.flag_image.flag.url, class: "flag" %>
             </span>
-            <span class="movie-data casting">&nbsp;<%= review.movie.country.name %></span>
+            <span class="movie-data casting">
+              &nbsp;<%= review.movie.country.name %>
+            </span>
           </td>
         </tr>
         </tbody>
       </table>
       <div class="mrB10 clearfix">
-        <%= link_to new_review_path(movie_id: review.movie.id), class: "review-btn",
-          "data-turbolinks": false do %>
+        <%= link_to new_review_path(movie_id: review.movie.id),
+          class: "review-btn", "data-turbolinks": false do %>
           <%= t "reviews.show.review_movie" %>
         <% end %>
       </div>

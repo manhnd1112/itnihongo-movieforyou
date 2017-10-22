@@ -43,14 +43,32 @@ module ApplicationHelper
     rates.each do |rate|
       total += rate.score
     end
-    if size > 0
-      average_rate = total * 1.0 / size
-    else average_rate = 0
-    end
-    return average_rate
+    return total * 1.0 / size if size > 0
+    return 0
   end
 
   def rate movie
-    rate = movie.rates.find_by user_id: current_user.id
+    movie.rates.find_by user_id: current_user.id
+  end
+  
+  def positive movie
+    all = movie.rates.count
+    pos = movie.rates.where(score: 7..10).count
+    return (pos * 100.0 / all) if all > 0
+    return 0
+  end
+  
+  def mixed movie
+    all = movie.rates.count
+    mixed = movie.rates.where(score: 4...7).count
+    return (mixed * 100.0 / all) if all > 0
+    return 0
+  end
+  
+  def negative movie
+    all = movie.rates.count
+    neg = movie.rates.where(score: 1...4).count
+    return (neg * 100.0 / all) if all > 0
+    return 0
   end
 end

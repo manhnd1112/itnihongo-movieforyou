@@ -165,22 +165,7 @@
     background-position: -8px -62px;
   }
 
-  .primary_ribbon {
-    position: absolute;
-    height: 58px;
-    width: 40px;
-  }
-
-  .primary_ribbon .wl-ribbon.standalone {
-    background: url("/assets/bookmark.png") centerr top no-repeat;
-    transform: scale(1.5);
-    height: 58px;
-    width: 40px;
-  }
-
   .title_wrapper {
-    margin-left: 52px;
-
     span {
       color: #CCCCCC;
       font-weight: 500;
@@ -188,7 +173,7 @@
   }
 
   h2 {
-    color: #C00000;
+    // color: #C00000;
     font-weight: 700;
     line-height: 1.3em;
     margin: 0;
@@ -220,8 +205,12 @@
 .movie-data,
 .author-small {
   a {
-    color: #C00000;
+    color: #f4511e;
     text-decoration: none;
+  }
+  
+  &:hover {
+    color: #c73f06 !important;
   }
 }
 
@@ -241,7 +230,7 @@
 
 .star-rating {
   color: #ff7a00;
-  font-size: 24px;
+  line-height: 1.3em;
 }
 
 .byline,
@@ -265,8 +254,8 @@
   margin-bottom: 20px;
 
   .sidebar-header {
-    background: #b3140c;
-    border: 1px solid #C1C0AA;
+    background: #F15F43;
+    // border: 1px solid #C1C0AA;
     color: #fff;
     font-size: 24px;
     font-weight: 700;
@@ -336,7 +325,7 @@
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     text-align: left;
   }
 
@@ -350,7 +339,8 @@
 }
 
 .top-review {
-  padding: 0 10px !important;
+  padding: 0 30px !important;
+  margin: 20px 0 !important;
 }
 
 .movie-casting {
@@ -537,6 +527,7 @@
 
 .trending-content {
   line-height: 1.3em;
+  display: block;
 }
 
 .movie-info {
@@ -748,14 +739,6 @@ ul.movieitemlisting li.tablive p span {
   position: relative;
 }
 
-.primary_ribbon .fa-plus {
-  color: white !important;
-  font-size: 20px !important;
-  left: 16px;
-  position: absolute;
-  top: 5px;
-}
-
 time {
   color: grey;
 }
@@ -823,15 +806,18 @@ time {
   padding: 50px 0;
   height: 100%;
 }
+
 .gallery div {
   text-align: center;
   height: 100%;
   float: left;
 }
+
 .gallery div img {
   margin: auto;
   height: 100%;
 }
+
 .gallery button {
   border-radius: none;
   padding: 10px;
@@ -845,39 +831,17 @@ time {
   top: 50%;
   margin-top: -30px;
 }
-.slick-prev {
-  position: absolute;
-  left: 20px;
-}
-.slick-prev:after {
-  content: "\e75d";
-  width: 100%;
-  height: 100%;
-  font-size: 40px;
-  top: 0;
-  left: 0;
-}
-.slick-next {
-  position: absolute;
-  right: 20px;
-}
-.slick-next:after {
-  content: "\e75e";
-  width: 100%;
-  height: 100%;
-  font-size: 40px;
-  top: 0;
-  left: 0;
+
+.txt9 {
+  font-size: 16px;
+  margin-top: 10px;
 }
 
-.otherstuff {
-  width: 100%;
-}
-.otherstuff figure {
-  width: 200px;
-  height: 100px;
-  float: left;
-}
-.otherstuff figure img {
-  max-width: 100%;
+a.more-link {
+  color: cornflowerblue;
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  padding: 8px 20px;
+  text-transform: uppercase;
 }

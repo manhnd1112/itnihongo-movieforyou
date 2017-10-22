@@ -21,23 +21,7 @@
             <span class="post-meta">
               <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
               <span class="time-ago">
-                <% time = time_diff(Time.now.in_time_zone("Hanoi"), comment.created_at) %>
-                <% hours = time/3600 %>
-                <% minutes = time/60 %>
-                <% if hours > 0 %>
-                  <% if hours < 1 %><%= minutes %>mins
-                  <% else %>
-                    <%= hours %>
-                    <% unless hours == 1 %>hrs<% else %>hr<% end %>
-                  <% end %>
-                <% else %>
-                  <% if minutes < 1 %><%= time %>s
-                  <% else %>
-                    <%= minutes %>
-                    <% unless minutes == 1 %>mins<% else %>min<% end %>
-                  <% end %>
-                <% end %>
-                ago
+                <%= distance_of_time_in_words(comment.created_at.to_s, Time.zone.now) %>
               </span>
               <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
               <span class="edited-<%= comment.id %>"></span>
