@@ -7,7 +7,7 @@
     <div class="movie-casting col-xs-12 col-sm-8 col-md-8 col-lg-8">
       <h1 class="title-font">
         <%= link_to review.movie.name, movie_path(review.movie),
-          "data-turbolinks": false %>
+          data: {turbolinks: false} %>
       </h1>
       <span class="movie-time">
         <%= review.movie.realease_date.strftime("%d %b %Y") %>
@@ -39,7 +39,7 @@
             <span class="movie-data title-font"><%= t "reviews.show.imdb" %>:</span>
           </td>
           <td>
-            <span class="movie-data casting movie-imdb">
+            <span class="movie-data casting movie-score">
               <%= review.movie.imdb %>
             </span>
           </td>
@@ -51,7 +51,8 @@
           <td>
             <% review.movie.actors.each do |actor| %>
               <span class="movie-data casting">
-                <%= link_to actor.name, actor_path(actor), "data-turbolinks": false %>
+                <%= link_to actor.name, actor_path(actor),
+                  data: {turbolinks: false} %>
                 <% unless actor == review.movie.actors.last %>,<% end %>
               </span>
             <% end %>
@@ -89,7 +90,7 @@
             <span class="movie-data casting">
             <% if review.movie.types.any? %>
               <% review.movie.types.each do |type| %>
-                <%= link_to type.name, type_path(type), "data-turbolinks": false %>
+                <%= link_to type.name, type_path(type), data: {turbolinks: false} %>
                 <% unless type == review.movie.types.last %>/<% end %>
               <% end %>
             <% end %>
@@ -113,9 +114,9 @@
         </tr>
         </tbody>
       </table>
-      <div class="mrB10 clearfix">
+      <div class="mrB10 clear-fix">
         <%= link_to new_review_path(movie_id: review.movie.id),
-          class: "review-btn", "data-turbolinks": false do %>
+          class: "review-btn", data: {turbolinks: false} do %>
           <%= t "reviews.show.review_movie" %>
         <% end %>
       </div>

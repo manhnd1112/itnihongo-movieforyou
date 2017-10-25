@@ -1,15 +1,14 @@
 <% provide(:title, "Reviews") %>
 <div class="row">
-	<div class="col-sm-8 col-xs-12">
-		<div class="title-box1">
-			<h3><%= t "user.reviews" %></h3>
-		</div>
+  <ul class="breadcrumb">
+    <li><%= link_to t("user.home"), root_path, data: {turbolinks: false} %></li>
+    <li class="active"><%= link_to t("user.reviews"), reviews_path,
+      data: {turbolinks: false} %></li>
+  </ul>
+  <div class="col-sm-8 col-xs-12">
     <% if @support.reviews_search.any? %>
-      <div class="text-center">
-        <%= paginate @support.reviews_search %>
-      </div>
       <% @support.reviews_search.each do |review| %>
-        <div class="hline4">
+        <div class="line4">
           <div class="date_section">
             <span class="day"><%= review.created_at.strftime("%d") %></span>
             <span class="month"><%= review.created_at.strftime("%b") %></span>
@@ -17,22 +16,21 @@
           <div class="box2">
             <div class="review-items">
               <p class="txt8 title-font">
-                <%= link_to review_path(review), "data-turbolinks": false do %>
+                <%= link_to review_path(review), data: {turbolinks: false} do %>
                   <%= review.title %>
                 <% end %>
               </p>
               <div class="entry-meta">
                 <span class="posted-by">Posted by 
                   <%= link_to review.user.name, user_path(review.user),
-                    "data-turbolinks": false %>
-                </span>
+                    data: {turbolinks: false} %>
                 </span>
                 <span class="post-time">
                   <p class="glyphicon glyphicon-time"></p>
                   <%= review.created_at.strftime("%d %b %Y") %>
                 </span>
                 <span class="post-comments">
-                  <p class="glyphicon glyphicon-comment"></p>
+                  <i class="fa fa-comments fa-md" aria-hidden="true"></i>
                   <%= review.comments.count %>
                 </span>
               </div>
@@ -45,38 +43,48 @@
             </div>
             <%= link_to review_path(review), class: "more-link" do %>
               <%= t ".more_link" %>
-              <span class="glyphicon glyphicon-chevron-right">
+              <span class="glyphicon glyphicon-chevron-right"></span>
             <% end %>
           </div>
         </div>
       <% end %>
+      <div class="text-center review-pagination">
+        <%= paginate @support.reviews_search %>
+      </div>
     <% else %>
       <%= t ".no_review" %>
     <% end %>
-	</div>
+  </div>
 
-	<div class="col-sm-4 hidden-xs type-list">
-		<div class="title-box1 v2">
-			<h3><%= t ".recent_reviews" %></h3>
-		</div>
-	  <% if @support.recent_reviews.any? %>
-	    <% @support.recent_reviews.each do |review| %>
+  <div class="col-sm-4 hidden-xs reviews-list">
+    <div class="title-box1">
+      <h3><%= t ".search" %></h3>
+    </div>
+    <%= search_form_for @support.search, id: :search2, method: :get do |f| %>
+      <%= f.text_field :title_or_content_cont, placeholder: t(".keyword") %>
+      <%= button_tag "", type: :submit, name: :commit, class: "more_btn2" %>
+    <% end %><br><br>
+    <div class="title-box1 v2">
+      <h3><%= t ".recent_reviews" %></h3>
+    </div>
+    <% if @support.recent_reviews.any? %>
+      <% @support.recent_reviews.each do |review| %>
         <div class="marTop1">
           <img src="<%= review.movie.avatar.small.url %>" class="img6 no_resize">
           <div class="box2">
             <p class="txt7 title-font">
               <%= link_to review.title, review_path(review), class: "link3",
-                "data-turbolinks": false %>
+                data: {turbolinks: false} %>
             </p>
             <span class="hidden-md hidden-lg">
-              <p><%= truncate_html(review.content, length: 30) %></p>
+              <span><%= truncate_html(review.content, length: 30) %></span>
             </span>
             <span class="hidden-sm">
-              <p><%= truncate_html(review.content, length: 100) %></p>
+              <span><%= truncate_html(review.content, length: 100) %></span>
             </span>
           </div>
         </div>
       <% end %>
     <% end %>
-	</div>
+  </div>
 </div>

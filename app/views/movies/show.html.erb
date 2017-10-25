@@ -1,9 +1,3 @@
-<script language="javascript">
-  function fbshareCurrentPage()
-  {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '', 
-  'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-  return false; }
-</script>
 <% provide(:title, @movie.name) %>
 <div class="flash-bookmark hidden"></div>
 <div class="row">
@@ -14,18 +8,11 @@
       <div id="movie-image-section" class="col-sm-4 col-xs-4">
         <div class="center">
           <img src="<%= @movie.avatar %>" alt="<%= @movie.name %>" class="posterImage">
-          <div class="movie-info-show">
-            <!--<a class="icon share" data-title="<= @movie.name %>" id="share-movie"></a>-->
-            <!--<div class="icon imdb">-->
-            <!--  <strong><= @movie.imdb %></strong>-->
-            <!--  <small><= t "reviews.show.imdb" %></small>-->
-            <!--</div>-->
-          </div>
           <div class="fb-like" data-width="450" data-share="false"
             data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
             data-layout="button_count" data-action="like" data-size="small">
           </div>
-          <div id="shareBtn" class="btn clearfix"><%= t "home.share" %></div><br>
+          <div id="shareBtn" class="btn clear-fix"><%= t "home.share" %></div><br>
         </div>
       </div>
       <!-- end poster film -->
@@ -33,17 +20,17 @@
       <div id="rate" data-turbolinks="false">
         <div id="scorePanel" class="score_panel col-sm-8 col-xs-8">
           <!-- tittle + bookmark -->
-          <div class="col-sm-12 col-xs-12 tmeter-panel">
+          <div class="col-sm-12 col-xs-12 meter-panel">
             <h2 class="scoreTitle superPageFontColor title-font text-left">
               <%= @movie.name %>
             </h2>
             <div class="primary_ribbon">
-              <div class="ribbonize" id="bookmark">
+              <div class="ribbon" id="bookmark">
                 <% if user_signed_in? %>
                   <% if current_user.bookmarked?(@movie) %>
                     <input type="hidden" id="<%= current_user.bookmark(@movie) %>"
                       class="current-bookmark">
-                    <span class="glyphicon glyphicon-bookmark unbookmark-btn"
+                    <span class="glyphicon glyphicon-bookmark un-bookmark-btn"
                       title='<%= t ".remove_bookmark" %>' style="color: #71c126">
                       <i class="fa fa-check" style="color: white"></i>
                     </span>
@@ -97,21 +84,21 @@
                     <div class="col-sm-7 hidden-xs">
                       <!-- average score -->
                       <div class="score fl hidden-md">
-                        <a class="metascore_anchor text-center" href="/movies/id/reviews">
+                        <div class="meta-score-anchor text-center">
                           <% if 0 < @movie.average_rate && @movie.average_rate < 4 %>
-                            <div class="metascore_w user larger movie negative-rate">
+                            <div class="meta-score user larger movie negative-rate">
                               <%= @movie.average_rate.round(1) %>
                             </div>
                           <% elsif 3 < @movie.average_rate && @movie.average_rate < 7 %>
-                            <div class="metascore_w user larger movie mixed-rate">
+                            <div class="meta-score user larger movie mixed-rate">
                               <%= @movie.average_rate.round(1) %>
                             </div>
                           <% else 6 < @movie.average_rate && @movie.average_rate < 11 %>
-                            <div class="metascore_w user larger movie positive-rate">
+                            <div class="meta-score user larger movie positive-rate">
                               <%= @movie.average_rate.round(1) %>
                             </div>
                           <% end %>
-                        </a>
+                        </div>
                       </div>
                       <!-- end average score -->
 
@@ -168,39 +155,40 @@
           <!-- end rating info -->
         </div>
 
-        <!-- khung rate -->
-        <div id="rating_widget_desktop" class="col-sm-12 col-xs-12 col-md-8 tmeter-panel">
+        <!-- rate frame -->
+        <div id="rating_widget_desktop" class="col-sm-12 col-xs-12 col-md-8 meter-panel">
           <h3 class="rating_widget_desktop-header">
             <span><%= t ".add_rate" %></span>
           </h3>
           <% if user_signed_in? %>
             <div class="media rating_widget">
-              <%= link_to user_path(current_user), "data-turbolinks": false,
+              <%= link_to user_path(current_user), data: {turbolinks: false},
                 class: "pull-left hidden-xs user-avatar" do %>
                 <img role="presentation" class="media-object pull-left"
                   src="<%= current_user.avatar %>">
               <% end %>
               <div class="media-body">
-                <div class="rating_widget-body">
+                <div class="rating-widget-body">
                   <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
                   <div class="hidden current-movie-id" id="<%= @movie.id %>"></div> 
-                  <div class="rating_widget-body-star">
+                  <div class="rating-widget-body-star">
                     <span id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></span>
                     <span id="target"></span>
                     <span id="hint"></span>
                   </div>
-                  <div class="rating_textbox">
-                    <textarea class="rating_textbox-textarea clearfix rate-message"
+                  <div class="rating-text-box">
+                    <textarea class="rating-text-box-textarea clear-fix rate-message"
                       placeholder='<%= t ".add_mess" %>'></textarea>
-                    <div class="btn-group-sm rating_textbox-submit clearfix">
-                      <%= button_tag "Rate", class: "btn rating_widget-body-btn submit-rate" %>
+                    <div class="btn-group-sm rating-text-box-submit clear-fix">
+                      <%= button_tag "Rate", class: "btn rating-widget-body-btn submit-rate" %>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           <% else %>
-            <%= link_to "Login", user_session_path, "data-turbolinks": "false" %>
+            <%= link_to t("user.login"), user_session_path,
+              data: {turbolinks: false} %>
             to rate
           <% end %>
         </div>

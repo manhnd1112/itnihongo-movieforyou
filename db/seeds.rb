@@ -720,7 +720,7 @@ MovieActor.create!([
   {movie_id: 28, actor_id: 37},
   {movie_id: 31, actor_id: 10},
   {movie_id: 32, actor_id: 38},
-  {movie_id: 32, actor_id: 36},
+  {movie_id: 32, actor_id: 39},
   {movie_id: 36, actor_id: 40},
   {movie_id: 36, actor_id: 41},
   {movie_id: 15, actor_id: 41},

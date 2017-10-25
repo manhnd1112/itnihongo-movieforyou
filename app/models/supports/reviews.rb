@@ -6,7 +6,7 @@ class Supports::Reviews
   end
 
   def reviews_search
-    search.result.page(@review[:param][:page]).per(4)
+    search.result(distinct: true).page(@review[:param][:page]).per(4)
   end
 
   def search
@@ -35,5 +35,10 @@ class Supports::Reviews
 
   def new_comment
     Comment.new
+  end
+
+  def find_movie
+    params = @review[:param]
+    Movie.find_by id: params[:movie_id]
   end
 end

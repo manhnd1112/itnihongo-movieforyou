@@ -32,7 +32,7 @@
           <%= render "photo_fields", f: photo %>
         <% end %>
         <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 text-center add-image-button">
-          <%= link_to_add_association f, :photos, "data-turbolinks": false do %>
+          <%= link_to_add_association f, :photos, data: {turbolinks: false} do %>
             <i class="fa fa-plus"></i>
           <% end %>
         </div>

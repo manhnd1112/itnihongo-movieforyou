@@ -1,0 +1,70 @@
+<% provide(:title, "Search resutl for " + params[:search]) %>
+<div class="row">
+  <ul class="breadcrumb">
+    <li><%= link_to t("user.home"), root_path, data: {turbolinks: false} %></li>
+    <li class="active"><%= link_to t("home.search"), search_path, data: {turbolinks: false} %></li>
+  </ul>
+
+  <div class="col-sm-12 col-xs-12 col-md-12 search-results">
+    <div class=" col-xs-12">
+      <div class="title-box1">
+        <h3 class="marRight1">
+          <%= "#{@items.size} results for keyword '#{params[:search]}'" %>
+        </h3>
+      </div>
+    </div>
+
+    <% if @movies.any? %>
+      <div class="row col-xs-12 movie-result">
+        <div class="result-header"><%= t "user.movies" %></div>
+        <% @movies.each do |movie| %>
+          <div class="col-sm-3 col-md-2 col-xs-4 img2">
+            <%= render "movies/movie", movie: movie %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @reviews.any? %>
+      <div class="review-result col-xs-12">
+        <div class="result-header"><%= t "user.reviews" %></div>
+        <% @reviews.each do |review| %>
+          <div class="row reviews col-xs-12">
+            <%= render "users/review", review: review %><hr>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @actors.any? %>
+      <div class="row actor-result col-xs-12">
+        <div class="result-header"><%= t "home.actors" %></div>
+        <% @actors.each do |actor| %>
+          <div class="bottom_divider clear-fix row">
+            <div class="poster col-md-2 col-sm-3 col-xs-4">
+              <%= link_to actor_path(actor), data: {turbolinks: false} do %>
+                <img src="<%= actor.avatar_image.thumb.url %>" class="fullWidth">
+              <% end %>
+            </div>
+            <div class="details col-md-10 col-sm-9 col-xs-8">
+              <span>
+                <%= link_to actor.name, actor_path(actor), class: :articleLink,
+                  data: {turbolinks: false} %>
+              </span><hr>
+              <span class="birthday row">
+                <strong>Born:</strong>
+                <%= actor.birthday.strftime("%B %d %Y") %>
+              </span><br>
+              <p class="hidden-xs">
+                <%= truncate_html(actor.description, length: 400) %>
+              </p>
+              <p class="hidden-sm hidden-md hidden-lg">
+                <%= truncate_html(actor.description, length: 150) %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

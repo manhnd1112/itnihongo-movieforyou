@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   get "users/:id/bookmarks" => "users#bookmarks", as: :user_favorites
   get "static_pages/about", as: :about
   get "feedbacks" => "feedbacks#contact", as: :contact
+  get "search(/:search)", to: "searches#index", as: :search
 end

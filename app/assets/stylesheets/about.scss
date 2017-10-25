@@ -1,12 +1,12 @@
 .about-us .h5 {
-  margin-top: 33px;
   font-size: 20px;
+  margin-top: 33px;
 }
 
 .about-us h1 {
-  margin-top: 27px;
-  margin-bottom: 32px;
   font-size: 48px;
+  margin-bottom: 32px;
+  margin-top: 27px;
 }
 
 .section-under-title-line {
@@ -26,44 +26,43 @@
 }
 
 .about-us .creative-team {
-  margin-top: 73px;
   background: #f6f6f6;
-  padding-bottom: 89px;
   border-bottom: 1px solid #ececec;
+  margin-top: 73px;
+  padding-bottom: 89px;
 }
 
 .about-us .creative-team .video-block {
-  min-height: 160px;
   margin-bottom: 40px;
+  min-height: 160px;
   overflow: hidden;
   position: relative;
 }
 
 .about-us .creative-team .video-block img {
-  width: 100%;
   height: auto;
-  position: absolute;
-  top: -40%;
   left: 0;
   min-height: 100%;
+  position: absolute;
+  top: -40%;
+  width: 100%;
 }
 
 .about-us .creative-team .video-block .video-title {
+  background: rgba(0,0,0,0.6);
   margin: 0 auto;
+  padding-bottom: 4.5%;
+  padding-top: 38px;
   position: relative;
   text-align: center;
-  padding-top: 38px;
-  padding-bottom: 4.5%;
-  background: rgba(0,0,0,0.6);
 }
 
 .about-us .creative-team .video-block .button-play {
-  // background: rgba(0,0,0,0) url(../images/btn-play.png) no-repeat scroll center top;
+  cursor: pointer;
   display: block;
   height: 183px;
   margin: 0 auto;
   width: 183px;
-  cursor: pointer;
 }
 
 .about-us .creative-team .video-block .video-title .title-first {
@@ -73,9 +72,9 @@
 
 .about-us .creative-team .video-block .video-title p {
   color: #fff;
+  font-size: 15px;
   opacity: .8;
   text-shadow: 0 0 21px #000;
-  font-size: 15px;
 }
 
 .about-us i {
@@ -99,16 +98,16 @@
 
 .about-us .creative-team hr {
   position: relative;
-  z-index: 0;
   top: -43px;
+  z-index: 0;
 }
 
 .user-person-navigation {
-  padding-bottom: 19px;
   background: #fff;
-  margin-bottom: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
+  margin-bottom: 20px;
+  padding-bottom: 19px;
 }
 
 .user-person-navigation .member-avatar {
@@ -116,15 +115,15 @@
 }
 
 .user-person-navigation .member-avatar {
-  height: 130px;
-  width: 130px;
-  margin: 35px auto 0;
   border: 7px solid #e0e0e0;
+  height: 130px;
+  margin: 35px auto 0;
+  width: 130px;
 }
 
 .member-avatar {
-  display: block;
   border-radius: 50%;
+  display: block;
   overflow: hidden;
 }
 
@@ -134,15 +133,15 @@
 }
 
 .user-name {
+  font-size: 24px;
+  margin-top: 12px;
   text-align: center;
   text-transform: capitalize;
-  margin-top: 12px;
-  font-size: 24px;
 }
 
 .user-person-navigation h3 {
-  margin-top: 14px;
   margin-bottom: 7px;
+  margin-top: 14px;
 }
 
 .user-person-navigation h6 {
@@ -151,9 +150,9 @@
 
 .user-membership {
   color: #08c1da;
+  font-size: 12px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 12px;
 }
 
 .about-us .contact {
@@ -167,8 +166,8 @@
 .about-us .contact .btn-default {
   font-size: 24px;
   padding: 13px 50px;
-  top: 18px;
   position: relative;
+  top: 18px;
 }
 
 .about-us .contact .btn-default {
@@ -182,8 +181,8 @@
 
   &:hover, &:focus, &:active {
     background-color: #23def7 !important;
-    color: #fff !important;
     border: 1px solid #23def7 !important;
+    color: #fff !important;
   }
 }
 
@@ -196,8 +195,8 @@
 }
 
 .footer .row {
-  margin-right: -15px !important;
   margin-left: -15px !important;
+  margin-right: -15px !important;
   padding: 0 90px;
 }
 
@@ -241,10 +240,10 @@
 }
 
 .footer .logo-text {
-  margin-bottom: 12px;
-  color: #fff;
-  text-transform: capitalize;
   background: 0;
+  color: #fff;
+  margin-bottom: 12px;
+  text-transform: capitalize;
 }
 
 .footer hr {
@@ -258,10 +257,10 @@
 }
 
 .footer .widget .menu li:before {
+  background-color: #23def7;
   content: '';
   display: inline-block;
   height: 3px;
-  background-color: #23def7;
   margin-right: 10px;
   vertical-align: middle;
   width: 3px;

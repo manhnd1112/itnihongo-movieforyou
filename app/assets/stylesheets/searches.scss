@@ -1,0 +1,208 @@
+.scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
+li.search-item {
+  margin: 5px 0 !important;
+
+  &:hover {
+    background-color: #ecf0f1;
+    color: #1e1e1e !important;
+    cursor: pointer;
+  }
+
+  a:link {
+    color: #1e1e1e !important;
+  }
+}
+
+#live-search {
+  a {
+    color: #66757f;
+  }
+}
+
+.item-search {
+  color: #000 !important;
+  margin-bottom: 3px !important;
+}
+
+.search-form {
+  background-color: #fff;
+  display: table;
+  padding: 0;
+  width: 500px;
+
+  .form-group {
+    display: table-cell;
+    width: 100%;
+
+    .form-control {
+      width: 100%;
+    }
+  }
+  button {
+    display: table-cell;
+    width: 70px;
+  }
+}
+
+.dropdown-menu {
+  border: none;
+  padding: 0;
+  width: 100%;
+
+  a:hover {
+    color: #1e1e1e !important;
+    display: block !important;
+  }
+
+  li.search-btn {
+    margin: 0 10px;
+  }
+
+  .item-content {
+    padding: 0 !important;
+  }
+
+  .img-responsive {
+    padding-top: 5px;
+  }
+}
+
+.result-header {
+  background: #FDEE00;
+  color: #1C1C1C;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2em;
+  margin: 10px 0 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: uppercase;
+}
+
+.actor-result {
+  margin-top: 50px !important;
+}
+
+.bottom_divider {
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.actor-result .details, .actor-result .poster {
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: middle;
+
+  strong {
+    color: cornflowerblue;
+  }
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+a.articleLink {
+  color: black;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.movie-result .img2 {
+  height: 400px;
+  margin-top: 10px !important;
+}
+
+.review-result {
+  margin: 10px 0 40px;
+
+  .reviews {
+    padding: 10px 0 0;
+  }
+}
+
+.search-results {
+  padding: 0 !important;
+
+ .result-header {
+   display: block;
+ }
+}
+
+.birthday {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .review-result {
+    .image {
+      width: 16%;
+    }
+
+    .content {
+      width: 84%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .review-result {
+    .image {
+      width: 22%;
+    }
+
+    .content {
+      width: 78%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .image {
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+
+.actor-result hr {
+  margin: 10px 0 !important;
+}
+
+@media (max-width: 767px) {
+  a.articleLink {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .poster {
+    width: 25% !important;
+  }
+
+  .details {
+    width: 75% !important;
+  }
+}
+
+.line3 h3 {
+  font-size: 30px;
+}
+
+.multi-column-dropdown {
+  .col-sm-3 {
+    margin-top: 5px;
+  }
+}

@@ -13,6 +13,8 @@ class Movie < ApplicationRecord
 
   mount_uploader :avatar, PhotoUploader
 
+  ransack_alias :movie, :name_or_description_or_producer_or_director_or_actors_name
+
   def average_rate
     movie = Movie.find_by id: self.id
     rates = movie.rates
@@ -22,7 +24,7 @@ class Movie < ApplicationRecord
       total += rate.score
     end
     return total * 1.0 / size if size > 0
-    return 0
+    0
   end
   
   def new_movie?
@@ -36,5 +38,27 @@ class Movie < ApplicationRecord
     today = Date.today
     return true if self.realease_date > today
     false
+  end
+
+  private
+
+  # def self.ransackable_scopes(auth_object = nil)
+  #   if auth_object.try(:admin?)
+  #     %i(activated hired_since salary_gt)
+  #   else
+  #     %i(activated hired_since)
+  #   end
+  # end
+
+  def self.ransortable_attributes(auth_object = nil)
+    %w(name imdb realease_date) + _ransackers.keys
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    if auth_object == "admin"
+      super
+    else
+      super - %w(id created_at)
+    end
   end
 end

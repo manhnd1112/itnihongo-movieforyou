@@ -1,52 +1,14 @@
 <% provide(:title, @type.name) %>
 <div class="row movies-list">
-  <div class="col-sm-9 col-xs-12">
-  <div class="title-box1">
-    <h3 class="marRight1"><%= @type.name %></h3>
-  </div>
-	<div class="text-center">
-    <%= paginate @movies %>
-  </div><br>
-  <div class="hline3">
-    <div class="row">
-    <% @movies.each do |movie| %>
-      <div class="col-sm-4 col-md-3 col-xs-6 img2">
-      <div class="item-movie">
-        <div class="hidden current-movie-id" id="<%= movie.id %>"></div> 
-        <img src="<%= movie.avatar.thumb.url %>" alt="" class="">
-        <p class="item-name title-font">
-        <%= link_to movie.name, movie_path(movie), "data-turbolinks": false %>
-        </p>
-        <p class="txt5">
-        <strong><%= t ".genre" %>:</strong>
-        <% movie.types.order("name asc").limit(3).each do |type| %>
-          <%= type.name %>.
-        <% end %>
-        </p>
-        <strong><%= t ".release" %>:</strong>
-        <a href="#" class="link2">
-        <time><%= movie.realease_date.strftime("%d/%m/%Y") %></time>
-        </a><br>
-      </div>
-      </div>
-    <% end %>
-    </div>
-  </div>
-  </div>
-
-  <div class="col-sm-3 hidden-xs type-list">
-  <div class="title-box1 v2">
-    <h3><%= t ".genre" %></h3>
-  </div>
-  <ul class="listWithMarker">
-    <% @support.types.each do |type| %>
-    <li>
-    <div class="list_inside inside_1">
-      <%= link_to type.name, type_path(type), "data-turbolinks": false %>
-      <span class="badge badge-primary"><%= type.count_movies %></span>
-    </div>
+  <ul class="breadcrumb">
+    <li><%= link_to t("user.home"), root_path, data: {turbolinks: false} %></li>
+    <li><%= link_to t("user.movies"), movies_path, data: {turbolinks: false} %></li>
+    <li class="active">
+      <%= link_to @type.name, type_path(@type), data: {turbolinks: false} %>
     </li>
-    <% end %>
   </ul>
+
+  <div id="movies">
+    <%= render "movies", support: @support, type: @type %>
   </div>
 </div>

@@ -8,6 +8,9 @@ en:
     copyright: "Copyright 2017 | Mugiwara | All Rights Reserved"
     pages: pages
     share: Share
+    search: Search
+    actors: Actors
+    content_search: Search movies, reviews, actors,...
   button:
     save: Save
     cancel: Cancel
@@ -71,6 +74,8 @@ en:
       more_link: Read Full Review
       recent_reviews: Recent reviews
       no_review: No review!
+      keyword: Enter keywords
+      search: Search
     show:
       cast: Cast
       director: Director
@@ -114,6 +119,10 @@ en:
       genre: Genres
       realease: Realease
       all_movies: All Movies
+      country: Country
+      sort: Sort
+      search: Search by keywords
+      all: All
     show:
       add_bookmark: Added to favorites.
       remove_bookmark: Removed from favorites.
@@ -121,9 +130,9 @@ en:
       user_rate: "User Ratings"
       review_count: "Reviews Counted"
       distribution: USER RATING DISTRIBUTION
-      positive: "Positive"
-      mixed: "Mixed"
-      negative: "Negative"
+      positive: Positive
+      mixed: Mixed
+      negative: Negative
       not_rate: Not rated yet!
       no_review: Be the first to review.
       write_review: Write a Review
@@ -145,3 +154,12 @@ en:
       details: "Hanoi University of Science and Technology,<br>No 1 Dai Co Viet Street, Hai Ba Trung Dist, Hanoi, Vietnam"
       mail: support@mugiwara.hedspi.com
       number: "1-999-999-999"
+  types:
+    show:
+      country: Country
+      sort: Sort
+      search: Search by keywords
+      all: All
+  search:
+    content: "name, description, producer, director, actor..."
+    no_result: "No results for "

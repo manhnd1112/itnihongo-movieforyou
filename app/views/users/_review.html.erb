@@ -1,54 +1,40 @@
-<div class="reviews">
-  <% if reviews.any? %>
-    <% reviews.each do |review| %>
-      <div class="toggle-overflow item more">
-        <div class="image">
-          <%= link_to user_review_path(review.user, review),
-            "data-turbolinks": false do %>
-            <% if review.photos.any? %>
-              <%= image_tag review.photos.first.url %>
-            <% else %>
-              <%= image_tag review.movie.avatar %>
-            <% end %>
-          <% end %>
-        </div>
-        <h3 class="title-font user-review-title">
-          <%= link_to review_path(review), "data-turbolinks": false do %>
-            <%= review.movie.name %>
-            <span class="movie-year">
-              (<%= review.movie.realease_date.strftime("%Y") %>):
-            </span>
-            <%= review.title %>
-          <% end %>
-        </h3>
-        <div class="details">
-          <span class="glyphicon glyphicon-time"></span>
-          <span title="<%= review.created_at.to_s %>">
-            <%= review.created_at.strftime("%d %b %Y") %>
-          </span>&emsp;|&emsp;
-          <span class="glyphicon glyphicon-comment"></span>
-          <%= review.comments.count %>&emsp;|&emsp;
-          <span class="glyphicon glyphicon-thumbs-up"></span>&emsp;
-          <span class="glyphicon glyphicon-thumbs-down"></span>
-        </div>
-        <p><%= review.content.html_safe %></p>
-      </div>
-      <div class="edit-review">
-        <% if user_signed_in? && @user.id == current_user.id %>
-          <%= link_to t("button.edit"), edit_user_review_path(current_user, review),
-            class: "btn btn-success", "data-turbolinks": false %>
-          <%= link_to t("button.delete"), user_review_path(current_user, review),
-            method: :delete, data: {confirm: t("button.confirm"), turbolinks: false},
-            class: "btn btn-danger" %>
+<div class="toggle-overflow item">
+  <div class="image col-sm-4 col-md-3">
+    <div class="row">
+      <%= link_to user_review_path(review.user, review),
+        data: {turbolinks: false} do %>
+        <% if review.photos.any? %>
+          <%= image_tag review.photos.first.url %>
+        <% else %>
+          <%= image_tag review.movie.avatar %>
         <% end %>
-      </div>
-      <hr>
-    <% end %>
-    <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
-      "data-turbolinks": false, class: "all-comment" %>
-  <% else %>
-    <% if user_signed_in? && current_user.id == user.id %>
-      <%= t "users.show.no_review" %>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="content col-sm-8 col-md-9">
+    <h3 class="title-font user-review-title">
+      <%= link_to review_path(review), data: {turbolinks: false} do %>
+        <%= review.movie.name %>
+        <span class="movie-year">
+          (<%= review.movie.realease_date.strftime("%Y") %>):
+        </span>
+        <%= review.title %>
+      <% end %>
+    </h3>
+    <div class="details">
+      <span>
+        By <%= link_to review.user.name, user_path(review.user),
+          data: {turbolinks: false} %>&emsp;|&emsp;
+      </span>
+      <span class="glyphicon glyphicon-time"></span>
+      <span title="<%= review.created_at.to_s %>">
+        <%= review.created_at.strftime("%d %b %Y") %>
+      </span>&emsp;|&emsp;
+      <span class="fa fa-comments fa-md"></span>
+      <%= review.comments.count %>&emsp;|&emsp;
+      <span class="glyphicon glyphicon-thumbs-up"></span>&emsp;
+      <span class="glyphicon glyphicon-thumbs-down"></span>
+    </div>
+    <p class="row more"><%= review.content.html_safe %></p>
+  </div>
 </div>

@@ -1,5 +1,20 @@
 .list-movie-filter {
-  padding: 10px 0px;
+  background: #F5F5F5;
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+
+  label {
+    color: #000;
+    display: block;
+    font-size: 18px;
+  }
+
+  .form-control {
+    display: inline-block;
+    font-size: 18px;
+    height: auto !important;
+  }
 }
 
 .list-movie-filter .list-movie-filter-main {
@@ -9,6 +24,53 @@
 
 .list-movie-filter .list-movie-filter-item {
   float: left;
-  margin: 0px 6px;
-  width: 20%;
+}
+
+.list-movie-filter-item-content {
+  float: left;
+}
+
+.list-movie-filter-item-long {
+  float: left;
+
+  .form-control {
+    margin: 0 1% 0 0;
+    width: 40% !important;
+  }
+
+  #q_s_0_name {
+    width: 58% !important;
+  }
+}
+
+.search-item {
+  float: right;
+
+  .btn {
+    min-width: 100% !important;
+  }
+}
+
+.btn-filter-movie {
+  padding: 8px !important;
+  position: relative;
+  top: 36px;
+}
+
+.reviews-list {
+  input {
+    color: #1e1e1e !important;
+  }
+}
+
+.item-movie {
+  .txt5, strong, .link2 {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .type-movie {
+    width: 20% !important;
+  }
 }

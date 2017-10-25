@@ -28,10 +28,10 @@
             (<%= author_rate(@review.movie, @review.user).round(1) %>)
           </span>
         <% else %>
-          <span class="star-rating"><%= t "movie.show.not_rate" %></span>
+          <span class="star-rating"><%= t "movies.show.not_rate" %></span>
         <% end %>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <span class="iconFacebook glyphicon glyphicon-comment"></span>
+        <i class="iconFacebook fa fa-comments fa-md" aria-hidden="true"></i>
         <%= @review.comments.count %><br>
         <time class="title-font">
           <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
@@ -44,19 +44,19 @@
         data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
         data-layout="button_count" data-action="like" data-size="small">
       </div>
-      <div id="shareBtn" class="btn clearfix"><%=t "home.share" %></div><br><br>
+      <div id="shareBtn" class="btn clear-fix"><%= t "home.share" %></div><br><br>
 
       <!-- content area -->
-      <ul class="movieitemlisting tabsintbgshow title-font">
-        <li class="tablive">
+      <ul class="movie-item-listing title-font">
+        <li class="tab-live">
           <p><%= t ".movie_info" %><span></span></p>
         </li>
       </ul>
       <%= render "movie_info", review: @review %>
     </div>
     <div class="article-body">
-      <ul class="movieitemlisting tabsintbgshow title-font">
-        <li class="tablive">
+      <ul class="movie-item-listing title-font">
+        <li class="tab-live">
           <p><%= t "user.review" %><span></span></p>
         </li>
       </ul>
@@ -64,15 +64,15 @@
         <%= @review.content.html_safe %>
       </div>
     </div><br><br>
-    
+
     <!-- image area -->
-    <ul class="movieitemlisting tabsintbgshow title-font">
-      <li class="tablive">
+    <ul class="movie-item-listing title-font">
+      <li class="tab-live">
         <p><%= t ".gallery" %><span></span></p>
       </li>
     </ul><br>
 
-    <div class="outercontainer">
+    <div class="outer-container">
       <div class="review-photos">
         <% if @review.photos.any? %>
           <% @review.photos.each do |photo| %>

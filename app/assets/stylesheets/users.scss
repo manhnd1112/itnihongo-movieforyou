@@ -37,6 +37,7 @@
 .profile-buttons {
   margin-top: 10px;
   text-align: center;
+
   a {
     font-size: 14px !important;
     text-transform: capitalize !important;
@@ -145,7 +146,8 @@
   padding-top: 5px !important;
 }
 
-.blog-list-item, .blog-list-item .blog-list-item-anchor {
+.blog-list-item,
+.blog-list-item .blog-list-item-anchor {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -174,7 +176,7 @@
   width: 50px;
 }
 
-.blog-list-item .blog-list-item-avatar-image {
+.blog-list-item .blog-list-item-image {
   border-radius: 3px;
   height: auto;
   width: 100%;
@@ -197,10 +199,10 @@
 .blog-list-item .blog-list-item-info .blog-list-item-info-name,
 .blog-list-item .blog-list-item-info .blog-list-item-info-title {
   display: inline-block;
-  vertical-align: middle;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
+  vertical-align: middle;
 }
 
 .blog-list-item .blog-list-item-info .blog-list-item-info-title {
@@ -237,8 +239,8 @@
 
 .blog-sub-nav-item .blog-sub-nav-item-label {
   display: inline-block;
-  font-size: 18px;
   float: left;
+  font-size: 18px;
 }
 
 .blog-sub-nav-item .blog-sub-nav-item-data {
@@ -290,10 +292,6 @@
   display: block;
 }
 
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
 .profile-link {
   margin-bottom: 0 !important;
 }
@@ -320,11 +318,10 @@
 .reviews {
   .image {
     float: left;
-    margin-right: 15px;
 
     img {
-      width: 140px;
       height: auto;
+      width: 100%;
     }
   }
 
@@ -361,17 +358,9 @@
   }
 }
 
-.morecontent span {
-  display: none;
-}
-
-.morelink {
-  display: block;
-}
-
 .login-form {
-  font-size: 18px;
   font-family: "Roboto Condensed", Helvetica, Arial !important;
+  font-size: 18px;
 
   h2 {
     font-size: 40px;
@@ -480,10 +469,6 @@
   }
 }
 
-.review-pagi .pagination {
-  margin: 5px !important;
-}
-
 .edit-review {
   padding-top: 10px;
 }
@@ -499,9 +484,9 @@
 }
 
 [data-readmore-toggle], selector[data-readmore] {
+  display: block;
   font-size: 18px;
   font-weight: 700;
-  display: block;
   width: 100%;
 }
 
@@ -544,7 +529,7 @@
 
 .item {
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -584,9 +569,9 @@
 }
 
 .user-profile .user-list {
-  margin-bottom: 5px;
   clear: left;
   height: 90px;
+  margin-bottom: 5px;
   padding-top: 5px;
 }
 
@@ -595,8 +580,8 @@
 }
 
 .user-profile .list-name {
-  font-weight: bold;
   display: block;
+  font-weight: bold;
   margin-left: 96px;
   word-wrap: break-word;
 }
@@ -640,4 +625,8 @@
   p.des {
     margin-top: 15px;
   }
+}
+
+.more {
+  overflow: hidden;
 }

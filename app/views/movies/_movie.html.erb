@@ -1,0 +1,24 @@
+<div class="item-movie">
+  <div class="hidden current-movie-id" id="<%= movie.id %>"></div>
+  <div class="row poster">
+    <img src="<%= movie.avatar.thumb.url %>" alt="" class="">
+    <div class="movie-info-show">
+      <a class="icon share" data-title="<%= movie.name %>" id="share-movie"></a>
+      <div class="icon im-score">
+        <strong><%= movie.imdb %></strong>
+        <small><%= t "reviews.show.imdb" %></small>
+      </div>
+    </div>
+  </div>
+  <p class="item-name title-font">
+    <%= link_to movie.name, movie_path(movie), data: {turbolinks: false} %>
+  </p>
+  <p class="txt5">
+    <strong><%= t "movies.index.genre" %>:</strong>
+    <% movie.types.order("name asc").limit(3).each do |type| %>
+      <%= link_to type.name, type_path(type), data: {turbolinks: false} %>.
+    <% end %>
+  </p>
+  <strong><%= t "movies.index.realease" %>:</strong>
+  <time><%= movie.realease_date.strftime("%d/%m/%Y") %></time><br>
+</div>

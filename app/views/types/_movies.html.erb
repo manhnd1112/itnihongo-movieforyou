@@ -1,0 +1,80 @@
+<%= search_form_for [type, support.search], url: type_path(type),
+  method: :get, remote: true  do |f| %>
+  <div class="col-xs-12">
+    <div class="list-movie-filter row" style="margin-bottom: 10px;">
+      <div class="list-movie-filter-main">
+        <div class="list-movie-filter-item-content col-xs-9 col-sm-4 col-md-5">
+          <label><%= t "types.show.search" %></label>
+          <%= f.text_field :movie_cont, class: "form-control",
+            placeholder: t("search.content") %>
+        </div>
+        <div class="list-movie-filter-item col-xs-3 col-sm-2">
+          <label><%= t "types.show.country" %></label>
+          <%= f.select :country_id_eq,
+            options_from_collection_for_select(Country.all, "id", "name", support.search.country_id_eq),
+            {include_blank: t("types.show.all")}, {class: "form-control"} %>
+        </div>
+        <div class="list-movie-filter-item-long col-xs-9 col-sm-5 col-md-4">
+          <label><%= t "types.show.sort" %></label>
+          <%= f.sort_fields do |s| %>
+            <%= s.sort_select Hash.new, class: "form-control" %>
+          <% end %>
+        </div>
+        <div class="search-item pull-right row col-xs-3 col-sm-1">
+          <%= button_tag type: :submit, name: :commit,
+            class: "btn btn-danger btn-filter-movie" do %>
+            <span class="glyphicon glyphicon-search"></span>
+          <% end %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="text-center review-pagination">
+      <%= paginate support.movies_search %>
+    </div>
+    <div class="line3">
+      <div class="row">
+        <% if support.movies_search.any? %>
+          <% support.movies_search.each do |movie| %>
+            <div class="col-sm-3 col-md-2 col-xs-4 img2 type-movie">
+              <div class="item-movie">
+                <div class="hidden current-movie-id" id="<%= movie.id %>"></div>
+                <div class="row poster">
+                  <img src="<%= movie.avatar.thumb.url %>" alt="">
+                  <div class="movie-info-show">
+                    <a class="icon share" data-title="<%= movie.name %>"
+                       id="share-movie"></a>
+                    <div class="icon im-score">
+                      <strong><%= movie.imdb %></strong>
+                      <small><%= t "reviews.show.imdb" %></small>
+                    </div>
+                  </div>
+                </div>
+                <p class="item-name title-font">
+                  <%= link_to movie.name, movie_path(movie),
+                    data: {turbolinks: false} %>
+                </p>
+                <p class="txt5">
+                  <strong><%= t "movies.index.genre" %>:</strong>
+                  <% movie.types.order("name asc").limit(3).each do |type| %>
+                    <%= link_to type.name, type_path(type),
+                      ata: {turbolinks: false} %>.
+                  <% end %>
+                </p>
+                <strong><%= t "movies.index.realease" %>:</strong>
+                <span class="link2">
+                  <time><%= movie.realease_date.strftime("%d/%m/%Y") %></time>
+                </span><br>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h3><%= t("search.no_result") + "'#{params[:q][:movie_cont]}'." %></h3>
+        <% end %>
+        </div>
+      <div class="text-center review-pagination" id="pagination">
+        <%= paginate support.movies_search, remote: true %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('.more').readmore({
     speed: 100,
     lessLink: '<br><a href="#">Read less</a>',
-    collapsedHeight: 272,
+    collapsedHeight: 128,
     embedCSS: true
   });
 

@@ -1,7 +1,7 @@
 module ApplicationHelper
   def full_title page_title = ""
     base_title = t "app_name"
-    page_title.empty? ? base_title : "#{page_title} | #{base_title}"
+    page_title.empty? ? base_title : "#{page_title} - #{base_title}"
   end
 
   def time_diff(start_time, end_time)
@@ -44,7 +44,7 @@ module ApplicationHelper
       total += rate.score
     end
     return total * 1.0 / size if size > 0
-    return 0
+    0
   end
 
   def rate movie
@@ -55,20 +55,20 @@ module ApplicationHelper
     all = movie.rates.count
     pos = movie.rates.where(score: 7..10).count
     return (pos * 100.0 / all) if all > 0
-    return 0
+    0
   end
   
   def mixed movie
     all = movie.rates.count
     mixed = movie.rates.where(score: 4...7).count
     return (mixed * 100.0 / all) if all > 0
-    return 0
+    0
   end
   
   def negative movie
     all = movie.rates.count
     neg = movie.rates.where(score: 1...4).count
     return (neg * 100.0 / all) if all > 0
-    return 0
+    0
   end
 end
