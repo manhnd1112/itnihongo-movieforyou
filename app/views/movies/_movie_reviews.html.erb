@@ -3,10 +3,10 @@
   <section class="panel panel-rt panel-box movie_info media panel-review">
     <div class="media-body">
       <h2 class="panel-heading">Review</h2>
-       <%= link_to new_review_path(movie_id: @movie.id), "data-turbolinks": false,
+       <%= link_to new_review_path(movie_id: @movie.id), data: {turbolinks: false},
         class: "btn btn-primary review-make-btn pull-right",
         title: t("movies.show.write_review") do %>
-        <p class="hidden-md"><%= t "reviews.show.write_review" %></p>
+        <p class="hidden-md"><%= t "movies.show.write_review" %></p>
         <i class="fa fa-pencil-square-o hidden-sm hidden-xs hidden-lg"></i>
       <% end %>
       <div class="content tag">
@@ -17,9 +17,9 @@
                 <div class="review pad_top2 pad_btm2">
                   <div class="head_wrap">
                     <div class="score_wrap">
-                      <div class="metascore_w header_size indiv perfect">
-                        <%= link_to review_path(review), target: "_blank",
-                          "data-turbolinks": false, class: "imgThumb" do %>
+                      <div class="meta-score header_size inDiv perfect">
+                        <%= link_to review_path(review), class: :imgThumb,
+                          target: :_blank, data: {turbolinks: false} do %>
                           <% if review.photos.any? %>
                             <img src="<%= review.photos.first.url %>">
                           <% else %>
@@ -31,13 +31,13 @@
                     <div class="pub_wrap title">
                       <span class="source">
                         <%= link_to review.title, review_path(review),
-                          "data-turbolinks": false %>
+                          target: :_blank, data: {turbolinks: false} %>
                       </span>
                       <div class="date pad_top_half">
                         By
                         <span class="author">
                           <%= link_to review.user.name, user_path(review.user),
-                            "data-turbolinks": false %>
+                            data: {turbolinks: false} %>
                         </span> on  
                         <%= review.created_at.strftime("%d %b %Y") %>
                       </div>
@@ -47,8 +47,8 @@
                     <div class="summary">
                       <%= truncate_html(review.content, length: 100) %>
                       <%= link_to t("static_pages.show.read_full"),
-                        review_path(review), class: "read_full",
-                        target: "_blank", "data-turbolinks": false %>
+                        review_path(review), class: :read_full,
+                        target: :_blank, data: {turbolinks: false} %>
                     </div>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
         <div class="group">
           <% if rates.any? %>
             <% rates.each do |rate| %>
-              <div class="rate-item clearfix">
+              <div class="rate-item clear-fix">
                 <div class="m-b-xs">
                   <span class="pull-left thumb-sm m-r">
                     <img src="<%= rate.user.avatar.small.url %>"
@@ -98,7 +98,7 @@
               </div>
             <% end %>
           <% else %>
-            <div class="rate-item clearfix">
+            <div class="rate-item clear-fix">
               No rate.
             </div>
           <% end %>

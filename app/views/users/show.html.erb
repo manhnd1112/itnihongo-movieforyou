@@ -9,7 +9,28 @@
           <div class="text-right bootstrap-pagination">
             <%= paginate @reviews, theme: "twitter-bootstrap-3" %>
           </div>
-          <%= render "review", reviews: @reviews, user: @user %>
+          <div class="reviews">
+            <% if @reviews.any? %>
+              <% @reviews.each do |review| %>
+                <%= render partial: "review", locals: {review: review} %>
+                <div class="edit-review text-right">
+                  <% if user_signed_in? && @user.id == current_user.id %>
+                    <%= link_to t("button.edit"), edit_user_review_path(current_user, review),
+                      class: "btn btn-success", data: {turbolinks: false} %>
+                    <%= link_to t("button.delete"), user_review_path(current_user, review),
+                      method: :delete, data: {confirm: t("button.confirm"), turbolinks: false},
+                      class: "btn btn-danger" %>
+                  <% end %>
+                </div><hr>
+              <% end %>
+              <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
+                data: {turbolinks: false}, class: "all-comment" %>
+            <% else %>
+              <% if user_signed_in? && current_user.id == user.id %>
+                <%= t "users.show.no_review" %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="widget article userLists">

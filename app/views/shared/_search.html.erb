@@ -1,0 +1,44 @@
+<% if items.blank? %>
+  <li>
+    <%= link_to search_path(params[:search]), data: {turbolinks: false},
+      class: "btn btn-default btn-block" do %>
+      <%= t("search.no_result") + "'#{params[:search]}'" %>
+    <% end %>
+  </li>
+<% else %>
+  <div class="scrollable-menu">
+    <% if @movies.any? %>
+      <div>
+        <div class="result-header"><%= t "user.movies" %></div>
+        <% @movies.limit(2).each do |movie| %>
+          <%= render "movies/search_item", movie: movie %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @reviews.any? %>
+      <div>
+        <div class="result-header"><%= t "user.reviews" %></div>
+        <% @reviews.limit(2).each do |review| %>
+          <%= render "reviews/search_item", review: review %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @actors.any? %>
+      <div>
+        <div class="result-header"><%= t "home.actors" %></div>
+        <% @actors.limit(2).each do |actor| %>
+          <%= render "actors/search_item", actor: actor %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-btn">
+	  <div class="divider"></div>
+	  <%= link_to search_path(params[:search]), data: {turbolinks: false},
+      class: "btn btn-default btn-block" do %>
+      <%= "See all #{items.size} results for '#{params[:search]}'" %>
+    <% end %>
+ </div>
+<% end %>

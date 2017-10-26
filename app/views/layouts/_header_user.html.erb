@@ -1,18 +1,22 @@
-<li><%= link_to t("user.write_review"), new_review_path, class: "dropbtn",
-  "data-turbolinks": false %></li>
+<li>
+  <%= link_to new_review_path, class: "dropbtn", data: {turbolinks: false} do %>
+    <i class="fa fa-pencil-square-o fa-md" aria-hidden="true"></i>
+    <%= t "user.write_review" %>
+  <% end %>
+</li>
 <li class="dropdown">
-  <%= link_to user_path(current_user), method: :get, "data-turbolinks": false do %>
+  <%= link_to user_path(current_user), method: :get, data: {turbolinks: false} do %>
     <i class="fa fa-user-o" aria-hidden="true"></i>
   <% end %>
-  <div class="user-nav">
-    <ul class="nav dropdown-content">
+  <div class="user-nav row">
+    <ul class="nav dropdown-content dropdown-menu-right">
       <li class="popover_menu_item popover_menu_item_blog
         popover_menu_item_blog--uncloseable popover_menu_item_blog--open">
         <div class="blog-list-item blog-list-item--on-light">
           <%= link_to user_path(current_user), class:"blog-list-item-anchor",
-            "data-turbolinks": false do %>
+            data: {turbolinks: false} do %>
             <span class="blog-list-item-avatar">
-              <%= image_tag current_user.avatar, class:"blog-list-item-avatar-image" %>
+              <%= image_tag current_user.avatar, class:"blog-list-item-image" %>
             </span>
             <span class="blog-list-item-info">
               <span class="blog-list-item-info-name">
@@ -27,7 +31,7 @@
         <hr class="horizon">
         <div class="blog-sub-nav-item">
           <%= link_to user_path(current_user), class:"blog-sub-nav-item-link",
-            "data-turbolinks": false do %>
+            data: {turbolinks: false} do %>
             <div class="blog-sub-nav-item-label"><%= t "user.reviews" %></div>
             <div class="blog-sub-nav-item-data">
               <%= current_user.reviews.count %>
@@ -45,22 +49,16 @@
       </li>
       <li class="profile-link">
         <%= link_to edit_user_registration_path, method: :get,
-          "data-turbolinks": false do %>
+          data: {turbolinks: false} do %>
           <i class="fa fa-cog" aria-hidden="true"></i> <%= t "user.settings" %>
         <% end %>
       </li>
       <li class="profile-link">
         <%= link_to destroy_user_session_path, method: :delete,
-          "data-turbolinks": false do %>
+          data: {turbolinks: false} do %>
           <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t "user.sign_out" %>
         <% end %>
       </li>
     </ul>
   </div>
 </li>
-<style>
-  ul > li ul{
-    right: 4px;
-    left: auto;
-  }
-</style>

@@ -48,7 +48,7 @@ $(document).on('click', '.bookmark-btn', function(e){
   });
 });
 
-$(document).on('click', '.unbookmark-btn', function(){
+$(document).on('click', '.un-bookmark-btn', function(){
   var movie = $('.current-movie-id').attr('id');
   var bookmark = $('.current-bookmark').attr('id');
 

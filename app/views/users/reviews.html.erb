@@ -12,7 +12,26 @@
             </div>
             <p class="page-info"><%= page_entries_info @reviews %></p>
           </div><hr>
-          <%= render "review", reviews: @reviews %>
+          <div class="reviews">
+            <% if @reviews.any? %>
+              <% @reviews.each do |review| %>
+                <%= render partial: "review", locals: {review: review} %>
+                <div class="edit-review text-right">
+                  <% if user_signed_in? && @user.id == current_user.id %>
+                    <%= link_to t("button.edit"), edit_user_review_path(current_user, review),
+                      class: "btn btn-success", data: {turbolinks: false} %>
+                    <%= link_to t("button.delete"), user_review_path(current_user, review),
+                      method: :delete, data: {confirm: t("button.confirm"), turbolinks: false},
+                      class: "btn btn-danger" %>
+                  <% end %>
+                </div><hr>
+              <% end %>
+            <% else %>
+              <% if user_signed_in? && current_user.id == user.id %>
+                <%= t "users.show.no_review" %>
+              <% end %>
+            <% end %>
+          </div>
           <div class="review-pagination text-center" data-turbolinks="false">
             <%= paginate @reviews %>
           </div>

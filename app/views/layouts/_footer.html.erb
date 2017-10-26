@@ -4,7 +4,7 @@
       <aside class="col-xs-12 col-sm-6 col-md-3 widget-column">
         <div class="widget">
           <%= link_to root_path, class: "logo navbar-brand",
-            "data-turbolinks": false do %>
+            data: {turbolinks: false} do %>
             <p class="logo-text"><%= t "home.title" %></p>
           <% end %>
           <hr>
@@ -29,23 +29,23 @@
           <ul class="menu">
             <li class="menu-item">
               <%= link_to t("user.home"), root_path,
-                "data-turbolinks": false %>
+                data: {turbolinks: false} %>
             </li>
             <li class="menu-item">
               <%= link_to t("user.movies"), movies_path,
-                "data-turbolinks": false %>
+                data: {turbolinks: false} %>
             </li>
             <li class="menu-item">
               <%= link_to t("user.reviews"), reviews_path,
-                "data-turbolinks": false %>
+                data: {turbolinks: false} %>
             </li>
             <li class="menu-item active">
-              <%= link_to t("user.about"), about_path,
-                "data-turbolinks": false %>
+              <%= link_to t("home.about"), about_path,
+                data: {turbolinks: false} %>
             </li>
             <li class="menu-item">
-              <%= link_to t("user.contact"), contact_path,
-                "data-turbolinks": false %>
+              <%= link_to t("home.contact"), contact_path,
+                data: {turbolinks: false} %>
             </li>
           </ul>
         </div>

@@ -6,7 +6,7 @@
     <% top_movies.each do |movie| %>
     <li class="list-top-movie-item">
       <%= link_to movie_path(movie), class: "list-top-movie-link col-xs-12",
-        "data-turbolinks": false, title: movie.name do %>
+        data: {turbolinks: false}, title: movie.name do %>
         <div class="list-top-movie-item-thumb col-xs-4"
           style="background: url(<%= movie.avatar.small.url %>)">
         </div>
@@ -39,7 +39,7 @@
       <!--< if movie.comming_movie? %>-->
       <li class="list-top-movie-item">
         <%= link_to movie_path(movie), class: "list-top-movie-link col-xs-12",
-          "data-turbolinks": false, title: movie.name do %>
+          data: {turbolinks: false}, title: movie.name do %>
           <div class="list-top-movie-item-thumb col-xs-4"
             style="background: url(<%= movie.avatar.small.url %>)">
           </div>

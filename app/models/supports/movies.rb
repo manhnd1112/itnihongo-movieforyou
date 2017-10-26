@@ -4,9 +4,9 @@ class Supports::Movies
   def initialize movie
     @movie = movie
   end
-  
+
   def movies_search
-    search.result.page(@movie[:param][:page]).per(12)
+    search.result(distinct: true).page(@movie[:param][:page]).per(12)
   end
 
   def search
@@ -29,15 +29,15 @@ class Supports::Movies
     params = @movie[:param]
     Movie.find_by id: params[:id]
   end
-  
+
   def top_movies
     Movie.all.sort_by{|p| p.average_rate}.reverse.take(7)
   end
-  
+
   def coming_movies
     Movie.where("realease_date > ?", Date.today).order("created_at desc").limit(7)
   end
-  
+
   def types
     Type.all.sort_by{|p| p.count_movies}.reverse
   end

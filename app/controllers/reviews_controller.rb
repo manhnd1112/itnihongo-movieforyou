@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_review, only: [:show, :edit, :update, :destroy]
-  before_action :find_movie, only: [:show, :new]
   before_action :load_support
 
   def index; end
@@ -57,12 +56,6 @@ class ReviewsController < ApplicationController
     redirect_to root_path
   end
 
-  def find_movie
-    @movie = Movie.find_by id: params[:movie_id]
-
-    return if @movie.present?
-  end
-  
   def load_support
     @support = Supports::Reviews.new review: Review.all, param: params
   end

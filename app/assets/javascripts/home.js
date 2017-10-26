@@ -84,6 +84,20 @@ $(document).ready(function(){
   $('.review-content').fitText(1.2,{minFontSize: '16px', maxFontSize: '18px'});
   $('.movie-data').fitText(1.2,{minFontSize: '18px', maxFontSize: '22px'});
   $('.review-title').fitText(0.8,{minFontSize: '20px', maxFontSize: '30px'});
+
+  $('.breadcrumbs li a').each(function(){
+    var breadWidth = $(this).width();
+    if($(this).parent('li').hasClass('active') || $(this).parent('li').hasClass('first')){
+    } else {
+      $(this).css('width', 75 + 'px');
+      $(this).mouseover(function(){
+        $(this).css('width', breadWidth + 'px');
+      });
+      $(this).mouseout(function(){
+        $(this).css('width', 75 + 'px');
+      });
+    }
+  });
 });
 
 $(document).on('click', '#shareBtn', function() {

@@ -1,0 +1,16 @@
+<li class="search-item col-xs-12">
+  <div class="row">
+    <%= link_to actor_path(actor), data: {turbolinks: false} do %>
+      <div class="col-xs-2 col-sm-3 col-md-3">
+        <%= image_tag actor.avatar_image, class: "img-responsive" %>
+      </div>
+      <div class="col-xs-10 col-sm-9 col-md-9 item-content">
+        <div class="row">
+          <p class="item-search"><strong><%= actor.name %></strong></p>
+          <p class="item-search"><i><%= Actor.name %></i></p>
+        </div>
+      </div>
+      <div class="clear-fix"></div>
+    <% end %>
+  </div>
+</li>
