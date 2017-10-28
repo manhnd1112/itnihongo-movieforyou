@@ -1,0 +1,109 @@
+<% provide(:title, @movie.name + " - Movies manager") %>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to admin_root_path do %>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </li>
+  <li><%= link_to t("sidebar.movies_manager"), admin_movies_path %></li>
+  <li class="active">
+    <%= link_to @movie.name, admin_movie_path(@movie) %>
+  </li>
+</ol>
+<div class="pmd-card pmd-card-default pmd-z-depth row">
+  <div class="col-xs-12">
+    <div class="col-xs-4">
+      <%= image_tag @movie.avatar.thumb.url, class: "img-responsive" %>
+    </div>
+
+    <div class="col-xs-8">
+      <div class="drawer">
+        <h1>
+          <%= best_in_place [:admin, @movie], :name,
+            ok_button: t("button.save"), cancel_button: t("button.cancel"),
+            html_attrs: {class: "form-control"} %>
+        </h1>
+        <div class="accordion-content" style="display: block;">
+          <div class="tab-movie">
+            <div class="fist-sections">ID:</div>
+            <div class="last-sections">
+              <%= @movie.id %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Release:</div>
+            <div class="last-sections">
+              <% if @movie.realease_date.present? %>
+                <%= @movie.realease_date.strftime("%Y/%m/%d") %>
+              <% else %>
+                N/A
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Genres:</div>
+            <div class="last-sections">
+              <% if @movie.types.any? %>
+                <% @movie.types.each do |type| %>
+                  <%= type.name %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Director:</div>
+            <div class="last-sections">
+              <%= best_in_place [:admin, @movie], :director,
+                ok_button: t("button.save"), cancel_button: t("button.cancel"),
+                html_attrs: {class: "form-control"} %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Producer:</div>
+            <div class="last-sections">
+              <%= best_in_place [:admin, @movie], :producer,
+                ok_button: t("button.save"), cancel_button: t("button.cancel"),
+                html_attrs: {class: "form-control"} %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Actors:</div>
+            <div class="last-sections">
+              <% if @movie.actors.any? %>
+                <% @movie.actors.each do |actor| %>
+                  <%= actor.name %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-movie">
+            <div class="fist-sections">Country:</div>
+            <div class="last-sections">
+              <% if @movie.country.present? %>
+                <%= @movie.country.name %>
+              <% else %>
+                N/A
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 tab-movie" style="margin: 20px 0;">
+      <div class="fist-sections2">Description:</div>
+      <div class="last-sections2">
+        <%= best_in_place [:admin, @movie], :description,
+          as: :textarea, ok_button: t("button.save"),
+          cancel_button: t("button.cancel"),
+          html_attrs: {class: "form-control"} %>
+      </div>
+    </div>
+  </div>
+</div>

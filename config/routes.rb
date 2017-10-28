@@ -26,4 +26,10 @@ Rails.application.routes.draw do
   get "static_pages/about", as: :about
   get "feedbacks" => "feedbacks#contact", as: :contact
   get "search(/:search)", to: "searches#index", as: :search
+
+  namespace :admin do
+    root "static_pages#show", page: "dashboard"
+    resources :movies
+    resources :users
+  end
 end

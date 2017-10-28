@@ -1,0 +1,24 @@
+<% provide(:title, "Edit movie " + @movie.name) %>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to admin_root_path do %>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </li>
+  <li><%= link_to t("sidebar.movies_manager"), admin_movies_path %></li>
+  <li><%= link_to @movie.name, edit_admin_movie_path %></li>
+  <li class="active">
+    <%= link_to t(".edit_movie"), new_admin_movie_path(@movie) %>
+  </li>
+</ol>
+
+<div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
+  <div class="row movie-form pmd-card pmd-z-depth pmd-card-custom-form">
+    <div class="pmd-card-body">
+      <h1 class="section-title text-center title" id="services">
+        <span><%= t ".edit_movie" %></span>
+      </h1>
+      <%= render "form", movie: @movie, support: @support %>
+    </div>
+  </div>
+</div>

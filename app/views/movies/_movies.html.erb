@@ -1,25 +1,31 @@
-<%= search_form_for support.search, remote: true, method: :get  do |f| %>
+<%= search_form_for support.search, remote: true, method: :get do |f| %>
   <div class="col-xs-12">
     <div class="list-movie-filter row" style="margin-bottom: 10px;">
       <div class="list-movie-filter-main">
-        <div class="list-movie-filter-item-content col-xs-9 col-sm-4 col-md-5">
+        <div class="list-movie-filter-item-content col-xs-12 col-sm-8 col-md-4">
           <label><%= t "movies.index.search" %></label>
-          <%= f.text_field :movie_cont, class: "form-control",
-            placeholder:  t("search.content") %>
+          <%= f.text_field :name_or_description_or_producer_or_director_or_actors_name_cont,
+            class: "form-control", placeholder:  t("search.content") %>
         </div>
-        <div class="list-movie-filter-item col-xs-3 col-sm-2">
+        <div class="list-movie-filter-item col-xs-6 col-sm-4 col-md-2">
           <label><%= t "movies.index.country" %></label>
           <%= f.select :country_id_eq,
             options_from_collection_for_select(Country.all, "id", "name", support.search.country_id_eq),
             {include_blank: t("movies.index.all")}, {class: "form-control"} %>
         </div>
-        <div class="list-movie-filter-item-long col-xs-9 col-sm-5 col-md-4">
+        <div class="list-movie-filter-item col-xs-6 col-sm-3 col-md-2">
+          <label><%= t "movies.index.type" %></label>
+          <%= f.select :types_id_eq,
+            options_from_collection_for_select(Type.all, "id", "name", support.search.types_id_eq),
+            {include_blank: t("movies.index.all")}, {class: "form-control"} %>
+        </div>
+        <div class="list-movie-filter-item-long col-xs-10 col-sm-7 col-md-3">
           <label><%= t "movies.index.sort" %></label>
           <%= f.sort_fields do |s| %>
             <%= s.sort_select Hash.new, class: "form-control" %>
           <% end %>
         </div>
-        <div class="search-item pull-right row col-xs-3 col-sm-1">
+        <div class="search-item col-xs-2 col-sm-2 col-md-1">
           <%= button_tag type: :submit, name: :commit,
             class: "btn btn-danger btn-filter-movie" do %>
             <span class="glyphicon glyphicon-search"></span>
@@ -41,7 +47,7 @@
         </div>
         <% if support.movies_search.any? %>
           <% support.movies_search.each do |movie| %>
-            <div class="col-sm-4 col-md-3 col-xs-4 img2">
+            <div class="col-sm-4 col-md-3 col-xs-6 img2">
               <%= render partial: "movie", locals: {movie: movie} %>
             </div>
           <% end %>

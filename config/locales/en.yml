@@ -16,6 +16,7 @@ en:
     cancel: Cancel
     delete: Delete
     edit: Edit
+    clear: Clear
     confirm: Are you sure?
   flash:
     destroy_fail: Failed. Something's wrong.
@@ -76,6 +77,7 @@ en:
       no_review: No review!
       keyword: Enter keywords
       search: Search
+      reviewer: "By "
     show:
       cast: Cast
       director: Director
@@ -107,7 +109,7 @@ en:
       no_review: "Loved or hated a movie? Write a review and share it with others!"
       reviews_title: "Reviews written by "
       fav_title: "'s favorite movies"
-    edit:
+    update:
       change_pass: Change password
       change_avatar: Change image
   comments:
@@ -117,12 +119,13 @@ en:
   movies:
     index:
       genre: Genres
-      realease: Realease
+      realease: Release
       all_movies: All Movies
       country: Country
       sort: Sort
       search: Search by keywords
       all: All
+      type: Genre
     show:
       add_bookmark: Added to favorites.
       remove_bookmark: Removed from favorites.
@@ -163,3 +166,40 @@ en:
   search:
     content: "name, description, producer, director, actor..."
     no_result: "No results for "
+  ransack:
+    asc: asc
+    desc: desc
+
+
+  layouts:
+    header:
+      admin: "Admin panel"
+  sidebar:
+      users_manager: "Users Manage"
+      movies_manager: "Movies Manage"
+      dashboard: "Dashboard"
+  admin:
+    welcome: "Welcome, "
+    subtit: "Shortcuts"
+    report: "Monthly Report"
+    movies:
+      index:
+        add_movie: "Add new movie"
+        input_keyword: "Search..."
+        search: "Search"
+        name: "Name"
+        date: "Date"
+        country: "Country"
+        actors: "Actors"
+        types: "Genres"
+      new:
+        add_movie: "Create movie"
+      edit:
+        edit_movie: "Edit movie"
+      form:
+        choose_genres: "Choose types"
+        choose_country: "Choose country"
+        choose_actors: "Choose actors"
+        add_actor: "New actor"
+        image_field: "Change image"
+        error: "Error"

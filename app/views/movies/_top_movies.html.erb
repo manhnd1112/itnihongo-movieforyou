@@ -51,7 +51,11 @@
               <%= truncate_html(movie.description, length: 65) %>
             </span>
             <span class="list-top-movie-item-view">
-              <%= movie.realease_date.strftime("%d %B %Y") %>
+              <% if movie.realease_date.present? %>
+                <%= movie.realease_date.strftime("%d %B %Y") %>
+              <% else %>
+                N/A
+              <% end %>
             </span><br>
             <!--<span class="average-rate hidden-md" data-score="<= movie.average_rate %>"></span>-->
             <!--<span class="hidden-xs hidden-lg hidden-sm user-score">-->

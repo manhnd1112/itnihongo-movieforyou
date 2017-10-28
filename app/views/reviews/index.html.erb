@@ -21,9 +21,14 @@
                 <% end %>
               </p>
               <div class="entry-meta">
-                <span class="posted-by">Posted by 
-                  <%= link_to review.user.name, user_path(review.user),
-                    data: {turbolinks: false} %>
+                <span class="posted-by">
+                  <%= t ".reviewer" %>
+                  <% if review.user.is_admin? %>
+                    <span class="admin-reviewer"><%= t "app_name" %></span>
+                  <% else %>
+                    <%= link_to review.user.name, user_path(review.user),
+                      data: {turbolinks: false} %>
+                  <% end %>
                 </span>
                 <span class="post-time">
                   <p class="glyphicon glyphicon-time"></p>

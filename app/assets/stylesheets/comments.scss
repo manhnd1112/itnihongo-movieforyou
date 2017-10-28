@@ -63,7 +63,7 @@ $cancel-failure: #ff1818;
 
 .post-content {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 34px;
 
   .avatar {
     left: 0;
@@ -194,4 +194,13 @@ $cancel-failure: #ff1818;
 
 .post-message {
   font-size: 18px !important;
+}
+
+pre {
+  background-color: #fff;
+  border: 0 !important;
+  font-family: inherit;
+  font-size: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }

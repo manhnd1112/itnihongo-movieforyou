@@ -134,8 +134,13 @@
         <% end %>
       </h3>
       <div class="review-author">
-        By <%= link_to review.user.name, user_path(review.user.name),
-          data: {turbolinks: false} %>
+        <%= t "reviews.index.reviewer" %>
+        <% if review.user.is_admin? %>
+          <span class="admin-reviewer"><%= t "app_name" %></span>
+        <% else %>
+          <%= link_to review.user.name, user_path(review.user),
+            data: {turbolinks: false} %>
+        <% end %>
       </div>
       <span class="review-sub-info">
         <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
@@ -180,7 +185,10 @@
         </p>
       </div>
       <div class="read-full">
-        <%= link_to t(".read_full"), review_path(review), data: {turbolinks: false} %>
+        <%= link_to review_path(review), data: {turbolinks: false} do %>
+          <%= t ".read_full" %>
+          <span class="fa fa-angle-double-right"></span>
+        <% end %>
       </div>
       <br class="clear">
     </div>

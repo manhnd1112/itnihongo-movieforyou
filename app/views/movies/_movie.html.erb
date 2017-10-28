@@ -2,7 +2,7 @@
   <div class="hidden current-movie-id" id="<%= movie.id %>"></div>
   <div class="row poster">
     <img src="<%= movie.avatar.thumb.url %>" alt="" class="">
-    <div class="movie-info-show">
+    <div class="movie-info-show hidden-xs">
       <a class="icon share" data-title="<%= movie.name %>" id="share-movie"></a>
       <div class="icon im-score">
         <strong><%= movie.imdb %></strong>
@@ -20,5 +20,11 @@
     <% end %>
   </p>
   <strong><%= t "movies.index.realease" %>:</strong>
-  <time><%= movie.realease_date.strftime("%d/%m/%Y") %></time><br>
+  <time>
+    <% if movie.realease_date.present? %>
+      <%= movie.realease_date.strftime("%Y/%m/%d") %>
+    <% else %>
+      N/A
+    <% end %>
+  </time><br>
 </div>

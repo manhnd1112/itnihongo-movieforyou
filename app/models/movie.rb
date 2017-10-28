@@ -2,13 +2,18 @@ class Movie < ApplicationRecord
   belongs_to :country, optional: true
 
   has_many :movie_actors
-  has_many :actors, through: :movie_actors
+  has_many :actors, through: :movie_actors, dependent: :destroy
   has_many :movie_types
-  has_many :types, through: :movie_types
+  has_many :types, through: :movie_types, dependent: :destroy
   has_many :rates
   has_many :bookmarks
   has_many :reviews
-  
+
+  accepts_nested_attributes_for :actors, allow_destroy: true
+  accepts_nested_attributes_for :movie_actors
+
+  validates :name, presence: true
+
   attr_accessor :average_rate
 
   mount_uploader :avatar, PhotoUploader

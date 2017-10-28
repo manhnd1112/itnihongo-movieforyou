@@ -274,7 +274,6 @@ a:hover .caption h4{
   float: left;
   height: 100%;
   padding: 0 20px 10px 0;
-  width: 260px;
 }
 
 .cover img {
@@ -282,6 +281,7 @@ a:hover .caption h4{
   box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.2);
   height: auto;
   margin-bottom: 10px;
+  width: 260px !important;
 }
 
 .top-movies-slide .owl-nav, .new-movies-slide .owl-nav {
@@ -335,10 +335,6 @@ a:hover .caption h4{
   background: $flash-background-danger;
   box-shadow: $flash-danger;
   color: $flash-danger;
-}
-
-.user-nav .nav>li>a {
-  padding: 5px 15px !important;
 }
 
 #homeNews .blockIconFacebook {
