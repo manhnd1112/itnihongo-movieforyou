@@ -4,7 +4,9 @@ class MoviesController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+    @users = current_user.load_suggest_users if user_signed_in?
+  end
 
   private
 

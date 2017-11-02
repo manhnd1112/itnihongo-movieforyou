@@ -1,0 +1,48 @@
+<div class="modal suggest-movie-modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title text-uppercase title-font">
+          <%= t "movies.suggest_movie.title"%>
+        </h1>
+      </div>
+      <div class="modal-body">
+        <div class="suggest-movie-form">
+          <%= form_for [movie, suggest_movie], authenticity_token: true,
+            remote: true do |f| %>
+            <div class="suggest-movie-form-errors">
+              <% if suggest_movie.errors.any? %>
+                <%= render "shared/error_messages", object: suggest_movie %>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <label><%= t "movies.suggest_movie.add_user" %></label>
+              <%= f.select :to_id, users.map{|user| [user.name, user.id]},
+                {}, {class: "form-control pmd-select2 suggest-receiver-select",
+                id: "suggest_receiver", multiple: true} %>
+            </div>
+
+            <div class="field">
+              <%= f.label :your_message %>
+              <%= f.text_area :content, class: "form-control suggest-content" %>
+            </div>
+
+            <div class="actions">
+              <div class="btn btn-primary btn-send-suggest"
+                data-movie-id="<%= movie.id %>">
+                <%= t "movies.suggest_movie.send" %>
+              </div>
+              <button type="button" class="btn btn-danger btn-cancel-suggest"
+                data-dismiss="modal">
+                <%= t "movies.suggest_movie.cancel" %>
+              </button>
+            </div>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,7 +17,7 @@
         <div class="list-movie-filter-item col-xs-6 col-sm-3 col-md-2">
           <label><%= t "movies.index.type" %></label>
           <%= f.select :types_id_eq,
-            options_from_collection_for_select(Type.all, "id", "name", support.search.types_id_eq),
+            options_from_collection_for_select(Type.order("name asc"), "id", "name", support.search.types_id_eq),
             {include_blank: t("movies.index.all")}, {class: "form-control"} %>
         </div>
         <div class="list-movie-filter-item-long col-xs-10 col-sm-7 col-md-3">

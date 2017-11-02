@@ -489,10 +489,6 @@
   padding: 0 !important;
 }
 
-.score_panel .meter-panel {
-  border-right: solid #E0D695 1px;
-}
-
 .score_panel .meter-panel ul {
   padding: 10px;
 }
@@ -1086,10 +1082,6 @@ li {
   max-width: 100px;
 }
 
-.list-top-movie-item-info {
-  width: 160px;
-}
-
 .list-top-movie-item-info .list-top-movie-item-name {
   font-size: 18px;
   font-weight: bold;
@@ -1395,4 +1387,82 @@ figure.img_inner {
     margin: 0 auto;
     width: 600px;
   }
+}
+
+.suggest-movie-modal {
+  .select2-container {
+    width: 100% !important;
+  }
+}
+
+.suggest-movie-form {
+  .field {
+    margin: 30px 0 20px;
+  }
+
+  textarea {
+    border-radius: 0;
+    min-height: 150px;
+  }
+
+  .actions {
+    float: right;
+
+    .btn-cancel-suggest {
+      margin-left: 10px;
+    }
+  }
+}
+
+.btn-suggest-movie {
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) and (max-width: 779px) {
+  .score {
+    display: none;
+  }
+}
+
+.btn-label {
+  background: rgba(0,0,0,0.15);
+  display: inline-block;
+  left: 0;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.btn-labeled {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+
+button.btn-suggest-movie {
+  border: 0 !important;
+  margin-top: 10px;
+  padding: 0 15px 0 0;
+}
+
+@media (max-width: 610px) {
+  .btn-label {
+    display: none;
+  }
+
+  button.btn-suggest-movie {
+    border: 0 !important;
+    padding: 10px 15px;
+  }
+}
+
+.modal-suggest-result {
+  h1 {
+    margin-top: 10px !important;
+  }
+}
+
+.posterImage {
+  margin-bottom: 10px;
 }

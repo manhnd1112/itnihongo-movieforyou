@@ -1,0 +1,41 @@
+<div class="modal fade" id="suggest-success-modal" tabindex="-1" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-box success center-icon animate">
+        <div class="icon">
+          <span class="glyphicon glyphicon-ok"></span>
+        </div>
+
+        <div class="media-body media-middle">
+          <h1 class="pmd-card-title-text text-center h2-text title-font">
+            <%= t "movies.suggest_movie.success_title" %>
+          </h1>
+        </div>
+        <p class="title-font" style="font-size: 16px;">
+          <%= t "movies.suggest_movie.success_mess" %>
+        </p><hr>
+        <h4>
+          Recommend:
+          <span style="color: #000; font-size: 18px;">
+            <strong><%= supports.load_movie.name %></strong>
+          </span>
+        </h4>
+        <h4>
+          <%= t "movies.suggest_movie.from" %>:
+          <strong><%= current_user.name %></strong>
+        </h4>
+        <h4><%= t "movies.suggest_movie.to" %>:
+          <% supports.load_users.each do |user| %>
+            <strong><%= user.name %>,</strong>
+          <% end %>
+        </h4>
+        <h4>
+          <%= t "movies.suggest_movie.message" %>:
+          <%= supports.load_suggest_movies.last.content %>
+        </h4><br>
+        <p><i><%= t("movies.suggest_movie.thanks").html_safe %></i></p>
+        <button type="button" class="btn" aria-hidden="true" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

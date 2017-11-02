@@ -15,7 +15,7 @@
             <%= movie.name %> (<%= movie.realease_date.strftime("%Y") %>)
           </span>
           <span class="list-top-movie-item-summary">
-            <%= truncate_html(movie.description, length: 65) %>
+            <%= truncate_html(movie.description, length: 80) %>
           </span>
           <span class="average-rate hidden-md" data-score="<%= movie.average_rate %>"></span>
           <span class="hidden-xs hidden-lg hidden-sm user-score">

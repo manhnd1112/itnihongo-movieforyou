@@ -2,7 +2,7 @@ $cancel-success: #259b24;
 $cancel-failure: #ff1818;
 
 .comments-title {
-  font-family: "Roboto Condensed", Helvetica, Arial !important;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 700;
@@ -47,7 +47,7 @@ $cancel-failure: #ff1818;
     color: #2a2e2e;
     cursor: text;
     display: block;
-    font-family: "Helvetica Neue",arial,sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     height: auto;
     line-height: 1.4;

@@ -72,4 +72,8 @@ class User < ApplicationRecord
   def bookmark movie
     self.bookmarks.where(movie: movie).last.id
   end
+
+  def load_suggest_users
+    User.where.not(id: self.id).order id: :asc
+  end
 end

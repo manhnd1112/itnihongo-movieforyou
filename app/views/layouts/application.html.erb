@@ -32,6 +32,7 @@
   </body>
 
   <script>
+    window.user_signed_in = <%= user_signed_in? %>
     window.fbAsyncInit = function() {
       FB.init({
         appId: '1778167635845888',

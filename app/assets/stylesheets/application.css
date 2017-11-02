@@ -17,9 +17,8 @@
  *= require owl.carousel/dist/assets/owl.carousel.min
  *= require simplemde/dist/simplemde.min
  *= require select2/dist/css/select2.min
+ *= require select2-bootstrap-theme/dist/select2-bootstrap.min
  *= require propellerkit/components/select2/css/pmd-select2
- *= require propellerkit/components/textfield/css/textfield
- *= require select2-bootstrap-theme/dist/select2-bootstrap
  *= require raty-js/lib/jquery.raty
  *= require slick-carousel/slick/slick
  *= require slick-carousel/slick/slick-theme

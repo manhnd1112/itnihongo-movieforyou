@@ -35,8 +35,8 @@
     <% end %>
   </div>
   <div class="search-btn">
-	  <div class="divider"></div>
-	  <%= link_to search_path(params[:search]), data: {turbolinks: false},
+    <div class="divider"></div>
+    <%= link_to search_path(params[:search]), data: {turbolinks: false},
       class: "btn btn-default btn-block" do %>
       <%= "See all #{items.size} results for '#{params[:search]}'" %>
     <% end %>
