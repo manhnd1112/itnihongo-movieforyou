@@ -27,7 +27,13 @@
         <li class="meta-row clear-fix">
           <div class="meta-label subtle">In Theaters: </div>
           <div class="meta-value">
-            <time><%= @movie.realease_date.strftime("%d %B %Y") %></time>
+            <time>
+              <% if @movie.realease_date.present? %>
+                <%= @movie.realease_date.strftime("%d %B %Y") %>
+              <% else %>
+                N/A
+              <% end %>
+            </time>
           </div>
         </li>
         <li class="meta-row clear-fix">
@@ -40,8 +46,12 @@
           <div class="meta-label subtle">Country: </div>
           <div class="meta-value">
             <time>
-              <%= image_tag @movie.country.flag_image.flag.url %>
-              <%= @movie.country.name %>
+              <% if @movie.country.present? %>
+                <%= image_tag @movie.country.flag_image.flag.url %>
+                <%= @movie.country.name %>
+              <% else %>
+                N/A
+              <% end %>
             </time>
           </div>
         </li>

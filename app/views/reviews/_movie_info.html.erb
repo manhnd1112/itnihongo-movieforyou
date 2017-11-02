@@ -1,6 +1,6 @@
 <div class="movie-information row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 movie-infos">
-    <div class="movie-image col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="review-movie-image col-xs-12 col-sm-4 col-md-4 col-lg-4">
       <img src="<%= review.movie.avatar.thumb.url %>" alt="" id="share_image">
     </div>
 
@@ -10,7 +10,11 @@
           data: {turbolinks: false} %>
       </h1>
       <span class="movie-time">
-        <%= review.movie.realease_date.strftime("%d %b %Y") %>
+        <% if review.movie.realease_date.present? %>
+          <%= review.movie.realease_date.strftime("%d %b %Y") %>
+        <% else %>
+          N/A
+        <% end %>
       </span><br>
 
       <table data-toggle="table" class="movie-info">
@@ -49,12 +53,14 @@
             <%= t "reviews.show.cast" %>:</span>
           </td>
           <td>
-            <% review.movie.actors.each do |actor| %>
-              <span class="movie-data casting">
-                <%= link_to actor.name, actor_path(actor),
-                  data: {turbolinks: false} %>
-                <% unless actor == review.movie.actors.last %>,<% end %>
-              </span>
+            <% if review.movie.actors.any? %>
+              <% review.movie.actors.each do |actor| %>
+                <span class="movie-data casting">
+                  <%= link_to actor.name, actor_path(actor),
+                    data: {turbolinks: false} %>
+                  <% unless actor == review.movie.actors.last %>,<% end %>
+                </span>
+              <% end %>
             <% end %>
           </td>
         </tr>

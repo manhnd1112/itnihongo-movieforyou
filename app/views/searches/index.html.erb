@@ -18,7 +18,7 @@
       <div class="row col-xs-12 movie-result">
         <div class="result-header"><%= t "user.movies" %></div>
         <% @movies.each do |movie| %>
-          <div class="col-sm-3 col-md-2 col-xs-4 img2">
+          <div class="col-sm-4 col-md-2 col-xs-4 img2">
             <%= render "movies/movie", movie: movie %>
           </div>
         <% end %>
@@ -41,12 +41,12 @@
         <div class="result-header"><%= t "home.actors" %></div>
         <% @actors.each do |actor| %>
           <div class="bottom_divider clear-fix row">
-            <div class="poster col-md-2 col-sm-3 col-xs-4">
+            <div class="poster-actor col-md-2 col-sm-3 col-xs-4">
               <%= link_to actor_path(actor), data: {turbolinks: false} do %>
                 <img src="<%= actor.avatar_image.thumb.url %>" class="fullWidth">
               <% end %>
             </div>
-            <div class="details col-md-10 col-sm-9 col-xs-8">
+            <div class="details-actor col-md-10 col-sm-9 col-xs-8">
               <span>
                 <%= link_to actor.name, actor_path(actor), class: :articleLink,
                   data: {turbolinks: false} %>

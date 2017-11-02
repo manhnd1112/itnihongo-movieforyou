@@ -1,0 +1,348 @@
+<ol class="breadcrumb text-left">
+  <li class="active"><%= t "sidebar.dashboard" %></li>
+</ol>
+<div class="col-xs-12">
+  <h1 class="section-title title-font" id="services">
+    <span><%= t("admin.welcome") + current_user.name %>.</span>
+  </h1>
+  <!--<div class="text-center col-xs-12">-->
+    <!--<ul class="stats_box row">-->
+      <!--<li>-->
+        <!--<div class="sparkline bar_week"><canvas width="47" height="40" style="display: inline-block; width: 47px; height: 40px; vertical-align: top;"></canvas></div>-->
+        <!--<div class="stat_text">-->
+          <!--<strong>2.345</strong> Weekly Visit-->
+          <!--<span class="percent down"> <i class="fa fa-caret-down"></i> -16%</span>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<div class="sparkline line_day"><canvas width="36" height="40" style="display: inline-block; width: 36px; height: 40px; vertical-align: top;"></canvas></div>-->
+        <!--<div class="stat_text">-->
+          <!--<strong>165</strong> Daily Visit-->
+          <!--<span class="percent up"> <i class="fa fa-caret-up"></i> +23%</span>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<div class="sparkline pie_week"><canvas width="40" height="40" style="display: inline-block; width: 40px; height: 40px; vertical-align: top;"></canvas></div>-->
+        <!--<div class="stat_text">-->
+          <!--<strong>$2 345.00</strong> Weekly Sale-->
+          <!--<span class="percent"> 0%</span>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<div class="sparkline stacked_month"><canvas width="43" height="40" style="display: inline-block; width: 43px; height: 40px; vertical-align: top;"></canvas></div>-->
+        <!--<div class="stat_text">-->
+          <!--<strong>$678.00</strong> Monthly Sale-->
+          <!--<span class="percent down"> <i class="fa fa-caret-down"></i> -10%</span>-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="market-updates">-->
+    <!--<div class="col-sm-3 market-update-gd">-->
+      <!--<div class="market-update-block clr-block-2">-->
+        <!--<div class="col-sm-4 market-update-right">-->
+          <!--<i class="fa fa-eye"> </i>-->
+        <!--</div>-->
+        <!--<div class="col-sm-8 market-update-left">-->
+          <!--<h4>Visitors</h4>-->
+          <!--<h3>13,500</h3>-->
+          <!--<p>Other hand, we denounce</p>-->
+        <!--</div>-->
+        <!--<div class="clearfix"> </div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-3 market-update-gd">-->
+      <!--<div class="market-update-block clr-block-1">-->
+        <!--<div class="col-sm-4 market-update-right">-->
+          <!--<i class="fa fa-users"></i>-->
+        <!--</div>-->
+        <!--<div class="col-sm-8 market-update-left">-->
+          <!--<h4>Users</h4>-->
+          <!--<h3>1,250</h3>-->
+          <!--<p>Other hand, we denounce</p>-->
+        <!--</div>-->
+        <!--<div class="clearfix"> </div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-3 market-update-gd">-->
+      <!--<div class="market-update-block clr-block-3">-->
+        <!--<div class="col-sm-4 market-update-right">-->
+          <!--<i class="fa fa-usd"></i>-->
+        <!--</div>-->
+        <!--<div class="col-sm-8 market-update-left">-->
+          <!--<h4>Sales</h4>-->
+          <!--<h3>1,500</h3>-->
+          <!--<p>Other hand, we denounce</p>-->
+        <!--</div>-->
+        <!--<div class="clearfix"> </div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-3 market-update-gd">-->
+      <!--<div class="market-update-block clr-block-4">-->
+        <!--<div class="col-sm-4 market-update-right">-->
+          <!--<i class="fa fa-shopping-cart" aria-hidden="true"></i>-->
+        <!--</div>-->
+        <!--<div class="col-sm-8 market-update-left">-->
+          <!--<h4>Orders</h4>-->
+          <!--<h3>1,500</h3>-->
+          <!--<p>Other hand, we denounce</p>-->
+        <!--</div>-->
+        <!--<div class="clearfix"> </div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clearfix"> </div>-->
+  <!--</div>-->
+  
+  <div class="col-xs-12 statics">
+    <h3><%= t "admin.report" %></h3>
+    <div class="row">
+      <div class="col-sm-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3>150</h3>
+  
+            <p>New Reviews</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-edit"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3>53<sup style="font-size: 20px">%</sup></h3>
+  
+            <p>New Comments</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-comments"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3>44</h3>
+  
+            <p>User Registrations</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-user-plus"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-sm-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>65</h3>
+  
+            <p>Unique Visitors</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-pie-chart"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+  </div>
+  <br>
+
+  <!--<div class="col-xs-12 statics">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+        <!--<div class="info-box bg-aqua">-->
+          <!--<span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>-->
+  <!---->
+          <!--<div class="info-box-content">-->
+            <!--<span class="info-box-text">Bookmarks</span>-->
+            <!--<span class="info-box-number">41,410</span>-->
+            <!--<span class="progress-description">-->
+              <!--70% Increase in 30 Days-->
+            <!--</span>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; /.info-box-content &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.info-box &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.col &ndash;&gt;-->
+      <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+        <!--<div class="info-box bg-green">-->
+          <!--<span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>-->
+  <!---->
+          <!--<div class="info-box-content">-->
+            <!--<span class="info-box-text">Likes</span>-->
+            <!--<span class="info-box-number">41,410</span>-->
+            <!--<span class="progress-description">-->
+              <!--70% Increase in 30 Days-->
+            <!--</span>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; /.info-box-content &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.info-box &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.col &ndash;&gt;-->
+      <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+        <!--<div class="info-box bg-yellow">-->
+          <!--<span class="info-box-icon"><i class="fa fa-calendar"></i></span>-->
+  <!---->
+          <!--<div class="info-box-content">-->
+            <!--<span class="info-box-text">Events</span>-->
+            <!--<span class="info-box-number">41,410</span>-->
+            <!--<span class="progress-description">-->
+              <!--70% Increase in 30 Days-->
+            <!--</span>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; /.info-box-content &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.info-box &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.col &ndash;&gt;-->
+      <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+        <!--<div class="info-box bg-red">-->
+          <!--<span class="info-box-icon"><i class="fa fa-comments-o"></i></span>-->
+  <!---->
+          <!--<div class="info-box-content">-->
+            <!--<span class="info-box-text">Comments</span>-->
+            <!--<span class="info-box-number">41,410</span>-->
+            <!--<span class="progress-description">-->
+              <!--70% Increase in 30 Days-->
+            <!--</span>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; /.info-box-content &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.info-box &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.col &ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="shortcuts col-xs-12">
+    <h3><%= t "admin.subtit" %></h3>
+    <div class="row">
+      <div class="col-sm-3">
+        <a class="quick-btn" href="#">
+          <i class="fa fa-edit fa-2x"></i>
+          <span>Write review</span>
+          <!--<span class="label label-danger">2</span>-->
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to new_admin_movie_path, class: "quick-btn",
+          data: {turbolinks: false} do %>
+          <i class="fa fa-film fa-2x"></i>
+          <span>Create movie</span>
+        <% end %>
+      </div>
+      <div class="col-sm-3">
+        <a class="quick-btn" href="#">
+          <i class="fa fa-envelope fa-2x"></i>
+          <span>Feedback</span>
+          <span class="label label-success">
+            <%= Feedback.count %>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to new_admin_movie_path, class: "quick-btn",
+          data: {turbolinks: false} do %>
+          <i class="fa fa-signal fa-2x"></i>
+          <span>Activity log</span>
+          <span class="label label-warning">+25</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="">
+    <div class="col-sm-6">
+      <!-- USERS LIST -->
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h3 class="box-title">Latest Members</h3>
+
+          <div class="box-tools pull-right">
+            <span class="label label-danger">8 New Members</span>
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+          <ul class="users-list clearfix">
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Alexander Pierce</a>
+              <span class="users-list-date">Today</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user8-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Norman</a>
+              <span class="users-list-date">Yesterday</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user7-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Jane</a>
+              <span class="users-list-date">12 Jan</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">John</a>
+              <span class="users-list-date">12 Jan</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Alexander</a>
+              <span class="users-list-date">13 Jan</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Sarah</a>
+              <span class="users-list-date">14 Jan</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Nora</a>
+              <span class="users-list-date">15 Jan</span>
+            </li>
+            <li>
+              <img src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image">
+              <a class="users-list-name" href="#">Nadia</a>
+              <span class="users-list-date">15 Jan</span>
+            </li>
+          </ul>
+          <!-- /.users-list -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+          <a href="javascript:void(0)" class="uppercase">View All Users</a>
+        </div>
+        <!-- /.box-footer -->
+      </div>
+      <!--/.box -->
+    </div>
+  </div>
+</div>

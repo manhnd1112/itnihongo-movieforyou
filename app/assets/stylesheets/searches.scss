@@ -95,7 +95,7 @@ li.search-item {
   padding-bottom: 10px !important;
 }
 
-.actor-result .details, .actor-result .poster {
+.actor-result .details-actor, .actor-result .poster-actor {
   display: inline-block;
   font-size: 16px;
   vertical-align: middle;
@@ -188,11 +188,11 @@ a.articleLink {
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
-  .poster {
+  .poster-actor {
     width: 25% !important;
   }
 
-  .details {
+  .details-actor {
     width: 75% !important;
   }
 }

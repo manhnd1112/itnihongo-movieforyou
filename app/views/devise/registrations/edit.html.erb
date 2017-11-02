@@ -22,8 +22,8 @@
 
       <%= f.label :avatar, class: "control-label" %><br>
       <div class="file-container">
-        <p><%= t "users.edit.change_avatar" %></p>
-        <%= f.file_field :avatar, class: "upload-image", id:"filePhoto" %>
+        <p><%= t "users.update.change_avatar" %></p>
+        <%= f.file_field :avatar, class: "upload-image", id: "filePhoto" %>
       </div><br><br>
       <img id="previewHolder" class="avatar-preview" style="display: none;">
       <img id="old-avatar" class="avatar-preview" src="<%= current_user.try :avatar %>"><br>
@@ -32,7 +32,7 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <hr><h3><%= t "users.edit.change_pass" %></h3>
+      <hr><h3><%= t "users.update.change_pass" %></h3>
       <div class="form-group pmd-textfield">
         <%= f.label :new_password, class: "control-label" %>
         <% if @minimum_password_length %><br>

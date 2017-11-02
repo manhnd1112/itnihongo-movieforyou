@@ -375,7 +375,7 @@
   }
 }
 
-.movie-image {
+.review-movie-image {
   float: left;
   padding: 10px 20px 10px 0 !important;
   position: relative;
@@ -808,4 +808,11 @@ a.more-link {
 
 button.more_btn2 {
   border: 0 !important;
+}
+
+.admin-reviewer {
+  background: red;
+  color: #fff !important;
+  padding: 5px;
+  font-style: normal !important;
 }

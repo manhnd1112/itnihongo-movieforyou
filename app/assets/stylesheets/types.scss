@@ -24,6 +24,7 @@
 
 .list-movie-filter .list-movie-filter-item {
   float: left;
+  margin-bottom: 10px;
 }
 
 .list-movie-filter-item-content {
@@ -32,14 +33,15 @@
 
 .list-movie-filter-item-long {
   float: left;
+  margin-bottom: 10px;
 
   .form-control {
     margin: 0 1% 0 0;
-    width: 40% !important;
+    width: 35% !important;
   }
 
   #q_s_0_name {
-    width: 58% !important;
+    width: 63% !important;
   }
 }
 
@@ -72,5 +74,14 @@
 @media (min-width: 992px) and (max-width: 1200px) {
   .type-movie {
     width: 20% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .list-movie-filter-item {
+    padding-left: 0 !important;
+  }
+  .list-movie-filter-item-long {
+    padding: 0 !important;
   }
 }

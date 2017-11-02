@@ -29,6 +29,12 @@
           <% end %>
         </div>
         <hr class="horizon">
+        <% if current_user.is_admin? %>
+          <%= link_to t("layouts.header.admin"), admin_root_path,
+            data: {turbolinks: false},
+            style: "font-weight: bold", class: "admin-btn" %>
+        <% end %>
+        <hr class="horizon">
         <div class="blog-sub-nav-item">
           <%= link_to user_path(current_user), class:"blog-sub-nav-item-link",
             data: {turbolinks: false} do %>

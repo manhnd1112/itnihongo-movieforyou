@@ -1,0 +1,93 @@
+<%= search_form_for [:admin, support.search],
+  remote: true, method: :get do |f| %>
+  <div class="input-group input-group-lg col-xs-12">
+    <div class="row">
+      <div class="col-sm-3 col-xs-4">
+        <%= link_to t("admin.movies.index.add_movie"), new_admin_movie_path,
+          data: {turbolinks: false}, class: "btn btn-primary" %>
+      </div>
+      <div class="col-sm-9 col-xs-8 text-right">
+        <%= f.text_field :name_cont, class: "input-text-search",
+          placeholder: t("admin.movies.index.input_keyword") %>
+        <%= button_tag type: :submit, class: "btn btn-info" do %>
+          <span class="fa fa-search"></span>
+        <% end %>
+      </div>
+    </div>
+  </div><br>
+
+  <div class="text-center review-pagination" id="pagination">
+    <%= paginate support.movies_search, remote: true %>
+  </div>
+
+  <div class="pmd-card pmd-z-depth">
+    <div class="table-responsive">
+      <table class="table pmd-table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th colspan="2"><%= t "admin.movies.index.name" %></th>
+          <th><%= t "admin.movies.index.date" %></th>
+          <th><%= t "admin.movies.index.country" %></th>
+          <th><%= t "admin.movies.index.actors" %></th>
+          <th><%= t "admin.movies.index.types" %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% support.movies_search.each do |movie| %>
+          <tr>
+            <td colspan="2">
+              <div class="col-sm-3 hidden-xs">
+                <div class="row">
+                  <%= image_tag movie.avatar.small.url, class: "img-responsive" %>
+                </div>
+              </div>
+              <div class="col-sm-9" style="margin-top: 10%">
+                <%= link_to movie.name, admin_movie_path(movie),
+                  data: {turbolinks: false} %>
+              </div>
+            </td>
+            <td>
+              <% if movie.realease_date.present? %>
+                <%= movie.realease_date.strftime("%Y/%m/%d") %>
+              <% else %>
+                N/A
+              <% end %>
+            </td>
+            <td>
+              <% if movie.country.present? %>
+                <%= movie.country.code %>
+              <% else %>
+                N/A
+              <% end %>
+            </td>
+            <td>
+              <% if movie.actors.any? %>
+                <% movie.actors.each do |actor| %>
+                  <%= link_to actor.name, actor_path(actor),
+                    data: {turbolinks: false} %>
+                  <% unless actor == movie.actors.last %>,<% end %>
+                <% end %>
+              <% end %>
+            </td>
+            <td data-title="Types">
+              <% if movie.types.any? %>
+                <% movie.types.each do |type| %>
+                  <%= link_to type.name, type_path(type), data: {turbolinks: false} %>
+                  <% unless type == movie.types.last %>/<% end %>
+                <% end %>
+              <% end %>
+            </td>
+            <td class="button-book">
+              <%= link_to edit_admin_movie_path(movie),
+                data: {turbolinks: false} do %>
+                <i class="material-icons md-dark pmd-sm">edit</i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

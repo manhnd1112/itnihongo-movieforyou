@@ -1,26 +1,32 @@
 <%= search_form_for [type, support.search], url: type_path(type),
-  method: :get, remote: true  do |f| %>
+  method: :get, remote: true do |f| %>
   <div class="col-xs-12">
     <div class="list-movie-filter row" style="margin-bottom: 10px;">
       <div class="list-movie-filter-main">
-        <div class="list-movie-filter-item-content col-xs-9 col-sm-4 col-md-5">
+        <div class="list-movie-filter-item-content col-xs-12 col-sm-8 col-md-4">
           <label><%= t "types.show.search" %></label>
-          <%= f.text_field :movie_cont, class: "form-control",
-            placeholder: t("search.content") %>
+          <%= f.text_field :name_or_description_or_producer_or_director_or_actors_name_cont,
+            class: "form-control", placeholder: t("search.content") %>
         </div>
-        <div class="list-movie-filter-item col-xs-3 col-sm-2">
+        <div class="list-movie-filter-item col-xs-6 col-sm-4 col-md-2">
           <label><%= t "types.show.country" %></label>
           <%= f.select :country_id_eq,
             options_from_collection_for_select(Country.all, "id", "name", support.search.country_id_eq),
             {include_blank: t("types.show.all")}, {class: "form-control"} %>
         </div>
-        <div class="list-movie-filter-item-long col-xs-9 col-sm-5 col-md-4">
+        <div class="list-movie-filter-item col-xs-6 col-sm-3 col-md-2">
+          <label><%= t "movies.index.type" %></label>
+          <%= f.select :types_id_eq,
+            options_from_collection_for_select(Type.all, "id", "name", support.search.types_id_eq),
+            {include_blank: t("movies.index.all")}, {class: "form-control"} %>
+        </div>
+        <div class="list-movie-filter-item-long col-xs-10 col-sm-7 col-md-3">
           <label><%= t "types.show.sort" %></label>
           <%= f.sort_fields do |s| %>
             <%= s.sort_select Hash.new, class: "form-control" %>
           <% end %>
         </div>
-        <div class="search-item pull-right row col-xs-3 col-sm-1">
+        <div class="search-item col-xs-2 col-sm-2 col-md-1">
           <%= button_tag type: :submit, name: :commit,
             class: "btn btn-danger btn-filter-movie" do %>
             <span class="glyphicon glyphicon-search"></span>
@@ -41,7 +47,7 @@
                 <div class="hidden current-movie-id" id="<%= movie.id %>"></div>
                 <div class="row poster">
                   <img src="<%= movie.avatar.thumb.url %>" alt="">
-                  <div class="movie-info-show">
+                  <div class="movie-info-show hidden-xs">
                     <a class="icon share" data-title="<%= movie.name %>"
                        id="share-movie"></a>
                     <div class="icon im-score">
@@ -58,12 +64,18 @@
                   <strong><%= t "movies.index.genre" %>:</strong>
                   <% movie.types.order("name asc").limit(3).each do |type| %>
                     <%= link_to type.name, type_path(type),
-                      ata: {turbolinks: false} %>.
+                      data: {turbolinks: false} %>.
                   <% end %>
                 </p>
                 <strong><%= t "movies.index.realease" %>:</strong>
                 <span class="link2">
-                  <time><%= movie.realease_date.strftime("%d/%m/%Y") %></time>
+                  <time>
+                    <% if movie.realease_date.present? %>
+                      <%= movie.realease_date.strftime("%d/%m/%Y") %>
+                    <% else %>
+                      N/A
+                    <% end %>
+                  </time>
                 </span><br>
               </div>
             </div>
