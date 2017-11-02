@@ -26,7 +26,7 @@
               <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
                 data: {turbolinks: false}, class: "all-comment" %>
             <% else %>
-              <% if user_signed_in? && current_user.id == user.id %>
+              <% if user_signed_in? && current_user.id == @user.id %>
                 <%= t "users.show.no_review" %>
               <% end %>
             <% end %>

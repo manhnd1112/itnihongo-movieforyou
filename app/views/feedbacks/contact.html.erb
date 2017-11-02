@@ -9,29 +9,26 @@
     <div class="section-under-title-line"></div>
     <div class="row">
       <div class="col-md-6">
-        <form action="#" id="contact-form">
+        <%= form_for Feedback.new, id: "contact-form" do |f| %>
           <label class="top-label">
             <%= t ".name" %> <span style="color: red">*</span>
           </label>
-          <input id="contact-name" class="required contact-form-input"
-            type="text" name="contact-name">
+          <%= f.text_field :name, id: "contact-name", class: "required contact-form-input" %>
           <label class="top-label">
             <%= t ".email" %> <span style="color: red">*</span>
           </label>
-          <input id="contact-email" class="required contact-form-input"
-            type="email" name="contact-email">
-          <label class="top-label"><%= t ".phone" %></label>
-          <input id="contact-phone" class="contact-form-input"
-            type="tel" pattern="[0-9]{10}" name="contact-phone">
+          <%= f.email_field :email, id: "contact-email", class: "required contact-form-input" %>
+          <!--<label class="top-label"><= t ".phone" %></label>-->
+          <!--<input id="contact-phone" class="contact-form-input"-->
+            <!--type="tel" pattern="[0-9]{10}" name="contact-phone">-->
           <label class="top-label"><%= t ".subject" %></label>
-          <input id="contact-subject" class="contact-form-input"
-            type="text" name="contact-subject">
+          <%= f.text_field :subject, id: "contact-subject", class: "contact-form-input" %>
           <label class="top-label"><%= t ".message" %></label>
-          <textarea id="contact-message" class="contact-form-input"
-            name="contact-message"></textarea>
-          <input type="submit" value="Send your message"
-            class="btn-primary submit-feedback">
-        </form>
+          <%= f.text_area :content, id: "contact-message", class:"contact-form-input" %>
+          <%= button_tag type: :submit, class: "btn-primary submit-feedback" do %>
+            Send your message
+          <% end %>
+        <% end %>
       </div>
       <div class="col-md-6">
         <h3 class="font-24"><%= t ".hello" %></h3>

@@ -45,6 +45,8 @@ en:
       create_success: Created type successfullly!
       update_success: Updated type successfully!
       destroy_success: Deleted type successfully!
+    feedbacks:
+      success: "Thank for your feedback!"
   static_pages:
     show:
       new_movies: Newest movies
