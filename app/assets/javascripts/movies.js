@@ -101,4 +101,56 @@ $(document).ready(function() {
       value: $el.data("progress-value")
     });
   });
+
+  $('.suggest-receiver-select').select2({
+    tags: false,
+    theme: 'bootstrap'
+  });
+
+  if (window.user_signed_in) {
+    $('#bookmark-login').hide();
+    $('#bookmark').show();
+  }
+  else {
+    $( "#bookmark-login" ).click(function() {
+      alert("Please login!")
+    });
+  }
+});
+
+$(document).on('click', '.btn-suggest-movie', function() {
+  if (window.user_signed_in) {
+    $('.suggest-movie-modal').modal();
+  }
+  else {
+    alert("Please login!");
+  }
+});
+
+$(document).on('click', '.btn-send-suggest', function() {
+  var to_id = $('#suggest_receiver').val();
+  var content = $('.suggest-content').val();
+  var movie_id = $(this).attr('data-movie-id');
+  var link = '/movies/' + movie_id + '/suggest_movies';
+  $.ajax({
+    beforeSend: function(xhr){
+      xhr.setRequestHeader('X-CSRF-Token',
+        $('meta[name="csrf-token"]').attr('content'));
+    },
+    type: 'POST',
+    url: link,
+    data: {
+      suggest_movie: {
+        to_id: to_id,
+        content: content
+      }
+    },
+    success: function(e) {
+      $('.modal-suggest-result').html(e);
+      $('.suggest-receiver-select').val('').trigger('change');
+      $('.suggest-content').val('');
+      $('.suggest-movie-modal').modal('hide');
+      $('#suggest-success-modal').modal();
+    }
+  });
 });

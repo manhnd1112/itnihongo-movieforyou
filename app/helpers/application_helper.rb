@@ -71,4 +71,8 @@ module ApplicationHelper
     return (neg * 100.0 / all) if all > 0
     0
   end
+
+  def find_movie id
+    @movie = Movie.find_by id: id
+  end
 end

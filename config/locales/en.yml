@@ -129,8 +129,8 @@ en:
       all: All
       type: Genre
     show:
-      add_bookmark: Added to favorites.
-      remove_bookmark: Removed from favorites.
+      add_bookmark: Add to favorites
+      remove_bookmark: Removed from favorites
       average_rate: "Average Rating"
       user_rate: "User Ratings"
       review_count: "Reviews Counted"
@@ -142,7 +142,20 @@ en:
       no_review: Be the first to review.
       write_review: Write a Review
       add_rate: ADD YOUR RATING
-      add_mess: Add a comment (Optional)
+      add_mess: "What do you think about this movie?"
+      suggest_movie: "Would you like to recommend other users to watch this movie?"
+      suggest_button: "Recommend this movie"
+    suggest_movie:
+      success_title: "Congrats!"
+      success_mess: "All your recommendations have been sent successfully."
+      from: "From"
+      to: "To"
+      message: "Message"
+      thanks: "Thanks for sharing.<br>Your friends will receive a recommended notification."
+      add_user: "Tag someone who would love this movie"
+      cancel: "Cancel"
+      send: "Send"
+      title: "Recommend Movie"
   feedbacks:
     contact:
       contact: Contact Us

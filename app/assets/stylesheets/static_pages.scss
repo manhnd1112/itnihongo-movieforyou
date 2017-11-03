@@ -14,11 +14,11 @@ $green-darken: #16a085;
 
 body {
   background: #fff;
-  font-family: "Helvetica Neue",arial,sans-serif !important;
+  font-family: "Helvetica Neue", Arial, sans-serif !important;
 }
 
 .title-font {
-  font-family: "Roboto Condensed", Helvetica, Arial !important;
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;
 }
 
 .wrapper {
@@ -87,7 +87,7 @@ body {
 
 .navbar-header a {
   color: #333 !important;
-  font-family: "Germania One";
+  font-family: "Germania One", sans-serif;
 }
 
 .home_img {
@@ -441,7 +441,7 @@ a:hover .caption h4{
   background-color: #4267B2;
   border-radius: 3px;
   color: #fff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: bolder;
   min-width: 0;
@@ -521,7 +521,7 @@ a:hover .caption h4{
 
 .section-title {
   color: #000;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-size: 36px !important;
   margin-bottom: 1.4rem;
   margin-top: 3rem;

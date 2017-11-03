@@ -5,9 +5,10 @@
     <div id="topSection">
 
       <!-- poster film -->
-      <div id="movie-image-section" class="col-sm-4 col-xs-4">
+      <div id="movie-image-section" class="col-sm-4 hidden-xs">
         <div class="center">
-          <img src="<%= @movie.avatar %>" alt="<%= @movie.name %>" class="posterImage">
+          <img src="<%= @movie.avatar %>" alt="<%= @movie.name %>"
+            class="posterImage">
           <div class="fb-like" data-width="450" data-share="false"
             data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
             data-layout="button_count" data-action="like" data-size="small">
@@ -17,183 +18,195 @@
       </div>
       <!-- end poster film -->
 
-      <div id="rate" data-turbolinks="false">
-        <div id="scorePanel" class="score_panel col-sm-8 col-xs-8">
-          <!-- tittle + bookmark -->
-          <div class="col-sm-12 col-xs-12 meter-panel">
-            <h2 class="scoreTitle superPageFontColor title-font text-left">
-              <%= @movie.name %>
-            </h2>
-            <div class="primary_ribbon">
-              <div class="ribbon" id="bookmark">
-                <% if user_signed_in? %>
-                  <% if current_user.bookmarked?(@movie) %>
-                    <input type="hidden" id="<%= current_user.bookmark(@movie) %>"
-                      class="current-bookmark">
-                    <span class="glyphicon glyphicon-bookmark un-bookmark-btn"
-                      title='<%= t ".remove_bookmark" %>' style="color: #71c126">
-                      <i class="fa fa-check" style="color: white"></i>
-                    </span>
-                  <% else %>
-                    <span class="glyphicon glyphicon-bookmark bookmark-btn"
-                      title='<%= t ".add_bookmark" %>'>
-                      <i class="fa fa-plus" style="color: white"></i>
-                    </span>
-                  <% end %>
+      <div id="scorePanel" class="score_panel col-sm-8 col-xs-12">
+        <!-- tittle + bookmark -->
+        <div class="col-sm-12 col-xs-12 meter-panel">
+          <h2 class="scoreTitle superPageFontColor title-font text-left">
+            <%= @movie.name %>
+          </h2>
+          <div class="primary_ribbon">
+            <div class="ribbon" id="bookmark-login">
+              <span class="glyphicon glyphicon-bookmark"
+                title='<%= t ".add_bookmark" %>'>
+                <i class="fa fa-plus" style="color: white"></i>
+              </span>
+            </div>
+            <div class="ribbon" id="bookmark" style="display: none;">
+              <% if user_signed_in? %>
+                <% if current_user.bookmarked?(@movie) %>
+                  <input type="hidden" id="<%= current_user.bookmark(@movie) %>"
+                    class="current-bookmark">
+                  <span class="glyphicon glyphicon-bookmark un-bookmark-btn"
+                    title='<%= t ".remove_bookmark" %>' style="color: #71c126">
+                    <i class="fa fa-check" style="color: white"></i>
+                  </span>
+                <% else %>
+                  <span class="glyphicon glyphicon-bookmark bookmark-btn"
+                    title='<%= t ".add_bookmark" %>'>
+                    <i class="fa fa-plus" style="color: white"></i>
+                  </span>
                 <% end %>
-              </div>
+              <% end %>
             </div>
           </div>
-          <!-- end bookmark -->
-          <!-- rating info -->
-          <div class="tab-content">
-            <div id="all-critics-numbers" class="tab-pane active">
-              <div class="row">
-                <div class="col-sm-12 info-movie">
+        </div>
+        <!-- end bookmark -->
+        <!-- rating info -->
+        <div class="tab-content">
+          <div id="all-critics-numbers" class="tab-pane active">
+            <div class="row">
+              <div class="col-sm-12 info-movie">
 
-                  <!-- average, count -->
-                  <div class="tomato-left col-sm-5">
-                    <div id="scoreStats">
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">
-                          <%= t ".average_rate" %>:
-                        </span>
-                        <% if @movie.average_rate > 0 %>
-                          <span><%= @movie.average_rate.round(1) %>/10</span>
-                        <% else %>
-                          <br><span><%= t ".not_rate" %></span>
+                <!-- average, count -->
+                <div class="tomato-left col-sm-5 col-xs-6">
+                  <div id="scoreStats">
+                    <div class="superPageFontColor">
+                      <span class="subtle superPageFontColor">
+                        <%= t ".average_rate" %>:
+                      </span>
+                      <% if @movie.average_rate > 0 %>
+                        <span><%= @movie.average_rate.round(1) %>/10</span>
+                      <% else %>
+                        <br><span><%= t ".not_rate" %></span>
+                      <% end %>
+                    </div>
+                    <div class="superPageFontColor">
+                      <span class="subtle superPageFontColor">
+                        <%= t ".user_rate" %>:
+                      </span>
+                      <span><%= @movie.rates.count %></span>
+                    </div>
+                    <div class="superPageFontColor">
+                      <span class="subtle superPageFontColor">
+                        <%= t ".review_count" %>:
+                      </span>
+                      <span><%= @movie.reviews.count %></span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end average, count -->
+
+                <% if @movie.average_rate > 0 %>
+                  <div class="col-sm-7">
+                    <!-- average score -->
+                    <div class="score fl hidden-md hidden-xs">
+                      <div class="meta-score-anchor text-center">
+                        <% if 0 < @movie.average_rate && @movie.average_rate < 4 %>
+                          <div class="meta-score user larger movie negative-rate">
+                            <%= @movie.average_rate.round(1) %>
+                          </div>
+                        <% elsif 3 < @movie.average_rate && @movie.average_rate < 7 %>
+                          <div class="meta-score user larger movie mixed-rate">
+                            <%= @movie.average_rate.round(1) %>
+                          </div>
+                        <% else 6 < @movie.average_rate && @movie.average_rate < 11 %>
+                          <div class="meta-score user larger movie positive-rate">
+                            <%= @movie.average_rate.round(1) %>
+                          </div>
                         <% end %>
                       </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">
-                          <%= t ".user_rate" %>:
-                        </span>
-                        <span><%= @movie.rates.count %></span>
-                      </div>
-                      <div class="superPageFontColor">
-                        <span class="subtle superPageFontColor">
-                          <%= t ".review_count" %>:
-                        </span>
-                        <span><%= @movie.reviews.count %></span>
-                      </div>
                     </div>
+                    <!-- end average score -->
+
+                    <!-- chart -->
+                    <div class="charts fl">
+                      <div class="lighter oswald pad_btm1">
+                        <%= t ".distribution" %>
+                      </div>
+                      <a class="chart_wrapper" href="#">
+                        <div class="chart">
+                          <div class="bar positive" data-progress-value="<%= positive(@movie).round %>"></div>
+                          <div class="text oswald">
+                            <div class="label fl">
+                              <%= t ".positive" %>:
+                              <%= positive(@movie).round(2) %>%
+                            </div>
+                            <div class="clr"></div>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="chart_wrapper" href="#">
+                        <div class="chart">
+                          <div class="bar mixed" data-progress-value="<%= mixed(@movie).round %>"></div>
+                          <div class="text oswald">
+                            <div class="label fl">
+                              <%= t ".mixed" %>:
+                              <%= mixed(@movie).round(2) %>%
+                            </div>
+                            <div class="clr"></div>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="chart_wrapper" href="#">
+                        <div class="chart">
+                          <div class="bar negative" data-progress-value="<%= negative(@movie).round %>"></div>
+                          <div class="text oswald">
+                            <div class="label fl">
+                              <%= t ".negative" %>:
+                              <%= negative(@movie).round(2) %>%
+                            </div>
+                            <div class="clr"></div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <!-- end chart -->
                   </div>
-                  <!-- end average, count -->
+                <% end %>
 
-                  <% if @movie.average_rate > 0 %>
-                    <div class="col-sm-7 hidden-xs">
-                      <!-- average score -->
-                      <div class="score fl hidden-md">
-                        <div class="meta-score-anchor text-center">
-                          <% if 0 < @movie.average_rate && @movie.average_rate < 4 %>
-                            <div class="meta-score user larger movie negative-rate">
-                              <%= @movie.average_rate.round(1) %>
-                            </div>
-                          <% elsif 3 < @movie.average_rate && @movie.average_rate < 7 %>
-                            <div class="meta-score user larger movie mixed-rate">
-                              <%= @movie.average_rate.round(1) %>
-                            </div>
-                          <% else 6 < @movie.average_rate && @movie.average_rate < 11 %>
-                            <div class="meta-score user larger movie positive-rate">
-                              <%= @movie.average_rate.round(1) %>
-                            </div>
-                          <% end %>
-                        </div>
-                      </div>
-                      <!-- end average score -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end rating info -->
 
-                      <!-- chart -->
-                      <div class="charts fl hidden-xs">
-                        <div class="lighter oswald pad_btm1">
-                          <%= t ".distribution" %>
-                        </div>
-                        <a class="chart_wrapper" href="#">
-                          <div class="chart">
-                            <div class="bar positive" data-progress-value="<%= positive(@movie).round %>"></div>
-                            <div class="text oswald">
-                              <div class="label fl">
-                                <%= t ".positive" %>:
-                                <%= positive(@movie).round(2) %>%
-                              </div>
-                              <div class="clr"></div>
-                            </div>
-                          </div>
-                        </a>
-                        <a class="chart_wrapper" href="#">
-                          <div class="chart">
-                            <div class="bar mixed" data-progress-value="<%= mixed(@movie).round %>"></div>
-                            <div class="text oswald">
-                              <div class="label fl">
-                                <%= t ".mixed" %>:
-                                <%= mixed(@movie).round(2) %>%
-                              </div>
-                              <div class="clr"></div>
-                            </div>
-                          </div>
-                        </a>
-                        <a class="chart_wrapper" href="#">
-                          <div class="chart">
-                            <div class="bar negative" data-progress-value="<%= negative(@movie).round %>"></div>
-                            <div class="text oswald">
-                              <div class="label fl">
-                                <%= t ".negative" %>:
-                                <%= negative(@movie).round(2) %>%
-                              </div>
-                              <div class="clr"></div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <!-- end chart -->
-                    </div>
-                  <% end %>
+        <div class="col-xs-12">
+          <hr>
+          <%= t ".suggest_movie" %>
+          <button class="btn-primary btn-suggest-movie pmd-z-depth-1">
+            <span class="btn-label"><i class="fa fa-gift fa-lg"></i></span>
+            <%= t ".suggest_button" %>
+          </button>
+        </div>
+      </div>
 
+      <!-- rate frame -->
+      <div id="rating_widget_desktop" class="col-xs-12 meter-panel">
+        <h3 class="rating_widget_desktop-header">
+          <span><%= t ".add_rate" %></span>
+        </h3>
+        <% if user_signed_in? %>
+          <div class="media rating_widget">
+            <%= link_to user_path(current_user), data: {turbolinks: false},
+              class: "pull-left hidden-xs user-avatar" do %>
+              <img role="presentation" class="media-object pull-left"
+                src="<%= current_user.avatar %>">
+            <% end %>
+            <div class="media-body">
+              <div class="rating-widget-body">
+                <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
+                <div class="hidden current-movie-id" id="<%= @movie.id %>"></div>
+                <div class="rating-widget-body-star">
+                  <span id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></span>
+                  <span id="target"></span>
+                  <span id="hint"></span>
+                </div>
+                <div class="rating-text-box">
+                  <textarea class="rating-text-box-textarea clear-fix rate-message"
+                    placeholder='<%= t ".add_mess" %>'></textarea>
+                  <div class="btn-group-sm rating-text-box-submit clear-fix">
+                    <%= button_tag "Rate", class: "btn rating-widget-body-btn submit-rate" %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- end rating info -->
-        </div>
-
-        <!-- rate frame -->
-        <div id="rating_widget_desktop" class="col-sm-12 col-xs-12 col-md-8 meter-panel">
-          <h3 class="rating_widget_desktop-header">
-            <span><%= t ".add_rate" %></span>
-          </h3>
-          <% if user_signed_in? %>
-            <div class="media rating_widget">
-              <%= link_to user_path(current_user), data: {turbolinks: false},
-                class: "pull-left hidden-xs user-avatar" do %>
-                <img role="presentation" class="media-object pull-left"
-                  src="<%= current_user.avatar %>">
-              <% end %>
-              <div class="media-body">
-                <div class="rating-widget-body">
-                  <input type="hidden" id="is_rate" value="<%= rate(@movie).present? %>">
-                  <div class="hidden current-movie-id" id="<%= @movie.id %>"></div> 
-                  <div class="rating-widget-body-star">
-                    <span id="star-rating" data-score="<%= rate(@movie).score if rate(@movie).present? %>"></span>
-                    <span id="target"></span>
-                    <span id="hint"></span>
-                  </div>
-                  <div class="rating-text-box">
-                    <textarea class="rating-text-box-textarea clear-fix rate-message"
-                      placeholder='<%= t ".add_mess" %>'></textarea>
-                    <div class="btn-group-sm rating-text-box-submit clear-fix">
-                      <%= button_tag "Rate", class: "btn rating-widget-body-btn submit-rate" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% else %>
-            <%= link_to t("user.login"), user_session_path,
-              data: {turbolinks: false} %>
-            to rate
-          <% end %>
-        </div>
-        <!-- end rating frame -->
+        <% else %>
+          <%= link_to t("user.login"), user_session_path, data: {turbolinks: false} %>
+          to rate
+        <% end %>
       </div>
+      <!-- end rating frame -->
 
       <!-- movie info -->
       <%= render "movie_infor", movie: @movie %>
@@ -211,4 +224,10 @@
     <%= render "top_movies", top_movies: @support.top_movies,
       comings: @support.coming_movies %>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="modal-suggest-result"></div>
+    <%= render "suggest_movies/modal_suggest", movie: @movie,
+      suggest_movie: @support.suggest_movie, users: @users %>
+  <% end %>
 </div>

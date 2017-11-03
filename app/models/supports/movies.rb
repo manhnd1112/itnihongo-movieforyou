@@ -41,4 +41,8 @@ class Supports::Movies
   def types
     Type.all.sort_by{|p| p.count_movies}.reverse
   end
+
+  def suggest_movie
+    SuggestMovie.new
+  end
 end

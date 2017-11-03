@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show] do
     resources :rates, only: [:create]
     resources :bookmarks, only: [:create, :destroy]
+    resource :suggest_movies, only: :create
   end
   resources :reviews do
     resources :comments

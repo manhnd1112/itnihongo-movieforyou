@@ -1,0 +1,134 @@
+.modal-box.success,
+.modal-box.error {
+  background: #fff;
+  border-radius: 2px;
+  padding: 25px 30px 15px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-box.success.animate .icon,
+.modal-box.error.animate .icon {
+  animation: fall-in 0.75s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.modal-box.success h1,
+.modal-box.error h1 {
+  font-size: 45px;
+  padding: 5px;
+}
+
+.modal-box.success p,
+.modal-box.error p,
+.modal-box.success h4,
+.modal-box.error h4 {
+  color: #424242;
+  font-family: "Open Sans", sans-serif;
+}
+
+.modal-box.success button,
+.modal-box.error button,
+.modal-box.success button:active,
+.modal-box.error button:active,
+.modal-box.success button:focus,
+.modal-box.error button:focus {
+  background: transparent;
+  border: solid 1px #4caf50;
+  border-radius: 0;
+  color: #4caf50;
+  margin-top: 15px;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+  width: 80%;
+}
+
+.modal-box.success button:hover,
+.modal-box.error button:hover,
+.modal-box.success button:active:hover,
+.modal-box.error button:active:hover,
+.modal-box.success button:focus:hover,
+.modal-box.error button:focus:hover {
+  background: #4caf50;
+  border-color: transparent;
+  color: #fff;
+}
+
+.modal-box.success .icon,
+.modal-box.error .icon {
+  background: #4caf50;
+  border-radius: 50%;
+  height: 100px;
+  margin: -75px 0 auto;
+  position: relative;
+  width: 100px;
+}
+
+.modal-box.success .icon span,
+.modal-box.error .icon span {
+  color: #fff;
+  font-size: 4em;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.modal-box.error button,
+.modal-box.error button:active,
+.modal-box.error button:focus {
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.modal-box.error button:hover,
+.modal-box.error button:active:hover,
+.modal-box.error button:focus:hover {
+  background: #f44336;
+  color: #fff;
+}
+
+.modal-box.error .icon {
+  background: #f44336;
+}
+
+.modal-box.error .icon span {
+  padding-top: 25px;
+}
+
+.center-icon {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-icon .change {
+  color: #ccc;
+  display: block;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+@keyframes fall-in {
+  0% {
+    transform: scale(3, 3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes plunge {
+  0% {
+    margin-top: -100%;
+  }
+  100% {
+    margin-top: 15%;
+  }
+}
