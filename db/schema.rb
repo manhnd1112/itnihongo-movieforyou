@@ -102,10 +102,12 @@ ActiveRecord::Schema.define(version: 20171102100954) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "from_user_id"
-    t.integer "to_user_id"
-    t.string "type"
-    t.boolean "is_read"
+    t.integer "user_id", null: false
+    t.boolean "isRead", default: false
+    t.text "content"
+    t.string "link_to"
+    t.string "target"
+    t.integer "target_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -136,9 +138,9 @@ ActiveRecord::Schema.define(version: 20171102100954) do
   end
 
   create_table "suggest_movies", force: :cascade do |t|
-    t.integer "from_id"
-    t.integer "to_id"
-    t.integer "movie_id"
+    t.integer "from_id", null: false
+    t.integer "to_id", null: false
+    t.integer "movie_id", null: false
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

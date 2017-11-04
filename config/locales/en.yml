@@ -181,10 +181,16 @@ en:
   search:
     content: "name, description, producer, director, actor..."
     no_result: "No results for "
-  ransack:
-    asc: asc
-    desc: desc
-
+  notifications:
+    notifications: "Notifications"
+    see_all: "See all"
+    ago: "ago"
+    index:
+      no_new: "You currently have no new notifications."
+      your: "Your Notifications"
+    job:
+      has_suggest: " has recommend you to watch a movie: "
+      has_comment: " commented on your review: "
 
   layouts:
     header:

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :movies, through: :bookmarks
   has_many :comments, dependent: :destroy
+  has_many :notifications
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
@@ -75,5 +76,9 @@ class User < ApplicationRecord
 
   def load_suggest_users
     User.where.not(id: self.id).order id: :asc
+  end
+
+  def not_read_notifications_count
+    self.notifications.where(isRead: false).size
   end
 end

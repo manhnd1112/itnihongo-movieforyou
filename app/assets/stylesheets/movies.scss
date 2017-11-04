@@ -1118,6 +1118,14 @@ li {
   width: 16px;
 }
 
+.list-top-movie-item-info .list-top-movie-item-name {
+  color: #f15f43 !important;
+
+  &:focus, &:hover {
+    color: #a14620 !important;
+  }
+}
+
 .list-top-movie-item {
   padding-bottom: 10px;
 

@@ -50,21 +50,21 @@ module ApplicationHelper
   def rate movie
     movie.rates.find_by user_id: current_user.id
   end
-  
+
   def positive movie
     all = movie.rates.count
     pos = movie.rates.where(score: 7..10).count
     return (pos * 100.0 / all) if all > 0
     0
   end
-  
+
   def mixed movie
     all = movie.rates.count
     mixed = movie.rates.where(score: 4...7).count
     return (mixed * 100.0 / all) if all > 0
     0
   end
-  
+
   def negative movie
     all = movie.rates.count
     neg = movie.rates.where(score: 1...4).count
@@ -74,5 +74,17 @@ module ApplicationHelper
 
   def find_movie id
     @movie = Movie.find_by id: id
+  end
+
+  def unread_notifications_count
+    current_user.notifications.where(isRead: false).size
+  end
+
+  def my_notifications
+    current_user.notifications.order(id: :desc).limit 5
+  end
+
+  def time_ago(date)
+    time_ago_in_words(date)
   end
 end
