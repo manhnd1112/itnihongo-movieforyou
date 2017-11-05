@@ -67,7 +67,7 @@
                       <% if @movie.average_rate > 0 %>
                         <span><%= @movie.average_rate.round(1) %>/10</span>
                       <% else %>
-                        <br><span><%= t ".not_rate" %></span>
+                        <span><%= t ".not_rate" %></span>
                       <% end %>
                     </div>
                     <div class="superPageFontColor">
@@ -162,7 +162,7 @@
 
         <div class="col-xs-12">
           <hr>
-          <%= t ".suggest_movie" %>
+          <%= t ".suggest_movie" %><br>
           <button class="btn-primary btn-suggest-movie pmd-z-depth-1">
             <span class="btn-label"><i class="fa fa-gift fa-lg"></i></span>
             <%= t ".suggest_button" %>
@@ -203,7 +203,7 @@
           </div>
         <% else %>
           <%= link_to t("user.login"), user_session_path, data: {turbolinks: false} %>
-          to rate
+          <%= t ".login_require" %>
         <% end %>
       </div>
       <!-- end rating frame -->

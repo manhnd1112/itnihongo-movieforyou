@@ -470,7 +470,7 @@ a:hover .caption h4{
 }
 
 .dropdown-content.columns-2 {
-  min-width: 600px;
+  min-width: 800px;
 }
 
 .dropdown-content li a {
@@ -640,4 +640,14 @@ header {
   .grid_12 h1 {
     font-size: 50px !important;;
   }
+}
+
+.language-nav .navbar-nav > li > a, .navbar-brand {
+  display: inline;
+  height: 35px;
+  padding: 8px 15px 0 !important;
+}
+
+.language-nav.navbar {
+  min-height: 30px !important;
 }

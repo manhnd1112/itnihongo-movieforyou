@@ -161,7 +161,7 @@
         </span>
       </span><br>
       <span class="inline-tone-fill inline-icon review-sub-info">
-        Author's rate:
+        <%= t "reviews.show.author_rate" %>:
         <% if author_rate(review.movie, review.user) > 0 %>
           <span class="average-rate star-rating" data-score="<%= author_rate(review.movie, review.user) %>">
             (<%= author_rate(review.movie, review.user).round(1) %>)
@@ -173,7 +173,7 @@
       <p class="genre-links hidden-phone">&gt;&nbsp;
         <% if review.movie.types.any? %>
           <% review.movie.types.each do |type| %>
-            <%= link_to type.name, type_path(type),
+            <%= link_to t(type.name), type_path(type),
               data: {turbolinks: false} %>
             <% unless type == review.movie.types.last %>/<% end %>
           <% end %>

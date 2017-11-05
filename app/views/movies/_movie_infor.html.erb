@@ -1,6 +1,6 @@
 <section class="panel panel-rt panel-box movie_info media">
   <div class="media-body">
-    <h2 class="panel-heading">Movie Info</h2>
+    <h2 class="panel-heading"><%= t "movies.show.movie_info" %></h2>
     <div class="panel-body content_body">
       <div id="movieSynopsis" class="movie_synopsis clamp clamp-6" style="clear:both">
         <%= @movie.description %>
@@ -11,7 +11,7 @@
           <div class="meta-value">
             <% if @movie.types.any? %>
               <% @movie.types.each do |type| %>
-                <%= link_to type.name, type_path(type),
+                <%= link_to t(type.name), type_path(type),
                   data: {turbolinks: false} %>
                 <% unless type == @movie.types.last %>/<% end %>
               <% end %>
@@ -48,7 +48,7 @@
             <time>
               <% if @movie.country.present? %>
                 <%= image_tag @movie.country.flag_image.flag.url %>
-                <%= @movie.country.name %>
+                <%= t(@movie.country.name) %>
               <% else %>
                 N/A
               <% end %>
@@ -63,7 +63,7 @@
 <!-- cast -->
 <section class="panel panel-rt panel-box movie_info media">
   <div class="media-body">
-    <h2 class="panel-heading">Cast</h2>
+    <h2 class="panel-heading"><%= t "movies.show.cast" %></h2>
     <div class="listNewsCinema">
       <ul class="blockList">
         <% if @movie.actors.any? %>

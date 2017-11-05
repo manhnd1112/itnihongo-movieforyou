@@ -1,10 +1,10 @@
-<% provide(:title, @type.name) %>
+<% provide(:title, t(@type.name)) %>
 <div class="row movies-list">
   <ul class="breadcrumb">
     <li><%= link_to t("user.home"), root_path, data: {turbolinks: false} %></li>
     <li><%= link_to t("user.movies"), movies_path, data: {turbolinks: false} %></li>
     <li class="active">
-      <%= link_to @type.name, type_path(@type), data: {turbolinks: false} %>
+      <%= link_to t(@type.name), type_path(@type), data: {turbolinks: false} %>
     </li>
   </ul>
 

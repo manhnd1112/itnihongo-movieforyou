@@ -5,12 +5,14 @@ $(document).ready(function(){
 });
 
 $(document).on('click', '.create-comment', function(event) {
+  function locale() { return $('body').data('locale') }
   event.preventDefault();
 
   var user_id = $('#user-id').val();
   var review_id = $('#review-id').val();
   var content = $('.text-content').val();
   var url = '/reviews/'+ review_id + '/comments/';
+  // '/' + locale() +
 
   $.ajax({
     beforeSend: function (xhr) {

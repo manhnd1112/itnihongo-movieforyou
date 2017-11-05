@@ -1,4 +1,4 @@
-<% provide(:title, current_user.username + " | Edit profile") %>
+<% provide(:title, current_user.username + t("users.edit_title")) %>
 <div class="row login-form">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3
     col-lg-6 col-lg-offset-3 pmd-card pmd-card-default pmd-z-depth-1">
@@ -37,7 +37,7 @@
         <%= f.label :new_password, class: "control-label" %>
         <% if @minimum_password_length %><br>
           <span style="color: red; font-size: 11px">* </span>
-          <em><%= @minimum_password_length %> characters minimum</em>
+          <em><%= @minimum_password_length %><%= t "devise.minimum" %></em>
         <% end %><br>
         <%= f.password_field :password, class: "form-control" %>
       </div><br>
@@ -53,7 +53,7 @@
       </div>
     <% end %><br>
     <div class="text-center">
-      <%= link_to t("user.back"), :back, "data-turbolinks": false %>
+      <%= link_to t("user.back"), :back, data: {turbolinks: false} %>
     </div>
   </div>
 </div>

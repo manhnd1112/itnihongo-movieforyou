@@ -78,11 +78,11 @@ $(document).ready(function(){
     navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
   });
 
-  $('.trending-title').fitText(1.2,{minFontSize: '20px', maxFontSize: '28px'});
-  $('.trending-content').fitText(1,{minFontSize: '14px', maxFontSize: '16px'});
+  $('.trending-title').fitText(1.2,{minFontSize: '18px', maxFontSize: '18px'});
+  $('.trending-content').fitText(1,{minFontSize: '14px', maxFontSize: '14px'});
   $('.home-review-title').fitText(1.2,{minFontSize: '26px', maxFontSize: '36px'});
-  $('.review-content').fitText(1.2,{minFontSize: '16px', maxFontSize: '18px'});
-  $('.movie-data').fitText(1.2,{minFontSize: '18px', maxFontSize: '22px'});
+  $('.review-content').fitText(1.2,{minFontSize: '15px', maxFontSize: '15px'});
+  $('.movie-data').fitText(1.2,{minFontSize: '16px', maxFontSize: '18px'});
   $('.review-title').fitText(0.8,{minFontSize: '20px', maxFontSize: '30px'});
 
   $('.breadcrumbs li a').each(function(){
@@ -104,7 +104,7 @@ $(document).on('click', '#shareBtn', function() {
   FB.ui({
     method: 'share',
     display: 'popup',
-    href: window.location.href,
+    href: window.location.href
   }, function(response){});
 });
 

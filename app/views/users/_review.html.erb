@@ -23,7 +23,8 @@
     </h3>
     <div class="details">
       <span>
-        By <%= link_to review.user.name, user_path(review.user),
+        <%= t "reviews.index.reviewer" %>
+        <%= link_to review.user.name, user_path(review.user),
           data: {turbolinks: false} %>&emsp;|&emsp;
       </span>
       <span class="glyphicon glyphicon-time"></span>

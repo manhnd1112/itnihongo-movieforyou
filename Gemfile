@@ -30,6 +30,7 @@ gem "ckeditor"
 gem "truncate_html"
 gem "faker"
 gem "ransack"
+gem "puret"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

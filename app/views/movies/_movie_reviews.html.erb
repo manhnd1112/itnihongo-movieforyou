@@ -2,7 +2,7 @@
   <!-- review -->
   <section class="panel panel-rt panel-box movie_info media panel-review">
     <div class="media-body">
-      <h2 class="panel-heading">Review</h2>
+      <h2 class="panel-heading"><%= t "movies.show.review" %></h2>
        <%= link_to new_review_path(movie_id: @movie.id), data: {turbolinks: false},
         class: "btn btn-primary review-make-btn pull-right",
         title: t("movies.show.write_review") do %>
@@ -29,16 +29,18 @@
                       </div>
                     </div>
                     <div class="pub_wrap title">
-                      <span class="source">
+                      <span class="source title-font">
                         <%= link_to review.title, review_path(review),
                           target: :_blank, data: {turbolinks: false} %>
                       </span>
                       <div class="date pad_top_half">
-                        By
-                        <span class="author">
+                        <%= t "reviews.index.reviewer" %>
+                        <% if review.user.is_admin? %>
+                          <span class="admin-reviewer"><%= t "app_name" %></span>
+                        <% else %>
                           <%= link_to review.user.name, user_path(review.user),
                             data: {turbolinks: false} %>
-                        </span> on  
+                        <% end %> on  
                         <%= review.created_at.strftime("%d %b %Y") %>
                       </div>
                     </div>
@@ -57,7 +59,7 @@
           <% else %>
             <div class="film-detail-other-news">
               <div class="review pad_top2 pad_btm2">
-                No review.
+                <%= t "movies.show.no_review" %>
               </div>
             </div>
           <% end %>
@@ -72,7 +74,7 @@
   <!-- rate -->
   <section class="panel panel-rt panel-box movie_info media panel-rate">
     <div class="media-body">
-      <h2 class="panel-heading">User's rate</h2>
+      <h2 class="panel-heading"><%= t "movies.show.user_rate" %></h2>
       <div class="content tag">
         <div class="group">
           <% if rates.any? %>
@@ -84,7 +86,10 @@
                       alt="" class="img-rounded">
                   </span>
                   <div class="clear">
-                    <span><strong><%= rate.user.username %></strong></span><br>
+                    <span class="user-rate">
+                      <%= link_to rate.user.name, user_path(rate.user),
+                        data: {turbolinks: false} %>
+                    </span><br>
                     <div class="average-rate hidden-md" data-score="<%= rate.score %>"></div>
                     <div class="hidden-xs hidden-lg hidden-sm user-score">
                       <i class="fa fa-star"></i>
@@ -99,7 +104,7 @@
             <% end %>
           <% else %>
             <div class="rate-item clear-fix">
-              No rate.
+              <%= t "movies.show.no_rate" %>
             </div>
           <% end %>
         </div>

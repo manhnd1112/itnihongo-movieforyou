@@ -42,6 +42,14 @@ class Supports::Movies
     Type.all.sort_by{|p| p.count_movies}.reverse
   end
 
+  def load_countries
+    Country.order("name asc").map{|p| [I18n.t(p.name), p.id]}
+  end
+
+  def load_types
+    Type.order("name asc").map{|p| [I18n.t(p.name), p.id]}
+  end
+
   def suggest_movie
     SuggestMovie.new
   end

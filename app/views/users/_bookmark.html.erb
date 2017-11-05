@@ -13,8 +13,11 @@
           <br><p class="des"><%= truncate_html(movie.description, length: 200) %></p>
         </div>
       </div><hr>
-      <%= link_to t("user.all_favorites"), user_favorites_path(@user),
-        "data-turbolinks": false, class: "all-comment" %>
+      <%= link_to user_favorites_path(@user), class: "all-comment",
+        "data-turbolinks": false do %>
+        <%= t "user.all_favorites" %>
+        <span class="fa fa-angle-double-right"></span>
+      <% end %>
     <% end %>
   <% else %>
     <% if user_signed_in? && current_user.id == user.id %>
