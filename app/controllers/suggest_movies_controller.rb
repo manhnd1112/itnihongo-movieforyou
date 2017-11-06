@@ -1,6 +1,7 @@
 class SuggestMoviesController < ApplicationController
   include ApplicationHelper
 
+  before_action :authenticate_user!, only: :create
   before_action only: :create do
     find_movie params[:movie_id]
   end

@@ -9,20 +9,20 @@
       <h2 class="text-left"><%= t ".form_title" %></h2><br>
     <% end %>
     <div class="form-group pmd-textfield title-review">
-      <%= f.label :summary, class: "control-label" %>
+      <label class="control-label"><%= t ".summary" %></label>
       <%= f.text_field :title, class: "form-control add-review-title required" %>
     </div>
     <div class="form-group pmd-textfield">
       <% if params[:movie_id].present? %>
         <%= f.hidden_field :movie_id, value: params[:movie_id] %>
       <% else %>
-        <%= f.label :movie_name, class: "control-label" %>
+        <label class="control-label"><%= t ".movie_name" %></label>
         <%= f.select :movie_id, support.load_movies,
           {include_blank: t(".choose_movie")}, {class: "select-with-search
           form-control pmd-select2 select-movie required"} %>
       <% end %>
     </div>
-    <%= f.label :photos, class: "control-label" %><br/>
+    <label class="control-label"><%= t ".photos" %></label><br/>
     <div class="row">
       <div class="add-images col-xs-12">
         <%= f.fields_for :photos do |photo| %>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <%= f.label :review, class: "control-label" %><br/>
+    <label class="control-label"><%= t ".content" %></label>
     <%= f.text_area :content, class: "form-control ckeditor" %><br>
     <div class="text-center">
       <% if review.new_record? %>

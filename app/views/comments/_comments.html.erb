@@ -61,6 +61,8 @@
     <% end %>
     <%= paginate comments, theme: "twitter-bootstrap-3" %>
   <% else %>
-    <div id="no-posts"><h3>Be the first to comment.</h3></div>
+    <div id="no-posts">
+      <h3><%= t ".first_comment" %></h3>
+    </div>
   <% end %>
 </div>

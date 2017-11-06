@@ -1,0 +1,310 @@
+jp:
+  app_name: MovieForU
+  home:
+    title: Movie for You
+    subtit: 映画とレビュー
+    about: チームについて
+    contact: 連絡
+    copyright: "著作権 2017 | 麦わら | 全著作権所有"
+    pages: ページ
+    share: シェーア
+    search: 検索
+    actors: 俳優
+    content_search: 映画、レビュー、俳優、…
+    language: 言語
+    english: English
+    japanese: 日本語
+  button:
+    save: 変更を保存
+    cancel: キャンセル
+    delete: 削除
+    edit: 編集
+    clear: リセット
+    confirm: 削除しますか？
+  flash:
+    destroy_fail: 申し訳ございません。何らかの問題が発生しました。
+    reviews:
+      not_found: レビューが見つかりません！
+      create_success: レビューが正常に作成されました！
+      update_success: 変更を保存しました！
+      destroy_success: レビューを削除しました！
+    comments:
+      not_found: コメントが見つかりません！
+      create_success: コメントが正常に作成されました！
+      update_success: 変更を保存しました！
+      destroy_success: コメントを削除しました！
+    users:
+      not_found: ユーザーが見つかりません！
+    bookmarks:
+      create_success: お気に入りに追加ました！
+      destroy_success: お気に入りを削除ました！
+    movies:
+      not_found: 映画が見つかりません！
+      create_success: 映画が正常に作成されました！
+      update_success: 変更を保存しました！
+      destroy_success: 映画を削除しました！
+    types:
+      not_found: ジャンルが見つかりません！
+      create_success: ジャンルが正常に作成されました！
+      update_success: 変更を保存しました！
+      destroy_success: ジャンルを削除しました！
+    feedbacks:
+      success: フィードバックを頂きましてありがとうございます。
+  static_pages:
+    show:
+      new_movies: 最新映画
+      new_reviews: 最新レビュー
+      hot_movies: トップ映画
+      read_full: つづく
+      coming: 近日公開映画
+  user:
+    sign_up: サインアップ
+    login: ログイン
+    sign_out: サインアウト
+    update: 変更を保存
+    home: ホーム
+    movies: 映画
+    reviews: レビュー
+    favorites: いいね
+    settings: 設定
+    write_review: レビューを書く
+    histories: アクセス履歴
+    edit: プロフィール編集
+    member: "登録: "
+    review: レビュー
+    back: 戻る
+    all_reviews: すべてレビュー
+    all_favorites: すべて好きな映画
+  reviews:
+    index:
+      more_link: つづく
+      recent_reviews: 最近のレビュー
+      no_review: まだレビューはありません!
+      keyword: キーワード検索
+      search: 検索
+      reviewer: "著作: "
+    show:
+      cast: キャスト
+      director: ディレクター
+      producer: 製作会社
+      genre: ジャンル
+      country: 製作国
+      comments: コメント
+      author: "著作: "
+      other: 他のレビュー
+      popular: 人気がある
+      review_movie: レビューする
+      more_review: すべて見る
+      movie_info: 映画情報
+      imdb: IMDb
+      author_rate: 著作の評価
+      gallery: 写真
+      no_image: 画像がありません！
+      to_comment: コメントするために、
+    form:
+      form_title: レビュー
+      title: タイトル
+      content: 内容
+      choose_movie: 映画を選択してください
+      image_field: 写真変更
+      create_review: 提出
+      summary: タイトル
+      photos: 写真
+      movie_name: 映画名前
+      content: 内容
+  users:
+    edit: 編集
+    edit_title: " | プロフィール編集"
+    delete: 削除
+    show:
+      no_bookmark: いいねした映画リストはここに表示されます。
+      no_review: 書いたレビューはここに表示されます。
+      reviews_title: "著作: "
+      fav_title: のいいねした映画リスト
+    update:
+      change_pass: パスワードを変更
+      change_avatar: プロフィール写真を変更
+  comments:
+    comments:
+      first_comment: コメントしてください。
+    form:
+      content: "コメントする..."
+      submit: 提出
+  movies:
+    index:
+      genre: ジャンル
+      realease: 公開日
+      all_movies: 映画一覧
+      country: 製作国
+      sort: ソート
+      search: 検索
+      all: 全て
+      type: ジャンル
+    show:
+      add_bookmark: お気に入りに追加
+      remove_bookmark: お気に入りを削除
+      average_rate: 平均点
+      user_rate: ユーザー評価
+      review_count: レビュー数
+      distribution: ユーザー評価分布
+      positive: ポジティブ
+      mixed: 混合
+      negative: ネガティブ
+      not_rate: N/A
+      no_review: まだレビューされていません！
+      write_review: レビューを書く
+      add_rate: 評価する
+      add_mess: この映画についてどう思いますか？
+      suggest_movie: この映画を他のユーザーに提案したいですか？
+      suggest_button: 提案する
+      login_require: してください。
+      movie_info: 映画情報
+      cast: キャスト
+      review: レビュー
+      user_rate: ユーザー評価
+      no_review: まだレビューがありません。
+      no_rate: まだ評価がありません。
+    suggest_movie:
+      success_title: おめでとうございます！
+      success_mess: ""
+      from: 提案するユーザー
+      to: 提案されるユーザー
+      message: メッセージ
+      thanks: "共有することにありがとうございました。<br>"
+      add_user: ユーザーをタグ付ける
+      message: メッセージ
+      cancel: キャンセル
+      send: 提出する
+      title: 映画おすすめ
+      movie: 映画
+  feedbacks:
+    contact:
+      contact: 連絡
+      name: 名前
+      email: イメール
+      phone: 電話番号
+      subject: タイトル
+      message: メッセージ
+      hello: Nice to hear You!
+      info: 連絡情報
+      hour: 営業時間
+      address: 住所
+      day_off: "サポートサービスは月曜日から金曜日の午前8時から午後18時までご利用いただけます。<br>返信を24時間以内にお待ちください。<br>土日: 休業"
+      details: "ハノイ工科大学,<br>No 1 Dai Co Viet Street, Hai Ba Trung Dist, Hanoi, Vietnam"
+      mail: support@mugiwara.hedspi.com
+      number: "1-999-999-999"
+  types:
+    show:
+      country: 製作国
+      sort: ソート
+      search: 検索
+      all: 全て
+  search:
+    content: "名、概要、俳優など..."
+    no_result: "結果がありません: "
+  notifications:
+    notifications: お知らせ
+    see_all: すべて見る
+    ago: 前
+    index:
+      no_new: 新しいお知らせがありません。
+      your: お知らせ
+      new_notification: 新しいお知らせがあります。
+    job:
+      has_suggest: " has recommend you to watch a movie: "
+      has_comment: " commented on review: "
+  searches:
+    index:
+      result: "結果があります: "
+      title_tab: "検索結果 "
+      see_all: 全て
+      see: "結果を見る: "
+
+  ransack:
+    asc: 昇順
+    desc: 降順
+    attributes:
+      movie:
+        name: 名前
+        realease_date: 公開日
+
+  Action: アクション
+  Adventure: 冒険
+  Animation: アニメーション
+  Biography: 伝記
+  Comedy: コメディ
+  Crime: 犯罪
+  Documentary: ドキュメンタリー
+  Drama: ドラマ
+  Family: ファミリー
+  Fantasy: ファンタジー
+  History: 歴史
+  Horror: ホラー
+  Musical: 音楽
+  Mystery: ミステリー
+  Romance: 恋愛
+  Sport: スポーツ
+  Thriller: スリラー
+  War: 戦争
+  Western: 西部劇
+  Sci-Fi: SF
+  United States: アメリカ
+  England: イギリス
+  Japan: 二本
+  Canada: カナダ
+  Lebanon: レバノン
+  Australia: オーストラリア
+  Sweden: スウェーデン
+  Spain: スペイン
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+
+  devise:
+    minimum: 文字以上
+    characters: 6文字から12文字まで
+    fb: Facebookでログイン

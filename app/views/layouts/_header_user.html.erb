@@ -31,13 +31,13 @@
             <%= notification.content.html_safe %><br>
           <% end %>
           <p><%= time_ago_in_words notification.created_at %>
-	          <%= t "notifications.ago" %></p>
+            <%= t "notifications.ago" %></p>
         </li>
       <% end %>
     </ul>
-	  <h3 class="pmd-card-title-text text-center">
+    <h3 class="pmd-card-title-text text-center">
       <%= link_to t("notifications.see_all"), notifications_path %>
-	  </h3>
+    </h3>
   </div>
 </li>
 <li class="dropdown">

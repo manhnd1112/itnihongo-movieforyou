@@ -18,7 +18,7 @@
         <span class="author-bold title-font"><%= t ".author" %></span>
         <span class="author-bold" style="font-size: 20px">
           <%= link_to @review.user.name, user_path(@review.user),
-            "data-turbolinks": false %>
+            data: {turbolinks: false} %>
         </span><br>
         <span class="author-bold title-font"><%= t ".author_rate" %>:</span>
         <% if author_rate(@review.movie, @review.user) > 0 %>
@@ -29,16 +29,16 @@
           </span>
         <% else %>
           <span class="star-rating"><%= t "movies.show.not_rate" %></span>
-        <% end %>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <i class="iconFacebook fa fa-comments fa-md" aria-hidden="true"></i>
-        <%= @review.comments.count %><br>
+        <% end %><br>
         <time class="title-font">
           <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
             <path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
           </svg>
           <%= @review.created_at.strftime("%d %b %Y") %>
         </time>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <i class="iconFacebook fa fa-comments fa-md" aria-hidden="true"></i>
+        <time class="title-font"><%= @review.comments.count %></time>
       </div><br>
       <div class="fb-like" data-width="450" data-share="false"
         data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
@@ -113,8 +113,12 @@
         <%= render "comments/comments", review: @review, comments: @support.comments %>
       </div>
     <% else %>
-      <h3><%= link_to t("user.login"), user_session_path,
-        "data-turbolinks": false %> to comment.</h3>
+      <h3>
+        <%= t ".to_comment" %>
+        <%= link_to t("user.login"), user_session_path,
+        data: {turbolinks: false} %>
+        <%= t "movies.show.login_require" %>
+      </h3>
     <% end %><br>
     <div class="text-center">
       <div class="fb-comments" data-href="http://movieforyou-hienvu.c9users.io"

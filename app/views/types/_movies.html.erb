@@ -10,14 +10,12 @@
         </div>
         <div class="list-movie-filter-item col-xs-6 col-sm-4 col-md-2">
           <label><%= t "types.show.country" %></label>
-          <%= f.select :country_id_eq,
-            options_from_collection_for_select(Country.all, "id", "name", support.search.country_id_eq),
+          <%= f.select :country_id_eq, support.load_countries,
             {include_blank: t("types.show.all")}, {class: "form-control"} %>
         </div>
         <div class="list-movie-filter-item col-xs-6 col-sm-3 col-md-2">
           <label><%= t "movies.index.type" %></label>
-          <%= f.select :types_id_eq,
-            options_from_collection_for_select(Type.order("name asc"), "id", "name", support.search.types_id_eq),
+          <%= f.select :types_id_eq, support.load_types,
             {include_blank: t("movies.index.all")}, {class: "form-control"} %>
         </div>
         <div class="list-movie-filter-item-long col-xs-10 col-sm-7 col-md-3">
@@ -63,7 +61,7 @@
                 <p class="txt5">
                   <strong><%= t "movies.index.genre" %>:</strong>
                   <% movie.types.order("name asc").limit(3).each do |type| %>
-                    <%= link_to type.name, type_path(type),
+                    <%= link_to t(type.name), type_path(type),
                       data: {turbolinks: false} %>.
                   <% end %>
                 </p>
@@ -81,7 +79,7 @@
             </div>
           <% end %>
         <% else %>
-          <h3><%= t("search.no_result") + "'#{params[:q][:movie_cont]}'." %></h3>
+          <h3><%= t("search.no_result") + "'#{params[:q][:name_or_description_or_producer_or_director_or_actors_name_cont]}'." %></h3>
         <% end %>
         </div>
       <div class="text-center review-pagination" id="pagination">

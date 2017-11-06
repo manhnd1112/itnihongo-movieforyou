@@ -11,6 +11,9 @@ en:
     search: Search
     actors: Actors
     content_search: Search movies, reviews, actors,...
+    language: Language
+    english: English
+    japanese: 日本語
   button:
     save: Save
     cancel: Cancel
@@ -22,7 +25,7 @@ en:
     destroy_fail: Failed. Something's wrong.
     reviews:
       not_found: Review not found!
-      create_success: Created review successfullly!
+      create_success: Created review successfully!
       update_success: Updated review successfully!
       destroy_success: Deleted review successfully!
     comments:
@@ -50,7 +53,7 @@ en:
   static_pages:
     show:
       new_movies: Newest movies
-      new_reviews: Lastest reviews
+      new_reviews: Latest reviews
       hot_movies: Top movies
       read_full: Read Full Review
       coming: Coming soon
@@ -58,7 +61,7 @@ en:
     sign_up: Sign Up
     login: Login
     sign_out: Sign Out
-    update: Update
+    update: Save changes
     home: Home
     movies: Movies
     reviews: Reviews
@@ -67,7 +70,7 @@ en:
     write_review: Write review
     histories: Histories
     edit: Edit profile
-    member: "Member since "
+    member: "Joined "
     review: Review
     back: Back
     all_reviews: View all reviews
@@ -76,18 +79,19 @@ en:
     index:
       more_link: Read Full Review
       recent_reviews: Recent reviews
-      no_review: No review!
+      no_review: No reviews yet!
       keyword: Enter keywords
       search: Search
       reviewer: "By "
     show:
       cast: Cast
       director: Director
-      producer: Producer
+      producer: Production Co
       genre: Genre
       country: Country
       comments: Comments
       author: "Author: "
+      other: "Other Reviews"
       popular: Popular Reviews
       review_movie: Review This Movie
       more_review: More Reviews
@@ -96,6 +100,7 @@ en:
       author_rate: Author's rate
       gallery: Gallery
       no_image: No image available.
+      to_comment: ""
     form:
       form_title: Movie Review
       title: Title
@@ -103,8 +108,13 @@ en:
       choose_movie: Select a movie
       image_field: Change image
       create_review: Public now
+      summary: Summary
+      movie_name: Movie name
+      photos: Photos
+      content: Content
   users:
     edit: Edit
+    edit_title: " | Edit profile"
     delete: Delete
     show:
       no_bookmark: Share your favorite movies with everyone!
@@ -115,6 +125,8 @@ en:
       change_pass: Change password
       change_avatar: Change image
   comments:
+    comments:
+      first_comment: Be the first to comment.
     form:
       content: "Write a comment..."
       submit: Submit
@@ -131,20 +143,25 @@ en:
     show:
       add_bookmark: Add to favorites
       remove_bookmark: Removed from favorites
-      average_rate: "Average Rating"
+      average_rate: "Average"
       user_rate: "User Ratings"
       review_count: "Reviews Counted"
       distribution: USER RATING DISTRIBUTION
       positive: Positive
       mixed: Mixed
       negative: Negative
-      not_rate: Not rated yet!
+      not_rate: N/A
       no_review: Be the first to review.
       write_review: Write a Review
       add_rate: ADD YOUR RATING
       add_mess: "What do you think about this movie?"
       suggest_movie: "Would you like to recommend other users to watch this movie?"
       suggest_button: "Recommend this movie"
+      login_require: to rate.
+      movie_info: MOVIE INFO
+      cast: Cast
+      no_review: No reviews yet.
+      no_rate: No rates yet.
     suggest_movie:
       success_title: "Congrats!"
       success_mess: "All your recommendations have been sent successfully."
@@ -153,9 +170,11 @@ en:
       message: "Message"
       thanks: "Thanks for sharing.<br>Your friends will receive a recommended notification."
       add_user: "Tag someone who would love this movie"
+      message: "Your message"
       cancel: "Cancel"
       send: "Send"
       title: "Recommend Movie"
+      movie: "Movie"
   feedbacks:
     contact:
       contact: Contact Us
@@ -188,9 +207,16 @@ en:
     index:
       no_new: "You currently have no new notifications."
       your: "Your Notifications"
+      new_notification: " new notification(s)."
     job:
       has_suggest: " has recommend you to watch a movie: "
-      has_comment: " commented on your review: "
+      has_comment: " commented on review: "
+  searches:
+    index:
+      result: "result(s) for: "
+      title_tab: "Search result for "
+      see_all: "See all "
+      see: " result(s) for: "
 
   layouts:
     header:
@@ -224,3 +250,35 @@ en:
         add_actor: "New actor"
         image_field: "Change image"
         error: "Error"
+  Action: Action
+  Adventure: Adventure
+  Animation: Animation
+  Biography: Biography
+  Comedy: Comedy
+  Crime: Crime
+  Documentary: Documentary
+  Drama: Drama
+  Family: Family
+  Fantasy: Fantasy
+  History: History
+  Horror: Horror
+  Musical: Musical
+  Mystery: Mystery
+  Romance: Romance
+  Sport: Sport
+  Thriller: Thriller
+  War: War
+  Western: Western
+  Sci-Fi: Sci-Fi
+  United States: United States
+  England: England
+  Japan: Japan
+  Canada: Canada
+  Lebanon: Lebanon
+  Australia: Australia
+  Sweden: Sweden
+  Spain: Spain
+  devise:
+    minimum: " characters minimum"
+    characters: "6 to 12 characters"
+    fb: Login with facebook

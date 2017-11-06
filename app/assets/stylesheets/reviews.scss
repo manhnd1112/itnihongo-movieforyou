@@ -134,8 +134,7 @@
   font-style: italic;
 }
 
-.movie-data,
-.author-small {
+.movie-data {
   a {
     color: #f4511e;
     text-decoration: none;
@@ -186,13 +185,12 @@
   margin-bottom: 20px;
 
   .sidebar-header {
-    background: #F15F43;
+    background: #EE2E24;
     color: #fff;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 1.5rem;
     line-height: 21px;
     margin: 0;
-    padding: 10px 20px;
+    padding: .75rem;
     text-transform: uppercase;
   }
 
@@ -253,8 +251,8 @@
 
   p.author-small {
     color: #666;
-    font-size: 16px;
-    font-style: italic;
+    font-size: 14px;
+    font-style: normal !important;
     font-weight: 400;
     margin-bottom: 0;
     text-align: left;
@@ -265,6 +263,7 @@
   }
 
   .top-review-content {
+    margin-bottom: 15px;
     padding: 0 0 0 5px !important;
   }
 }
@@ -330,13 +329,12 @@
   }
 
   .review-btn {
-    background: #37a4c5;
     color: #FFF;
     display: block;
     float: left;
-    font-weight: 700;
+    font-size: 14px;
     margin: 20px 8px 5px 0;
-    padding: 9px 11px;
+    padding: 0 15px 0 0;
     position: relative;
     text-transform: uppercase;
   }
@@ -815,4 +813,14 @@ button.more_btn2 {
   color: #fff !important;
   padding: 5px;
   font-style: normal !important;
+}
+
+.author-small {
+  a {
+    color: #337ab7 !important;
+  }
+
+  a:focus, a:hover {
+    color: #23527c !important;
+  }
 }

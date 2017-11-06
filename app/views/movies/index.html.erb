@@ -1,4 +1,4 @@
-<% provide(:title, "Movies") %>
+<% provide(:title, t("user.movies")) %>
 <div class="row movies-list">
   <ul class="breadcrumb">
     <li><%= link_to t("user.home"), root_path, data: {turbolinks: false} %></li>
@@ -17,7 +17,7 @@
       <% @support.types.each do |type| %>
         <li>
           <div class="list_inside inside_1">
-            <%= link_to type.name, type_path(type), data: {turbolinks: false} %>
+            <%= link_to t(type.name), type_path(type), data: {turbolinks: false} %>
             <span class="badge badge-primary"><%= type.count_movies %></span>
           </div>
         </li>

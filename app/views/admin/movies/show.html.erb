@@ -86,7 +86,7 @@
             <div class="fist-sections">Country:</div>
             <div class="last-sections">
               <% if @movie.country.present? %>
-                <%= @movie.country.name %>
+                <%= t @movie.country.name %>
               <% else %>
                 N/A
               <% end %>

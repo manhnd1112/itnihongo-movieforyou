@@ -1,10 +1,10 @@
 <div class="trending-review hidden-sm hidden-xs">
-  <div class="sidebar-header">
-    <span>Other Review</span>
-  </div>
+  <% if review.related_reviews.present? %>
+    <div class="sidebar-header">
+      <span><%= t "reviews.show.other" %></span>
+    </div>
 
-  <div class="sidebar-body">
-    <% if review.related_reviews.present? %>
+    <div class="sidebar-body">
       <% review.related_reviews.each do |review| %>
         <div class="bp-block article-info col-xs-12">
           <div class="col-md-4 col-lg-4 article-list-left cover">
@@ -30,7 +30,7 @@
               <%= review.created_at.strftime("%d %B %Y") %>
             </p>
             <span class="trending-content hidden-lg">
-              <%= truncate_html(review.content, length: 35) %>
+              <%= truncate_html(review.content, length: 50) %>
             </span>
             <span class="trending-content hidden-md">
               <%= truncate_html(review.content, length: 100) %>
@@ -38,17 +38,17 @@
           </div>
         </div>
       <% end %>
-    <% end %>
 
-    <div class="sidebar-footer">
-      <span>
-        <%= link_to reviews_path, data: {turbolinks: false} do %>
-          <%= t "reviews.show.more_review" %>
-          <span class="fa fa-angle-double-right"></span>
-        <% end %>
-      </span>
+      <div class="sidebar-footer">
+        <span>
+          <%= link_to reviews_path, data: {turbolinks: false} do %>
+            <%= t "reviews.show.more_review" %>
+            <span class="fa fa-angle-double-right"></span>
+          <% end %>
+        </span>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="trending-review hidden-sm hidden-xs">
@@ -82,7 +82,7 @@
             <%= review.created_at.strftime("%d %B %Y") %>
           </p>
           <span class="trending-content hidden-lg">
-            <%= truncate_html(review.content, length: 35) %>
+            <%= truncate_html(review.content, length: 50) %>
           </span>
           <span class="trending-content hidden-md">
             <%= truncate_html(review.content, length: 100) %>

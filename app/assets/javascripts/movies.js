@@ -113,7 +113,8 @@ $(document).ready(function() {
   }
   else {
     $( "#bookmark-login" ).click(function() {
-      alert("Please login!")
+      alert("Please login!");
+      window.location.href = '/users/sign_in';
     });
   }
 });
@@ -124,6 +125,7 @@ $(document).on('click', '.btn-suggest-movie', function() {
   }
   else {
     alert("Please login!");
+    window.location.href = '/users/sign_in';
   }
 });
 

@@ -19,7 +19,7 @@ User.create!([
 Country.create!([
   {code: "US", name: "United States",
    flag_image: File.open(Rails.root + "public/uploads/image/us.png")},
-  {code: "EN", name: "English",
+  {code: "EN", name: "England",
    flag_image: File.open(Rails.root + "public/uploads/image/en.png")},
   {code: "JP", name: "Japan",
    flag_image: File.open(Rails.root + "public/uploads/image/jp.png")},

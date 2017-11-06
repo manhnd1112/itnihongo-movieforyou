@@ -23,8 +23,11 @@
                   <% end %>
                 </div><hr>
               <% end %>
-              <%= link_to t("user.all_reviews"), user_all_reviews_path(@user),
-                data: {turbolinks: false}, class: "all-comment" %>
+              <%= link_to user_all_reviews_path(@user), class: "all-comment",
+                data: {turbolinks: false} do %>
+                <%=  t "user.all_reviews" %>
+                <span class="fa fa-angle-double-right"></span>
+              <% end %>
             <% else %>
               <% if user_signed_in? && current_user.id == @user.id %>
                 <%= t "users.show.no_review" %>

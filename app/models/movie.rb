@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
   accepts_nested_attributes_for :actors, allow_destroy: true
   accepts_nested_attributes_for :movie_actors
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   attr_accessor :average_rate
 

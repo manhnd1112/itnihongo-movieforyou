@@ -34,12 +34,12 @@
 }
 
 .list-group-item {
+  background: #edf2fa;
+
+  border-top: solid 1px #dddfe2;
   &.unread {
     background: #fff !important;
   }
-
-  background: #edf2fa;
-  border-top: solid 1px #dddfe2;
 }
 
 .list-group-item.active,

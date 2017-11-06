@@ -16,7 +16,7 @@
   <p class="txt5">
     <strong><%= t "movies.index.genre" %>:</strong>
     <% movie.types.order("name asc").limit(3).each do |type| %>
-      <%= link_to type.name, type_path(type), data: {turbolinks: false} %>.
+      <%= link_to t(type.name), type_path(type), data: {turbolinks: false} %>.
     <% end %>
   </p>
   <strong><%= t "movies.index.realease" %>:</strong>

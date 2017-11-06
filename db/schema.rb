@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102100954) do
+ActiveRecord::Schema.define(version: 20171106142959) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 20171102100954) do
     t.string "avatar"
     t.float "imdb"
     t.text "description"
+  end
+
+  create_table "notification_trans", force: :cascade do |t|
+    t.integer "notification_id"
+    t.string "locale"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notification_id", "locale"], name: "index_notification_trans_on_notification_id_and_locale", unique: true
+    t.index ["notification_id"], name: "index_notification_trans_on_notification_id"
   end
 
   create_table "notifications", force: :cascade do |t|
