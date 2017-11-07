@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     root "static_pages#show", page: "dashboard"
     resources :movies
     resources :users
+	  resources :reviews
+	  resources :actors
+	  resources :feedbacks
   end
 
   mount ActionCable.server => "/cable"

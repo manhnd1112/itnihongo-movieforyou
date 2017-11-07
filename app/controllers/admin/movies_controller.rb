@@ -41,6 +41,12 @@ class Admin::MoviesController < AdminController
       else
         flash[:danger] = t "flash.movies.destroy_success"
       end
+    else
+      if @movie.destroy
+        flash[:success] = t "flash.movies.destroy_success"
+      else
+        flash[:danger] = t "flash.movies.destroy_success"
+      end
       redirect_back fallback_location: admin_movies_path
     end
   end

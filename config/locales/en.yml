@@ -33,8 +33,6 @@ en:
       create_success: Created comment successfullly!
       update_success: Updated comment successfully!
       destroy_success: Deleted comment successfully!
-    users:
-      not_found: User not found!
     bookmarks:
       create_success: Added to your list!
       destroy_success: Removed from your list!
@@ -50,6 +48,11 @@ en:
       destroy_success: Deleted type successfully!
     feedbacks:
       success: "Thank for your feedback!"
+    users:
+      not_found: User not found!
+      create_success: Created user successfullly!
+      update_success: Updated user successfully!
+      destroy_success: Deleted user successfully!
   static_pages:
     show:
       new_movies: Newest movies
@@ -218,38 +221,6 @@ en:
       see_all: "See all "
       see: " result(s) for: "
 
-  layouts:
-    header:
-      admin: "Admin panel"
-  sidebar:
-      users_manager: "Users Manage"
-      movies_manager: "Movies Manage"
-      dashboard: "Dashboard"
-  admin:
-    welcome: "Welcome, "
-    subtit: "Shortcuts"
-    report: "Monthly Report"
-    movies:
-      index:
-        add_movie: "Add new movie"
-        input_keyword: "Search..."
-        search: "Search"
-        name: "Name"
-        date: "Date"
-        country: "Country"
-        actors: "Actors"
-        types: "Genres"
-      new:
-        add_movie: "Create movie"
-      edit:
-        edit_movie: "Edit movie"
-      form:
-        choose_genres: "Choose types"
-        choose_country: "Choose country"
-        choose_actors: "Choose actors"
-        add_actor: "New actor"
-        image_field: "Change image"
-        error: "Error"
   Action: Action
   Adventure: Adventure
   Animation: Animation
@@ -278,7 +249,86 @@ en:
   Australia: Australia
   Sweden: Sweden
   Spain: Spain
+
   devise:
     minimum: " characters minimum"
     characters: "6 to 12 characters"
     fb: Login with facebook
+
+  layouts:
+    header:
+      admin: "Admin panel"
+  sidebar:
+    dashboard: "Dashboard"
+    movies_manager: "Movies Manage"
+    users_manager: "Users Manage"
+    reviews_manager: "Reviews Manage"
+    actors_manager: "Actors Manage"
+    feedback_manager: "Feedbacks Manager"
+  admin:
+    welcome: "Welcome, "
+    subtit: "Shortcuts"
+    report: "Monthly Report"
+    search: "Search by keywords..."
+    movies:
+      index:
+        add_movie: "Add new movie"
+        input_keyword: "Search..."
+        search: "Search"
+        name: "Name"
+        date: "Date"
+        country: "Country"
+        actors: "Actors"
+        types: "Genres"
+      new:
+        add_movie: "Create movie"
+      edit:
+        edit_movie: "Edit movie"
+      form:
+        choose_genres: "Choose types"
+        choose_country: "Choose country"
+        choose_actors: "Choose actors"
+        add_actor: "New actor"
+        image_field: "Change image"
+        error: "Error"
+        name: "Name"
+        date: "Release date"
+        country: "Country"
+        description: "Description"
+        type: "Genre"
+        actor: "Actor"
+        image: "Image"
+      show:
+        cast: Cast
+        director: Director
+        producer: Production Co
+        typpes: Genres
+        country: Country
+        release: Release date
+        description: Description
+    users:
+      index:
+        name: Name
+        username: Username
+        role: Role
+        add_user: Create user
+        user: User
+        admin: Admin
+      form:
+        image_field: "Change image"
+        error: "Error"
+        password: "Password"
+        username: "Username"
+        role: "Role"
+        email: "Email"
+        admin: Admin
+        user: User
+      new:
+        add_user: New user
+      edit:
+        edit_user: Edit user
+
+  helpers:
+    submit:
+      create: "Create %{model}"
+      update: "Save changes"

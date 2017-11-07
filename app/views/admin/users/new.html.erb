@@ -1,0 +1,23 @@
+<% provide(:title, t(".add_user")) %>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to admin_root_path do %>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </li>
+  <li><%= link_to t("sidebar.users_manager"), admin_users_path %></li>
+  <li class="active">
+    <%= link_to t(".add_user"), new_admin_user_path(@user) %>
+  </li>
+</ol>
+
+<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+  <div class="row user-form pmd-card pmd-z-depth pmd-card-custom-form">
+    <div class="pmd-card-body">
+      <h1 class="text-center title-font text-uppercase" id="services">
+        <span><%= t "admin.users.index.add_user" %></span>
+      </h1><br>
+      <%= render "form", user: @user, support: @support %>
+    </div>
+  </div>
+</div>

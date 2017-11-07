@@ -7,7 +7,7 @@
           data: {turbolinks: false}, class: "btn btn-primary" %>
       </div>
       <div class="col-sm-9 col-xs-8 text-right">
-        <%= f.text_field :name_cont, class: "input-text-search",
+        <%= f.text_field :name_or_description_cont, class: "input-text-search",
           placeholder: t("admin.movies.index.input_keyword") %>
         <%= button_tag type: :submit, class: "btn btn-info" do %>
           <span class="fa fa-search"></span>
@@ -73,7 +73,7 @@
             <td data-title="Types">
               <% if movie.types.any? %>
                 <% movie.types.each do |type| %>
-                  <%= link_to type.name, type_path(type), data: {turbolinks: false} %>
+                  <%= link_to t(type.name), type_path(type), data: {turbolinks: false} %>
                   <% unless type == movie.types.last %>/<% end %>
                 <% end %>
               <% end %>

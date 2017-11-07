@@ -1,0 +1,24 @@
+<% provide(:title, "Edit movie " + @user.name) %>
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to admin_root_path do %>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </li>
+  <li><%= link_to t("sidebar.users_manager"), admin_users_path %></li>
+  <li><%= link_to @user.name, edit_admin_user_path %></li>
+  <li class="active">
+    <%= link_to t(".edit_user"), new_admin_user_path(@user) %>
+  </li>
+</ol>
+
+<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+  <div class="row user-form pmd-card pmd-z-depth pmd-card-custom-form">
+    <div class="pmd-card-body">
+      <h1 class="section-title text-center title" id="services">
+        <span><%= t ".edit_user" %></span>
+      </h1>
+      <%= render "form", user: @user %>
+    </div>
+  </div>
+</div>
