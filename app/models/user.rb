@@ -13,10 +13,11 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates_length_of :username, minimum: 4
-  # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
   validate :validate_username
 
   mount_uploader :avatar, AvatarUploader
+
+  acts_as_voter
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

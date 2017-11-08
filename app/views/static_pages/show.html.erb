@@ -142,20 +142,22 @@
             data: {turbolinks: false} %>
         <% end %>
       </div>
-      <span class="review-sub-info">
+      <span class="review-sub-info title-font" style="font-size: 18px;">
         <svg width="16" height="16" viewBox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
           <path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
         </svg>
-        <%= review.created_at.strftime("%d %b %Y") %> | 
+        <%= review.created_at.strftime("%d %b %Y") %>&nbsp;&nbsp;|
         <span class="blockIconFacebook ng-scope">
-          <div class="wrapIcon like">
-            <span class="iconFacebook glyphicon glyphicon-thumbs-up"></span>
-            <p class="amount like ng-binding">0</p>
-          </div>
           <div class="wrapIcon comment">
             <span class="iconFacebook fa fa-comments"></span>
             <p class="amount comment ng-binding">
               <%= review.comments.count %>
+            </p>
+          </div>&nbsp;&nbsp;|
+          <div class="wrapIcon like">
+            <span class="iconFacebook glyphicon glyphicon-thumbs-up"></span>
+            <p class="amount like ng-binding">
+              <%= review.get_likes.size %>
             </p>
           </div>
         </span>

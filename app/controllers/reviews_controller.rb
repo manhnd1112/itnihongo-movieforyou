@@ -41,6 +41,28 @@ class ReviewsController < ApplicationController
     redirect_to user_all_reviews_path(current_user)
   end
 
+  def like
+    @review = Review.find_by id: params[:id]
+    @review.liked_by current_user
+
+    if request.xhr?
+      render json: {count: @review.get_likes.size, id: params[:id]}
+    else
+      redirect_to @review
+    end
+  end
+
+  def dislike
+    @review = Review.find_by id: params[:id]
+    @review.disliked_by current_user
+
+    if request.xhr?
+      render json: {count: @review.get_likes.size, id: params[:id]}
+    else
+      redirect_to @review
+    end
+  end
+
   private
 
   def review_params

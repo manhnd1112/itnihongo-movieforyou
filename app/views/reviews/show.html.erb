@@ -39,12 +39,41 @@
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <i class="iconFacebook fa fa-comments fa-md" aria-hidden="true"></i>
         <time class="title-font"><%= @review.comments.count %></time>
-      </div><br>
-      <div class="fb-like" data-width="450" data-share="false"
-        data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"
-        data-layout="button_count" data-action="like" data-size="small">
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <span id="likes">
+          <i class="iconFacebook fa fa-thumbs-o-up fa-md" aria-hidden="true"></i>
+          <span class="votes-count title-font" data-id="<%= @review.id %>" style="color: grey;">
+            <%= @review.get_likes.size %>
+          </span><br>
+          <% if user_signed_in? %>
+            <% if current_user.liked? @review %>
+              <span>
+                <%= link_to dislike_review_path(@review), class: 'vote',
+                  method: :put, remote: true do %>
+                  <span id="unlikeBtn" class="btn clear-fix">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <%= t ".unlike" %>
+                  </span>
+                <% end %>
+              </span>
+            <% else %>
+              <span>
+                <%= link_to like_review_path(@review), class: 'vote',
+                  method: :put, remote: true do %>
+                  <span id="likeBtn" class="btn clear-fix"><%= t ".like" %></span>
+                <% end %>
+              </span>
+            <% end %>
+          <% else %>
+            <span id="like-login" class="btn clear-fix"><%= t ".like" %></span>
+          <% end %>
+        </span>
+        <span id="shareBtn" class="btn clear-fix"><%= t "home.share" %></span><br><br>
       </div>
-      <div id="shareBtn" class="btn clear-fix"><%= t "home.share" %></div><br><br>
+      <!--<div class="fb-like" data-width="450" data-share="false"-->
+        <!--data-show-faces="true" data-href="http://movieforyou-hienvu.c9users.io"-->
+        <!--data-layout="button_count" data-action="like" data-size="small">-->
+      <!--</div>-->
 
       <!-- content area -->
       <ul class="movie-item-listing title-font">

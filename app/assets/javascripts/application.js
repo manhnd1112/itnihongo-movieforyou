@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery/dist/jquery.min
+//= require jquery_ujs
 //= require bootstrap/dist/js/bootstrap.min
 //= require propellerkit/dist/js/propeller.min
 //= require owl.carousel/dist/owl.carousel.min

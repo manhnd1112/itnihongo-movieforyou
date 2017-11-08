@@ -101,6 +101,8 @@ jp:
       gallery: 写真
       no_image: 画像がありません！
       to_comment: コメントするために、
+      like: いいね!
+      unlike: いいね!
     form:
       form_title: レビュー
       title: タイトル
@@ -213,6 +215,7 @@ jp:
     job:
       has_suggest: " has recommend you to watch a movie: "
       has_comment: " commented on review: "
+      has_like: " liked your review: "
   searches:
     index:
       result: "結果があります: "
