@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resource :suggest_movies, only: :create
   end
   resources :reviews do
+    member do
+      put "like", to: "reviews#like"
+      put "dislike", to: "reviews#dislike"
+    end
     resources :comments
   end
   resources :users, only: [:index, :show] do

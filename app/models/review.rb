@@ -8,7 +8,9 @@ class Review < ApplicationRecord
   accepts_nested_attributes_for :photos, allow_destroy: true
 
   validates :title, presence: true
-  
+
+  acts_as_votable
+
   def related_reviews
     id = self.id
     relate = Review.where(movie_id: self.movie_id).where.not(id: id)

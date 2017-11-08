@@ -31,6 +31,8 @@ gem "truncate_html"
 gem "faker"
 gem "ransack"
 gem "puret"
+gem "acts_as_votable", "~> 0.11.1"
+gem "jquery-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -104,6 +104,8 @@ en:
       gallery: Gallery
       no_image: No image available.
       to_comment: ""
+      like: Like
+      unlike: Liked
     form:
       form_title: Movie Review
       title: Title
@@ -214,6 +216,7 @@ en:
     job:
       has_suggest: " has recommend you to watch a movie: "
       has_comment: " commented on review: "
+      has_like: " liked your review: "
   searches:
     index:
       result: "result(s) for: "
