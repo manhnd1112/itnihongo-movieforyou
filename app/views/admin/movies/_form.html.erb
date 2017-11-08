@@ -1,5 +1,5 @@
 <%= form_for [:admin, movie] do |f| %>
-  <%= f.label :name, class: "form-label" %>
+  <label class="form-label"><%= t ".name" %></label>
   <%= f.text_field :name, class: "form-control required" %>
   <div class="row">
     <div class="col-sm-4">
@@ -7,7 +7,7 @@
       <%= f.text_field :imdb, class: "form-control" %>
     </div>
     <div class="col-sm-4">
-      <%= f.label :realease_date, class: "form-label" %>
+      <label class="form-label"><%= t ".date" %></label>
       <div class="input-group date">
         <div class="input-group-addon">
           <i class="fa fa-calendar"></i>
@@ -17,21 +17,21 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <%= f.label :country %>
-      <%= f.select :country_id, support.countries,
+      <label class="form-label"><%= t ".country" %></label>
+      <%= f.select :country_id, support.load_countries,
         {include_blank: t(".choose_country")},
         {class: "form-control pmd-select2 select-country"} %>
     </div>
   </div>
-  <%= f.label :description, class: "form-label" %>
+  <label class="form-label"><%= t ".description" %></label>
   <%= f.text_area :description, class: "form-control" %>
-  <%= f.label :types %><br/>
-  <%= f.collection_select :type_ids, support.types, :id, :name,
+    <label class="form-label"><%= t ".type" %></label>
+  <%= f.select :type_ids, support.load_types,
     {}, {multiple: true, size: 1,
-      class: "form-control pmd-select2-tags select-types",
-      data: {placeholder: t(".choose_genres")}} %>
-  <%= f.label :actors %><br/>
-  <%= f.collection_select :actor_ids, support.actors, :id, :name,
+    class: "form-control pmd-select2-tags select-types",
+    data: {placeholder: t(".choose_genres")}} %>
+  <label class="form-label"><%= t ".actor" %></label><br/>
+  <%= f.select :actor_ids, support.load_actors,
     {}, {multiple: true, size: 1,
     class: "form-controll pmd-select2-tags select-actors",
     data: {placeholder: t(".choose_actors")}} %>
@@ -41,7 +41,7 @@
       <i class="fa fa-plus"> <%= t ".add_actor" %></i>
     <% end %>
   </div>
-  <%= f.label :image, class: "form-label" %><br>
+  <label class="form-label"><%= t ".image" %></label><br>
   <div class="file-container">
     <%= t ".image_field" %>
     <%= f.file_field :avatar, class: "upload-image", id: "filePhoto" %>

@@ -33,8 +33,6 @@ jp:
       create_success: コメントが正常に作成されました！
       update_success: 変更を保存しました！
       destroy_success: コメントを削除しました！
-    users:
-      not_found: ユーザーが見つかりません！
     bookmarks:
       create_success: お気に入りに追加ました！
       destroy_success: お気に入りを削除ました！
@@ -50,6 +48,11 @@ jp:
       destroy_success: ジャンルを削除しました！
     feedbacks:
       success: フィードバックを頂きましてありがとうございます。
+    users:
+      not_found: ユーザーが見つかりません！
+      create_success: ユーザーが正常に作成されました！
+      update_success: 変更を保存しました！
+      destroy_success: ユーザーを削除しました！
   static_pages:
     show:
       new_movies: 最新映画
@@ -308,3 +311,148 @@ jp:
     minimum: 文字以上
     characters: 6文字から12文字まで
     fb: Facebookでログイン
+
+  layouts:
+    header:
+      admin: アドミンサイト
+  sidebar:
+    dashboard: ホーム
+    movies_manager: 映画管理
+    users_manager: ユーザー管理
+    reviews_manager: レビュー管理
+    actors_manager: 俳優管理
+    feedback_manager: フィードバック管理
+  admin:
+    welcome: "こんにちは, "
+    subtit: "Shortcuts"
+    report: "Monthly Report"
+    search: "キーワード検索..."
+    movies:
+      index:
+        add_movie: 映画を追加
+        input_keyword: キーワード検索...
+        search: 検索
+        name: 名前
+        date: 公開日
+        country: 国
+        actors: 俳優
+        types: ジャンル
+      new:
+        add_movie: 映画を追加
+      edit:
+        edit_movie: 映画を編集
+      form:
+        choose_genres: ジャンルを選択してください
+        choose_country: 製作国を選択してください
+        choose_actors: 俳優を選択してください
+        add_actor: 俳優を追加
+        image_field: 写真を変更
+        error: エーラ
+        name: 名前
+        date: 公開日
+        country: 製作国
+        description: 概要
+        type: ジャンル
+        actor: 俳優
+        image: 写真
+      show:
+        cast: キャスト
+        director: ディレクター
+        producer: 製作会社
+        types: ジャンル
+        country: 製作国
+        release: 公開日
+        description: 概要
+    users:
+      index:
+        name: 名前
+        username: ユーザー名
+        role: ロール
+        add_user: ユーザーを追加
+        user: ユーザー
+        admin: アドミン
+      form:
+        image_field: 写真を変更
+        error: エーラ
+        password: パスワード
+        username: ユーザー名
+        role: ロール
+        email: イメール
+        admin: アドミン
+        user: ユーザー
+      new:
+        add_user: ユーザーを追加
+      edit:
+        edit_user: ユーザー情報を変更
+
+  helpers:
+    submit:
+      create: "%{model}を追加"
+      update: "変更を保存"
+
+  activerecord:
+    models:
+      movie: 映画
+      actor: 俳優
+      review: レビュー
+      feedback: フィードバック
+      user: ユーザー
+
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: 、
+      two_words_connector: 、
+      words_connector: 、
+  time:
+    am: 午前
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+    pm: 午後

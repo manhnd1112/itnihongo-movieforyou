@@ -17,16 +17,16 @@ class Supports::AdminMovie
     search
   end
 
-  def countries
-    Country.all.map{|p| [p.name, p.id]}
+  def load_countries
+    Country.order("name asc").map{|p| [I18n.t(p.name), p.id]}
   end
 
-  def types
-    Type.all
+  def load_types
+    Type.order("name asc").map{|p| [I18n.t(p.name), p.id]}
   end
 
-  def actors
-    Actor.all
+  def load_actors
+    Actor.order("name asc").map{|p| [p.name, p.id]}
   end
 
   def find_actor

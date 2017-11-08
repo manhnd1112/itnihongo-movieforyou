@@ -32,7 +32,7 @@
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Release:</div>
+            <div class="fist-sections"><%= t ".release" %>:</div>
             <div class="last-sections">
               <% if @movie.realease_date.present? %>
                 <%= @movie.realease_date.strftime("%Y/%m/%d") %>
@@ -43,18 +43,18 @@
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Genres:</div>
+            <div class="fist-sections"><%= t ".types" %>:</div>
             <div class="last-sections">
               <% if @movie.types.any? %>
                 <% @movie.types.each do |type| %>
-                  <%= type.name %>
+                  <%= t type.name %>.
                 <% end %>
               <% end %>
             </div>
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Director:</div>
+            <div class="fist-sections"><%= t ".director" %>:</div>
             <div class="last-sections">
               <%= best_in_place [:admin, @movie], :director,
                 ok_button: t("button.save"), cancel_button: t("button.cancel"),
@@ -63,7 +63,7 @@
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Producer:</div>
+            <div class="fist-sections"><%= t ".producer" %>:</div>
             <div class="last-sections">
               <%= best_in_place [:admin, @movie], :producer,
                 ok_button: t("button.save"), cancel_button: t("button.cancel"),
@@ -72,18 +72,18 @@
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Actors:</div>
+            <div class="fist-sections"><%= t ".cast" %>:</div>
             <div class="last-sections">
               <% if @movie.actors.any? %>
                 <% @movie.actors.each do |actor| %>
-                  <%= actor.name %>
+                  <%= actor.name %>.
                 <% end %>
               <% end %>
             </div>
           </div>
 
           <div class="tab-movie">
-            <div class="fist-sections">Country:</div>
+            <div class="fist-sections"><%= t ".country" %>:</div>
             <div class="last-sections">
               <% if @movie.country.present? %>
                 <%= t @movie.country.name %>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="col-xs-12 tab-movie" style="margin: 20px 0;">
-      <div class="fist-sections2">Description:</div>
+      <div class="fist-sections2"><%= t ".description" %>:</div>
       <div class="last-sections2">
         <%= best_in_place [:admin, @movie], :description,
           as: :textarea, ok_button: t("button.save"),

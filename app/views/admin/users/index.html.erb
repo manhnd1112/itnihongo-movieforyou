@@ -1,0 +1,87 @@
+<ol class="breadcrumb text-left">
+  <li>
+    <%= link_to admin_root_path do %>
+      <span class="glyphicon glyphicon-home"></span>
+    <% end %>
+  </li>
+  <li class="active">
+    <%= link_to t("sidebar.users_manager"), admin_users_path %>
+  </li>
+</ol>
+<div class="col-xs-12">
+  <div class="admin-list-movies" id="movies">
+    <%= search_form_for [:admin, @search], method: :get do |f| %>
+      <div class="input-group input-group-lg col-xs-12">
+        <div class="row">
+          <div class="col-sm-3 col-xs-4">
+            <%= link_to t(".add_user"), new_admin_user_path,
+              data: {turbolinks: false}, class: "btn btn-primary" %>
+          </div>
+          <div class="col-sm-9 col-xs-8 text-right">
+            <%= f.text_field :name_or_username_or_email_cont,
+              class: "input-text-search", placeholder: t("admin.search") %>
+            <%= button_tag type: :submit, class: "btn btn-info" do %>
+              <span class="fa fa-search"></span>
+            <% end %>
+          </div>
+        </div>
+      </div><br>
+    
+      <div class="text-center review-pagination" id="pagination">
+        <%= paginate @users %>
+      </div>
+    
+      <div class="pmd-card pmd-z-depth">
+        <div class="table-responsive">
+          <table class="table pmd-table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+              <th><%= t ".username" %></th>
+              <th><%= t ".name" %></th>
+              <th>Email</th>
+              <th><%= t ".role" %></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <div class="col-sm-3 hidden-xs">
+                    <div class="row">
+                      <%= image_tag user.avatar.small.url, class: "img-responsive" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-9" style="margin-top: 10%">
+                    <%= link_to user.username, admin_user_path(user),
+                      data: {turbolinks: false} %>
+                  </div>
+                </td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td>
+                  <% if user.is_admin? %>
+                    <%= t ".admin" %>
+                  <% else %>
+			                <%= t ".user" %>
+                  <% end %>
+                </td>
+                <td class="button-book">
+                  <%= link_to edit_admin_user_path(user),
+                    data: {turbolinks: false} do %>
+                    <i class="material-icons md-dark pmd-sm">edit</i>
+                  <% end %>
+	                <%= link_to admin_user_path(user), method: :delete,
+                    data: {confirm: t("button.confirm")} do %>
+		                <i class="material-icons md-dark pmd-sm">delete</i>
+	                <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

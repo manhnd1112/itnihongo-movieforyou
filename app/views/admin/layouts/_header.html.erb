@@ -1,18 +1,4 @@
-<br><nav class="navbar navbar-inverse navbar-fixed-top language-nav">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <img src="http://squaducation.com/sites/default/files/1.jpg" width="30" height="20">
-        <%= link_to t("home.english"), "http://localhost.com:3000#{request.env['PATH_INFO']}", data: {turbolinks: false} %>
-      </li>
-      <li>
-        <img src="https://www.iaea.org/sites/default/files/images/2013/08/japan-flag-330x220.jpg" width="30" height="20">
-        <%= link_to t("home.japanese"), "http://localhost.jp:3000#{request.env['PATH_INFO']}", data: {turbolinks: false} %>
-      </li>
-    </ul>
-  </div>
-</nav><br>
-<nav class="navbar navbar-inverse navbar-fixed-top  pmd-navbar pmd-z-depth">
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
   <div class="container-fluid">
     <div class="navbar-header">
       <a href="javascript:void(0);"
@@ -22,5 +8,17 @@
       <%= link_to t("app_name"), root_path, class: "navbar-brand",
         data: {turbolinks: false} %>
     </div>
+	  <div class="language-navbar">
+		  <ul class="nav navbar-nav navbar-right">
+			  <li>
+				  <img src="http://squaducation.com/sites/default/files/1.jpg" width="30" height="20">
+				  <%= link_to t("home.english"), "http://localhost.com:3000#{request.env['PATH_INFO']}", data: {turbolinks: false} %>
+			  </li>
+			  <li>
+				  <img src="https://www.iaea.org/sites/default/files/images/2013/08/japan-flag-330x220.jpg" width="30" height="20">
+				  <%= link_to t("home.japanese"), "http://localhost.jp:3000#{request.env['PATH_INFO']}", data: {turbolinks: false} %>
+			  </li>
+		  </ul>
+	  </div>
   </div>
 </nav>

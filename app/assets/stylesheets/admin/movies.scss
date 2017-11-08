@@ -13,6 +13,13 @@
   .select2-container--bootstrap .select2-results__option {
     font-size: 16px !important;
   }
+
+  h1 {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;;
+    font-size: 30px;
+    padding: 20px 0 0;
+    text-transform: uppercase;
+  }
 }
 
 .movie-form .select2-container {
@@ -136,7 +143,7 @@ label.myErrorClass {
 }
 
 .fist-sections {
-  width: 15%;
+  width: 17%;
   float: left;
   margin-right: 10px;
   color: #333333;
@@ -144,7 +151,7 @@ label.myErrorClass {
 }
 
 .last-sections {
-  width: 80%;
+  width: 78%;
   float: right;
   color: #333333;
 }
@@ -188,5 +195,23 @@ label.myErrorClass {
 
   [type=text] {
     font-size: 16px;
+  }
+}
+
+.user-form {
+  font-size: 18px;
+  padding-bottom: 30px;
+
+  .form-label {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;;
+    padding: 20px 0 0;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;;
+    font-size: 30px;
+    padding: 20px 0 0;
+    text-transform: uppercase;
   }
 }
