@@ -8,7 +8,7 @@ class Supports::AdminMovie
   end
 
   def movies_search
-    search.result.page(@params[:param][:page]).per 10
+    search.result.order("name asc").page(@params[:param][:page]).per 10
   end
 
   def search

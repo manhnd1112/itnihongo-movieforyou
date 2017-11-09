@@ -659,3 +659,21 @@ header {
 .language-nav.navbar {
   min-height: 30px !important;
 }
+
+.notification-popup {
+  background: #E7ECF3;
+  border: solid 1px #A2AFCB;
+  bottom: 11%;
+  display: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  left: 3%;
+  padding: 20px;
+  position: fixed;
+  width: 300px;
+  z-index: 9999;
+  
+  a {
+    color: #000 !important;
+  }
+}

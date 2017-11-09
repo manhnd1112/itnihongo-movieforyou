@@ -25,7 +25,8 @@
     <div class="col-sm-12 all-notification">
       <% @notifications.each do |notification| %>
         <div class="list-group">
-          <div class="list-group-item <%= "unread" if notification.isRead? %>">
+          <div class="list-group-item notify <%= "unread" if notification.isRead? %>"
+            id="<%= notification.id %>">
             <%= link_to notification.link_to, data: {turbolinks: false} do %>
               <h3 class="list-group-item-heading">
                 <%= notification.content.html_safe %>

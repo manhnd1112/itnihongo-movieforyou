@@ -7,7 +7,7 @@ class NotificationJob < ApplicationJob
     routes = Rails.application.routes.url_helpers
     obj_class = obj.class.name
     obj_id = obj.id
-    user_id = obj.to_id
+    user_id = obj.has_attribute?(:user_id) ? obj.user_id : obj.to_id
     object = obj
 
     case obj_class

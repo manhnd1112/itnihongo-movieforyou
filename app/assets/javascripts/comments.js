@@ -42,7 +42,7 @@ $(document).on('click', '.delete-comment', function() {
   // var currentPage = $(this).data('page');
   // var newhref = location.pathname + '?page=' + currentPage;
 
-  $.ajax({
+  $.ajax({hat
     beforeSend: function (xhr) {
       xhr.setRequestHeader('X-CSRF-Token',
           $('meta[name="csrf-token"]').attr('content'));
